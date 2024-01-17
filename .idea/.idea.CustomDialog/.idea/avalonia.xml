@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="CustomDialog/App.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Templated Controls/DirSelection.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Templated Controls/SideButton.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Views/GeneralView.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Views/MainWindow.axaml" value="CustomDialog/CustomDialog.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

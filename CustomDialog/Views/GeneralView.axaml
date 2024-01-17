@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:CustomDialog.ViewModels"
+             xmlns:models="using:CustomDialog.Models"
+             xmlns:interaction="using:CustomDialog.Models.Interactions"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:DataType="vm:GeneralViewModel"
+             x:Class="CustomDialog.Views.GeneralView">
+    
+    <Design.DataContext>
+        <vm:GeneralViewModel/>
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="Auto, *">
+        <!-- Header -->
+        <Grid Grid.Row="0"
+              Background="Gray"
+              Height="80">
+        </Grid>
+        <!-- Body -->
+        <Grid Grid.Row="1"
+              ColumnDefinitions="Auto, *"
+              Background="DarkGray">
+            <!-- Sidebar (Tree) -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          Grid.Column="0">
+                <TreeView ItemsSource="{Binding Nodes}"
+                          SelectionMode="Single"
+                          SelectionChanged="TreeView_OnSelectionChanged">
+                    <TreeView.DataTemplates>
+                        
+                        <TreeDataTemplate DataType="models:Node" ItemsSource="{Binding SubNodes}">
+                            <TextBlock Text="{Binding Title}"/>
+                        </TreeDataTemplate>
+                        
+                        <TreeDataTemplate DataType="models:ClickableNode">
+                            <Border Height="20"
+                                    Margin="5"
+                                    Background="Transparent">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Icon}"/>
+                                    <Label Content="{Binding Title}"
+                                           Margin="10,0"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </TreeDataTemplate>
+                        
+                    </TreeView.DataTemplates>
+                    <TreeView.Styles>
+                        <Style Selector="TreeViewItem">
+                            <Setter Property="IsExpanded" Value="True" />
+                            <Setter Property="(interaction:TreeViewItemInteraction.ListenToExpanded)"
+                                    Value="True" />
+                        </Style>
+                    </TreeView.Styles>
+                </TreeView>
+            </ScrollViewer>
+            <!-- Main area -->
+            <Border Grid.Column="1"
+                    Background="LightGray"/>
+        </Grid>
+    </Grid>
+    
+</UserControl>
