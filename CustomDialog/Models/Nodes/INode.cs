@@ -1,4 +1,4 @@
-namespace CustomDialog.Models;
+namespace CustomDialog.Models.Nodes;
 
 public interface INode
 {

@@ -6,6 +6,7 @@
         <entry key="CustomDialog/App.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Templated Controls/DirSelection.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Templated Controls/SideButton.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Views/DirectionView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/GeneralView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/MainWindow.axaml" value="CustomDialog/CustomDialog.csproj" />
       </map>

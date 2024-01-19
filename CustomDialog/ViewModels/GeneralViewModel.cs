@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
-using CustomDialog.Models;
+using Avalonia.Controls;
+using CustomDialog.Models.Nodes;
 
 namespace CustomDialog.ViewModels;
 
@@ -13,38 +14,18 @@ public class GeneralViewModel : ViewModelBase
 
     public GeneralViewModel()
     {
+        // Nodes initialization
         Nodes = new ObservableCollection<Node>
         {
-            new Node("Places", new ObservableCollection<INode>
-            {
+            new Node("Places", [
                 new ClickableNode("Home"),
                 new ClickableNode("Desktop"),
                 new ClickableNode("Download")
-            }),
-            new Node("FloPPaSS", new ObservableCollection<INode>
-            {
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-                new ClickableNode("FloPPa"),
-            })
+            ]),
+            new Node("FloPPaSS", [
+                new ClickableNode("FloPPa1"),
+                new ClickableNode("FloPPa2")
+            ])
         };
     }
 }

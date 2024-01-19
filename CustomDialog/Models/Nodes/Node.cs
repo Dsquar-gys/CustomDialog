@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
-using Avalonia.Controls;
 
-namespace CustomDialog.Models;
+namespace CustomDialog.Models.Nodes;
 
 public class Node : INode
 {
@@ -9,8 +8,7 @@ public class Node : INode
     public string Title { get; }
     public bool Selectable { get; } = false;
 
-    public Node(string title) => Title = title;
-    public Node(string title, ObservableCollection<INode> subNodes)
+    public Node(string title, ObservableCollection<INode> subNodes = null)
     {
         Title = title;
         SubNodes = subNodes;

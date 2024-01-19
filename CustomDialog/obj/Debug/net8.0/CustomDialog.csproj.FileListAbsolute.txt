@@ -137,3 +137,4 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Themes.Fluent.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json
