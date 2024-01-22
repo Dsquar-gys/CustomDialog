@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using Avalonia.Controls;
 using CustomDialog.Models.Nodes;
 
 namespace CustomDialog.ViewModels;

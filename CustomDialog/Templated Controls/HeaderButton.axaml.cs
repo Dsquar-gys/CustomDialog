@@ -1,11 +1,6 @@
-using System;
-using System.IO;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
 
 namespace CustomDialog.Templated_Controls;
 

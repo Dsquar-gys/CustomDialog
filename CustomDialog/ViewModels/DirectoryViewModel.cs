@@ -6,7 +6,7 @@ namespace CustomDialog.ViewModels;
 
 public class DirectoryViewModel : ViewModelBase
 {
-    private Random rnd = new();
+    private readonly Random _rnd = new();
     private string _text;
     private IEnumerable _directoryContent;
 
@@ -24,6 +24,6 @@ public class DirectoryViewModel : ViewModelBase
 
     public DirectoryViewModel()
     {
-        Text = rnd.Next(0, 100).ToString();
+        Text = _rnd.Next(0, 100).ToString();
     }
 }

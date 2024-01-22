@@ -28,5 +28,11 @@
 
     <ItemGroup>
       <UpToDateCheckInput Remove="Templated Controls\DirSelection.axaml" />
+      <UpToDateCheckInput Remove="Templated Controls\HeaderButton.axaml" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <AdditionalFiles Include="Templated Controls\HeaderButton.axaml" />
     </ItemGroup>
 </Project>
