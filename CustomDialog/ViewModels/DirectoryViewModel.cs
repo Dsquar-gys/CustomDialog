@@ -1,9 +1,6 @@
 using System;
-using System.Drawing;
-using Avalonia.Media;
-using Avalonia.Media.Immutable;
+using System.Collections;
 using ReactiveUI;
-using Brush = Avalonia.Media.Brush;
 
 namespace CustomDialog.ViewModels;
 
@@ -11,10 +8,22 @@ public class DirectoryViewModel : ViewModelBase
 {
     private Random rnd = new();
     private string _text;
-    public string Text => _text;
+    private IEnumerable _directoryContent;
+
+    public IEnumerable DirectoryContent
+    {
+        get => _directoryContent;
+        set => this.RaiseAndSetIfChanged(ref _directoryContent, value);
+    }
+
+    public string Text
+    {
+        get => _text;
+        set => this.RaiseAndSetIfChanged(ref _text, value);
+    }
 
     public DirectoryViewModel()
     {
-        _text = rnd.Next(0, 100).ToString();
+        Text = rnd.Next(0, 100).ToString();
     }
 }

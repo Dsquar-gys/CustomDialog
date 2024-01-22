@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:CustomDialog.ViewModels"
              xmlns:views="using:CustomDialog.Views"
-             xmlns:models="using:CustomDialog.Models"
              xmlns:nodes="clr-namespace:CustomDialog.Models.Nodes"
+             xmlns:tc="using:CustomDialog.Templated_Controls"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -20,7 +20,36 @@
         <!-- Header -->
         <Grid Grid.Row="0"
               Background="Gray"
-              Height="80">
+              Height="50"
+              ColumnDefinitions="Auto, Auto, *, Auto">
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal">
+                <tc:HoverButton Classes="arrowLeft" />
+                <tc:HoverButton Classes="arrowRight" />
+            </StackPanel>
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        Margin="15">
+                <Label Content="Plates"
+                       Margin="5,0"/>
+                <Label Content="Table" 
+                       Margin="5, 0"/>
+                <Label Content="Tree" 
+                       Margin="5, 0"/>
+            </StackPanel>
+            <TextBox Grid.Column="2"
+                     Name="PathFinder"
+                     Text="Path"/>
+            <StackPanel Grid.Column="3"
+                        Orientation="Horizontal"
+                        Margin="15">
+                <Label Content="Split"
+                       Margin="5, 0"/>
+                <Label Content="Search"
+                       Margin="5, 0"/>
+                <Label Content="Menu" 
+                       Margin="5, 0"/>
+            </StackPanel>
         </Grid>
         <!-- Body -->
         <Grid Grid.Row="1"

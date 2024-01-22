@@ -8,18 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/DirectoryViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/DirectoryView.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/DirectoryView.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Templated Controls/HoverButton.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Templated Controls/HoverButton.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/ClickableNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/INode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/INode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Interactions/TreeViewItemInteraction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/Node.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/DirectoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/DirectoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DirectoryView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/DirectoryView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
@@ -31,9 +30,9 @@
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/ref/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/ref/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/refint/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/refint/CustomDialog.dll" afterDir="false" />
     </list>
@@ -65,28 +64,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.CustomDialog.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.CustomDialog.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/home/dmitrichenkoda@kvant-open.spb.ru/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/home/dmitrichenkoda@kvant-open.spb.ru/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="CustomDialog" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -118,7 +117,8 @@
       <workItem from="1705410583192" duration="6960000" />
       <workItem from="1705481012594" duration="22115000" />
       <workItem from="1705655292488" duration="15028000" />
-      <workItem from="1705671609246" duration="315000" />
+      <workItem from="1705671609246" duration="395000" />
+      <workItem from="1705913447816" duration="9186000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -136,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705502944813</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Started coding the directory body display asynchronously">
+      <option name="closed" value="true" />
+      <created>1705671934408</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705671934408</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +154,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial commit + Side bar tree update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit + Side bar tree update" />
+    <MESSAGE value="Started coding the directory body display asynchronously" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started coding the directory body display asynchronously" />
   </component>
 </project>
