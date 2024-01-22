@@ -7,6 +7,8 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CustomDialog.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        MinWidth="700"
+        MinHeight="300"
         Icon="/Assets/avalonia-logo.ico"
         Title="CustomDialog">
     

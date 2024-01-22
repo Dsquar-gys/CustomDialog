@@ -1,0 +1,31 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:CustomDialog.Templated_Controls">
+    <Design.PreviewWith>
+        <Border Background="RoyalBlue"
+                Padding="10">
+            <Border Background="White">
+                <controls:HoverButton MaxWidth="20" />
+            </Border>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|HoverButton">
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Button Background="Transparent"
+                        Margin="0, 5">
+                    <Image Source="{TemplateBinding Icon}"/>
+                </Button>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Icon" Value="/Assets/Icons/check.png" />
+    </Style>
+    <Style Selector="controls|HoverButton.arrowLeft">
+        <Setter Property="Icon" Value="/Assets/Icons/arrow-left.png" />
+    </Style>
+    <Style Selector="controls|HoverButton.arrowRight">
+        <Setter Property="Icon" Value="/Assets/Icons/arrow-right.png" />
+    </Style>
+</Styles>

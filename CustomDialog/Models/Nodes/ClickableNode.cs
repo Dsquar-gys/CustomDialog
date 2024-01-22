@@ -3,7 +3,6 @@ using System.IO;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using CustomDialog.ViewModels;
 
 namespace CustomDialog.Models.Nodes;
 
