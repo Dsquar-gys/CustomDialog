@@ -24,22 +24,32 @@
               ColumnDefinitions="Auto, Auto, *, Auto">
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
-                <tc:HoverButton Classes="arrowLeft" />
-                <tc:HoverButton Classes="arrowRight" />
+                <tc:HeaderButton Classes="arrowLeft" 
+                                Margin="5,0,0,0"/>
+                <tc:HeaderButton Classes="arrowRight"
+                                Margin="0,0,5,0"/>
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
-                        Margin="15">
-                <Label Content="Plates"
-                       Margin="5,0"/>
-                <Label Content="Table" 
-                       Margin="5, 0"/>
-                <Label Content="Tree" 
-                       Margin="5, 0"/>
+                        Margin="10, 0">
+                <RadioButton Theme="{DynamicResource ButtonRadioButton}"
+                             Margin="0,5"
+                             IsChecked="True">
+                    <Image Source="/Assets/Icons/plates.png"/>
+                </RadioButton>
+                <RadioButton Theme="{DynamicResource ButtonRadioButton}"
+                             Margin="0,5">
+                    <Image Source="/Assets/Icons/list.png"/>
+                </RadioButton>
+                <RadioButton Theme="{DynamicResource ButtonRadioButton}"
+                             Margin="0,5">
+                    <Image Source="/Assets/Icons/tree.png"/>
+                </RadioButton>
             </StackPanel>
             <TextBox Grid.Column="2"
                      Name="PathFinder"
-                     Text="Path"/>
+                     Text="Path"
+                     Margin="10,0"/>
             <StackPanel Grid.Column="3"
                         Orientation="Horizontal"
                         Margin="15">

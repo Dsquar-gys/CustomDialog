@@ -12,6 +12,6 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
-        <StyleInclude Source="Templated Controls/HoverButton.axaml" />
+        <StyleInclude Source="Templated Controls/HeaderButton.axaml" />
     </Application.Styles>
 </Application>
