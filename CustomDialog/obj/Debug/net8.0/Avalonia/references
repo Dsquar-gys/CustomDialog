@@ -22,6 +22,14 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.themes.simple/11.0.6/lib/net6.0/Avalonia.Themes.Simple.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.win32/11.0.6/lib/net6.0/Avalonia.Win32.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.x11/11.0.6/lib/net6.0/Avalonia.X11.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.custom/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.Custom.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.draganddrop/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.DragAndDrop.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.draggable/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.Draggable.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.events/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.Events.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.reactive/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.Reactive.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.responsive/11.0.6/lib/net8.0/Avalonia.Xaml.Interactions.Responsive.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactivity/11.0.6/lib/net8.0/Avalonia.Xaml.Interactivity.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/dynamicdata/7.9.5/lib/net6.0/DynamicData.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/harfbuzzsharp/7.3.0/lib/net6.0/HarfBuzzSharp.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microcom.runtime/0.11.0/lib/net5.0/MicroCom.Runtime.dll

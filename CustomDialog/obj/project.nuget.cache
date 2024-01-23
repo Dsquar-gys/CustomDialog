@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J0jvUs+wpLU4C06kiN3L0dCuZLaseiSfx7FnlmXuuHzX1365/LOWhNVEoLdi0KC6NAYUR2gLz6mHMNfuDVTqfw==",
+  "dgSpecHash": "boDtbOr00lvMcA7iGjVLfoDqdI6cvDIv+YUuZWyRwmpiIrD74eNaChner2beOMA+EKl2DF+BTpTQESdJpn1BQA==",
   "success": true,
   "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/CustomDialog.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,15 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.themes.simple/11.0.6/avalonia.themes.simple.11.0.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.win32/11.0.6/avalonia.win32.11.0.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.x11/11.0.6/avalonia.x11.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.behaviors/11.0.6/avalonia.xaml.behaviors.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions/11.0.6/avalonia.xaml.interactions.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.custom/11.0.6/avalonia.xaml.interactions.custom.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.draganddrop/11.0.6/avalonia.xaml.interactions.draganddrop.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.draggable/11.0.6/avalonia.xaml.interactions.draggable.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.events/11.0.6/avalonia.xaml.interactions.events.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.reactive/11.0.6/avalonia.xaml.interactions.reactive.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactions.responsive/11.0.6/avalonia.xaml.interactions.responsive.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.xaml.interactivity/11.0.6/avalonia.xaml.interactivity.11.0.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/dynamicdata/7.9.5/dynamicdata.7.9.5.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/harfbuzzsharp/7.3.0/harfbuzzsharp.7.3.0.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/harfbuzzsharp.nativeassets.linux/7.3.0/harfbuzzsharp.nativeassets.linux.7.3.0.nupkg.sha512",

@@ -62,6 +62,18 @@
               "target": "Package",
               "version": "[11.0.6, )"
             },
+            "Avalonia.Xaml.Behaviors": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
+            "Avalonia.Xaml.Interactions": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
+            "Avalonia.Xaml.Interactivity": {
+              "target": "Package",
+              "version": "[11.0.6, )"
+            },
             "Semi.Avalonia": {
               "target": "Package",
               "version": "[11.0.1, )"

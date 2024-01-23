@@ -5,6 +5,11 @@ namespace CustomDialog.ViewModels;
 
 public class GeneralViewModel : ViewModelBase
 {
+    #region Main Body
+
+    public BodyViewModel DVM { get; } = new();
+    
+    #endregion
     #region TreeView
     
     public ObservableCollection<Node> Nodes{ get; }

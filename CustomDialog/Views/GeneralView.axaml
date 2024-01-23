@@ -104,7 +104,8 @@
             <!-- Main area -->
             <Border Grid.Column="1"
                     Background="LightGray">
-                <views:DirectoryView Name="MainBody" />
+                <!--<views:DirectoryView Name="MainBody" />-->
+                <TransitioningContentControl Content="{Binding DVM}" />
             </Border>
         </Grid>
     </Grid>

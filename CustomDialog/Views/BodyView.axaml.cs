@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace CustomDialog.Views;
 
-public partial class DirectoryView : UserControl
+public partial class BodyView : UserControl
 {
-    public DirectoryView()
+    public BodyView()
     {
         InitializeComponent();
     }

@@ -138,3 +138,11 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Themes.Fluent.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Custom.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.DragAndDrop.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Draggable.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Events.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Reactive.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Responsive.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactivity.dll
