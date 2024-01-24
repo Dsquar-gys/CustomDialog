@@ -8,46 +8,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/DirectoryViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/FileEntityViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/FileViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/Commands/DelegateCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/History/DirectoryHistory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/History/DirectoryNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/History/IDirectoryHistory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/CustomDialog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/CustomDialog.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/DirectoryViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Nodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DirectoryView.axaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DirectoryView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/CustomDialog.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/CustomDialog.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/references" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/references" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/ref/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/ref/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/refint/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/refint/CustomDialog.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +131,10 @@
       <workItem from="1705655292488" duration="15028000" />
       <workItem from="1705671609246" duration="395000" />
       <workItem from="1705913447816" duration="21129000" />
-      <workItem from="1706003429032" duration="14622000" />
+      <workItem from="1706003429032" duration="15501000" />
+      <workItem from="1706019107043" duration="1456000" />
+      <workItem from="1706088555108" duration="4750000" />
+      <workItem from="1706093521595" duration="12292000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -199,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705927713010</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Asynchronous collection pulling with task cancellation possibility">
+      <option name="closed" value="true" />
+      <created>1706018486671</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706018486671</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +214,7 @@
     <MESSAGE value="Async display + header base layout" />
     <MESSAGE value="Header radio buttons for display style of main content" />
     <MESSAGE value="Some cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some cleanup" />
+    <MESSAGE value="Asynchronous collection pulling with task cancellation possibility" />
+    <option name="LAST_COMMIT_MESSAGE" value="Asynchronous collection pulling with task cancellation possibility" />
   </component>
 </project>

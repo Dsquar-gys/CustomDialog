@@ -1,20 +1,16 @@
+using System;
 using System.Collections.ObjectModel;
 using CustomDialog.Models.Nodes;
+using CustomDialog.ViewModels.Commands;
+using CustomDialog.ViewModels.Entities;
+using CustomDialog.ViewModels.History;
 
 namespace CustomDialog.ViewModels;
 
 public class GeneralViewModel : ViewModelBase
 {
-    #region Main Body
-
-    public BodyViewModel DVM { get; } = new();
-    
-    #endregion
-    #region TreeView
-    
+    public BodyViewModel DVM { get; set; } = new();
     public ObservableCollection<Node> Nodes{ get; }
-    
-    #endregion
 
     public GeneralViewModel()
     {

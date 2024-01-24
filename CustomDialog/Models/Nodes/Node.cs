@@ -6,7 +6,7 @@ public class Node : INode
 {
     public ObservableCollection<INode>? SubNodes { get; }
     public string Title { get; }
-    public bool Selectable { get; } = false;
+    public bool Selectable => false;
 
     public Node(string title, ObservableCollection<INode> subNodes = null)
     {

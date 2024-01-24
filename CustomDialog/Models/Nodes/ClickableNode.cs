@@ -9,7 +9,7 @@ namespace CustomDialog.Models.Nodes;
 public class ClickableNode : INode
 {
     public string Title { get; }
-    public bool Selectable { get; } = true;
+    public bool Selectable => true;
     public IImage? Icon { get; }
     public string DirectoryPath { get; }
 

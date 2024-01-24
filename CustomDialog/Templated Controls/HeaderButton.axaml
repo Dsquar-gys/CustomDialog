@@ -17,7 +17,9 @@
             <ControlTemplate>
                 <Button Background="Transparent"
                         Margin="0, 5"
-                        BorderThickness="2">
+                        BorderThickness="2"
+                        Command="{TemplateBinding Command}"
+                        CommandParameter="{TemplateBinding CommandParameter}">
                     <Image Source="{TemplateBinding Icon}"/>
                 </Button>
             </ControlTemplate>

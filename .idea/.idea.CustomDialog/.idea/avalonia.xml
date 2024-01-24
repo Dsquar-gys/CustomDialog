@@ -5,8 +5,10 @@
       <map>
         <entry key="CustomDialog/App.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Templated Controls/DirSelection.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Templated Controls/HeaderButton.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Templated Controls/HoverButton.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Templated Controls/SideButton.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialog/Views/BodyView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/DirectionView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/DirectoryView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/GeneralView.axaml" value="CustomDialog/CustomDialog.csproj" />
