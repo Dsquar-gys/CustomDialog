@@ -6,6 +6,8 @@
              xmlns:views="using:CustomDialog.Views"
              xmlns:nodes="clr-namespace:CustomDialog.Models.Nodes"
              xmlns:tc="using:CustomDialog.Templated_Controls"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -50,7 +52,7 @@
             </StackPanel>
             <TextBox Grid.Column="2"
                      Name="PathFinder"
-                     Text="Path"
+                     Text="{Binding DVM.FilePath}"
                      Margin="10,0"/>
             <StackPanel Grid.Column="3"
                         Orientation="Horizontal"
@@ -74,8 +76,16 @@
                           MaxWidth="200">
                 <TreeView ItemsSource="{Binding Nodes}"
                           SelectionMode="Single"
-                          SelectionChanged="TreeView_OnSelectionChanged"
+                          SelectedItem="{Binding SelectedNode}"
                           Margin="0,0,5,0">
+                    
+                    <i:Interaction.Behaviors>
+                        <iac:EventTriggerBehavior EventName="Tapped">
+                            <iac:InvokeCommandAction Command="{Binding DVM.OpenCommand}"
+                                                     CommandParameter="{Binding SelectedNode}"/>
+                        </iac:EventTriggerBehavior>
+                    </i:Interaction.Behaviors>
+                    
                     <TreeView.DataTemplates>
                         
                         <TreeDataTemplate DataType="nodes:Node" ItemsSource="{Binding SubNodes}">

@@ -1,5 +1,4 @@
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using CustomDialog.Models.Nodes;
@@ -13,7 +12,7 @@ public partial class GeneralView : UserControl
         InitializeComponent();
     }
 
-    private void TreeView_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    /*private void TreeView_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
         if (sender is not TreeView tree) return;
         if (tree.SelectedItem is not INode node) return;
@@ -23,8 +22,7 @@ public partial class GeneralView : UserControl
             LoadViewAsync(cn).ContinueWith(x =>
             {
                 Console.WriteLine("Continuation in thread {0}", Environment.CurrentManagedThreadId);
-                        
-                //MainBody.CustomTextBlock.Text = x.Result;
+                
                 PathFinder.Text = x.Result;
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
@@ -34,7 +32,8 @@ public partial class GeneralView : UserControl
         {
             Console.WriteLine("Async command in thread {0}", Environment.CurrentManagedThreadId);
 
+            // TO DELETE
             await Task.Delay(1000);
-            return node.DirectoryPath;
-        });
+            return node.FullPath;
+        });*/
 }

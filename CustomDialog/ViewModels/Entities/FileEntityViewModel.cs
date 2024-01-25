@@ -1,8 +1,10 @@
+using CustomDialog.Models;
+
 namespace CustomDialog.ViewModels.Entities;
 
-public abstract class FileEntityViewModel : ViewModelBase
+public abstract class FileEntityViewModel : ViewModelBase, ILoadable
 {
-    public string Name { get; }
-    public string FullName { get; set; }
-    protected FileEntityViewModel(string name) => Name = name;
+    public string Title { get; }
+    public string FullPath { get; set; }
+    protected FileEntityViewModel(string title) => Title = title;
 }

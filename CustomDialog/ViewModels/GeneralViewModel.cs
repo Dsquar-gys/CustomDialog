@@ -4,13 +4,22 @@ using CustomDialog.Models.Nodes;
 using CustomDialog.ViewModels.Commands;
 using CustomDialog.ViewModels.Entities;
 using CustomDialog.ViewModels.History;
+using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
 
 public class GeneralViewModel : ViewModelBase
 {
+    private INode _selectedNode;
+    
     public BodyViewModel DVM { get; set; } = new();
     public ObservableCollection<Node> Nodes{ get; }
+
+    public INode SelectedNode
+    {
+        get => _selectedNode;
+        set => this.RaiseAndSetIfChanged(ref _selectedNode, value);
+    }
 
     public GeneralViewModel()
     {

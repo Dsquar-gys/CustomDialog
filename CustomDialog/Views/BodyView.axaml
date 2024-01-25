@@ -18,10 +18,6 @@
     <Border Background="RoyalBlue"
             Margin="5"
             CornerRadius="10">
-        <!--<TextBlock Text="{Binding Text}"
-                   Name="CustomTextBlock"
-                   Foreground="White"
-                   Margin="30"/>-->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid>
             
@@ -47,7 +43,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
-                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Title}" />
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

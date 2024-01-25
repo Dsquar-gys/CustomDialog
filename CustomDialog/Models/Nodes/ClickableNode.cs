@@ -6,12 +6,13 @@ using Avalonia.Platform;
 
 namespace CustomDialog.Models.Nodes;
 
-public class ClickableNode : INode
+public class ClickableNode : INode, ILoadable  
 {
+    public string FullPath { get; }
     public string Title { get; }
     public bool Selectable => true;
     public IImage? Icon { get; }
-    public string DirectoryPath { get; }
+    //public string DirectoryPath { get; }
 
     public ClickableNode(string title)
     {
@@ -26,6 +27,6 @@ public class ClickableNode : INode
             Console.WriteLine("Icon for \"{0}\" not found", Title);
         }
 
-        DirectoryPath = Path.Combine("/", Title.ToLower());
+        FullPath = Path.Combine("/", Title.ToLower());
     }
 }

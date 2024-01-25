@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using CustomDialog.Models;
+using CustomDialog.Models.Nodes;
 using CustomDialog.ViewModels.Commands;
 using CustomDialog.ViewModels.Entities;
 using CustomDialog.ViewModels.History;
@@ -13,19 +15,30 @@ namespace CustomDialog.ViewModels;
 public class BodyViewModel : ViewModelBase
 {
     #region Private Fields
-    
+
+    private string _filePath;
     private FileEntityViewModel _selectedFileEntity;
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
+    private ObservableCollection<FileEntityViewModel> _directoryContent = new();
 
     #endregion
     
     #region Properties
     
-    public string FilePath { get; set; }
+    
     public string Name { get; set; }
-    public ObservableCollection<FileEntityViewModel> DirectoryContent { get; set; } = new();
+    public string FilePath
+    {
+        get => _filePath;
+        set => this.RaiseAndSetIfChanged(ref _filePath, value);
+    }
+    public ObservableCollection<FileEntityViewModel> DirectoryContent
+    {
+        get => _directoryContent;
+        set => this.RaiseAndSetIfChanged(ref _directoryContent, value);
+    }
     public FileEntityViewModel SelectedFileEntity
     {
         get => _selectedFileEntity;
@@ -66,10 +79,10 @@ public class BodyViewModel : ViewModelBase
 
     private void Open(object parameter)
     {
-        if (parameter is DirectoryViewModel directoryViewModel)
+        if (parameter is ILoadable loadable)
         {
-            FilePath = directoryViewModel.FullName;
-            Name = directoryViewModel.Name;
+            FilePath = loadable.FullPath;
+            Name = loadable.Title;
 
             _history.Add(FilePath, Name);
 
@@ -120,10 +133,8 @@ public class BodyViewModel : ViewModelBase
         Console.WriteLine("Start thread: {0}", Environment.CurrentManagedThreadId);
         
         await _tokenSource.CancelAsync();
-            
         DirectoryContent.Clear();
-        // TO DELETE
-        await Task.Delay(10);
+        await Task.Delay(10); // TO DELETE
 
         _tokenSource = new();
         _token = _tokenSource.Token;
@@ -133,30 +144,35 @@ public class BodyViewModel : ViewModelBase
         await Task.Run(() =>
         {
             Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
+            ObservableCollection<FileEntityViewModel> pulling = new();
             
             foreach (var directory in directoryInfo.EnumerateDirectories())
             {
                 if (_token.IsCancellationRequested)
                 {
-                    Console.WriteLine("Task cancelled in thread: {0}", Environment.CurrentManagedThreadId);
-                    return;
+                    Console.WriteLine("Task cancelled");
+                    return pulling;
                 }
-
-                // TO DELETE
-                //await Task.Delay(10);
-                DirectoryContent.Add(new DirectoryViewModel(directory));
+                //Task.Delay(1000).Wait(); // TO DELETE
+                pulling.Add(new DirectoryViewModel(directory));
             }
 
             foreach (var file in directoryInfo.EnumerateFiles())
             {
                 if (_token.IsCancellationRequested)
                 {
-                    Console.WriteLine("Task cancelled in thread: {0}", Environment.CurrentManagedThreadId);
-                    return;
+                    Console.WriteLine("Task cancelled");
+                    return pulling;
                 }
-                DirectoryContent.Add(new FileViewModel(file));
+                pulling.Add(new FileViewModel(file));
             }
-        }, _token);
+
+            return pulling;
+        }, _token).ContinueWith(x =>
+        {
+            Console.WriteLine("Continuation in thread: {0}", Environment.CurrentManagedThreadId);
+            DirectoryContent = x.Result;
+        }, TaskScheduler.FromCurrentSynchronizationContext());
     }
     
     #endregion
