@@ -15,7 +15,7 @@
         <vm:BodyViewModel/>
     </Design.DataContext>
     
-    <Border Background="RoyalBlue"
+    <Border Background="Gainsboro"
             Margin="5"
             CornerRadius="10">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -42,11 +42,30 @@
                     
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <TextBlock Text="{Binding Title}" />
-                            </Grid>
+                            <StackPanel>
+                                <Image Source="{Binding Icon}"
+                                       Width="75"/>
+                                <TextBlock Text="{Binding Title}"
+                                           HorizontalAlignment="Center"/>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
+                    
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    
+                    <ListBox.Styles>
+                        <Style Selector="ListBoxItem">
+                            <Setter Property="Width" Value="150" />
+                            <Setter Property="Height" Value="100" />
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="5"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Style>
+                    </ListBox.Styles>
                 </ListBox>
             </Grid>
         </ScrollViewer>

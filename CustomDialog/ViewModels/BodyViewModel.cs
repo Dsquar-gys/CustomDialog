@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using CustomDialog.Models;
-using CustomDialog.Models.Nodes;
 using CustomDialog.ViewModels.Commands;
 using CustomDialog.ViewModels.Entities;
 using CustomDialog.ViewModels.History;
@@ -59,7 +58,7 @@ public class BodyViewModel : ViewModelBase
 
     public BodyViewModel()
     {
-        _history = new DirectoryHistory("/home", "Home");
+        _history = DirectoryHistory.DefaultPage;
 
         OpenCommand = new DelegateCommand(Open);
         MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
@@ -87,6 +86,11 @@ public class BodyViewModel : ViewModelBase
             _history.Add(FilePath, Name);
 
             OpenDirectoryAsync();
+        }
+
+        if (parameter is FileViewModel file)
+        {
+            Console.WriteLine("BodyViewModel --> Open --> File opening...");
         }
     }
 

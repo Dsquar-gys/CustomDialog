@@ -11,29 +11,4 @@ public partial class GeneralView : UserControl
     {
         InitializeComponent();
     }
-
-    /*private void TreeView_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
-    {
-        if (sender is not TreeView tree) return;
-        if (tree.SelectedItem is not INode node) return;
-        
-        tree.SelectedItem = node.Selectable ? node : null;
-        if (node is ClickableNode cn)
-            LoadViewAsync(cn).ContinueWith(x =>
-            {
-                Console.WriteLine("Continuation in thread {0}", Environment.CurrentManagedThreadId);
-                
-                PathFinder.Text = x.Result;
-            }, TaskScheduler.FromCurrentSynchronizationContext());
-    }
-
-    private static async Task<string> LoadViewAsync(ClickableNode node) =>
-        await Task.Run(async () =>
-        {
-            Console.WriteLine("Async command in thread {0}", Environment.CurrentManagedThreadId);
-
-            // TO DELETE
-            await Task.Delay(1000);
-            return node.FullPath;
-        });*/
 }

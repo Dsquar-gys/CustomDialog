@@ -3,7 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:CustomDialog.ViewModels"
-             xmlns:views="using:CustomDialog.Views"
              xmlns:nodes="clr-namespace:CustomDialog.Models.Nodes"
              xmlns:tc="using:CustomDialog.Templated_Controls"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
@@ -28,10 +27,10 @@
                         Orientation="Horizontal">
                 <tc:HeaderButton Classes="arrowLeft" 
                                 Margin="5,0,0,0"
-                                Command="{Binding DVM.MoveBackCommand}"/>
+                                Command="{Binding BodyVM.MoveBackCommand}"/>
                 <tc:HeaderButton Classes="arrowRight"
                                  Margin="0,0,5,0"
-                                 Command="{Binding DVM.MoveForwardCommand}"/>
+                                 Command="{Binding BodyVM.MoveForwardCommand}"/>
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
@@ -45,14 +44,10 @@
                              Margin="0,5">
                     <Image Source="/Assets/Icons/list.png"/>
                 </RadioButton>
-                <RadioButton Theme="{DynamicResource ButtonRadioButton}"
-                             Margin="0,5">
-                    <Image Source="/Assets/Icons/tree.png"/>
-                </RadioButton>
             </StackPanel>
             <TextBox Grid.Column="2"
                      Name="PathFinder"
-                     Text="{Binding DVM.FilePath}"
+                     Text="{Binding BodyVM.FilePath}"
                      Margin="10,0"/>
             <StackPanel Grid.Column="3"
                         Orientation="Horizontal"
@@ -81,14 +76,15 @@
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="Tapped">
-                            <iac:InvokeCommandAction Command="{Binding DVM.OpenCommand}"
+                            <iac:InvokeCommandAction Command="{Binding BodyVM.OpenCommand}"
                                                      CommandParameter="{Binding SelectedNode}"/>
                         </iac:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
                     
                     <TreeView.DataTemplates>
                         
-                        <TreeDataTemplate DataType="nodes:Node" ItemsSource="{Binding SubNodes}">
+                        <TreeDataTemplate DataType="nodes:Node"
+                                          ItemsSource="{Binding SubNodes}">
                             <TextBlock Text="{Binding Title}"/>
                         </TreeDataTemplate>
                         
@@ -117,7 +113,7 @@
             <Border Grid.Column="1"
                     Background="LightGray">
                 <!--<views:DirectoryView Name="MainBody" />-->
-                <TransitioningContentControl Content="{Binding DVM}" />
+                <TransitioningContentControl Content="{Binding BodyVM}" />
             </Border>
         </Grid>
     </Grid>

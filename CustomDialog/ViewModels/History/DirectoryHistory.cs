@@ -10,6 +10,7 @@ internal class DirectoryHistory : IDirectoryHistory
 
     public bool CanMoveBack => Current.PreviousNode != null;
     public bool CanMoveForward => Current.NextNode != null;
+    public static DirectoryHistory DefaultPage => new DirectoryHistory("/home/dmitrichenkoda@kvant-open.spb.ru", "Home");
 
     public DirectoryNode Current { get; private set; }
 

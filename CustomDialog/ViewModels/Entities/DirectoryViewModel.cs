@@ -1,10 +1,11 @@
 using System.IO;
+using CustomDialog.Models;
 
 namespace CustomDialog.ViewModels.Entities;
 
-public sealed class DirectoryViewModel : FileEntityViewModel
+public sealed class DirectoryViewModel : FileEntityViewModel, ILoadable
 {
-    public DirectoryViewModel(string title) : base(title) => FullPath = title;
+    public DirectoryViewModel(string dirPath, string dirName) : base(dirPath, dirName) {}
 
-    public DirectoryViewModel(DirectoryInfo directory) : base(directory.FullName) => FullPath = directory.FullName;
+    public DirectoryViewModel(DirectoryInfo directory) : base(directory.FullName, directory.Name) {}
 }

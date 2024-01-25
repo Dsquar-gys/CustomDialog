@@ -10,9 +10,15 @@ namespace CustomDialog.ViewModels;
 
 public class GeneralViewModel : ViewModelBase
 {
+    #region Private Fields
+    
     private INode _selectedNode;
     
-    public BodyViewModel DVM { get; set; } = new();
+    #endregion
+    
+    #region Properties
+    
+    public BodyViewModel BodyVM { get; } = new();
     public ObservableCollection<Node> Nodes{ get; }
 
     public INode SelectedNode
@@ -20,6 +26,8 @@ public class GeneralViewModel : ViewModelBase
         get => _selectedNode;
         set => this.RaiseAndSetIfChanged(ref _selectedNode, value);
     }
+    
+    #endregion
 
     public GeneralViewModel()
     {
@@ -27,13 +35,13 @@ public class GeneralViewModel : ViewModelBase
         Nodes = new ObservableCollection<Node>
         {
             new Node("Places", [
-                new ClickableNode("Home"),
-                new ClickableNode("Desktop"),
-                new ClickableNode("Download")
+                new ClickableNode("/home/dmitrichenkoda@kvant-open.spb.ru", "Home"),
+                new ClickableNode("/home/dmitrichenkoda@kvant-open.spb.ru/Desktop", "Desktop"),
+                new ClickableNode("/home/dmitrichenkoda@kvant-open.spb.ru/Downloads","Download")
             ]),
             new Node("FloPPaSS", [
-                new ClickableNode("FloPPa1"),
-                new ClickableNode("FloPPa2")
+                new ClickableNode("FloPPa1", "FloPPa1"),
+                new ClickableNode("FloPPa2", "FloPPa2")
             ])
         };
     }
