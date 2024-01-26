@@ -100,7 +100,7 @@
                                     Margin="5"
                                     Background="Transparent">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding Icon}"/>
+                                    <Image Source="{Binding ., Converter={StaticResource ImagableConverter}}"/>
                                     <Label Content="{Binding Title}"
                                            Margin="10,0"
                                            VerticalAlignment="Center"/>

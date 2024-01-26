@@ -2,10 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="CustomDialog.App"
              xmlns:local="using:CustomDialog"
+             xmlns:converters="clr-namespace:CustomDialog.Converters"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-             
-    <Application.DataTemplates>
+
+             <Application.Resources>
+                 <converters:ImagableConverter x:Key="ImagableConverter" />
+             </Application.Resources>
+             <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
   

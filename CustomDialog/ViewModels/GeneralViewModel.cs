@@ -1,4 +1,6 @@
+using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using CustomDialog.Models.Nodes;
 using ReactiveUI;
 
@@ -31,13 +33,11 @@ public class GeneralViewModel : ViewModelBase
         Nodes = new ObservableCollection<Node>
         {
             new Node("Places", [
-                new ClickableNode("/home/dmitrichenkoda@kvant-open.spb.ru", "Home"),
-                new ClickableNode("/home/dmitrichenkoda@kvant-open.spb.ru/Desktop", "Desktop"),
-                new ClickableNode("/home/dmitrichenkoda@kvant-open.spb.ru/Downloads","Download")
-            ]),
-            new Node("FloPPaSS", [
-                new ClickableNode("FloPPa1", "FloPPa1"),
-                new ClickableNode("FloPPa2", "FloPPa2")
+                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
+                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
+                new ClickableNode(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads"),"Download"),
+                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Documents"),
+                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
             ])
         };
     }

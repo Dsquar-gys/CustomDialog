@@ -2,11 +2,10 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
-using CustomDialog.Models;
 
 namespace CustomDialog.Templated_Controls;
 
-public class HeaderButton : TemplatedControl, IImagable
+public class HeaderButton : TemplatedControl
 {
     public static readonly StyledProperty<IImage?> IconProperty = AvaloniaProperty.Register<HeaderButton, IImage?>(
         nameof(Icon));

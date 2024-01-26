@@ -126,8 +126,6 @@ public class BodyViewModel : ViewModelBase
 
         FilePath = current.DirectoryPath;
         Name = current.DirectoryPathName;
-
-        //OpenDirectoryAsync();
     }
 
     private bool OnCanMoveBack(object obj) => _history.CanMoveBack;
@@ -140,8 +138,6 @@ public class BodyViewModel : ViewModelBase
 
         FilePath = current.DirectoryPath;
         Name = current.DirectoryPathName;
-
-        //OpenDirectoryAsync();
     }
 
     #endregion
@@ -164,7 +160,7 @@ public class BodyViewModel : ViewModelBase
 
         _tokenSource = new();
         _token = _tokenSource.Token;
-            
+        
         var directoryInfo = new DirectoryInfo(FilePath);
         // Task 2
         await Task.Run(() =>

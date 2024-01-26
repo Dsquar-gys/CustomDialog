@@ -5,12 +5,13 @@
              xmlns:vm="using:CustomDialog.ViewModels"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:converters="clr-namespace:CustomDialog.Converters"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:DataType="vm:BodyViewModel"
              x:Class="CustomDialog.Views.BodyView">
-    
+
     <Design.DataContext>
         <vm:BodyViewModel/>
     </Design.DataContext>
@@ -43,7 +44,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <Image Source="{Binding Icon}"
+                                <Image Source="{Binding Converter={StaticResource ImagableConverter}}"
                                        Width="75"/>
                                 <TextBlock Text="{Binding Title}"
                                            HorizontalAlignment="Center"/>
