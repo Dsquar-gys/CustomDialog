@@ -1,9 +1,5 @@
-using System;
 using System.Collections.ObjectModel;
 using CustomDialog.Models.Nodes;
-using CustomDialog.ViewModels.Commands;
-using CustomDialog.ViewModels.Entities;
-using CustomDialog.ViewModels.History;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -12,7 +8,7 @@ public class GeneralViewModel : ViewModelBase
 {
     #region Private Fields
     
-    private INode _selectedNode;
+    private ClickableNode _selectedNode;
     
     #endregion
     
@@ -21,7 +17,7 @@ public class GeneralViewModel : ViewModelBase
     public BodyViewModel BodyVM { get; } = new();
     public ObservableCollection<Node> Nodes{ get; }
 
-    public INode SelectedNode
+    public ClickableNode SelectedNode
     {
         get => _selectedNode;
         set => this.RaiseAndSetIfChanged(ref _selectedNode, value);

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Avalonia.Controls;
 using CustomDialog.Models;
 using CustomDialog.ViewModels.Commands;
 using CustomDialog.ViewModels.Entities;
@@ -16,6 +18,7 @@ public class BodyViewModel : ViewModelBase
     #region Private Fields
 
     private string _filePath;
+    private string _name;
     private FileEntityViewModel _selectedFileEntity;
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
@@ -25,9 +28,12 @@ public class BodyViewModel : ViewModelBase
     #endregion
     
     #region Properties
-    
-    
-    public string Name { get; set; }
+
+    public string Name
+    {
+        get => _name;
+        set => this.RaiseAndSetIfChanged(ref _name, value);
+    }
     public string FilePath
     {
         get => _filePath;
@@ -48,6 +54,8 @@ public class BodyViewModel : ViewModelBase
     
     #region Commands
 
+    public DelegateCommand ChangeSelectedCommand { get; }
+    
     public DelegateCommand OpenCommand { get; }
 
     public DelegateCommand MoveBackCommand { get; }
@@ -60,14 +68,13 @@ public class BodyViewModel : ViewModelBase
     {
         _history = DirectoryHistory.DefaultPage;
 
+        ChangeSelectedCommand = new DelegateCommand(ChangeSelected);
         OpenCommand = new DelegateCommand(Open);
         MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
         MoveForwardCommand = new DelegateCommand(OnMoveForward, OnCanMoveForward);
         
         Name = _history.Current.DirectoryPathName;
         FilePath = _history.Current.DirectoryPath;
-
-        OpenDirectoryAsync();
         
         _history.HistoryChanged += History_HistoryChanged;
         
@@ -76,6 +83,15 @@ public class BodyViewModel : ViewModelBase
     
     #region Commands Methods
 
+    private void ChangeSelected(object parameter)
+    {
+        if (parameter is ILoadable directory)
+        {
+            FilePath = directory.FullPath;
+            _history.Add(directory.FullPath, directory.Title);
+        }
+    }
+    
     private void Open(object parameter)
     {
         if (parameter is ILoadable loadable)
@@ -83,14 +99,20 @@ public class BodyViewModel : ViewModelBase
             FilePath = loadable.FullPath;
             Name = loadable.Title;
 
-            _history.Add(FilePath, Name);
-
             OpenDirectoryAsync();
         }
 
         if (parameter is FileViewModel file)
         {
             Console.WriteLine("BodyViewModel --> Open --> File opening...");
+        }
+
+        if (parameter is TextBox textBox)
+        {
+            FilePath = textBox.Text;
+            Name = new string(textBox.Text.Skip(1 + textBox.Text.LastIndexOf('/')).ToArray());
+            
+            OpenDirectoryAsync();
         }
     }
 
@@ -105,7 +127,7 @@ public class BodyViewModel : ViewModelBase
         FilePath = current.DirectoryPath;
         Name = current.DirectoryPathName;
 
-        OpenDirectoryAsync();
+        //OpenDirectoryAsync();
     }
 
     private bool OnCanMoveBack(object obj) => _history.CanMoveBack;
@@ -119,7 +141,7 @@ public class BodyViewModel : ViewModelBase
         FilePath = current.DirectoryPath;
         Name = current.DirectoryPathName;
 
-        OpenDirectoryAsync();
+        //OpenDirectoryAsync();
     }
 
     #endregion
@@ -174,7 +196,6 @@ public class BodyViewModel : ViewModelBase
             return pulling;
         }, _token).ContinueWith(x =>
         {
-            Console.WriteLine("Continuation in thread: {0}", Environment.CurrentManagedThreadId);
             DirectoryContent = x.Result;
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }

@@ -56,8 +56,11 @@ internal class DirectoryHistory : IDirectoryHistory
     {
         var node = new DirectoryNode(filePath, name);
 
-        Current.NextNode = node;
-        node.PreviousNode = Current;
+        if (!Current.Equals(node))
+        {
+            Current.NextNode = node;
+            node.PreviousNode = Current;
+        }
 
         Current = node;
 

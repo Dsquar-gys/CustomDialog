@@ -9,7 +9,7 @@ namespace CustomDialog.ViewModels.Entities;
 
 public abstract class FileEntityViewModel : ViewModelBase, IImagable
 {
-    public string Title { get; }
+    public string Title { get; set; }
     public string FullPath { get; set; }
     public IImage? Icon { get; }
 

@@ -48,7 +48,14 @@
             <TextBox Grid.Column="2"
                      Name="PathFinder"
                      Text="{Binding BodyVM.FilePath}"
-                     Margin="10,0"/>
+                     Margin="10,0">
+                <i:Interaction.Behaviors>
+                    <iac:EventTriggerBehavior EventName="TextChanged">
+                        <iac:InvokeCommandAction Command="{Binding BodyVM.OpenCommand}" 
+                                                 CommandParameter="{Binding $self}"/>
+                    </iac:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </TextBox>
             <StackPanel Grid.Column="3"
                         Orientation="Horizontal"
                         Margin="15">
@@ -76,7 +83,7 @@
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="Tapped">
-                            <iac:InvokeCommandAction Command="{Binding BodyVM.OpenCommand}"
+                            <iac:InvokeCommandAction Command="{Binding BodyVM.ChangeSelectedCommand}"
                                                      CommandParameter="{Binding SelectedNode}"/>
                         </iac:EventTriggerBehavior>
                     </i:Interaction.Behaviors>

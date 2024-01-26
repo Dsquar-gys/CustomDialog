@@ -27,7 +27,7 @@
                 </Grid.RowDefinitions>
             
                 <TextBox Grid.Row="0" 
-                         Text="{Binding FilePath}" />
+                         Text="{Binding Name}" />
             
                 <ListBox Grid.Row="1"
                          ItemsSource="{Binding DirectoryContent}"
@@ -35,7 +35,7 @@
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="DoubleTapped">
-                            <iac:InvokeCommandAction Command="{Binding OpenCommand}"
+                            <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
                                                      CommandParameter="{Binding SelectedFileEntity}"/>
                         </iac:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
