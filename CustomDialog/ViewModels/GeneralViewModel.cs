@@ -37,7 +37,8 @@ public class GeneralViewModel : ViewModelBase
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
                 new ClickableNode(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads"),"Download"),
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Documents"),
-                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
+                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures"),
+                new ClickableNode("/FloPPsTer", "FloPPa")
             ])
         };
     }

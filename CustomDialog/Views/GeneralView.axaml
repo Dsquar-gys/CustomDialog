@@ -32,19 +32,20 @@
                                  Margin="0,0,5,0"
                                  Command="{Binding BodyVM.MoveForwardCommand}"/>
             </StackPanel>
-            <StackPanel Grid.Column="1"
-                        Orientation="Horizontal"
-                        Margin="10, 0">
-                <RadioButton Theme="{DynamicResource ButtonRadioButton}"
-                             Margin="0,5"
-                             IsChecked="True">
+            <ListBox Grid.Column="1"
+                     Theme="{DynamicResource ButtonRadioGroupListBox}"
+                     SelectionMode="Single">
+                <ListBoxItem IsSelected="{Binding BodyVM.Plated}">
                     <Image Source="/Assets/Icons/plates.png"/>
-                </RadioButton>
-                <RadioButton Theme="{DynamicResource ButtonRadioButton}"
-                             Margin="0,5">
-                    <Image Source="/Assets/Icons/list.png"/>
-                </RadioButton>
-            </StackPanel>
+                </ListBoxItem>
+                <Image Source="/Assets/Icons/list.png"/>
+                <ListBox.Styles>
+                    <Style Selector="ListBoxItem">
+                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="Padding" Value="7" />
+                    </Style>
+                </ListBox.Styles>
+            </ListBox>
             <TextBox Grid.Column="2"
                      Name="PathFinder"
                      Text="{Binding BodyVM.FilePath}"
@@ -119,8 +120,7 @@
             <!-- Main area -->
             <Border Grid.Column="1"
                     Background="LightGray">
-                <!--<views:DirectoryView Name="MainBody" />-->
-                <TransitioningContentControl Content="{Binding BodyVM}" />
+                <TransitioningContentControl Content="{Binding BodyVM}"/>
             </Border>
         </Grid>
     </Grid>

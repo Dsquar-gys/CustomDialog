@@ -26,6 +26,14 @@ public class BodyViewModel : ViewModelBase
     private ObservableCollection<FileEntityViewModel> _directoryContent = new();
 
     #endregion
+
+    private bool _plated = true;
+
+    public bool Plated
+    {
+        get => _plated;
+        set => this.RaiseAndSetIfChanged(ref _plated, value);
+    }
     
     #region Properties
 
@@ -156,7 +164,7 @@ public class BodyViewModel : ViewModelBase
         
         await _tokenSource.CancelAsync();
         DirectoryContent.Clear();
-        await Task.Delay(10); // TO DELETE
+        await Task.Delay(10);
 
         _tokenSource = new();
         _token = _tokenSource.Token;
@@ -175,7 +183,6 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                //Task.Delay(1000).Wait(); // TO DELETE
                 pulling.Add(new DirectoryViewModel(directory));
             }
 

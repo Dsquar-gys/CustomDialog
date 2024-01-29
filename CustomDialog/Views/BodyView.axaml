@@ -5,7 +5,7 @@
              xmlns:vm="using:CustomDialog.ViewModels"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-             xmlns:converters="clr-namespace:CustomDialog.Converters"
+             xmlns:entities="clr-namespace:CustomDialog.ViewModels.Entities"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -19,7 +19,9 @@
     <Border Background="Gainsboro"
             Margin="5"
             CornerRadius="10">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      Name="Scroll">
             <Grid>
             
                 <Grid.RowDefinitions>
@@ -32,7 +34,9 @@
             
                 <ListBox Grid.Row="1"
                          ItemsSource="{Binding DirectoryContent}"
-                         SelectedItem="{Binding SelectedFileEntity}">
+                         SelectedItem="{Binding SelectedFileEntity}"
+                         Classes.Plated="{Binding Plated}"
+                         Classes.Tabled="{Binding !Plated}">
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="DoubleTapped">
@@ -41,30 +45,54 @@
                         </iac:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
                     
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Image Source="{Binding Converter={StaticResource ImagableConverter}}"
-                                       Width="75"/>
-                                <TextBlock Text="{Binding Title}"
-                                           HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                    
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    
                     <ListBox.Styles>
                         <Style Selector="ListBoxItem">
                             <Setter Property="Width" Value="150" />
-                            <Setter Property="Height" Value="100" />
                             <Setter Property="HorizontalAlignment" Value="Left"/>
                             <Setter Property="Margin" Value="5"/>
                             <Setter Property="Background" Value="Transparent"/>
+                        </Style>
+                        <Style Selector="ListBox.Plated">
+                            <Setter Property="ItemsPanel">
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"
+                                               MaxWidth="{Binding $parent[TransitioningContentControl].Bounds.Width}"/>
+                                </ItemsPanelTemplate>
+                            </Setter>
+                            <Setter Property="ItemTemplate">
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image x:DataType="entities:FileEntityViewModel"
+                                               Source="{Binding Converter={StaticResource ImagableConverter}}"
+                                               Width="75"/>
+                                        <TextBlock x:DataType="entities:FileEntityViewModel"
+                                                   Text="{Binding Title}"
+                                                   HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Setter>
+                        </Style>
+                        <Style Selector="ListBox.Tabled">
+                            <Setter Property="ItemsPanel">
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Vertical"
+                                               MaxHeight="{Binding $parent[TransitioningContentControl].Bounds.Height}"/>
+                                </ItemsPanelTemplate>
+                            </Setter>
+                            <Setter Property="ItemTemplate">
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image x:DataType="entities:FileEntityViewModel"
+                                               Source="{Binding Converter={StaticResource ImagableConverter}}"
+                                               Width="50"/>
+                                        <TextBlock x:DataType="entities:FileEntityViewModel"
+                                                   Text="{Binding Title}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Margin="3,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Setter>
                         </Style>
                     </ListBox.Styles>
                 </ListBox>
