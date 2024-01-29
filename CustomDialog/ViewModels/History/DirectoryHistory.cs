@@ -11,7 +11,7 @@ internal class DirectoryHistory : IDirectoryHistory
     public bool CanMoveBack => Current.PreviousNode != null;
     public bool CanMoveForward => Current.NextNode != null;
     public static DirectoryHistory DefaultPage => 
-        new DirectoryHistory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+        new (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
             "Home");
 
     public DirectoryNode Current { get; private set; }
