@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using CustomDialog.Models;
 using CustomDialog.Models.Nodes;
 using ReactiveUI;
 
@@ -18,7 +19,13 @@ public class GeneralViewModel : ViewModelBase
     
     public BodyViewModel BodyVM { get; } = new();
     public ObservableCollection<Node> Nodes{ get; }
-
+    public ObservableCollection<TemplateStyle> TemplateStyles =>
+    [
+        TemplateStyle.WrapPanel,
+        TemplateStyle.Table,
+        TemplateStyle.Grid
+    ];
+        
     public ClickableNode SelectedNode
     {
         get => _selectedNode;

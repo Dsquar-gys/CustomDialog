@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:CustomDialog.ViewModels"
+             xmlns:models="using:CustomDialog.Models"
              xmlns:nodes="clr-namespace:CustomDialog.Models.Nodes"
              xmlns:tc="using:CustomDialog.Templated_Controls"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
@@ -34,15 +35,29 @@
             </StackPanel>
             <ListBox Grid.Column="1"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
-                     SelectionMode="Single">
-                <ListBoxItem IsSelected="{Binding BodyVM.Plated}">
-                    <Image Source="/Assets/Icons/plates.png"/>
-                </ListBoxItem>
-                <Image Source="/Assets/Icons/list.png"/>
+                     SelectionMode="Single"
+                     ItemsSource="{Binding TemplateStyles}"
+                     SelectedItem="{Binding BodyVM.CurrentTemplateStyle}">
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                
                 <ListBox.Styles>
                     <Style Selector="ListBoxItem">
-                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="Margin" Value="1, 3"/>
                         <Setter Property="Padding" Value="7" />
+                    </Style>
+                    <Style Selector="ListBoxItem[Content=WrapPanel] Image">
+                        <Setter Property="Source" Value="/Assets/Icons/plates.png" />
+                    </Style>
+                    <Style Selector="ListBoxItem[Content=Table] Image">
+                        <Setter Property="Source" Value="/Assets/Icons/list.png" />
+                    </Style>
+                    <Style Selector="ListBoxItem[Content=Grid] Image">
+                        <Setter Property="Source" Value="/Assets/Icons/grid.png" />
                     </Style>
                 </ListBox.Styles>
             </ListBox>

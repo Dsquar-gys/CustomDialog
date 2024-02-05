@@ -3,9 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:CustomDialog.ViewModels"
+             xmlns:dataTemplates="using:CustomDialog.Views.DataTemplates"
+             xmlns:models="using:CustomDialog.Models"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-             xmlns:entities="clr-namespace:CustomDialog.ViewModels.Entities"
+             xmlns:entities="clr-namespace:CustomDialog.Models.Entities"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -19,85 +21,93 @@
     <Border Background="Gainsboro"
             Margin="5"
             CornerRadius="10">
-        <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Auto"
-                      Name="Scroll">
-            <Grid>
+        <ContentControl Tag="{Binding CurrentTemplateStyle}">
+            <i:Interaction.Behaviors>
+                <iac:EventTriggerBehavior EventName="DoubleTapped">
+                    <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
+                                             CommandParameter="{Binding SelectedFileEntity}"/>
+                </iac:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
             
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-            
-                <TextBox Grid.Row="0" 
-                         Text="{Binding Name}" />
-            
-                <ListBox Grid.Row="1"
-                         ItemsSource="{Binding DirectoryContent}"
-                         SelectedItem="{Binding SelectedFileEntity}"
-                         Classes.Plated="{Binding Plated}"
-                         Classes.Tabled="{Binding !Plated}">
-                    
-                    <i:Interaction.Behaviors>
-                        <iac:EventTriggerBehavior EventName="DoubleTapped">
-                            <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
-                                                     CommandParameter="{Binding SelectedFileEntity}"/>
-                        </iac:EventTriggerBehavior>
-                    </i:Interaction.Behaviors>
-                    
-                    <ListBox.Styles>
-                        <Style Selector="ListBoxItem">
-                            <Setter Property="Width" Value="150" />
-                            <Setter Property="HorizontalAlignment" Value="Left"/>
-                            <Setter Property="Margin" Value="5"/>
-                            <Setter Property="Background" Value="Transparent"/>
-                        </Style>
-                        <Style Selector="ListBox.Plated">
-                            <Setter Property="ItemsPanel">
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Horizontal"
-                                               MaxWidth="{Binding $parent[TransitioningContentControl].Bounds.Width}"/>
-                                </ItemsPanelTemplate>
-                            </Setter>
-                            <Setter Property="ItemTemplate">
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <Image x:DataType="entities:FileEntityViewModel"
-                                               Source="{Binding Converter={StaticResource ImagableConverter}}"
-                                               Width="75"/>
-                                        <TextBlock x:DataType="entities:FileEntityViewModel"
-                                                   Text="{Binding Title}"
-                                                   HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Setter>
-                        </Style>
-                        <Style Selector="ListBox.Tabled">
-                            <Setter Property="ItemsPanel">
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Vertical"
-                                               MaxHeight="{Binding $parent[TransitioningContentControl].Bounds.Height}"/>
-                                </ItemsPanelTemplate>
-                            </Setter>
-                            <Setter Property="ItemTemplate">
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image x:DataType="entities:FileEntityViewModel"
-                                               Source="{Binding Converter={StaticResource ImagableConverter}}"
-                                               Width="50"/>
-                                        <TextBlock x:DataType="entities:FileEntityViewModel"
-                                                   Text="{Binding Title}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   Margin="3,0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Setter>
-                        </Style>
-                    </ListBox.Styles>
-                </ListBox>
-            </Grid>
-        </ScrollViewer>
+            <ContentControl.Styles>
+                <Style Selector="ContentControl[Tag=WrapPanel], ContentControl[Tag=Table]">
+                    <Setter Property="Content">
+                        <Template>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                          HorizontalScrollBarVisibility="Auto">
+                                <ListBox ItemsSource="{Binding DirectoryContent}"
+                                         SelectedItem="{Binding SelectedFileEntity}">
+                            
+                                    <ListBox.ItemTemplate>
+                                        <dataTemplates:TemplateSelector />
+                                    </ListBox.ItemTemplate>
+                            
+                                    <ListBox.Styles>
+                                        <Style Selector="ListBoxItem">
+                                            <Setter Property="Width" Value="150" />
+                                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                                            <Setter Property="Margin" Value="5"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                        </Style>
+                                    </ListBox.Styles>
+                                </ListBox>
+                            </ScrollViewer>
+                        </Template>
+                    </Setter>
+                </Style>
+                <Style Selector="ContentControl[Tag=WrapPanel] > ScrollViewer > ListBox">
+                    <Setter Property="ItemsPanel">
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"
+                                       MaxWidth="{Binding $parent[TransitioningContentControl].Bounds.Width}"/>
+                        </ItemsPanelTemplate>
+                    </Setter>
+                </Style>
+                <Style Selector="ContentControl[Tag=Table] > ScrollViewer > ListBox">
+                    <Setter Property="ItemsPanel">
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Vertical"
+                                       MaxHeight="{Binding $parent[TransitioningContentControl].Bounds.Height}"/>
+                        </ItemsPanelTemplate>
+                    </Setter>
+                </Style>
+                <Style Selector="ContentControl[Tag=Grid]">
+                    <Setter Property="Content">
+                        <Template>
+                            <DataGrid HeadersVisibility="All"
+                                      ItemsSource="{Binding DirectoryContent}"
+                                      SelectedItem="{Binding SelectedFileEntity}"
+                                      SelectionMode="Single"
+                                      MaxWidth="{Binding $parent.Bounds.Width}"
+                                      VerticalScrollBarVisibility="Disabled">
+                                
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name"
+                                                        Width="2*"
+                                                        x:DataType="entities:FileEntityModel"
+                                                        Binding="{Binding Title}"/>
+                                    <DataGridTextColumn Header="Type"
+                                                        Width="*"
+                                                        x:DataType="entities:FileEntityModel"
+                                                        Binding="{Binding Svm.IconName}"/>
+                                    <DataGridTextColumn Header="Created"
+                                                        Width="2*"
+                                                        x:DataType="entities:FileEntityModel"
+                                                        Binding="{Binding Svm.FileInfo.CreationTime}"/>
+                                    <DataGridTextColumn Header="Modified"
+                                                        Width="2*"
+                                                        x:DataType="entities:FileEntityModel"
+                                                        Binding="{Binding Svm.FileInfo.LastAccessTime}"/>
+                                    <DataGridTextColumn Header="Size"
+                                                        Width="2*"
+                                                        x:DataType="entities:FileEntityModel"
+                                                        Binding="{Binding Svm.Size}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Template>
+                    </Setter>
+                </Style>
+            </ContentControl.Styles>
+        </ContentControl>
     </Border>
-    
 </UserControl>

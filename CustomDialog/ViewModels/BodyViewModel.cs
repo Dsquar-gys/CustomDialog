@@ -6,9 +6,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using CustomDialog.Models;
+using CustomDialog.Models.Entities;
 using CustomDialog.ViewModels.Commands;
-using CustomDialog.ViewModels.Entities;
 using CustomDialog.ViewModels.History;
+using CustomDialog.Views.DataTemplates;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -19,24 +20,32 @@ public class BodyViewModel : ViewModelBase
 
     private string _filePath;
     private string _name;
-    private FileEntityViewModel _selectedFileEntity;
+    private FileEntityModel _selectedFileEntity;
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
-    private ObservableCollection<FileEntityViewModel> _directoryContent = new();
+    private ObservableCollection<FileEntityModel> _directoryContent = new();
+    private TemplateStyle _currentTemplateStyle;
 
     #endregion
-
-    private bool _plated = true;
-
-    public bool Plated
-    {
-        get => _plated;
-        set => this.RaiseAndSetIfChanged(ref _plated, value);
-    }
     
     #region Properties
 
+    public TemplateStyle CurrentTemplateStyle
+    {
+        get => _currentTemplateStyle;
+        set
+        {
+            SpecificFileViewModel.CommonTemplate = value switch
+            {
+                TemplateStyle.WrapPanel => new WrapPanelTemplate(),
+                TemplateStyle.Table => new TableTemplate(),
+                TemplateStyle.Grid => new GridTemplate(),
+                _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Unknown Template Style")
+            };
+            this.RaiseAndSetIfChanged(ref _currentTemplateStyle, value);
+        }
+    }
     public string Name
     {
         get => _name;
@@ -47,12 +56,12 @@ public class BodyViewModel : ViewModelBase
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
-    public ObservableCollection<FileEntityViewModel> DirectoryContent
+    public ObservableCollection<FileEntityModel> DirectoryContent
     {
         get => _directoryContent;
         set => this.RaiseAndSetIfChanged(ref _directoryContent, value);
     }
-    public FileEntityViewModel SelectedFileEntity
+    public FileEntityModel SelectedFileEntity
     {
         get => _selectedFileEntity;
         set => this.RaiseAndSetIfChanged(ref _selectedFileEntity, value);
@@ -81,6 +90,8 @@ public class BodyViewModel : ViewModelBase
         MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
         MoveForwardCommand = new DelegateCommand(OnMoveForward, OnCanMoveForward);
         
+        SpecificFileViewModel.CommonTemplate = new WrapPanelTemplate();
+        
         Name = _history.Current.DirectoryPathName;
         FilePath = _history.Current.DirectoryPath;
         
@@ -89,7 +100,7 @@ public class BodyViewModel : ViewModelBase
         _token = _tokenSource.Token;
     }
     
-    #region Commands Methods
+    #region Command Methods
 
     private void ChangeSelected(object parameter)
     {
@@ -110,7 +121,7 @@ public class BodyViewModel : ViewModelBase
             OpenDirectoryAsync();
         }
 
-        if (parameter is FileViewModel file)
+        if (parameter is FileModel file)
         {
             Console.WriteLine("BodyViewModel --> Open --> File opening...");
         }
@@ -174,7 +185,8 @@ public class BodyViewModel : ViewModelBase
         await Task.Run(() =>
         {
             Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
-            ObservableCollection<FileEntityViewModel> pulling = new();
+            ObservableCollection<FileEntityModel> pulling = new();
+            FileEntityModel? _entity;
             
             foreach (var directory in directoryInfo.EnumerateDirectories())
             {
@@ -183,7 +195,9 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                pulling.Add(new DirectoryViewModel(directory));
+
+                if (new SpecificFileViewModel().TryToCreateFileEntry(directory, out _entity))
+                    pulling.Add(_entity);
             }
 
             foreach (var file in directoryInfo.EnumerateFiles())
@@ -193,7 +207,8 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                pulling.Add(new FileViewModel(file));
+                if (new SpecificFileViewModel().TryToCreateFileEntry(file, out _entity))
+                    pulling.Add(_entity);
             }
 
             return pulling;
