@@ -2,9 +2,12 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Avalonia.Controls.Templates;
 using CustomDialog.Models;
 using CustomDialog.Models.Entities;
 using CustomDialog.ViewModels.Commands;
@@ -26,11 +29,20 @@ public class BodyViewModel : ViewModelBase
     private CancellationToken _token;
     private ObservableCollection<FileEntityModel> _directoryContent = new();
     private TemplateStyle _currentTemplateStyle;
+    private IDataTemplate _www = new WrapPanelTemplate();
 
     #endregion
     
     #region Properties
 
+    public SpecificFileViewModel Port => new();
+
+    public IDataTemplate WWW
+    {
+        get => _www;
+        set => this.RaiseAndSetIfChanged(ref _www, value);
+    }
+    
     public TemplateStyle CurrentTemplateStyle
     {
         get => _currentTemplateStyle;
@@ -39,8 +51,7 @@ public class BodyViewModel : ViewModelBase
             SpecificFileViewModel.CommonTemplate = value switch
             {
                 TemplateStyle.WrapPanel => new WrapPanelTemplate(),
-                TemplateStyle.Table => new TableTemplate(),
-                TemplateStyle.Grid => new GridTemplate(),
+                TemplateStyle.DataGrid => new DataGridTemplate(),
                 _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Unknown Template Style")
             };
             this.RaiseAndSetIfChanged(ref _currentTemplateStyle, value);

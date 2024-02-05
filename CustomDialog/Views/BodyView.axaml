@@ -21,7 +21,10 @@
     <Border Background="Gainsboro"
             Margin="5"
             CornerRadius="10">
-        <ContentControl Tag="{Binding CurrentTemplateStyle}">
+        <ContentControl Tag="{Binding CurrentTemplateStyle}"
+                        Content="{Binding .}"
+                        ContentTemplate="{Binding Port.LocalDataTemplate}">
+            
             <i:Interaction.Behaviors>
                 <iac:EventTriggerBehavior EventName="DoubleTapped">
                     <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
@@ -29,7 +32,7 @@
                 </iac:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             
-            <ContentControl.Styles>
+            <!--<ContentControl.Styles>
                 <Style Selector="ContentControl[Tag=WrapPanel], ContentControl[Tag=Table]">
                     <Setter Property="Content">
                         <Template>
@@ -107,7 +110,8 @@
                         </Template>
                     </Setter>
                 </Style>
-            </ContentControl.Styles>
+            </ContentControl.Styles>-->
+            
         </ContentControl>
     </Border>
 </UserControl>

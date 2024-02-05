@@ -22,8 +22,7 @@ public class GeneralViewModel : ViewModelBase
     public ObservableCollection<TemplateStyle> TemplateStyles =>
     [
         TemplateStyle.WrapPanel,
-        TemplateStyle.Table,
-        TemplateStyle.Grid
+        TemplateStyle.DataGrid
     ];
         
     public ClickableNode SelectedNode

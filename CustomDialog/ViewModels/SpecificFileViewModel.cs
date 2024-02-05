@@ -1,13 +1,15 @@
+using System;
 using System.IO;
-using System.Linq;
+using System.Reactive.Subjects;
 using System.Windows.Input;
 using Avalonia.Controls.Templates;
+using CustomDialog.Models;
+using CustomDialog.Models.Entities;
 
-namespace CustomDialog.Models.Entities;
+namespace CustomDialog.ViewModels;
 
 public class SpecificFileViewModel(ICommand? command = null) : ISpecificFileViewModel
 {
-    private IDataTemplate _localDataTemplate = null;
     public static IDataTemplate? CommonTemplate { get; set; }
     public IDataTemplate? LocalDataTemplate => CommonTemplate;
     public string IconName { get; private set; }

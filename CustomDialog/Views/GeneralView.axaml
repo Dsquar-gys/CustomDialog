@@ -53,10 +53,7 @@
                     <Style Selector="ListBoxItem[Content=WrapPanel] Image">
                         <Setter Property="Source" Value="/Assets/Icons/plates.png" />
                     </Style>
-                    <Style Selector="ListBoxItem[Content=Table] Image">
-                        <Setter Property="Source" Value="/Assets/Icons/list.png" />
-                    </Style>
-                    <Style Selector="ListBoxItem[Content=Grid] Image">
+                    <Style Selector="ListBoxItem[Content=DataGrid] Image">
                         <Setter Property="Source" Value="/Assets/Icons/grid.png" />
                     </Style>
                 </ListBox.Styles>
