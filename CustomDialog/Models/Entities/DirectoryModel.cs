@@ -1,4 +1,5 @@
 using System.IO;
+using CustomDialog.Models.Interfaces;
 
 namespace CustomDialog.Models.Entities;
 

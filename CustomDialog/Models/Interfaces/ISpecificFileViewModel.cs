@@ -1,10 +1,9 @@
 using System.IO;
 using System.Windows.Input;
 using Avalonia.Controls.Templates;
-using Avalonia.Media;
 using CustomDialog.Models.Entities;
 
-namespace CustomDialog.Models;
+namespace CustomDialog.Models.Interfaces;
 
 public interface ISpecificFileViewModel : IImagable
 {

@@ -9,7 +9,8 @@ namespace CustomDialog.Models;
 public static class ImageHelper
 {
     private const string NotFoundIcon = "check.png";
-    public static string DefaultIconName { get => NotFoundIcon; }
+    public static string DefaultIconName => NotFoundIcon;
+
     public static Bitmap DefaultIcon => new Bitmap(AssetLoader.Open(
         new Uri(Path.Combine("avares://CustomDialog/Assets/Icons", NotFoundIcon))));
 

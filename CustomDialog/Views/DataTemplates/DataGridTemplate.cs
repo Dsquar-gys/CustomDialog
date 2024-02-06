@@ -17,7 +17,7 @@ public class DataGridTemplate : IDataTemplate
             HeadersVisibility = DataGridHeadersVisibility.All,
             SelectionMode = DataGridSelectionMode.Single,
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-            [!DataGrid.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
+            [!Layoutable.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
             [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.DirectoryContent)),
             [!DataGrid.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
             Columns =
@@ -58,8 +58,5 @@ public class DataGridTemplate : IDataTemplate
         return grid;
     }
 
-    public bool Match(object? data)
-    {
-        return data is BodyViewModel;
-    }
+    public bool Match(object? data) => data is BodyViewModel;
 }

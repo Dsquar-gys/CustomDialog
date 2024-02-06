@@ -1,3 +1,5 @@
+using System.IO;
+using CustomDialog.Models.Interfaces;
 using CustomDialog.ViewModels;
 
 namespace CustomDialog.Models.Entities;

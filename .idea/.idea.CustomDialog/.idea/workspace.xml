@@ -8,16 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Added ISpecificFileViewModel.cs + DataGrid view">
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/DataGridTemplate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Entities/SpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/TemplateStyle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/TemplateStyle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/ImageHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/ImageHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/GridTemplate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableTemplate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/DataGridTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/DataGridTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/WrapPanelTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/WrapPanelTemplate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
@@ -28,7 +27,6 @@
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" afterDir="false" />
@@ -43,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev-body" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,7 +102,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.44957983",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev-body",
     "last_opened_file_path": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -346,54 +344,14 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableFileTemplate.cs</url>
           <line>65</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableTemplate.cs" initialLine="65" containingFunctionPresentation="Method 'Match'">
-            <startOffsets>
-              <option value="2007" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2008" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableTemplate.cs" initialLine="65" containingFunctionPresentation="Method 'Match'" />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableFileTemplate.cs</url>
           <line>28</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableTemplate.cs" initialLine="28" containingFunctionPresentation="Method 'Build'">
-            <startOffsets>
-              <option value="884" />
-            </startOffsets>
-            <endOffsets>
-              <option value="885" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TableTemplate.cs" initialLine="28" containingFunctionPresentation="Method 'Build'" />
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs</url>
-          <line>25</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs" initialLine="24" containingFunctionPresentation="Method 'Match'">
-            <startOffsets>
-              <option value="731" />
-            </startOffsets>
-            <endOffsets>
-              <option value="732" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs</url>
-          <line>14</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/DataTemplates/TemplateSelector.cs" initialLine="13" containingFunctionPresentation="Method 'Build'">
-            <startOffsets>
-              <option value="366" />
-            </startOffsets>
-            <endOffsets>
-              <option value="367" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

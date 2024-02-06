@@ -2,8 +2,6 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -29,18 +27,16 @@ public class BodyViewModel : ViewModelBase
     private CancellationToken _token;
     private ObservableCollection<FileEntityModel> _directoryContent = new();
     private TemplateStyle _currentTemplateStyle;
-    private IDataTemplate _www = new WrapPanelTemplate();
+    private IDataTemplate _currentTemplate = new WrapPanelTemplate();
 
     #endregion
     
     #region Properties
-
-    public SpecificFileViewModel Port => new();
-
-    public IDataTemplate WWW
+    
+    public IDataTemplate CurrentTemplate
     {
-        get => _www;
-        set => this.RaiseAndSetIfChanged(ref _www, value);
+        get => _currentTemplate;
+        set => this.RaiseAndSetIfChanged(ref _currentTemplate, value);
     }
     
     public TemplateStyle CurrentTemplateStyle
@@ -54,6 +50,7 @@ public class BodyViewModel : ViewModelBase
                 TemplateStyle.DataGrid => new DataGridTemplate(),
                 _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Unknown Template Style")
             };
+            CurrentTemplate = SpecificFileViewModel.CommonTemplate;
             this.RaiseAndSetIfChanged(ref _currentTemplateStyle, value);
         }
     }

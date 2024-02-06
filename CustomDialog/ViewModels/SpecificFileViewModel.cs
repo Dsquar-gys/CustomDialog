@@ -1,10 +1,9 @@
-using System;
 using System.IO;
-using System.Reactive.Subjects;
 using System.Windows.Input;
 using Avalonia.Controls.Templates;
 using CustomDialog.Models;
 using CustomDialog.Models.Entities;
+using CustomDialog.Models.Interfaces;
 
 namespace CustomDialog.ViewModels;
 
@@ -25,15 +24,15 @@ public class SpecificFileViewModel(ICommand? command = null) : ISpecificFileView
         if (LocalDataTemplate is null)
             return false;
 
-        if (file is FileInfo info)
+        if (file is FileInfo finfo)
         {
-            vm = new FileModel(this, info);
-            Size = info.Length + " bytes";
+            vm = new FileModel(this, finfo);
+            Size = finfo.Length + " bytes";
             IconName = "file";
         }
-        else
+        else if(file is DirectoryInfo dinfo)
         {
-            vm = new DirectoryModel(this, file as DirectoryInfo);
+            vm = new DirectoryModel(this, dinfo);
             Size = null;
             IconName = "folder";
         }

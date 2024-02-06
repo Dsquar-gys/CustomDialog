@@ -16,16 +16,16 @@ public class WrapPanelTemplate : IDataTemplate
 {
     public Control? Build(object? param)
     {
-        var vm = param as BodyViewModel;
+        BodyViewModel? vm;
         var wpanel = new ScrollViewer
         {
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
             Content = new ListBox
             {
-                [!ListBox.ItemsSourceProperty] = new Binding(nameof(vm.DirectoryContent)),
-                [!ListBox.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
-                ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, namescope) =>
+                [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.DirectoryContent)),
+                [!SelectingItemsControl.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
+                ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, _) =>
                     new StackPanel
                     {
                         Children =
@@ -48,7 +48,7 @@ public class WrapPanelTemplate : IDataTemplate
                     }),
                 ItemsPanel = new FuncTemplate<Panel?>(() => new WrapPanel
                 {
-                    [!WrapPanel.MaxWidthProperty] = new Binding("$parent[4].Bounds.Width")
+                    [!Layoutable.MaxWidthProperty] = new Binding("$parent[4].Bounds.Width")
                 }),
                 Styles =
                 {
@@ -56,10 +56,10 @@ public class WrapPanelTemplate : IDataTemplate
                     {
                         Setters =
                         {
-                            new Setter(ListBoxItem.WidthProperty, 150d),
-                            new Setter(ListBoxItem.HorizontalAlignmentProperty, HorizontalAlignment.Left),
-                            new Setter(ListBoxItem.MarginProperty, new Thickness(5d)),
-                            new Setter(ListBoxItem.BackgroundProperty, Brushes.Transparent)
+                            new Setter(Layoutable.WidthProperty, 150d),
+                            new Setter(Layoutable.HorizontalAlignmentProperty, HorizontalAlignment.Left),
+                            new Setter(Layoutable.MarginProperty, new Thickness(5d)),
+                            new Setter(TemplatedControl.BackgroundProperty, Brushes.Transparent)
                         }
                     }
                 }
@@ -69,8 +69,5 @@ public class WrapPanelTemplate : IDataTemplate
         return wpanel;
     }
 
-    public bool Match(object? data)
-    {
-        return data is BodyViewModel;
-    }
+    public bool Match(object? data) => data is BodyViewModel;
 }
