@@ -8,15 +8,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Working header's radio buttons for body style change">
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/DirectoryModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/DataGridTemplate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/WrapPanelTemplate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/DirectoryViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/FileEntityViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/FileViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" afterDir="false" />
@@ -61,7 +76,8 @@
     ".NET Project.CustomDialog.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "XThreadsFramesViewSplitterKey": "0.44957983",
+    "git-widget-placeholder": "dev-isvm",
     "last_opened_file_path": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -251,7 +267,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -273,5 +301,37 @@
     <MESSAGE value="Icon converter for imagable objects" />
     <MESSAGE value="Working header's radio buttons for body style change" />
     <option name="LAST_COMMIT_MESSAGE" value="Working header's radio buttons for body style change" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs</url>
+          <line>43</line>
+          <properties documentPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" initialLine="43" containingFunctionPresentation="Property 'SelectedStyle'">
+            <startOffsets>
+              <option value="1122" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1144" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs</url>
+          <line>44</line>
+          <properties documentPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" initialLine="44" containingFunctionPresentation="Property 'SelectedStyle'">
+            <startOffsets>
+              <option value="1153" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1213" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

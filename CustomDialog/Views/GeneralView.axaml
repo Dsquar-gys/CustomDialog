@@ -34,14 +34,19 @@
             </StackPanel>
             <ListBox Grid.Column="1"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
-                     SelectionMode="Single">
-                <ListBoxItem IsSelected="{Binding BodyVM.Plated}">
-                    <Image Source="/Assets/Icons/plates.png"/>
-                </ListBoxItem>
-                <Image Source="/Assets/Icons/list.png"/>
+                     SelectionMode="Single"
+                     ItemsSource="{Binding TemplateStyles}"
+                     SelectedItem="{Binding BodyVM.SelectedStyle}">
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding ., Converter={StaticResource ImagableConverter}}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                
                 <ListBox.Styles>
                     <Style Selector="ListBoxItem">
-                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="Margin" Value="1, 3"/>
                         <Setter Property="Padding" Value="7" />
                     </Style>
                 </ListBox.Styles>

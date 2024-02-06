@@ -19,85 +19,17 @@
     <Border Background="Gainsboro"
             Margin="5"
             CornerRadius="10">
-        <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Auto"
-                      Name="Scroll">
-            <Grid>
+        <ContentControl Content="{Binding .}"
+                        ContentTemplate="{Binding SelectedStyle.LocalDataTemplate}">
             
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+            <i:Interaction.Behaviors>
+                <iac:EventTriggerBehavior EventName="DoubleTapped">
+                    <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
+                                             CommandParameter="{Binding SelectedFileEntity}"/>
+                </iac:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
             
-                <TextBox Grid.Row="0" 
-                         Text="{Binding Name}" />
-            
-                <ListBox Grid.Row="1"
-                         ItemsSource="{Binding DirectoryContent}"
-                         SelectedItem="{Binding SelectedFileEntity}"
-                         Classes.Plated="{Binding Plated}"
-                         Classes.Tabled="{Binding !Plated}">
-                    
-                    <i:Interaction.Behaviors>
-                        <iac:EventTriggerBehavior EventName="DoubleTapped">
-                            <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
-                                                     CommandParameter="{Binding SelectedFileEntity}"/>
-                        </iac:EventTriggerBehavior>
-                    </i:Interaction.Behaviors>
-                    
-                    <ListBox.Styles>
-                        <Style Selector="ListBoxItem">
-                            <Setter Property="Width" Value="150" />
-                            <Setter Property="HorizontalAlignment" Value="Left"/>
-                            <Setter Property="Margin" Value="5"/>
-                            <Setter Property="Background" Value="Transparent"/>
-                        </Style>
-                        <Style Selector="ListBox.Plated">
-                            <Setter Property="ItemsPanel">
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Horizontal"
-                                               MaxWidth="{Binding $parent[TransitioningContentControl].Bounds.Width}"/>
-                                </ItemsPanelTemplate>
-                            </Setter>
-                            <Setter Property="ItemTemplate">
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <Image x:DataType="entities:FileEntityViewModel"
-                                               Source="{Binding Converter={StaticResource ImagableConverter}}"
-                                               Width="75"/>
-                                        <TextBlock x:DataType="entities:FileEntityViewModel"
-                                                   Text="{Binding Title}"
-                                                   HorizontalAlignment="Center"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Setter>
-                        </Style>
-                        <Style Selector="ListBox.Tabled">
-                            <Setter Property="ItemsPanel">
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Vertical"
-                                               MaxHeight="{Binding $parent[TransitioningContentControl].Bounds.Height}"/>
-                                </ItemsPanelTemplate>
-                            </Setter>
-                            <Setter Property="ItemTemplate">
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image x:DataType="entities:FileEntityViewModel"
-                                               Source="{Binding Converter={StaticResource ImagableConverter}}"
-                                               Width="50"/>
-                                        <TextBlock x:DataType="entities:FileEntityViewModel"
-                                                   Text="{Binding Title}"
-                                                   HorizontalAlignment="Center"
-                                                   VerticalAlignment="Center"
-                                                   Margin="3,0"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </Setter>
-                        </Style>
-                    </ListBox.Styles>
-                </ListBox>
-            </Grid>
-        </ScrollViewer>
+        </ContentControl>
     </Border>
     
 </UserControl>
