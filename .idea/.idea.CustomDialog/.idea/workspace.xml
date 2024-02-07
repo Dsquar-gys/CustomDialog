@@ -7,15 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Proper ISpecificFileViewModel.cs implementation">
+    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="SpecificFileViewModel.TryToCreateFileEntry implementation">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/DataGridTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/DataGridTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" afterDir="false" />
@@ -70,7 +70,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f21da65c538965becaa88f01977dc549cd9e47d5b7c41263e55fff53973ad3/Visual.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f963a2a29ea2bb2d4ad8737293b45c4edbd94e55219dc42cf68343d6d91d9/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/App.axaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/ViewModels/BodyViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -145,7 +147,7 @@
       <workItem from="1706177951902" duration="14174000" />
       <workItem from="1706269184326" duration="13135000" />
       <workItem from="1706528264570" duration="10753000" />
-      <workItem from="1707302698098" duration="3787000" />
+      <workItem from="1707302698098" duration="4794000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -283,7 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707306146888</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="AccessTime + CreationTime for FileEntityModel.cs">
+      <option name="closed" value="true" />
+      <created>1707306533687</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707306533687</updated>
+    </task>
+    <task id="LOCAL-00019" summary="SpecificFileViewModel.TryToCreateFileEntry implementation">
+      <option name="closed" value="true" />
+      <created>1707306854951</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707306854951</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +348,8 @@
     <MESSAGE value="Working header's radio buttons for body style change" />
     <MESSAGE value="Overwriting ISpecificFileViewModel.cs" />
     <MESSAGE value="Proper ISpecificFileViewModel.cs implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proper ISpecificFileViewModel.cs implementation" />
+    <MESSAGE value="AccessTime + CreationTime for FileEntityModel.cs" />
+    <MESSAGE value="SpecificFileViewModel.TryToCreateFileEntry implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="SpecificFileViewModel.TryToCreateFileEntry implementation" />
   </component>
 </project>

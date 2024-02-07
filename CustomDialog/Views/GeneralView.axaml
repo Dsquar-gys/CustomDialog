@@ -75,13 +75,19 @@
         </Grid>
         <!-- Body -->
         <Grid Grid.Row="1"
-              ColumnDefinitions="Auto, *"
               Background="DarkGray">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="150" Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition MinWidth="250" Width="*" />
+            </Grid.ColumnDefinitions>
+            
             <!-- Sidebar (Tree) -->
             <ScrollViewer VerticalScrollBarVisibility="Auto"
                           HorizontalScrollBarVisibility="Auto"
-                          Grid.Column="0"
-                          MaxWidth="200">
+                          HorizontalContentAlignment="Left"
+                          Grid.Column="0">
                 <TreeView ItemsSource="{Binding Nodes}"
                           SelectionMode="Single"
                           SelectedItem="{Binding SelectedNode}"
@@ -122,8 +128,10 @@
                     </TreeView.Styles>
                 </TreeView>
             </ScrollViewer>
+            <GridSplitter Grid.Column="1"
+                          ShowsPreview="True" />
             <!-- Main area -->
-            <Border Grid.Column="1"
+            <Border Grid.Column="2"
                     Background="LightGray">
                 <TransitioningContentControl Content="{Binding BodyVM}"/>
             </Border>
