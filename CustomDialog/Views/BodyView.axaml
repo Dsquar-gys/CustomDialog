@@ -19,7 +19,7 @@
             Margin="5"
             CornerRadius="10">
         <ContentControl Content="{Binding .}"
-                        ContentTemplate="{Binding SelectedStyle.LocalDataTemplate}">
+                        ContentTemplate="{Binding SelectedStyle}">
             
             <i:Interaction.Behaviors>
                 <iac:EventTriggerBehavior EventName="DoubleTapped">

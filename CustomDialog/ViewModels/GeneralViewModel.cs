@@ -1,6 +1,8 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
+using CustomDialog.Models;
 using CustomDialog.Models.Nodes;
 using CustomDialog.Views.BodyTemplates;
 using ReactiveUI;
@@ -16,15 +18,15 @@ public class GeneralViewModel : ViewModelBase
     #endregion
     
     #region Properties
-    
-    public BodyViewModel BodyVM { get; }
-    public ObservableCollection<Node> Nodes{ get; }
 
-    public ObservableCollection<SpecificFileViewModel> TemplateStyles =>
-    [
-        new SpecificFileViewModel(new WrapPanelTemplate(), null, "plates"),
-        new SpecificFileViewModel(new DataGridTemplate(), null, "grid")
-    ];
+    public BodyViewModel BodyVM { get; }
+    public StyleBox StyleSelectorBox => new( 
+        [
+            new StyleSelector(new WrapPanelTemplate(), "plates"),
+            new StyleSelector(new DataGridTemplate(), "grid")
+        ]);
+
+    public ObservableCollection<Node> Nodes { get; }
 
     public ClickableNode SelectedNode
     {
@@ -47,10 +49,10 @@ public class GeneralViewModel : ViewModelBase
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
             ])
         };
-
-        BodyVM = new()
+        
+        BodyVM = new BodyViewModel
         {
-            SelectedStyle = TemplateStyles[0]
+            SelectedStyle = new EmptyTemplate()
         };
     }
 }

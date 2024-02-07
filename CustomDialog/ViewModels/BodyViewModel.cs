@@ -5,10 +5,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using CustomDialog.Models;
 using CustomDialog.Models.Entities;
 using CustomDialog.Models.Interfaces;
 using CustomDialog.ViewModels.Commands;
 using CustomDialog.ViewModels.History;
+using CustomDialog.Views.BodyTemplates;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -24,13 +26,13 @@ public class BodyViewModel : ViewModelBase
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
     private ObservableCollection<FileEntityModel> _directoryContent = new();
-    private ISpecificFileViewModel _selectedStyle;
+    private BodyTemplate? _selectedStyle;
 
     #endregion
     
     #region Properties
 
-    public ISpecificFileViewModel SelectedStyle
+    public BodyTemplate? SelectedStyle
     {
         get => _selectedStyle;
         set => this.RaiseAndSetIfChanged(ref _selectedStyle, value);
@@ -174,7 +176,6 @@ public class BodyViewModel : ViewModelBase
         {
             Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
             ObservableCollection<FileEntityModel> pulling = new();
-            FileEntityModel? _entity;
             
             foreach (var directory in directoryInfo.EnumerateDirectories())
             {
@@ -183,8 +184,7 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                if (SelectedStyle.TryToCreateFileEntry(directory, out _entity))
-                    pulling.Add(_entity);
+                pulling.Add(new DirectoryModel(directory));
             }
 
             foreach (var file in directoryInfo.EnumerateFiles())
@@ -194,8 +194,7 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                if (SelectedStyle.TryToCreateFileEntry(file, out _entity))
-                    pulling.Add(_entity);
+                pulling.Add(new FileModel(file));
             }
 
             return pulling;
