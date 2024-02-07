@@ -23,8 +23,7 @@ public class GeneralViewModel : ViewModelBase
     public ObservableCollection<SpecificFileViewModel> TemplateStyles =>
     [
         new SpecificFileViewModel(new WrapPanelTemplate(), null, "plates"),
-        new SpecificFileViewModel(new DataGridTemplate(), null, "grid"),
-        new SpecificFileViewModel(null, null, "kek")
+        new SpecificFileViewModel(new DataGridTemplate(), null, "grid")
     ];
 
     public ClickableNode SelectedNode
