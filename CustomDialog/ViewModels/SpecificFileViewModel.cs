@@ -1,14 +1,16 @@
 using System.IO;
 using System.Windows.Input;
 using Avalonia.Controls.Templates;
+using Avalonia.Markup.Xaml.Templates;
 using CustomDialog.Models.Entities;
 using CustomDialog.Models.Interfaces;
+using CustomDialog.Views.BodyTemplates;
 
 namespace CustomDialog.ViewModels;
 
-public class SpecificFileViewModel(IDataTemplate template, ICommand command, string iconName) : ISpecificFileViewModel
+public class SpecificFileViewModel(BodyTemplate? template, ICommand? command, string iconName) : ISpecificFileViewModel
 {
-    public IDataTemplate? LocalDataTemplate { get; } = template;
+    public IDataTemplate? LocalDataTemplate { get; } = template ?? new EmptyTemplate();
     public ICommand? Command { get; } = command;
     public string IconName { get; } = iconName;
 
@@ -16,7 +18,7 @@ public class SpecificFileViewModel(IDataTemplate template, ICommand command, str
     {
         vm = null!;
         
-        if (LocalDataTemplate is null)
+        if (LocalDataTemplate is EmptyTemplate)
             return false;
 
         if (file is FileInfo fileInfo)

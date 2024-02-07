@@ -7,9 +7,9 @@ using CustomDialog.ViewModels;
 
 namespace CustomDialog.Views.BodyTemplates;
 
-public class DataGridTemplate : IDataTemplate
+public class DataGridTemplate : BodyTemplate
 {
-    public Control Build(object? param)
+    public override Control Build(object? param)
     {
         var vm = param as BodyViewModel;
         var grid = new DataGrid
@@ -58,5 +58,5 @@ public class DataGridTemplate : IDataTemplate
         return grid;
     }
 
-    public bool Match(object? data) => data is BodyViewModel;
+    public override bool Match(object? data) => data is BodyViewModel;
 }

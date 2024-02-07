@@ -12,9 +12,9 @@ using CustomDialog.ViewModels;
 
 namespace CustomDialog.Views.BodyTemplates;
 
-public class WrapPanelTemplate : IDataTemplate
+public class WrapPanelTemplate : BodyTemplate
 {
-    public Control Build(object? param)
+    public override Control Build(object? param)
     {
         BodyViewModel? vm;
         var wpanel = new ScrollViewer
@@ -68,5 +68,5 @@ public class WrapPanelTemplate : IDataTemplate
         return wpanel;
     }
 
-    public bool Match(object? data) => data is BodyViewModel;
+    public override bool Match(object? data) => data is BodyViewModel;
 }
