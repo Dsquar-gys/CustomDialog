@@ -30,6 +30,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-isvm" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -90,7 +95,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.44957983",
-    "git-widget-placeholder": "dev-isvm",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
