@@ -1,18 +1,12 @@
 namespace CustomDialog.ViewModels.History;
 
-public class DirectoryNode
+public class DirectoryNode(string directoryPath, string directoryPathName)
 {
     public DirectoryNode? PreviousNode { get; set; }
     public DirectoryNode? NextNode { get; set; }
     
-    public string DirectoryPath { get; }
-    public string DirectoryPathName { get; }
-
-    public DirectoryNode(string directoryPath, string directoryPathName)
-    {
-        DirectoryPath = directoryPath;
-        DirectoryPathName = directoryPathName;
-    }
+    public string DirectoryPath { get; } = directoryPath;
+    public string DirectoryPathName { get; } = directoryPathName;
 
     public override bool Equals(object? obj)
     {

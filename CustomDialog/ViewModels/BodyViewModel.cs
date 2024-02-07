@@ -5,11 +5,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
-using CustomDialog.Models;
 using CustomDialog.Models.Entities;
+using CustomDialog.Models.Interfaces;
 using CustomDialog.ViewModels.Commands;
 using CustomDialog.ViewModels.History;
-using CustomDialog.Views.DataTemplates;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -18,40 +17,31 @@ public class BodyViewModel : ViewModelBase
 {
     #region Private Fields
 
-    private string _filePath;
-    private string _name;
+    private string? _filePath;
+    private string? _name;
     private FileEntityModel _selectedFileEntity;
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
     private ObservableCollection<FileEntityModel> _directoryContent = new();
-    private TemplateStyle _currentTemplateStyle;
+    private ISpecificFileViewModel _selectedStyle;
 
     #endregion
     
     #region Properties
 
-    public TemplateStyle CurrentTemplateStyle
+    public ISpecificFileViewModel SelectedStyle
     {
-        get => _currentTemplateStyle;
-        set
-        {
-            SpecificFileViewModel.CommonTemplate = value switch
-            {
-                TemplateStyle.WrapPanel => new WrapPanelTemplate(),
-                TemplateStyle.Table => new TableTemplate(),
-                TemplateStyle.Grid => new GridTemplate(),
-                _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Unknown Template Style")
-            };
-            this.RaiseAndSetIfChanged(ref _currentTemplateStyle, value);
-        }
+        get => _selectedStyle;
+        set => this.RaiseAndSetIfChanged(ref _selectedStyle, value);
     }
-    public string Name
+    
+    public string? Name
     {
         get => _name;
         set => this.RaiseAndSetIfChanged(ref _name, value);
     }
-    public string FilePath
+    public string? FilePath
     {
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
@@ -90,8 +80,6 @@ public class BodyViewModel : ViewModelBase
         MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
         MoveForwardCommand = new DelegateCommand(OnMoveForward, OnCanMoveForward);
         
-        SpecificFileViewModel.CommonTemplate = new WrapPanelTemplate();
-        
         Name = _history.Current.DirectoryPathName;
         FilePath = _history.Current.DirectoryPath;
         
@@ -100,7 +88,7 @@ public class BodyViewModel : ViewModelBase
         _token = _tokenSource.Token;
     }
     
-    #region Command Methods
+    #region Commands Methods
 
     private void ChangeSelected(object parameter)
     {
@@ -195,8 +183,7 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-
-                if (new SpecificFileViewModel().TryToCreateFileEntry(directory, out _entity))
+                if (SelectedStyle.TryToCreateFileEntry(directory, out _entity))
                     pulling.Add(_entity);
             }
 
@@ -207,7 +194,7 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                if (new SpecificFileViewModel().TryToCreateFileEntry(file, out _entity))
+                if (SelectedStyle.TryToCreateFileEntry(file, out _entity))
                     pulling.Add(_entity);
             }
 

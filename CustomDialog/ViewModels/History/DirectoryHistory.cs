@@ -26,7 +26,7 @@ internal class DirectoryHistory : IDirectoryHistory
 
     #region Constructor
 
-    public DirectoryHistory(string directoryPath, string directoryPathName)
+    private DirectoryHistory(string directoryPath, string directoryPathName)
     {
         var head = new DirectoryNode(directoryPath, directoryPathName);
         Current = head;
@@ -40,7 +40,7 @@ internal class DirectoryHistory : IDirectoryHistory
     {
         var prev = Current.PreviousNode;
 
-        Current = prev;
+        Current = prev!;
 
         RaiseHistoryChanged();
     }
@@ -49,7 +49,7 @@ internal class DirectoryHistory : IDirectoryHistory
     {
         var next = Current.NextNode;
 
-        Current = next;
+        Current = next!;
 
         RaiseHistoryChanged();
     }
