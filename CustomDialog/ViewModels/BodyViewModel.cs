@@ -174,6 +174,7 @@ public class BodyViewModel : ViewModelBase
         {
             Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
             ObservableCollection<FileEntityModel> pulling = new();
+            FileEntityModel? _entity;
             
             foreach (var directory in directoryInfo.EnumerateDirectories())
             {
@@ -182,7 +183,8 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                pulling.Add(new DirectoryModel(directory));
+                if (SelectedStyle.TryToCreateFileEntry(directory, out _entity))
+                    pulling.Add(_entity);
             }
 
             foreach (var file in directoryInfo.EnumerateFiles())
@@ -192,7 +194,8 @@ public class BodyViewModel : ViewModelBase
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
-                pulling.Add(new FileModel(file));
+                if (SelectedStyle.TryToCreateFileEntry(file, out _entity))
+                    pulling.Add(_entity);
             }
 
             return pulling;
