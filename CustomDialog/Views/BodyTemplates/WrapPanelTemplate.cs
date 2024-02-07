@@ -7,14 +7,14 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Styling;
 using CustomDialog.Converters;
+using CustomDialog.Models.Entities;
 using CustomDialog.ViewModels;
-using CustomDialog.ViewModels.Entities;
 
 namespace CustomDialog.Views.BodyTemplates;
 
 public class WrapPanelTemplate : IDataTemplate
 {
-    public Control? Build(object? param)
+    public Control Build(object? param)
     {
         BodyViewModel? vm;
         var wpanel = new ScrollViewer
@@ -32,9 +32,8 @@ public class WrapPanelTemplate : IDataTemplate
                         {
                             new Image
                             {
-                                [!Image.SourceProperty] = new Binding
+                                [!Image.SourceProperty] = new Binding(".")
                                 {
-                                    Path = nameof(value),
                                     Converter = new ImagableConverter()
                                 },
                                 Width = 75,

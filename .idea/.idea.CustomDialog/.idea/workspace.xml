@@ -7,21 +7,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Working header's radio buttons for body style change">
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/DirectoryModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/DataGridTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/WrapPanelTemplate.cs" afterDir="false" />
+    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Converters/ImagableConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Converters/ImagableConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Entities/DirectoryModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/DirectoryModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/ImageHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/ImageHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/IImagable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/IImagable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ILoadable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ILoadable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Nodes/ClickableNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/DirectoryViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/FileEntityViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Entities/FileEntityModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Entities/FileViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/Commands/DelegateCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/Commands/DelegateCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/ViewModelBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/ViewModelBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/DataGridTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/DataGridTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/WrapPanelTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/WrapPanelTemplate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
@@ -31,7 +38,6 @@
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/CustomDialog.sourcelink.json" afterDir="false" />
@@ -50,16 +56,44 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/67d798838f534f8da38ced1ba32d39251b0a00/92/3d272f3b/KnownColor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7146bb373e41476a8a582ddb942308ece400/6f/d7bcc2ce/ICommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ab410d6c5f04e9ab2271c7ab482daafbb800/3e/1cc67393/!AvaloniaResources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/18/44b00975/FileInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/2a/590d015b/PortableThreadPool.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/65/967b5f97/RuntimeHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/96/c04867a9/DirectoryInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/98/94c04228/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/b6/c1554974/Environment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/b9/3b2918a4/ThreadPoolWorkQueue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/c5/d96d6700/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/92bd86a637a3450aa3b133edd8991900c2d000/c9/019cd4f6/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9300c5e95ef147aebd94c5b41dcb01d81633d0/60/1a2358a1/ISubject`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/11af8f98c443d1a15dafaafbe21ee24e91ec83bccda0db8db8d85f9782f92ead/Interactive.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17e74ab61fe0ba52377e6be4626e748b457547f6bc2e4353acda3221accd0/Subject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23405ca730adfd17d34adfee81444aec315bbc4ab37ee66b7dc8452dc222c4d/InputElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3a6cdc26ff4d30986a9a16b6bbc9bb6a7f2657431c82cde5c66dd377cf51e2b/ListBox.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/409cbfc595ab24b2b1e4ef5d337095fd49bee59162968f6af6a45fb1feb9f287/StyledElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/43ffa7117e2e338ce68fc4b2f97a93d1a798cb0bae39a27e523dc7180c1266/ItemsPanelTemplate.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c25a0b86fbd317f2d7efc298aa631fda3201575176f46640a9a8977/DataGridColumn.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/75232d8646724f1485d6289eb8585a1a1c4105499aaad329e39e513a0befa2b/TreeViewItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/86e7f7d5cebacb8f8e37f52cb9a1f6a4b8933239631e3d969a4bc881ae92f9/Brushes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e603e1a2fe71e657413e742fcb55db657cc79d7b65d1bf391e914175613efa/WrapPanel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/93f617dea942b0e3779693f37efc14f8c19db2db1128c23c7f7473bdf208d/TemplatedControl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/951231917ac0b79641945ac9af11df7333742b215159c96f26a5d6b29627d9/ItemsControl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9b699722324e3615b57977447b25bf953fccb2d6e912ae584f16b7e691ad9d3/Panel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a4c260671563b4798ddc32edc73e7cb07a6a9e79878a43055c4d6843621c0e9/Controls.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a8c1f9d857b555088a53492a7b57bcdea1d2ac7742d76445bd928e413c68b/SubjectBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b6e95f8fbccdac422642c729fef0b2acd2b5b642b9a7f2f6f4cf9630f054be/DataGrid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b9bec4144ad6dd2ff8a7b876e54057e6449dbe2d16f7a98b8e6576601be7fcab/ListBoxItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd5103d73c65faed580e2358d43cfb7b46bdb80132b9a5e918547bad6953c2/SelectingItemsControl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb4eb33225db88d35b077ce268112a06edd30467e44a3cabfccff375de28344/Layoutable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e6172642a63d07af8b8a14852f9bd837882683a2a3055bb63a49c2c218f846/Animatable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f1f393befee78fcf8978590157585dba96c29e4e5d62316305c4f2ffce86921/Grid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f21da65c538965becaa88f01977dc549cd9e47d5b7c41263e55fff53973ad3/Visual.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f963a2a29ea2bb2d4ad8737293b45c4edbd94e55219dc42cf68343d6d91d9/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/Views/BodyView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/Views/BodyView.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -134,6 +168,7 @@
       <workItem from="1706177951902" duration="14174000" />
       <workItem from="1706269184326" duration="13135000" />
       <workItem from="1706528264570" duration="10753000" />
+      <workItem from="1707302698098" duration="3048000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -255,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706538526815</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Overwriting ISpecificFileViewModel.cs">
+      <option name="closed" value="true" />
+      <created>1707237129163</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707237129163</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,36 +343,24 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.CustomDialog/.idea/workspace.xml" />
     <MESSAGE value="Icon converter for imagable objects" />
     <MESSAGE value="Working header's radio buttons for body style change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working header's radio buttons for body style change" />
+    <MESSAGE value="Overwriting ISpecificFileViewModel.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Overwriting ISpecificFileViewModel.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs</url>
-          <line>43</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" initialLine="43" containingFunctionPresentation="Property 'SelectedStyle'">
+          <url>file://$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/WrapPanelTemplate.cs</url>
+          <line>68</line>
+          <properties documentPath="$PROJECT_DIR$/CustomDialog/Views/BodyTemplates/WrapPanelTemplate.cs" initialLine="69" containingFunctionPresentation="Method 'Build'">
             <startOffsets>
-              <option value="1122" />
+              <option value="2668" />
             </startOffsets>
             <endOffsets>
-              <option value="1144" />
+              <option value="2669" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs</url>
-          <line>44</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" initialLine="44" containingFunctionPresentation="Property 'SelectedStyle'">
-            <startOffsets>
-              <option value="1153" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1213" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="61" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

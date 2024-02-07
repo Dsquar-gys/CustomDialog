@@ -1,19 +1,24 @@
-using CustomDialog.Models;
+using System.IO;
+using CustomDialog.Models.Interfaces;
+using CustomDialog.ViewModels;
 
-namespace CustomDialog.ViewModels.Entities;
+namespace CustomDialog.Models.Entities;
 
-public abstract class FileEntityModel : ViewModelBase, IImagable
+public abstract class FileEntityModel(FileSystemInfo fileSystemInfo) : ViewModelBase, IImagable
 {
-    public string Title { get; set; }
-    public string FullPath { get; set; }
-    public string IconName { get; }
-
-    protected FileEntityModel(string path, string? title = null, string? iconName = null)
+    private FileSystemInfo FileSystemInfo { get; } = fileSystemInfo;
+    public string Title => FileSystemInfo.Name;
+    public string FullPath => FileSystemInfo.FullName;
+    public string IconName { get; } = fileSystemInfo switch
     {
-        Title = title ?? path;
-        FullPath = path;
-        IconName = iconName;
+        FileInfo => "file",
+        DirectoryInfo => "folder",
+        _ => ImageHelper.DefaultIconName
+    };
 
-        string type = "";
-    }
+    public string Size { get; } = fileSystemInfo switch
+    {
+        FileInfo fileInfo => fileInfo.Length + " bytes",
+        _ => ""
+    };
 }

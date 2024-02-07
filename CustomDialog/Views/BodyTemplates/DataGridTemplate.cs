@@ -9,7 +9,7 @@ namespace CustomDialog.Views.BodyTemplates;
 
 public class DataGridTemplate : IDataTemplate
 {
-    public Control? Build(object? param)
+    public Control Build(object? param)
     {
         var vm = param as BodyViewModel;
         var grid = new DataGrid
@@ -34,24 +34,24 @@ public class DataGridTemplate : IDataTemplate
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
                     Binding = new Binding("IconName")
                 },
-                /*new DataGridTextColumn
+                new DataGridTextColumn
                 {
                     Header = "Created",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Svm.FileInfo.CreationTime")
+                    Binding = new Binding("FileSystemInfo.CreationTime")
                 },
                 new DataGridTextColumn
                 {
                     Header = "Modified",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Svm.FileInfo.LastAccessTime")
+                    Binding = new Binding("FileSystemInfo.LastAccessTime")
                 },
                 new DataGridTextColumn
                 {
                     Header = "Type",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Svm.Size")
-                }*/
+                    Binding = new Binding("Size")
+                }
             }
         };
 

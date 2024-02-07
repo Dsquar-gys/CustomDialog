@@ -28,7 +28,7 @@ public class HeaderButton : TemplatedControl
     public static readonly StyledProperty<object> CommandParameterProperty =
         AvaloniaProperty.Register<HeaderButton, object>(
             nameof(CommandParameter),
-            defaultValue: null);
+            defaultValue: null!);
     public object CommandParameter
     {
         get => GetValue(CommandParameterProperty);

@@ -1,3 +1,5 @@
+using CustomDialog.Models.Interfaces;
+
 namespace CustomDialog.Models.Nodes;
 
 public class ClickableNode : INode, ILoadable, IImagable

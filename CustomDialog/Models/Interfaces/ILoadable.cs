@@ -1,4 +1,4 @@
-namespace CustomDialog.Models;
+namespace CustomDialog.Models.Interfaces;
 
 public interface ILoadable
 {

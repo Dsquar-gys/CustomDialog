@@ -1,9 +1,5 @@
 using System.IO;
 
-namespace CustomDialog.ViewModels.Entities;
+namespace CustomDialog.Models.Entities;
 
-public sealed class FileModel : FileEntityModel
-{
-    public FileModel(string filePath, string fileName) : base(filePath, fileName, "file") {}
-    public FileModel(FileInfo file) : base(file.FullName, file.Name, "file") {}
-}
+public sealed class FileModel(FileInfo file) : FileEntityModel(file);

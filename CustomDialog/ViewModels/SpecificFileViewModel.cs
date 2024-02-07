@@ -1,20 +1,20 @@
 using System.IO;
 using System.Windows.Input;
 using Avalonia.Controls.Templates;
-using CustomDialog.Models;
-using CustomDialog.ViewModels.Entities;
+using CustomDialog.Models.Entities;
+using CustomDialog.Models.Interfaces;
 
 namespace CustomDialog.ViewModels;
 
 public class SpecificFileViewModel(IDataTemplate template, ICommand command, string iconName) : ISpecificFileViewModel
 {
     public IDataTemplate? LocalDataTemplate { get; } = template;
-    public ICommand Command { get; } = command;
+    public ICommand? Command { get; } = command;
     public string IconName { get; } = iconName;
 
     public bool TryToCreateFileEntry(FileSystemInfo? file, out FileEntityModel vm)
     {
-        vm = null;
+        vm = null!;
         
         if (LocalDataTemplate is null)
             return false;

@@ -2,5 +2,5 @@
 
 public class MainWindowViewModel : ViewModelBase
 {
-    public GeneralViewModel GVM => new();
+    public GeneralViewModel GeneralViewModel => new();
 }

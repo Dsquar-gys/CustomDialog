@@ -5,11 +5,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
-using CustomDialog.Models;
+using CustomDialog.Models.Entities;
+using CustomDialog.Models.Interfaces;
 using CustomDialog.ViewModels.Commands;
-using CustomDialog.ViewModels.Entities;
 using CustomDialog.ViewModels.History;
-using CustomDialog.Views.BodyTemplates;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -18,8 +17,8 @@ public class BodyViewModel : ViewModelBase
 {
     #region Private Fields
 
-    private string _filePath;
-    private string _name;
+    private string? _filePath;
+    private string? _name;
     private FileEntityModel _selectedFileEntity;
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
@@ -28,14 +27,6 @@ public class BodyViewModel : ViewModelBase
     private ISpecificFileViewModel _selectedStyle;
 
     #endregion
-
-    private bool _plated = true;
-
-    public bool Plated
-    {
-        get => _plated;
-        set => this.RaiseAndSetIfChanged(ref _plated, value);
-    }
     
     #region Properties
 
@@ -45,12 +36,12 @@ public class BodyViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _selectedStyle, value);
     }
     
-    public string Name
+    public string? Name
     {
         get => _name;
         set => this.RaiseAndSetIfChanged(ref _name, value);
     }
-    public string FilePath
+    public string? FilePath
     {
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);

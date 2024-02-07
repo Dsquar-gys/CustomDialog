@@ -1,11 +1,6 @@
 using System.IO;
-using CustomDialog.Models;
+using CustomDialog.Models.Interfaces;
 
-namespace CustomDialog.ViewModels.Entities;
+namespace CustomDialog.Models.Entities;
 
-public sealed class DirectoryModel : FileEntityModel, ILoadable
-{
-    public DirectoryModel(string dirPath, string dirName) : base(dirPath, dirName, "folder") {}
-
-    public DirectoryModel(DirectoryInfo directory) : base(directory.FullName, directory.Name, "folder") {}
-}
+public sealed class DirectoryModel(DirectoryInfo directory) : FileEntityModel(directory), ILoadable;
