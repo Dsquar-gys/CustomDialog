@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using CustomDialog.Models.Interfaces;
 using CustomDialog.ViewModels;
@@ -9,6 +10,8 @@ public abstract class FileEntityModel(FileSystemInfo fileSystemInfo) : ViewModel
     private FileSystemInfo FileSystemInfo { get; } = fileSystemInfo;
     public string Title => FileSystemInfo.Name;
     public string FullPath => FileSystemInfo.FullName;
+    public DateTime LastAccessTime => FileSystemInfo.LastAccessTime;
+    public DateTime CreationTime => FileSystemInfo.CreationTime;
     public string IconName { get; } = fileSystemInfo switch
     {
         FileInfo => "file",

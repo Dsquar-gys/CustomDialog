@@ -38,13 +38,13 @@ public class DataGridTemplate : IDataTemplate
                 {
                     Header = "Created",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("FileSystemInfo.CreationTime")
+                    Binding = new Binding("CreationTime")
                 },
                 new DataGridTextColumn
                 {
                     Header = "Modified",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("FileSystemInfo.LastAccessTime")
+                    Binding = new Binding("LastAccessTime")
                 },
                 new DataGridTextColumn
                 {
