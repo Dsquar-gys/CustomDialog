@@ -5,6 +5,7 @@ using System.Linq;
 using CustomDialog.Models;
 using CustomDialog.Models.Nodes;
 using CustomDialog.Views.BodyTemplates;
+using DynamicData.Binding;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -14,17 +15,23 @@ public class GeneralViewModel : ViewModelBase
     #region Private Fields
     
     private ClickableNode _selectedNode;
+    private StyleBox _styleSelectorBox = new( 
+    [
+        new StyleSelector(new WrapPanelTemplate(), "plates"),
+        new StyleSelector(new DataGridTemplate(), "grid")
+    ]);
     
     #endregion
     
     #region Properties
 
     public BodyViewModel BodyVM { get; }
-    public StyleBox StyleSelectorBox => new( 
-        [
-            new StyleSelector(new WrapPanelTemplate(), "plates"),
-            new StyleSelector(new DataGridTemplate(), "grid")
-        ]);
+
+    public StyleBox StyleSelectorBox
+    {
+        get => _styleSelectorBox;
+        set => this.RaiseAndSetIfChanged(ref _styleSelectorBox, value);
+    }
 
     public ObservableCollection<Node> Nodes { get; }
 
@@ -49,10 +56,9 @@ public class GeneralViewModel : ViewModelBase
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
             ])
         };
-        
-        BodyVM = new BodyViewModel
-        {
-            SelectedStyle = new EmptyTemplate()
-        };
+
+        BodyVM = new BodyViewModel();
+        StyleSelectorBox.WhenAnyValue(x => x.CurrentBodyTemplate)
+            .Subscribe(t => { BodyVM.SelectedStyle = t; });
     }
 }

@@ -35,17 +35,8 @@
             <ListBox Grid.Column="1"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
                      SelectionMode="Single"
-                     ItemsSource="{Binding StyleSelectorBox.StyleButtons}">
-                
-                <i:Interaction.Behaviors>
-                    <iac:EventTriggerBehavior EventName="SelectionChanged">
-                        <iac:InvokeCommandAction Command="{Binding StyleSelectorBox.Command}"
-                                                 CommandParameter="{Binding $self}"/>
-                        <iac:ChangePropertyAction TargetObject="{Binding BodyVM}"
-                                                  PropertyName="SelectedStyle" 
-                                                  Value="{Binding StyleSelectorBox.CurrentBodyTemplate}" />
-                    </iac:EventTriggerBehavior>
-                </i:Interaction.Behaviors>
+                     ItemsSource="{Binding StyleSelectorBox.StyleButtons}"
+                     SelectedItem="{Binding StyleSelectorBox.SelectedStyle}">
                 
                 <ListBox.ItemTemplate>
                     <DataTemplate>

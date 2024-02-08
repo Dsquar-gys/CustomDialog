@@ -7,16 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Cleanup">
-      <change afterPath="$PROJECT_DIR$/CustomDialog/Models/StyleSelector.cs" afterDir="false" />
+    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Models/Interfaces/ISpecificFileViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Models/TemplateStyle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Templated Controls/HeaderButton.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/GeneralViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/BodyView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialog/ViewModels/SpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/ViewModels/StyleBox.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog/bin/Debug/net8.0/CustomDialog.pdb" afterDir="false" />
@@ -41,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev-isvm" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,13 +78,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f1f393befee78fcf8978590157585dba96c29e4e5d62316305c4f2ffce86921/Grid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f21da65c538965becaa88f01977dc549cd9e47d5b7c41263e55fff53973ad3/Visual.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f963a2a29ea2bb2d4ad8737293b45c4edbd94e55219dc42cf68343d6d91d9/Control.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/App.axaml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/ViewModels/BodyViewModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/ViewModels/GeneralViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fcc4c6fc6457ca9d560149eee8d9664371e09d369975c017b3a5227d7d67eb/Observable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialog/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/obj/Debug/net8.0/CustomDialog.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -101,29 +91,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.CustomDialog.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "XThreadsFramesViewSplitterKey": "0.44957983",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.CustomDialog.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.44957983&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sfvm-completion&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/home/dmitrichenkoda@kvant-open.spb.ru/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/home/dmitrichenkoda@kvant-open.spb.ru/.config/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/home/dmitrichenkoda@kvant-open.spb.ru/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="CustomDialog" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -165,6 +155,7 @@
       <workItem from="1706269184326" duration="13135000" />
       <workItem from="1706528264570" duration="10753000" />
       <workItem from="1707302698098" duration="4794000" />
+      <workItem from="1707380383025" duration="4646000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -342,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707309292892</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Solo StyleBox">
+      <option name="closed" value="true" />
+      <created>1707320515735</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1707320515735</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,38 +393,7 @@
     <MESSAGE value="Merge with dev-isvm" />
     <MESSAGE value="Body templates inherit from abstract template&#10;Added Empty template for avoiding null reference exceptions" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs</url>
-          <line>37</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" initialLine="37" containingFunctionPresentation="Property 'SelectedStyle'">
-            <startOffsets>
-              <option value="1015" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1075" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs</url>
-          <line>36</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialog/ViewModels/BodyViewModel.cs" initialLine="36" containingFunctionPresentation="Property 'SelectedStyle'">
-            <startOffsets>
-              <option value="984" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1006" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Solo StyleBox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solo StyleBox" />
   </component>
 </project>
