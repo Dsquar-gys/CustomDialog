@@ -5,7 +5,7 @@ namespace CustomDialog.Views.BodyTemplates;
 
 public class EmptyTemplate : BodyTemplate
 {
-    public override Control? Build(object? param)
+    public override Control Build(object? param)
     {
         return new TextBlock
         {

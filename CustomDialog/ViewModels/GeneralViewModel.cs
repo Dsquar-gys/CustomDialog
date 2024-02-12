@@ -1,11 +1,13 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using Avalonia.Controls;
 using CustomDialog.Models;
 using CustomDialog.Models.Nodes;
+using CustomDialog.ViewModels.Commands;
 using CustomDialog.Views.BodyTemplates;
-using DynamicData.Binding;
 using ReactiveUI;
 
 namespace CustomDialog.ViewModels;
@@ -14,38 +16,51 @@ public class GeneralViewModel : ViewModelBase
 {
     #region Private Fields
     
-    private ClickableNode _selectedNode;
-    private StyleBox _styleSelectorBox = new( 
-    [
-        new StyleSelector(new WrapPanelTemplate(), "plates"),
-        new StyleSelector(new DataGridTemplate(), "grid")
-    ]);
-    
+    private ClickableNode? _selectedNode;
+
     #endregion
     
     #region Properties
 
     public BodyViewModel BodyVM { get; }
-
-    public StyleBox StyleSelectorBox
-    {
-        get => _styleSelectorBox;
-        set => this.RaiseAndSetIfChanged(ref _styleSelectorBox, value);
-    }
+    public StyleBox StyleSelectorBox { get; } = new( 
+    [
+        new StyleSelector(new WrapPanelTemplate(), "plates"),
+        new StyleSelector(new DataGridTemplate(), "grid")
+    ]);
 
     public ObservableCollection<Node> Nodes { get; }
-
-    public ClickableNode SelectedNode
+    public ClickableNode? SelectedNode
     {
         get => _selectedNode;
         set => this.RaiseAndSetIfChanged(ref _selectedNode, value);
     }
+
+    public List<FileDialogFilter> Filters => new()
+    {
+        new FileDialogFilter { Name = "All Files", Extensions = ["*"] },
+        new FileDialogFilter { Name = "Images", Extensions = ["*.png", "*.svg", "*.jpg"]},
+        new FileDialogFilter { Name = ".png", Extensions = ["*.png"] },
+        new FileDialogFilter { Name = ".svg", Extensions = ["*.svg"] },
+    };
     
     #endregion
 
+    #region Commands
+
+    public DelegateCommand FilterUpCommand => new (x =>
+    {
+        if (x is int index)
+        {
+            if (index != -1)
+                BodyVM.ChangeFilterCommand.Execute(Filters[index]);
+        }
+    });
+    
+    #endregion
+    
     public GeneralViewModel()
     {
-        // Nodes initialization
         Nodes = new ObservableCollection<Node>
         {
             new Node("Places", [
@@ -60,5 +75,7 @@ public class GeneralViewModel : ViewModelBase
         BodyVM = new BodyViewModel();
         StyleSelectorBox.WhenAnyValue(x => x.CurrentBodyTemplate)
             .Subscribe(t => { BodyVM.SelectedStyle = t; });
+
+        BodyVM.ChangeFilterCommand.Execute(Filters.FirstOrDefault());
     }
 }

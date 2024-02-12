@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Templates;
 using Avalonia.Data;
 using Avalonia.Layout;
 using CustomDialog.ViewModels;
@@ -18,7 +17,7 @@ public class DataGridTemplate : BodyTemplate
             SelectionMode = DataGridSelectionMode.Single,
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             [!Layoutable.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
-            [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.DirectoryContent)),
+            [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.OuterDirectoryContent)),
             [!DataGrid.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
             Columns =
             {

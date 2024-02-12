@@ -16,14 +16,14 @@ public class WrapPanelTemplate : BodyTemplate
 {
     public override Control Build(object? param)
     {
-        BodyViewModel? vm;
+        var vm = param as BodyViewModel;
         var wpanel = new ScrollViewer
         {
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
             Content = new ListBox
             {
-                [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.DirectoryContent)),
+                [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.OuterDirectoryContent)),
                 [!SelectingItemsControl.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
                 ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, _) =>
                     new StackPanel

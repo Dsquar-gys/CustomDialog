@@ -146,3 +146,5 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Reactive.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Responsive.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Xaml.Interactivity.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Controls.ItemsRepeater.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/FluentAvalonia.dll

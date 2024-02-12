@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Windows.Input;
-using Avalonia.Controls;
 using CustomDialog.Models;
 using CustomDialog.Models.Entities;
 using CustomDialog.Models.Interfaces;
-using CustomDialog.ViewModels.Commands;
 using CustomDialog.Views.BodyTemplates;
 using ReactiveUI;
 
@@ -30,12 +27,12 @@ public class StyleBox : ReactiveObject, ISpecificFileViewModel
         get => _currentBodyTemplate;
         set => this.RaiseAndSetIfChanged(ref _currentBodyTemplate, value);
     }
-    public ICommand Command => new DelegateCommand(x =>
-    { });
+    public ICommand? Command { get; }
     public ObservableCollection<StyleSelector> StyleButtons { get; }
 
-    public StyleBox(IEnumerable<StyleSelector> buttonCollection)
+    public StyleBox(IEnumerable<StyleSelector> buttonCollection, ICommand? command = null)
     {
+        Command = command;
         _selectedStyle = buttonCollection.FirstOrDefault();
         _currentBodyTemplate = SelectedStyle.StyleTemplate;
         StyleButtons = new(buttonCollection);
