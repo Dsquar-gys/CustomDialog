@@ -1,0 +1,236 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
+using Avalonia.Controls;
+using CustomDialogLibrary.BodyTemplates;
+using CustomDialogLibrary.Commands;
+using CustomDialogLibrary.Entities;
+using CustomDialogLibrary.History;
+using CustomDialogLibrary.Interfaces;
+using ReactiveUI;
+
+namespace DemoApp.ViewModels;
+
+public class BodyViewModel : ViewModelBase, IBody
+{
+    #region Private Fields
+
+    private string? _filePath;
+    private FileEntityModel? _selectedFileEntity;
+    private readonly IDirectoryHistory _history;
+    private CancellationTokenSource _tokenSource = new();
+    private CancellationToken _token;
+    private List<FileEntityModel> _fullDirectoryContent = new();
+    private ObservableCollection<FileEntityModel> _outerDirectoryContent = new();
+    private FileDialogFilter _filter;
+    private BodyTemplate? _currentStyle;
+
+    #endregion
+    
+    #region Properties
+
+    private FileDialogFilter Filter
+    {
+        get => _filter;
+        set => this.RaiseAndSetIfChanged(ref _filter, value);
+    }
+    
+    public BodyTemplate? CurrentStyle
+    {
+        get => _currentStyle;
+        set => this.RaiseAndSetIfChanged(ref _currentStyle, value);
+    }
+    
+    public string? FilePath
+    {
+        get => _filePath;
+        set => this.RaiseAndSetIfChanged(ref _filePath, value);
+    }
+
+    public List<FileEntityModel> FullDirectoryContent
+    {
+        get => _fullDirectoryContent;
+        private set
+        {
+            this.RaiseAndSetIfChanged( ref _fullDirectoryContent, value);
+            UpdateContent();
+        }
+    }
+    public ObservableCollection<FileEntityModel> OuterDirectoryContent
+    {
+        get => _outerDirectoryContent;
+        private set => this.RaiseAndSetIfChanged(ref _outerDirectoryContent, value);
+    }
+    public FileEntityModel? SelectedFileEntity
+    {
+        get => _selectedFileEntity;
+        set => this.RaiseAndSetIfChanged(ref _selectedFileEntity, value);
+    }
+
+    #endregion
+    
+    #region Commands
+
+    public DelegateCommand ChangeFilterCommand { get; }
+    
+    public DelegateCommand ChangeSelectedCommand { get; }
+    
+    public DelegateCommand OpenCommand { get; }
+
+    public DelegateCommand MoveBackCommand { get; }
+
+    public DelegateCommand MoveForwardCommand { get; }
+
+    #endregion
+
+    public BodyViewModel()
+    {
+        _history = DirectoryHistory.DefaultPage;
+
+        ChangeSelectedCommand = new DelegateCommand(ChangeSelected);
+        OpenCommand = new DelegateCommand(Open);
+        MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
+        MoveForwardCommand = new DelegateCommand(OnMoveForward, OnCanMoveForward);
+        ChangeFilterCommand = new DelegateCommand(ChangeFilter);
+        
+        FilePath = _history.Current.DirectoryPath;
+        
+        _history.HistoryChanged += History_HistoryChanged;
+        
+        _token = _tokenSource.Token;
+    }
+    
+    #region Commands Methods
+
+    private void ChangeFilter(object parameter)
+    {
+        if (parameter is FileDialogFilter filter)
+        {
+            Filter = filter;
+            Console.WriteLine("Filter changed in BodyVM");
+            UpdateContent();
+        }
+    }
+    
+    private void ChangeSelected(object parameter)
+    {
+        if (parameter is ILoadable directory)
+        {
+            FilePath = directory.FullPath;
+            _history.Add(directory.FullPath, directory.Title);
+        }
+    }
+    
+    private void Open(object parameter)
+    {
+        if (parameter is ILoadable loadable)
+        {
+            FilePath = loadable.FullPath;
+
+            OpenDirectoryAsync();
+        }
+
+        if (parameter is FileModel file)
+        {
+            Console.WriteLine("BodyViewModel --> Open --> File opening...");
+        }
+
+        if (parameter is TextBox textBox)
+        {
+            FilePath = textBox.Text;
+            
+            OpenDirectoryAsync();
+        }
+    }
+
+    private bool OnCanMoveForward(object obj) => _history.CanMoveForward;
+
+    private void OnMoveForward(object obj)
+    {
+        _history.MoveForward();
+
+        var current = _history.Current;
+
+        FilePath = current.DirectoryPath;
+    }
+
+    private bool OnCanMoveBack(object obj) => _history.CanMoveBack;
+
+    private void OnMoveBack(object obj)
+    {
+        _history.MoveBack();
+
+        var current = _history.Current;
+
+        FilePath = current.DirectoryPath;
+    }
+
+    #endregion
+    
+    #region Private Methods
+
+    private void UpdateContent()
+    {
+        string pattern = "(^$)" + new string(Filter.Extensions.SelectMany(x => "|(\\w" + x + ")").ToArray());
+        OuterDirectoryContent =
+            new (FullDirectoryContent.Where(x => Regex.IsMatch(x.Extension, pattern)));
+    }
+    
+    private void History_HistoryChanged(object sender, EventArgs e)
+    {
+        MoveBackCommand?.RaiseCanExecuteChanged();
+        MoveForwardCommand?.RaiseCanExecuteChanged();
+    }
+    
+    private async Task OpenDirectoryAsync()
+    {
+        Console.WriteLine("Start thread: {0}", Environment.CurrentManagedThreadId);
+        
+        await _tokenSource.CancelAsync();
+        FullDirectoryContent.Clear();
+        await Task.Delay(10);
+
+        _tokenSource = new();
+        _token = _tokenSource.Token;
+        
+        var directoryInfo = new DirectoryInfo(FilePath!);
+        // Task 2
+        await Task.Run(() =>
+        {
+            Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
+            List<FileEntityModel> pulling = new();
+            
+            foreach (var directory in directoryInfo.EnumerateDirectories())
+            {
+                if (_token.IsCancellationRequested)
+                {
+                    Console.WriteLine("Task cancelled");
+                    return pulling;
+                }
+                pulling.Add(new DirectoryModel(directory));
+            }
+
+            foreach (var file in directoryInfo.EnumerateFiles())
+            {
+                if (_token.IsCancellationRequested)
+                {
+                    Console.WriteLine("Task cancelled");
+                    return pulling;
+                }
+                pulling.Add(new FileModel(file));
+            }
+
+            return pulling;
+        }, _token).ContinueWith(x =>
+        {
+            FullDirectoryContent = new(x.Result);
+        }, TaskScheduler.FromCurrentSynchronizationContext());
+    }
+    
+    #endregion
+}

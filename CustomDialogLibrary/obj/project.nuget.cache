@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "V5ZrLKGnU9bzKraHwzMfwU2/aRcqx0dd911vOvR77NB0vfiM1xiH3TwLwiXX66t8kn3Q90mrNhFdRTHQRziiVQ==",
+  "success": true,
+  "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj",
+  "expectedPackageFiles": [
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia/11.0.9/avalonia.11.0.9.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.buildservices/0.0.29/avalonia.buildservices.0.0.29.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.datagrid/11.0.9/avalonia.controls.datagrid.11.0.9.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.reactiveui/11.0.9/avalonia.reactiveui.11.0.9.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.remote.protocol/11.0.9/avalonia.remote.protocol.11.0.9.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/dynamicdata/7.9.5/dynamicdata.7.9.5.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microcom.runtime/0.11.0/microcom.runtime.0.11.0.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/reactiveui/18.3.1/reactiveui.18.3.1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/splat/14.4.1/splat.14.4.1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.componentmodel.annotations/4.5.0/system.componentmodel.annotations.4.5.0.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.reactive/5.0.0/system.reactive.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
