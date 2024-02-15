@@ -8,7 +8,7 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        ImageHelper.SetPath(new Uri("avares://DemoApp/Assets/Icons"), "unknown");
+        ImageHelper.SetAssets(new Uri("avares://DemoApp/Assets/Icons"), "unknown");
         InitializeComponent();
     }
 }

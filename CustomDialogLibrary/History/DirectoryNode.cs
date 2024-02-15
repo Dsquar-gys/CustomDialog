@@ -16,4 +16,8 @@ public class DirectoryNode(string directoryPath, string directoryPathName)
 
         return false;
     }
+
+    public override int GetHashCode() => throw new NotImplementedException();
+
+    public static bool IsNull(DirectoryNode? node) => node == null;
 }

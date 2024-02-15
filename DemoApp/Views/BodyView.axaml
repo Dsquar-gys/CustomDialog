@@ -23,7 +23,7 @@
             
             <i:Interaction.Behaviors>
                 <iac:EventTriggerBehavior EventName="DoubleTapped">
-                    <iac:InvokeCommandAction Command="{Binding ChangeSelectedCommand}" 
+                    <iac:InvokeCommandAction Command="{Binding ChangeSelectedReactiveCommand}" 
                                              CommandParameter="{Binding SelectedFileEntity}"/>
                 </iac:EventTriggerBehavior>
             </i:Interaction.Behaviors>

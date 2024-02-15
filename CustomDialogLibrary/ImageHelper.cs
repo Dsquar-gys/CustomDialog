@@ -31,7 +31,7 @@ public static class ImageHelper
     public static Bitmap LoadFromResource(string resourcePath) =>
         LoadFromResource(new Uri(resourcePath));
 
-    public static void SetPath(Uri IconsUri, string DefaultImageName)
+    public static void SetAssets(Uri IconsUri, string DefaultImageName)
     {
         AssetsPath = IconsUri.OriginalString;
         DefaultIconName = DefaultImageName;

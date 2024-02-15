@@ -1,58 +1,52 @@
-using System.Collections;
+using ReactiveUI;
 
 namespace CustomDialogLibrary.History;
 
-public class DirectoryHistory : IDirectoryHistory
+public sealed class DirectoryHistory : HistoryBase
 {
-    #region Properties
-
-    public bool CanMoveBack => Current.PreviousNode != null;
-    public bool CanMoveForward => Current.NextNode != null;
+    #region Static Members
+    
     public static DirectoryHistory DefaultPage => 
         new (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
             "Home");
-
-    public DirectoryNode Current { get; private set; }
+    
+    #endregion
+    
+    #region Private Fields
+    
+    private DirectoryNode _current;
+    
+    #endregion
+    
+    #region Properties
+    
+    public override IObservable<bool> CanMoveBack { get; }
+    public override IObservable<bool> CanMoveForward { get; }
+    public override DirectoryNode Current
+    {
+        get => _current;
+        set => this.RaiseAndSetIfChanged(ref _current, value);
+    }
 
     #endregion
-
-    #region Events
-            
-    public event EventHandler? HistoryChanged;
-
-    #endregion
-
-    #region Constructor
 
     private DirectoryHistory(string directoryPath, string directoryPathName)
     {
         var head = new DirectoryNode(directoryPath, directoryPathName);
         Current = head;
+        
+        CanMoveBack = this.WhenAnyValue(x => x.Current.PreviousNode,
+            prevNode => !DirectoryNode.IsNull(prevNode));
+        
+        CanMoveForward = this.WhenAnyValue(x => x.Current.NextNode,
+            nextNode => !DirectoryNode.IsNull(nextNode));
     }
-
-    #endregion
 
     #region Public Methods
 
-    public void MoveBack()
-    {
-        var prev = Current.PreviousNode;
-
-        Current = prev!;
-
-        RaiseHistoryChanged();
-    }
-
-    public void MoveForward()
-    {
-        var next = Current.NextNode;
-
-        Current = next!;
-
-        RaiseHistoryChanged();
-    }
-
-    public void Add(string filePath, string name)
+    public override void MoveBack() => Current = Current.PreviousNode!;
+    public override void MoveForward() => Current = Current.NextNode!;
+    public override void Add(string filePath, string name)
     {
         var node = new DirectoryNode(filePath, name);
 
@@ -63,26 +57,7 @@ public class DirectoryHistory : IDirectoryHistory
         }
 
         Current = node;
-
-        RaiseHistoryChanged();
     }
-
-    #endregion
-        
-    #region Private Methods
-
-    private void RaiseHistoryChanged() => HistoryChanged?.Invoke(this, EventArgs.Empty);
-
-    #endregion
-
-    #region Enumerator
-
-    public IEnumerator<DirectoryNode> GetEnumerator()
-    {
-        yield return Current;
-    }
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
     #endregion
 }

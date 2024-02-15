@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LTa11oL43dZo8MgreaZpQBD1ug+eMuKzg4QmlwdT8h0kSrwZjXqWzcC+FFpNB2TDdly85dUYETtHeU8xNYUW5w==",
+  "dgSpecHash": "caaQCHNKKfc+xJM8jItkJgaPUvU7Rwji02/CSjjBUgb8KkPN+Z55w0jgY8UvcCFmb+A+V87tcKdvC1P5IBp+bQ==",
   "success": true,
   "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj",
   "expectedPackageFiles": [
@@ -93,7 +93,10 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/testableio.system.io.abstractions/20.0.4/testableio.system.io.abstractions.20.0.4.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/testableio.system.io.abstractions.wrappers/20.0.4/testableio.system.io.abstractions.wrappers.20.0.4.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/tmds.dbus.protocol/0.15.0/tmds.dbus.protocol.0.15.0.nupkg.sha512"
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/tmds.dbus.protocol/0.15.0/tmds.dbus.protocol.0.15.0.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/microsoft.netcore.app.ref.8.0.1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.1/microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.1/microsoft.netcore.app.host.linux-x64.8.0.1.nupkg.sha512"
   ],
   "logs": []
 }

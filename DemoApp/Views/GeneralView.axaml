@@ -26,12 +26,12 @@
               ColumnDefinitions="Auto, Auto, *, Auto">
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
-                <templatedControls:HeaderButton Classes="arrowLeft" 
+                <templatedControls:HeaderButton Classes="arrowLeft"
                                 Margin="5,0,0,0"
-                                Command="{Binding BodyVM.MoveBackCommand}"/>
+                                Command="{Binding BodyVM.MoveBackReactiveCommand}"/>
                 <templatedControls:HeaderButton Classes="arrowRight"
                                  Margin="0,0,5,0"
-                                 Command="{Binding BodyVM.MoveForwardCommand}"/>
+                                 Command="{Binding BodyVM.MoveForwardReactiveCommand}"/>
             </StackPanel>
             <ListBox Grid.Column="1"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
@@ -58,7 +58,7 @@
                      Margin="10,0">
                 <i:Interaction.Behaviors>
                     <iac:EventTriggerBehavior EventName="TextChanged">
-                        <iac:InvokeCommandAction Command="{Binding BodyVM.OpenCommand}" 
+                        <iac:InvokeCommandAction Command="{Binding BodyVM.OpenReactiveCommand}" 
                                                  CommandParameter="{Binding $self}"/>
                     </iac:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
@@ -96,7 +96,7 @@
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="Tapped">
-                            <iac:InvokeCommandAction Command="{Binding BodyVM.ChangeSelectedCommand}"
+                            <iac:InvokeCommandAction Command="{Binding BodyVM.ChangeSelectedReactiveCommand}"
                                                      CommandParameter="{Binding SelectedNode}"/>
                         </iac:EventTriggerBehavior>
                     </i:Interaction.Behaviors>

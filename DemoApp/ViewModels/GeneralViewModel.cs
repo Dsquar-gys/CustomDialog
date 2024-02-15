@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reactive;
 using Avalonia.Controls;
 using CustomDialogLibrary;
 using CustomDialogLibrary.BodyTemplates;
-using CustomDialogLibrary.Commands;
 using CustomDialogLibrary.Nodes;
 using ReactiveUI;
 
@@ -48,14 +48,7 @@ public class GeneralViewModel : ViewModelBase
 
     #region Commands
 
-    public DelegateCommand FilterUpCommand => new (x =>
-    {
-        if (x is int index)
-        {
-            if (index != -1)
-                BodyVM.ChangeFilterCommand.Execute(Filters[index]);
-        }
-    });
+    public ReactiveCommand<int, Unit> FilterUpCommand { get; }
     
     #endregion
     
@@ -63,7 +56,7 @@ public class GeneralViewModel : ViewModelBase
     {
         Nodes = new ObservableCollection<Node>
         {
-            new Node("Places", [
+            new("Places", [
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
                 new ClickableNode(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads"),"Download"),
@@ -72,10 +65,13 @@ public class GeneralViewModel : ViewModelBase
             ])
         };
 
+        FilterUpCommand = ReactiveCommand.Create<int>(x => 
+            BodyVM!.ChangeFilterReactiveCommand.Execute(Filters[x]).Subscribe());
+
         BodyVM = new BodyViewModel();
         StyleSelectorBox.WhenAnyValue(x => x.CurrentBodyTemplate)
             .Subscribe(t => { BodyVM.CurrentStyle = t; });
 
-        BodyVM.ChangeFilterCommand.Execute(Filters.FirstOrDefault());
+        BodyVM.ChangeFilterReactiveCommand.Execute(Filters.FirstOrDefault()).Subscribe();
     }
 }

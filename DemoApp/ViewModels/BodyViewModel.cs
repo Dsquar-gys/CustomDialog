@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reactive;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
-using CustomDialogLibrary.Commands;
 using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.History;
 using CustomDialogLibrary.Interfaces;
@@ -76,98 +76,72 @@ public class BodyViewModel : ViewModelBase, IBody
     
     #region Commands
 
-    public DelegateCommand ChangeFilterCommand { get; }
-    
-    public DelegateCommand ChangeSelectedCommand { get; }
-    
-    public DelegateCommand OpenCommand { get; }
-
-    public DelegateCommand MoveBackCommand { get; }
-
-    public DelegateCommand MoveForwardCommand { get; }
+    public ReactiveCommand<FileDialogFilter, Unit> ChangeFilterReactiveCommand { get; }
+    public ReactiveCommand<ILoadable, Unit> ChangeSelectedReactiveCommand { get; }
+    public ReactiveCommand<object?, Unit> OpenReactiveCommand { get; }
+    public ReactiveCommand<Unit, Unit> MoveBackReactiveCommand { get; }
+    public ReactiveCommand<Unit, Unit> MoveForwardReactiveCommand { get; }
 
     #endregion
 
     public BodyViewModel()
     {
         _history = DirectoryHistory.DefaultPage;
-
-        ChangeSelectedCommand = new DelegateCommand(ChangeSelected);
-        OpenCommand = new DelegateCommand(Open);
-        MoveBackCommand = new DelegateCommand(OnMoveBack, OnCanMoveBack);
-        MoveForwardCommand = new DelegateCommand(OnMoveForward, OnCanMoveForward);
-        ChangeFilterCommand = new DelegateCommand(ChangeFilter);
+        
+        ChangeSelectedReactiveCommand = ReactiveCommand.Create<ILoadable>(ChangeSelected);
+        OpenReactiveCommand = ReactiveCommand.Create<object?>(Open);
+        ChangeFilterReactiveCommand = ReactiveCommand.Create<FileDialogFilter>(ChangeFilter);
+        MoveBackReactiveCommand = ReactiveCommand.Create(OnMoveBack, _history.CanMoveBack);
+        MoveForwardReactiveCommand = ReactiveCommand.Create(OnMoveForward, _history.CanMoveForward);
         
         FilePath = _history.Current.DirectoryPath;
-        
-        _history.HistoryChanged += History_HistoryChanged;
         
         _token = _tokenSource.Token;
     }
     
     #region Commands Methods
 
-    private void ChangeFilter(object parameter)
+    private void ChangeFilter(FileDialogFilter filter)
     {
-        if (parameter is FileDialogFilter filter)
-        {
-            Filter = filter;
-            Console.WriteLine("Filter changed in BodyVM");
-            UpdateContent();
-        }
+        Filter = filter;
+        Console.WriteLine("Filter changed in BodyVM");
+        UpdateContent();
     }
     
-    private void ChangeSelected(object parameter)
+    private void ChangeSelected(ILoadable directory)
     {
-        if (parameter is ILoadable directory)
-        {
-            FilePath = directory.FullPath;
-            _history.Add(directory.FullPath, directory.Title);
-        }
+        FilePath = directory.FullPath;
+        _history.Add(directory.FullPath, directory.Title);
     }
     
-    private void Open(object parameter)
+    private void Open(object? sender)
     {
-        if (parameter is ILoadable loadable)
+        switch (sender)
         {
-            FilePath = loadable.FullPath;
-
-            OpenDirectoryAsync();
-        }
-
-        if (parameter is FileModel file)
-        {
-            Console.WriteLine("BodyViewModel --> Open --> File opening...");
-        }
-
-        if (parameter is TextBox textBox)
-        {
-            FilePath = textBox.Text;
-            
-            OpenDirectoryAsync();
+            case ILoadable loadable:
+                FilePath = loadable.FullPath;
+                OpenDirectoryAsync();
+                break;
+            case FileModel file:
+                Console.WriteLine("BodyViewModel --> Open --> File opening...");
+                break;
+            case TextBox textBox:
+                FilePath = textBox.Text;
+                OpenDirectoryAsync();
+                break;
         }
     }
 
-    private bool OnCanMoveForward(object obj) => _history.CanMoveForward;
-
-    private void OnMoveForward(object obj)
+    private void OnMoveForward()
     {
         _history.MoveForward();
-
-        var current = _history.Current;
-
-        FilePath = current.DirectoryPath;
+        FilePath = _history.Current.DirectoryPath;
     }
 
-    private bool OnCanMoveBack(object obj) => _history.CanMoveBack;
-
-    private void OnMoveBack(object obj)
+    private void OnMoveBack()
     {
         _history.MoveBack();
-
-        var current = _history.Current;
-
-        FilePath = current.DirectoryPath;
+        FilePath = _history.Current.DirectoryPath;
     }
 
     #endregion
@@ -176,15 +150,9 @@ public class BodyViewModel : ViewModelBase, IBody
 
     private void UpdateContent()
     {
-        string pattern = "(^$)" + new string(Filter.Extensions.SelectMany(x => "|(\\w" + x + ")").ToArray());
+        var pattern = "(^$)" + new string(Filter.Extensions.SelectMany(x => "|(\\w" + x + ")").ToArray());
         OuterDirectoryContent =
-            new (FullDirectoryContent.Where(x => Regex.IsMatch(x.Extension, pattern)));
-    }
-    
-    private void History_HistoryChanged(object sender, EventArgs e)
-    {
-        MoveBackCommand?.RaiseCanExecuteChanged();
-        MoveForwardCommand?.RaiseCanExecuteChanged();
+            new ObservableCollection<FileEntityModel>(FullDirectoryContent.Where(x => Regex.IsMatch(x.Extension, pattern)));
     }
     
     private async Task OpenDirectoryAsync()
@@ -203,7 +171,7 @@ public class BodyViewModel : ViewModelBase, IBody
         await Task.Run(() =>
         {
             Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
-            List<FileEntityModel> pulling = new();
+            List<FileEntityModel> pulling = [];
             
             foreach (var directory in directoryInfo.EnumerateDirectories())
             {
@@ -228,7 +196,7 @@ public class BodyViewModel : ViewModelBase, IBody
             return pulling;
         }, _token).ContinueWith(x =>
         {
-            FullDirectoryContent = new(x.Result);
+            FullDirectoryContent = [..x.Result];
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
     

@@ -1,18 +1,13 @@
+using ReactiveUI;
+
 namespace CustomDialogLibrary.History;
 
-public interface IDirectoryHistory : IEnumerable<DirectoryNode>
+public interface IDirectoryHistory
 {
-    bool CanMoveBack { get; }
-
-    bool CanMoveForward { get; }
-
+    IObservable<bool> CanMoveBack { get; }
+    IObservable<bool> CanMoveForward { get; }
     DirectoryNode Current { get; }
-
-    event EventHandler HistoryChanged;
-
     void MoveBack();
-
     void MoveForward();
-
     void Add(string filePath, string name);
 }
