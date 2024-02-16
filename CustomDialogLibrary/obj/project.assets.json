@@ -133,18 +133,18 @@
           }
         }
       },
-      "DynamicData/7.9.5": {
+      "DynamicData/8.3.27": {
         "type": "package",
         "dependencies": {
-          "System.Reactive": "5.0.0"
+          "System.Reactive": "6.0.0"
         },
         "compile": {
-          "lib/net6.0/DynamicData.dll": {
+          "lib/net8.0/DynamicData.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/DynamicData.dll": {
+          "lib/net8.0/DynamicData.dll": {
             "related": ".xml"
           }
         }
@@ -197,20 +197,20 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "System.Reactive/5.0.0": {
+      "System.Reactive/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net5.0/System.Reactive.dll": {
+          "lib/net6.0/System.Reactive.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/System.Reactive.dll": {
+          "lib/net6.0/System.Reactive.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net5.0/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       }
     }
@@ -474,25 +474,27 @@
         "lib/netstandard2.0/Avalonia.Remote.Protocol.xml"
       ]
     },
-    "DynamicData/7.9.5": {
-      "sha512": "xFwVha7o3qUtVYxco5p+7Urcztc/m1gmaEUxOG0i7LNe+vfCfyb0ECAsT2FLm3zOPHb0g8s9qVu5LfPKfRNVng==",
+    "DynamicData/8.3.27": {
+      "sha512": "m5PGnTbFCE04xrH3peeNtiHrXJM5Vxk6Sy9bwXm8ahZ+/ZavqYb8XstBD1GFqcU7g6f8YD3zPcI7XkkW3Y1Ang==",
       "type": "package",
-      "path": "dynamicdata/7.9.5",
+      "path": "dynamicdata/8.3.27",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE/LICENSE",
-        "dynamicdata.7.9.5.nupkg.sha512",
+        "README.md",
+        "dynamicdata.8.3.27.nupkg.sha512",
         "dynamicdata.nuspec",
         "lib/net462/DynamicData.dll",
         "lib/net462/DynamicData.xml",
         "lib/net6.0/DynamicData.dll",
         "lib/net6.0/DynamicData.xml",
+        "lib/net7.0/DynamicData.dll",
+        "lib/net7.0/DynamicData.xml",
+        "lib/net8.0/DynamicData.dll",
+        "lib/net8.0/DynamicData.xml",
         "lib/netstandard2.0/DynamicData.dll",
         "lib/netstandard2.0/DynamicData.xml",
-        "lib/uap10.0.16299/DynamicData.dll",
-        "lib/uap10.0.16299/DynamicData.pri",
-        "lib/uap10.0.16299/DynamicData.xml",
         "logo.png"
       ]
     },
@@ -662,32 +664,31 @@
         "version.txt"
       ]
     },
-    "System.Reactive/5.0.0": {
-      "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+    "System.Reactive/6.0.0": {
+      "sha512": "31kfaW4ZupZzPsI5PVe77VhnvFF55qgma7KZr/E0iFTs6fmdhhG8j0mgEx620iLTey1EynOkEfnyTjtNEpJzGw==",
       "type": "package",
-      "path": "system.reactive/5.0.0",
+      "path": "system.reactive/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/net5.0/_._",
-        "build/netcoreapp3.1/System.Reactive.dll",
-        "build/netcoreapp3.1/System.Reactive.targets",
-        "build/netcoreapp3.1/System.Reactive.xml",
-        "buildTransitive/net5.0/_._",
-        "buildTransitive/netcoreapp3.1/System.Reactive.targets",
+        "build/net6.0-windows10.0.19041/_._",
+        "build/net6.0/_._",
+        "buildTransitive/net6.0-windows10.0.19041/_._",
+        "buildTransitive/net6.0/_._",
+        "icon.png",
         "lib/net472/System.Reactive.dll",
         "lib/net472/System.Reactive.xml",
-        "lib/net5.0-windows10.0.19041/System.Reactive.dll",
-        "lib/net5.0-windows10.0.19041/System.Reactive.xml",
-        "lib/net5.0/System.Reactive.dll",
-        "lib/net5.0/System.Reactive.xml",
-        "lib/netcoreapp3.1/_._",
+        "lib/net6.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net6.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net6.0/System.Reactive.dll",
+        "lib/net6.0/System.Reactive.xml",
         "lib/netstandard2.0/System.Reactive.dll",
         "lib/netstandard2.0/System.Reactive.xml",
-        "lib/uap10.0.16299/System.Reactive.dll",
-        "lib/uap10.0.16299/System.Reactive.pri",
-        "lib/uap10.0.16299/System.Reactive.xml",
-        "system.reactive.5.0.0.nupkg.sha512",
+        "lib/uap10.0.18362/System.Reactive.dll",
+        "lib/uap10.0.18362/System.Reactive.pri",
+        "lib/uap10.0.18362/System.Reactive.xml",
+        "readme.md",
+        "system.reactive.6.0.0.nupkg.sha512",
         "system.reactive.nuspec"
       ]
     }
@@ -696,7 +697,8 @@
     "net8.0": [
       "Avalonia >= 11.0.9",
       "Avalonia.Controls.DataGrid >= 11.0.9",
-      "Avalonia.ReactiveUI >= 11.0.9"
+      "Avalonia.ReactiveUI >= 11.0.9",
+      "DynamicData >= 8.3.27"
     ]
   },
   "packageFolders": {
@@ -747,6 +749,10 @@
           "Avalonia.ReactiveUI": {
             "target": "Package",
             "version": "[11.0.9, )"
+          },
+          "DynamicData": {
+            "target": "Package",
+            "version": "[8.3.27, )"
           }
         },
         "imports": [

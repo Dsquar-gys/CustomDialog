@@ -10,7 +10,8 @@
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Controls.DataGrid": "11.0.9",
-          "Avalonia.ReactiveUI": "11.0.9"
+          "Avalonia.ReactiveUI": "11.0.9",
+          "DynamicData": "8.3.27"
         },
         "runtime": {
           "CustomDialogLibrary.dll": {}
@@ -83,7 +84,7 @@
         "dependencies": {
           "Avalonia": "11.0.9",
           "ReactiveUI": "18.3.1",
-          "System.Reactive": "5.0.0"
+          "System.Reactive": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Avalonia.ReactiveUI.dll": {
@@ -100,14 +101,14 @@
           }
         }
       },
-      "DynamicData/7.9.5": {
+      "DynamicData/8.3.27": {
         "dependencies": {
-          "System.Reactive": "5.0.0"
+          "System.Reactive": "6.0.0"
         },
         "runtime": {
-          "lib/net6.0/DynamicData.dll": {
-            "assemblyVersion": "7.9.0.0",
-            "fileVersion": "7.9.5.54039"
+          "lib/net8.0/DynamicData.dll": {
+            "assemblyVersion": "8.3.0.0",
+            "fileVersion": "8.3.27.26536"
           }
         }
       },
@@ -121,7 +122,7 @@
       },
       "ReactiveUI/18.3.1": {
         "dependencies": {
-          "DynamicData": "7.9.5",
+          "DynamicData": "8.3.27",
           "Splat": "14.4.1"
         },
         "runtime": {
@@ -140,11 +141,11 @@
         }
       },
       "System.ComponentModel.Annotations/4.5.0": {},
-      "System.Reactive/5.0.0": {
+      "System.Reactive/6.0.0": {
         "runtime": {
-          "lib/net5.0/System.Reactive.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.1"
+          "lib/net6.0/System.Reactive.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.1"
           }
         }
       }
@@ -191,12 +192,12 @@
       "path": "avalonia.remote.protocol/11.0.9",
       "hashPath": "avalonia.remote.protocol.11.0.9.nupkg.sha512"
     },
-    "DynamicData/7.9.5": {
+    "DynamicData/8.3.27": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xFwVha7o3qUtVYxco5p+7Urcztc/m1gmaEUxOG0i7LNe+vfCfyb0ECAsT2FLm3zOPHb0g8s9qVu5LfPKfRNVng==",
-      "path": "dynamicdata/7.9.5",
-      "hashPath": "dynamicdata.7.9.5.nupkg.sha512"
+      "sha512": "sha512-m5PGnTbFCE04xrH3peeNtiHrXJM5Vxk6Sy9bwXm8ahZ+/ZavqYb8XstBD1GFqcU7g6f8YD3zPcI7XkkW3Y1Ang==",
+      "path": "dynamicdata/8.3.27",
+      "hashPath": "dynamicdata.8.3.27.nupkg.sha512"
     },
     "MicroCom.Runtime/0.11.0": {
       "type": "package",
@@ -226,12 +227,12 @@
       "path": "system.componentmodel.annotations/4.5.0",
       "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
     },
-    "System.Reactive/5.0.0": {
+    "System.Reactive/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
-      "path": "system.reactive/5.0.0",
-      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
+      "sha512": "sha512-31kfaW4ZupZzPsI5PVe77VhnvFF55qgma7KZr/E0iFTs6fmdhhG8j0mgEx620iLTey1EynOkEfnyTjtNEpJzGw==",
+      "path": "system.reactive/6.0.0",
+      "hashPath": "system.reactive.6.0.0.nupkg.sha512"
     }
   }
 }

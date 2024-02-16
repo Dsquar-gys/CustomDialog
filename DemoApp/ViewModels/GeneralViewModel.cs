@@ -38,10 +38,10 @@ public class GeneralViewModel : ViewModelBase
 
     public List<FileDialogFilter> Filters => new()
     {
-        new FileDialogFilter { Name = "All Files", Extensions = ["*"] },
-        new FileDialogFilter { Name = "Images", Extensions = ["*.png", "*.svg", "*.jpg"]},
-        new FileDialogFilter { Name = ".png", Extensions = ["*.png"] },
-        new FileDialogFilter { Name = ".svg", Extensions = ["*.svg"] },
+        new FileDialogFilter { Name = "All Files", Extensions = [""] },
+        new FileDialogFilter { Name = "Images", Extensions = [".png", ".svg", ".jpg"]},
+        new FileDialogFilter { Name = ".png", Extensions = [".png"] },
+        new FileDialogFilter { Name = ".svg", Extensions = [".svg"] },
     };
     
     #endregion

@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Reactive;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -12,6 +10,7 @@ using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.History;
 using CustomDialogLibrary.Interfaces;
+using DynamicData;
 using ReactiveUI;
 
 namespace DemoApp.ViewModels;
@@ -25,8 +24,7 @@ public class BodyViewModel : ViewModelBase, IBody
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
-    private List<FileEntityModel> _fullDirectoryContent = new();
-    private ObservableCollection<FileEntityModel> _outerDirectoryContent = new();
+    private readonly ReadOnlyObservableCollection<FileEntityModel> _outerDirectoryContent;
     private FileDialogFilter _filter;
     private BodyTemplate? _currentStyle;
 
@@ -34,7 +32,7 @@ public class BodyViewModel : ViewModelBase, IBody
     
     #region Properties
 
-    private FileDialogFilter Filter
+    public FileDialogFilter Filter
     {
         get => _filter;
         set => this.RaiseAndSetIfChanged(ref _filter, value);
@@ -51,21 +49,12 @@ public class BodyViewModel : ViewModelBase, IBody
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
-
-    public List<FileEntityModel> FullDirectoryContent
-    {
-        get => _fullDirectoryContent;
-        private set
-        {
-            this.RaiseAndSetIfChanged( ref _fullDirectoryContent, value);
-            UpdateContent();
-        }
-    }
-    public ObservableCollection<FileEntityModel> OuterDirectoryContent
-    {
-        get => _outerDirectoryContent;
-        private set => this.RaiseAndSetIfChanged(ref _outerDirectoryContent, value);
-    }
+    
+    public ReadOnlyObservableCollection<FileEntityModel> OuterDirectoryContent => _outerDirectoryContent;
+    
+    public SourceCache<FileEntityModel, string> DirectoryData { get; } =
+        new(entity => entity.Title);
+    
     public FileEntityModel? SelectedFileEntity
     {
         get => _selectedFileEntity;
@@ -83,7 +72,7 @@ public class BodyViewModel : ViewModelBase, IBody
     public ReactiveCommand<Unit, Unit> MoveForwardReactiveCommand { get; }
 
     #endregion
-
+    
     public BodyViewModel()
     {
         _history = DirectoryHistory.DefaultPage;
@@ -96,7 +85,12 @@ public class BodyViewModel : ViewModelBase, IBody
         
         FilePath = _history.Current.DirectoryPath;
         
-        _token = _tokenSource.Token;
+        DirectoryData.Connect()
+            .Filter(x => Filter.Extensions.Contains(x.Extension) ||
+                         string.IsNullOrWhiteSpace(x.Extension) ||
+                         Filter.Extensions is [""])
+            .Bind(out _outerDirectoryContent)
+            .Subscribe();
     }
     
     #region Commands Methods
@@ -105,7 +99,8 @@ public class BodyViewModel : ViewModelBase, IBody
     {
         Filter = filter;
         Console.WriteLine("Filter changed in BodyVM");
-        UpdateContent();
+        
+        DirectoryData.Refresh();
     }
     
     private void ChangeSelected(ILoadable directory)
@@ -147,20 +142,13 @@ public class BodyViewModel : ViewModelBase, IBody
     #endregion
     
     #region Private Methods
-
-    private void UpdateContent()
-    {
-        var pattern = "(^$)" + new string(Filter.Extensions.SelectMany(x => "|(\\w" + x + ")").ToArray());
-        OuterDirectoryContent =
-            new ObservableCollection<FileEntityModel>(FullDirectoryContent.Where(x => Regex.IsMatch(x.Extension, pattern)));
-    }
     
     private async Task OpenDirectoryAsync()
     {
         Console.WriteLine("Start thread: {0}", Environment.CurrentManagedThreadId);
         
         await _tokenSource.CancelAsync();
-        FullDirectoryContent.Clear();
+        DirectoryData.Clear();
         await Task.Delay(10);
 
         _tokenSource = new();
@@ -196,7 +184,7 @@ public class BodyViewModel : ViewModelBase, IBody
             return pulling;
         }, _token).ContinueWith(x =>
         {
-            FullDirectoryContent = [..x.Result];
+            DirectoryData.AddOrUpdate(x.Result);
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
     

@@ -17,7 +17,8 @@ public class WrapPanelTemplate : BodyTemplate
     public override Control Build(object? param)
     {
         var vm = param as IBody;
-        var wpanel = new ScrollViewer
+        
+        var wrapPanel = new ScrollViewer
         {
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
@@ -40,7 +41,7 @@ public class WrapPanelTemplate : BodyTemplate
                             },
                             new TextBlock
                             {
-                                [!TextBlock.TextProperty] = new Binding("Title"),
+                                [!TextBlock.TextProperty] = new Binding(nameof(value.Title)),
                                 HorizontalAlignment = HorizontalAlignment.Center,
                             },
                         },
@@ -65,7 +66,7 @@ public class WrapPanelTemplate : BodyTemplate
             }
         };
 
-        return wpanel;
+        return wrapPanel;
     }
 
     public override bool Match(object? data) => data is IBody;

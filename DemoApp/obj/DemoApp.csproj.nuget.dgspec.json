@@ -49,6 +49,10 @@
             "Avalonia.ReactiveUI": {
               "target": "Package",
               "version": "[11.0.9, )"
+            },
+            "DynamicData": {
+              "target": "Package",
+              "version": "[8.3.27, )"
             }
           },
           "imports": [
@@ -154,6 +158,10 @@
             "Avalonia.Xaml.Interactivity": {
               "target": "Package",
               "version": "[11.0.6, )"
+            },
+            "DynamicData": {
+              "target": "Package",
+              "version": "[8.3.27, )"
             },
             "FluentAvaloniaUI": {
               "target": "Package",

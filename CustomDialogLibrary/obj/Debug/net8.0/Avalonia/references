@@ -11,7 +11,7 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia/11.0.9/ref/net6.0/Avalonia.OpenGL.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.reactiveui/11.0.9/lib/net6.0/Avalonia.ReactiveUI.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.remote.protocol/11.0.9/lib/net6.0/Avalonia.Remote.Protocol.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/dynamicdata/7.9.5/lib/net6.0/DynamicData.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/dynamicdata/8.3.27/lib/net8.0/DynamicData.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microcom.runtime/0.11.0/lib/net5.0/MicroCom.Runtime.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/Microsoft.CSharp.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/Microsoft.VisualBasic.Core.dll
@@ -102,7 +102,7 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/System.Numerics.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/System.Numerics.Vectors.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/System.ObjectModel.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.reactive/5.0.0/lib/net5.0/System.Reactive.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.reactive/6.0.0/lib/net6.0/System.Reactive.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/System.Reflection.DispatchProxy.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/System.Reflection.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/ref/net8.0/System.Reflection.Emit.dll
