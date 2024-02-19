@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reactive;
 using System.Threading;
@@ -41,6 +42,7 @@ public class BodyViewModel : ViewModelBase, IBody
         get => _currentStyle;
         set
         {
+            // Subscribe Template's collection to actual
             value!.LinkCollection(this);
             this.RaiseAndSetIfChanged(ref _currentStyle, value);
         }
@@ -137,8 +139,14 @@ public class BodyViewModel : ViewModelBase, IBody
                 OpenDirectoryAsync();
                 break;
             case FileModel file:
-                Console.WriteLine("BodyViewModel --> Open --> File opening...");
-                throw new NotImplementedException("File opening is not implemented yet");
+                // Run file in new window
+                using (var process = new Process())
+                {
+                    process.StartInfo.UseShellExecute = true;
+                    process.StartInfo.FileName = file.FullPath;
+                    process.StartInfo.CreateNoWindow = false;
+                    process.Start();
+                }
                 break;
             case TextBox textBox:
                 FilePath = textBox.Text;
