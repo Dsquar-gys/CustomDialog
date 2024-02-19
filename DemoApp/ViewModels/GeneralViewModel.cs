@@ -23,12 +23,7 @@ public class GeneralViewModel : ViewModelBase
     #region Properties
 
     public BodyViewModel BodyVM { get; }
-    public StyleBox StyleSelectorBox { get; } = new( 
-    [
-        new StyleSelector(new WrapPanelTemplate(), "plates"),
-        new StyleSelector(new DataGridTemplate(), "grid")
-    ]);
-
+    public StyleBox StyleSelectorBox { get; }
     public ObservableCollection<Node> Nodes { get; }
     public ClickableNode? SelectedNode
     {
@@ -69,6 +64,11 @@ public class GeneralViewModel : ViewModelBase
             BodyVM!.ChangeFilterReactiveCommand.Execute(Filters[x]).Subscribe());
 
         BodyVM = new BodyViewModel();
+        StyleSelectorBox  = new( 
+        [
+            new StyleSelector(new WrapPanelTemplate(), "plates"),
+            new StyleSelector(new DataGridTemplate(), "grid")
+        ]);
         StyleSelectorBox.WhenAnyValue(x => x.CurrentBodyTemplate)
             .Subscribe(t => { BodyVM.CurrentStyle = t; });
 

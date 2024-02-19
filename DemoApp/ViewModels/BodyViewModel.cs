@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Reactive;
 using System.Threading;
@@ -24,7 +23,6 @@ public class BodyViewModel : ViewModelBase, IBody
     private readonly IDirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
-    private readonly ReadOnlyObservableCollection<FileEntityModel> _outerDirectoryContent;
     private FileDialogFilter _filter;
     private BodyTemplate? _currentStyle;
 
@@ -32,29 +30,46 @@ public class BodyViewModel : ViewModelBase, IBody
     
     #region Properties
 
+    /// <summary>
+    /// Gets or sets current <see cref="FileDialogFilter"/>
+    /// </summary>
     public FileDialogFilter Filter
     {
         get => _filter;
         set => this.RaiseAndSetIfChanged(ref _filter, value);
     }
     
+    /// <summary>
+    /// Gets or sets display style for <see cref="IBody"/>
+    /// </summary>
     public BodyTemplate? CurrentStyle
     {
         get => _currentStyle;
-        set => this.RaiseAndSetIfChanged(ref _currentStyle, value);
+        set
+        {
+            value!.LinkCollection(this);
+            this.RaiseAndSetIfChanged(ref _currentStyle, value);
+        }
     }
     
+    /// <summary>
+    /// Gets or sets current directory path
+    /// </summary>
     public string? FilePath
     {
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
-    
-    public ReadOnlyObservableCollection<FileEntityModel> OuterDirectoryContent => _outerDirectoryContent;
-    
+
+    /// <summary>
+    /// Data source from current directory
+    /// </summary>
     public SourceCache<FileEntityModel, string> DirectoryData { get; } =
         new(entity => entity.Title);
     
+    /// <summary>
+    /// Selected object
+    /// </summary>
     public FileEntityModel? SelectedFileEntity
     {
         get => _selectedFileEntity;
@@ -66,7 +81,7 @@ public class BodyViewModel : ViewModelBase, IBody
     #region Commands
 
     public ReactiveCommand<FileDialogFilter, Unit> ChangeFilterReactiveCommand { get; }
-    public ReactiveCommand<ILoadable, Unit> ChangeSelectedReactiveCommand { get; }
+    public ReactiveCommand<object, Unit> ChangeSelectedReactiveCommand { get; }
     public ReactiveCommand<object?, Unit> OpenReactiveCommand { get; }
     public ReactiveCommand<Unit, Unit> MoveBackReactiveCommand { get; }
     public ReactiveCommand<Unit, Unit> MoveForwardReactiveCommand { get; }
@@ -75,40 +90,59 @@ public class BodyViewModel : ViewModelBase, IBody
     
     public BodyViewModel()
     {
+        // History init
         _history = DirectoryHistory.DefaultPage;
         
-        ChangeSelectedReactiveCommand = ReactiveCommand.Create<ILoadable>(ChangeSelected);
+        // Commands init
+        ChangeSelectedReactiveCommand = ReactiveCommand.Create<object>(ChangeSelected);
         OpenReactiveCommand = ReactiveCommand.Create<object?>(Open);
         ChangeFilterReactiveCommand = ReactiveCommand.Create<FileDialogFilter>(ChangeFilter);
         MoveBackReactiveCommand = ReactiveCommand.Create(OnMoveBack, _history.CanMoveBack);
         MoveForwardReactiveCommand = ReactiveCommand.Create(OnMoveForward, _history.CanMoveForward);
         
+        // Directory we're in currently
         FilePath = _history.Current.DirectoryPath;
-        
-        DirectoryData.Connect()
-            .Filter(x => Filter.Extensions.Contains(x.Extension) ||
-                         string.IsNullOrWhiteSpace(x.Extension) ||
-                         Filter.Extensions is [""])
-            .Bind(out _outerDirectoryContent)
-            .Subscribe();
+
+        // Update data on filter changed
+        this.WhenAnyValue(x => x.Filter)
+            .Subscribe(_ => DirectoryData.Refresh());
     }
     
     #region Commands Methods
 
+    /// <summary>
+    /// Changes filter for file extensions
+    /// </summary>
+    /// <param name="filter">New filter</param>
     private void ChangeFilter(FileDialogFilter filter)
     {
         Filter = filter;
         Console.WriteLine("Filter changed in BodyVM");
-        
-        DirectoryData.Refresh();
     }
     
-    private void ChangeSelected(ILoadable directory)
+    /// <summary>
+    /// Changes the current directory to be displayed
+    /// </summary>
+    /// <param name="sender">Directory, which content should be displayed</param>
+    private void ChangeSelected(object sender)
     {
-        FilePath = directory.FullPath;
-        _history.Add(directory.FullPath, directory.Title);
+        switch (sender)
+        {
+            case ILoadable directory:
+                FilePath = directory.FullPath;
+                _history.Add(directory.FullPath, directory.Title);
+                break;
+            case FileModel:
+                Open(sender);
+                break;
+            default: throw new NotImplementedException("Sender type is not implemented yet");
+        }
     }
     
+    /// <summary>
+    /// Displays <see cref="ILoadable"/> on body or opens <see cref="FileModel"/>
+    /// </summary>
+    /// <param name="sender">Object that should be opened</param>
     private void Open(object? sender)
     {
         switch (sender)
@@ -119,6 +153,7 @@ public class BodyViewModel : ViewModelBase, IBody
                 break;
             case FileModel file:
                 Console.WriteLine("BodyViewModel --> Open --> File opening...");
+                throw new NotImplementedException("File opening is not implemented yet");
                 break;
             case TextBox textBox:
                 FilePath = textBox.Text;
@@ -143,6 +178,12 @@ public class BodyViewModel : ViewModelBase, IBody
     
     #region Private Methods
     
+    /// <summary>
+    /// Pulls content (files and folders) from current directory
+    /// </summary>
+    /// <returns>
+    /// A task that on completion updates content both in cases of successful completion and cancellation
+    /// </returns>
     private async Task OpenDirectoryAsync()
     {
         Console.WriteLine("Start thread: {0}", Environment.CurrentManagedThreadId);

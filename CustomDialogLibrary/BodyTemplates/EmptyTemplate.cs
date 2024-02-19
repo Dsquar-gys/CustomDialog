@@ -3,7 +3,7 @@ using CustomDialogLibrary.Interfaces;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
-public class EmptyTemplate : BodyTemplate
+public class EmptyTemplate: BodyTemplate
 {
     public override Control Build(object? param)
     {

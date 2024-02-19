@@ -129,10 +129,12 @@
                     </TreeView.Styles>
                 </TreeView>
             </ScrollViewer>
-            <GridSplitter Grid.Column="1"
+            <GridSplitter Grid.Row="0"
+                          Grid.Column="1"
                           ShowsPreview="True" />
             <!-- Main area -->
-            <Border Grid.Column="2"
+            <Border Grid.Row="0"
+                    Grid.Column="2"
                     Name="BodyBorder"
                     Background="LightGray"
                     Margin="0,0,15,0">

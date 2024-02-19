@@ -12,7 +12,7 @@ using CustomDialogLibrary.Interfaces;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
-public class WrapPanelTemplate : BodyTemplate
+public class WrapPanelTemplate: BodyTemplate
 {
     public override Control Build(object? param)
     {
@@ -24,7 +24,7 @@ public class WrapPanelTemplate : BodyTemplate
             HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
             Content = new ListBox
             {
-                [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.OuterDirectoryContent)),
+                ItemsSource = Collection,
                 [!SelectingItemsControl.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
                 ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, _) =>
                     new StackPanel

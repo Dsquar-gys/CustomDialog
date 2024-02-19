@@ -16,8 +16,8 @@ public class DataGridTemplate : BodyTemplate
             HeadersVisibility = DataGridHeadersVisibility.All,
             SelectionMode = DataGridSelectionMode.Single,
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+            ItemsSource = Collection,
             [!Layoutable.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
-            [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.OuterDirectoryContent)),
             [!DataGrid.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
             Columns =
             {
