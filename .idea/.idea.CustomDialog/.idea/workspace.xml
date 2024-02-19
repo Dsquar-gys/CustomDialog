@@ -7,13 +7,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
+    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Removed OuterDirectoryContent + Linked DirectoryData to current template">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/BodyTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/BodyTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/DataGridTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/DataGridTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/EmptyTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/EmptyTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/WrapPanelTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/WrapPanelTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/IBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/IBody.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryHistory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryHistory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/History/HistoryBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/History/HistoryBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/History/IDirectoryHistory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/History/IDirectoryHistory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/ImageHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/ImageHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/IImagable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/IImagable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/ILoadable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/ILoadable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/ISpecificFileViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/ISpecificFileViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Nodes/ClickableNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Nodes/ClickableNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Nodes/INode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Nodes/INode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Nodes/Node.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Nodes/Node.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/StyleBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/StyleBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/StyleSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/StyleSelector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
@@ -28,7 +37,6 @@
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/refint/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/refint/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/ViewModels/BodyViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/ViewModels/BodyViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/ViewModels/GeneralViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/Views/GeneralView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/Views/GeneralView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.dll" afterDir="false" />
@@ -36,7 +44,6 @@
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.AssemblyReference.cache" afterDir="false" />
@@ -233,7 +240,7 @@
       <workItem from="1707987867982" duration="1248000" />
       <workItem from="1707989367868" duration="16686000" />
       <workItem from="1708082411536" duration="13934000" />
-      <workItem from="1708336400494" duration="10259000" />
+      <workItem from="1708336400494" duration="18057000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -451,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708095728291</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Removed OuterDirectoryContent + Linked DirectoryData to current template">
+      <option name="closed" value="true" />
+      <created>1708346782156</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1708346782156</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +498,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Initial commit + Side bar tree update" />
     <MESSAGE value="Started coding the directory body display asynchronously" />
     <MESSAGE value="Async display + header base layout" />
     <MESSAGE value="Header radio buttons for display style of main content" />
@@ -508,6 +522,7 @@
     <MESSAGE value="Merged sfvm-completion + Separated Lib from Demo app" />
     <MESSAGE value="Replaced DelegateCommand to ReactiveCommand + overwritten DirectoryHistory.cs" />
     <MESSAGE value="Changed List&lt;...&gt;FullDirectoryContent to SourceCache&lt;...&gt; DirectoryData" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed List&lt;...&gt;FullDirectoryContent to SourceCache&lt;...&gt; DirectoryData" />
+    <MESSAGE value="Removed OuterDirectoryContent + Linked DirectoryData to current template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed OuterDirectoryContent + Linked DirectoryData to current template" />
   </component>
 </project>

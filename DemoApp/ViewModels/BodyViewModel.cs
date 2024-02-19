@@ -29,19 +29,13 @@ public class BodyViewModel : ViewModelBase, IBody
     #endregion
     
     #region Properties
-
-    /// <summary>
-    /// Gets or sets current <see cref="FileDialogFilter"/>
-    /// </summary>
+    
     public FileDialogFilter Filter
     {
         get => _filter;
         set => this.RaiseAndSetIfChanged(ref _filter, value);
     }
     
-    /// <summary>
-    /// Gets or sets display style for <see cref="IBody"/>
-    /// </summary>
     public BodyTemplate? CurrentStyle
     {
         get => _currentStyle;
@@ -52,24 +46,15 @@ public class BodyViewModel : ViewModelBase, IBody
         }
     }
     
-    /// <summary>
-    /// Gets or sets current directory path
-    /// </summary>
     public string? FilePath
     {
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
-
-    /// <summary>
-    /// Data source from current directory
-    /// </summary>
+    
     public SourceCache<FileEntityModel, string> DirectoryData { get; } =
         new(entity => entity.Title);
     
-    /// <summary>
-    /// Selected object
-    /// </summary>
     public FileEntityModel? SelectedFileEntity
     {
         get => _selectedFileEntity;
@@ -121,7 +106,7 @@ public class BodyViewModel : ViewModelBase, IBody
     }
     
     /// <summary>
-    /// Changes the current directory to be displayed
+    /// Changes directory to be displayed currently
     /// </summary>
     /// <param name="sender">Directory, which content should be displayed</param>
     private void ChangeSelected(object sender)
@@ -188,43 +173,50 @@ public class BodyViewModel : ViewModelBase, IBody
     {
         Console.WriteLine("Start thread: {0}", Environment.CurrentManagedThreadId);
         
+        // Cancel running task
         await _tokenSource.CancelAsync();
         DirectoryData.Clear();
-        await Task.Delay(10);
 
+        // Creating new cancellation source and token
         _tokenSource = new();
         _token = _tokenSource.Token;
         
         var directoryInfo = new DirectoryInfo(FilePath!);
-        // Task 2
+        // Awaiting task that pulls content from directory and returns collection
         await Task.Run(() =>
         {
             Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
+            // Result collection
             List<FileEntityModel> pulling = [];
             
             foreach (var directory in directoryInfo.EnumerateDirectories())
             {
-                if (_token.IsCancellationRequested)
+                // Checking for cancellation
+                if (_token.IsCancellationRequested)         // Safe cancellation (without exception)
                 {
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
+                // Filling collection
                 pulling.Add(new DirectoryModel(directory));
             }
 
             foreach (var file in directoryInfo.EnumerateFiles())
             {
-                if (_token.IsCancellationRequested)
+                // Checking for cancellation
+                if (_token.IsCancellationRequested)         // Safe cancellation (without exception)
                 {
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
+                // Filling collection
                 pulling.Add(new FileModel(file));
             }
 
             return pulling;
-        }, _token).ContinueWith(x =>
+        }, _token).ContinueWith(x =>        // Continuation in UI context
         {
+            // Convert pulled collection to source data
             DirectoryData.AddOrUpdate(x.Result);
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }

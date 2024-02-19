@@ -2,16 +2,15 @@ using CustomDialogLibrary.Interfaces;
 
 namespace CustomDialogLibrary.Nodes;
 
-public class ClickableNode : INode, ILoadable, IImagable
+/// <summary>
+/// Selectable node for sidebar tree
+/// </summary>
+/// <param name="path">Path of directory the node should lead</param>
+/// <param name="title">Name of the node</param>
+public class ClickableNode(string path, string title) : INode, ILoadable, IImagable
 {
-    public string FullPath { get; }
-    public string Title { get; }
+    public string FullPath { get; } = path;
+    public string Title { get; } = title;
     public string IconName => Title;
     public bool Selectable => true;
-
-    public ClickableNode(string path, string title)
-    {
-        Title = title;
-        FullPath = path;
-    }
 }

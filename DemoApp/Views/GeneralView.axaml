@@ -24,6 +24,8 @@
               Background="Gray"
               Height="50"
               ColumnDefinitions="Auto, Auto, *, Auto">
+            
+            <!-- History Buttons -->
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
                 <templatedControls:HeaderButton Classes="arrowLeft"
@@ -33,6 +35,8 @@
                                  Margin="0,0,5,0"
                                  Command="{Binding BodyVM.MoveForwardReactiveCommand}"/>
             </StackPanel>
+            
+            <!-- StyleBox -->
             <ListBox Grid.Column="1"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
                      SelectionMode="Single"
@@ -52,6 +56,8 @@
                     </Style>
                 </ListBox.Styles>
             </ListBox>
+            
+            <!-- Path TextBox -->
             <TextBox Grid.Column="2"
                      Name="PathFinder"
                      Text="{Binding BodyVM.FilePath}"
@@ -63,6 +69,8 @@
                     </iac:EventTriggerBehavior>
                 </i:Interaction.Behaviors>
             </TextBox>
+            
+            <!-- Split Search Menu -->
             <StackPanel Grid.Column="3"
                         Orientation="Horizontal"
                         Margin="15">
@@ -74,7 +82,8 @@
                        Margin="5, 0"/>
             </StackPanel>
         </Grid>
-        <!-- Body -->
+        
+        <!-- Main Area -->
         <Grid Grid.Row="1"
               Background="DarkGray"
               RowDefinitions="*,Auto">
@@ -129,10 +138,13 @@
                     </TreeView.Styles>
                 </TreeView>
             </ScrollViewer>
+            
+            <!-- Splitter between sidebar and body -->
             <GridSplitter Grid.Row="0"
                           Grid.Column="1"
                           ShowsPreview="True" />
-            <!-- Main area -->
+            
+            <!-- Content Body -->
             <Border Grid.Row="0"
                     Grid.Column="2"
                     Name="BodyBorder"
@@ -141,6 +153,7 @@
                 <TransitioningContentControl Content="{Binding BodyVM}"/>
             </Border>
             
+            <!-- Filtering area -->
             <Label Grid.Column="0"
                    Grid.Row="1"
                    Margin="10"

@@ -12,6 +12,10 @@ public abstract class BodyTemplate : IDataTemplate
 {
     protected ReadOnlyObservableCollection<FileEntityModel> Collection;
 
+    /// <summary>
+    /// Subscribes inner collection to Data source of <see cref="parent"/>
+    /// </summary>
+    /// <param name="parent">Data source and filter donor</param>
     public void LinkCollection(IBody parent)
     {
         parent.DirectoryData.Connect()
@@ -21,7 +25,7 @@ public abstract class BodyTemplate : IDataTemplate
                          parent.Filter.Extensions is [""])
             // Sorting folders first
             .Sort(SortExpressionComparer<FileEntityModel>.Ascending(x => x.GetType().ToString()))
-            // Binding to outer collection
+            // Binding to inner collection
             .Bind(out Collection)
             .Subscribe();
     }

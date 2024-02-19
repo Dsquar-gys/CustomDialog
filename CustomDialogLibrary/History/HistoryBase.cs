@@ -2,6 +2,9 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.History;
 
+/// <summary>
+/// Abstract class for directories openings history
+/// </summary>
 public abstract class HistoryBase : ReactiveObject, IDirectoryHistory
 {
     public abstract IObservable<bool> CanMoveBack { get; }

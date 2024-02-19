@@ -2,10 +2,16 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.History;
 
+/// <summary>
+/// History of directories openings
+/// </summary>
 public sealed class DirectoryHistory : HistoryBase
 {
     #region Static Members
     
+    /// <summary>
+    /// Gets Default/Home page (node)
+    /// </summary>
     public static DirectoryHistory DefaultPage => 
         new (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
             "Home");
@@ -35,9 +41,11 @@ public sealed class DirectoryHistory : HistoryBase
         var head = new DirectoryNode(directoryPath, directoryPathName);
         Current = head;
         
+        // Whether previous node IS NOT null
         CanMoveBack = this.WhenAnyValue(x => x.Current.PreviousNode,
             prevNode => !DirectoryNode.IsNull(prevNode));
         
+        // Whether next node IS NOT null
         CanMoveForward = this.WhenAnyValue(x => x.Current.NextNode,
             nextNode => !DirectoryNode.IsNull(nextNode));
     }
@@ -48,14 +56,17 @@ public sealed class DirectoryHistory : HistoryBase
     public override void MoveForward() => Current = Current.NextNode!;
     public override void Add(string filePath, string name)
     {
+        // Created new node (page)
         var node = new DirectoryNode(filePath, name);
 
+        // If new node is not the same as current one then it has to be added
         if (!Current.Equals(node))
         {
             Current.NextNode = node;
             node.PreviousNode = Current;
         }
-
+        
+        // Move forward
         Current = node;
     }
 

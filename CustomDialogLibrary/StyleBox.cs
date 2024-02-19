@@ -7,12 +7,15 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary;
 
+/// <summary>
+/// Object that manages current and available body styles
+/// </summary>
 public class StyleBox : ReactiveObject, ISpecificFileViewModel
 {
-    private StyleSelector _selectedStyle;
-    private BodyTemplate _currentBodyTemplate;
+    private StyleSelector? _selectedStyle;
+    private BodyTemplate? _currentBodyTemplate;
 
-    public StyleSelector SelectedStyle
+    public StyleSelector? SelectedStyle
     {
         get => _selectedStyle;
         set => this.RaiseAndSetIfChanged(ref _selectedStyle, value);
@@ -20,35 +23,38 @@ public class StyleBox : ReactiveObject, ISpecificFileViewModel
     public BodyTemplate? CurrentBodyTemplate
     {
         get => _currentBodyTemplate;
-        set => this.RaiseAndSetIfChanged(ref _currentBodyTemplate, value);
+        private set => this.RaiseAndSetIfChanged(ref _currentBodyTemplate, value);
     }
     public ICommand? Command { get; }
     public ObservableCollection<StyleSelector> StyleButtons { get; }
 
+    /// <param name="buttonCollection">Collection of body styles</param>
     public StyleBox(IEnumerable<StyleSelector> buttonCollection, ICommand? command = null)
     {
         Command = command;
         _selectedStyle = buttonCollection.FirstOrDefault();
-        _currentBodyTemplate = SelectedStyle.StyleTemplate;
+        _currentBodyTemplate = SelectedStyle!.StyleTemplate;
         StyleButtons = new(buttonCollection);
+        
+        // Subscription ChangeCurrentTemplate on SelectedStyle change
         this.WhenAnyValue(x => x.SelectedStyle)
             .Subscribe(_ => ChangeCurrentTemplate());
     }
     
-    public bool TryToCreateFileEntry(FileSystemInfo? file, out FileEntityModel vm)
+    public bool TryToCreateFileEntry(FileSystemInfo? file, out FileEntityModel? vm)
     {
-        vm = null!;
-        
+        vm = null;
         if (CurrentBodyTemplate is EmptyTemplate)
             return false;
 
-        if (file is FileInfo fileInfo)
-            vm = new FileModel(fileInfo);
-        
-        if(file is DirectoryInfo directoryInfo)
-            vm = new DirectoryModel(directoryInfo);
+        vm = file switch
+        {
+            FileInfo fileInfo => new FileModel(fileInfo),
+            DirectoryInfo directoryInfo => new DirectoryModel(directoryInfo),
+            _ => vm
+        };
         return true;
     }
 
-    private void ChangeCurrentTemplate() => CurrentBodyTemplate = SelectedStyle.StyleTemplate;
+    private void ChangeCurrentTemplate() => CurrentBodyTemplate = SelectedStyle!.StyleTemplate;
 }
