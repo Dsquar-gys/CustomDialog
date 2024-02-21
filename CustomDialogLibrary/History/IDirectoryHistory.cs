@@ -34,5 +34,5 @@ public interface IDirectoryHistory
     /// </summary>
     /// <param name="filePath">Full path of the directory</param>
     /// <param name="name">Title of directory</param>
-    void Add(string filePath, string name);
+    void Add(string filePath);
 }

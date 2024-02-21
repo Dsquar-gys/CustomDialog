@@ -1,5 +1,5 @@
 ﻿using ReactiveUI;
 
-namespace DemoApp.ViewModels;
+namespace CustomDialogLibrary.ViewModels;
 
 public class ViewModelBase : ReactiveObject;

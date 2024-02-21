@@ -13,6 +13,9 @@
         <entry key="CustomDialog/Views/DirectoryView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/GeneralView.axaml" value="CustomDialog/CustomDialog.csproj" />
         <entry key="CustomDialog/Views/MainWindow.axaml" value="CustomDialog/CustomDialog.csproj" />
+        <entry key="CustomDialogLibrary/Templated Controls/HeaderButton.axaml" value="DemoApp/DemoApp.csproj" />
+        <entry key="CustomDialogLibrary/Views/BodyView.axaml" value="DemoApp/DemoApp.csproj" />
+        <entry key="CustomDialogLibrary/Views/GeneralView.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/App.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/Templated Controls/HeaderButton.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/Views/BodyView.axaml" value="DemoApp/DemoApp.csproj" />

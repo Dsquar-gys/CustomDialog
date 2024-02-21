@@ -12,5 +12,5 @@ public abstract class HistoryBase : ReactiveObject, IDirectoryHistory
     public abstract DirectoryNode Current { get; set; }
     public abstract void MoveBack();
     public abstract void MoveForward();
-    public abstract void Add(string filePath, string name);
+    public abstract void Add(string filePath);
 }

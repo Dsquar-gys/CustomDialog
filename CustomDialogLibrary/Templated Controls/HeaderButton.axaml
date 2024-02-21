@@ -1,6 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:templatedControls="clr-namespace:DemoApp.Templated_Controls">
+        xmlns:templatedControls="clr-namespace:CustomDialogLibrary.Templated_Controls">
     <Design.PreviewWith>
         <Border Background="RoyalBlue"
                 Padding="10">
@@ -24,16 +24,16 @@
                 </Button>
             </ControlTemplate>
         </Setter>
-        <Setter Property="Icon" Value="/Assets/Icons/check.png" />
+        <Setter Property="Icon" Value="/BakedAssets/check.png" />
     </Style>
     
     <!-- Left arrow -->
     <Style Selector="templatedControls|HeaderButton.arrowLeft">
-        <Setter Property="Icon" Value="/Assets/Icons/arrow-left.png" />
+        <Setter Property="Icon" Value="/BakedAssets/arrow-left.png" />
     </Style>
     
     <!-- Right arrow -->
     <Style Selector="templatedControls|HeaderButton.arrowRight">
-        <Setter Property="Icon" Value="/Assets/Icons/arrow-right.png" />
+        <Setter Property="Icon" Value="/BakedAssets/arrow-right.png" />
     </Style>
 </Styles>

@@ -6,13 +6,12 @@
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
              xmlns:nodes="clr-namespace:CustomDialogLibrary.Nodes;assembly=CustomDialogLibrary"
-             xmlns:viewModels="clr-namespace:DemoApp.ViewModels"
-             xmlns:templatedControls="clr-namespace:DemoApp.Templated_Controls"
+             xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
              x:DataType="viewModels:GeneralViewModel"
-             x:Class="DemoApp.Views.GeneralView">
+             x:Class="CustomDialogLibrary.Views.GeneralView">
     
     <Design.DataContext>
         <viewModels:GeneralViewModel/>
@@ -28,12 +27,14 @@
             <!-- History Buttons -->
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
-                <templatedControls:HeaderButton Classes="arrowLeft"
-                                Margin="5,0,0,0"
-                                Command="{Binding BodyVM.MoveBackReactiveCommand}"/>
-                <templatedControls:HeaderButton Classes="arrowRight"
-                                 Margin="0,0,5,0"
-                                 Command="{Binding BodyVM.MoveForwardReactiveCommand}"/>
+                <Button Margin="5, 6"
+                        Command="{Binding BodyVM.MoveBackCommand}">
+                    <Image Source="/BakedAssets/arrow-left.png" />
+                </Button>
+                <Button Margin="0,6, 5, 6"
+                        Command="{Binding BodyVM.MoveForwardCommand}">
+                    <Image Source="/BakedAssets/arrow-right.png" />
+                </Button>
             </StackPanel>
             
             <!-- StyleBox -->
@@ -41,11 +42,11 @@
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
                      SelectionMode="Single"
                      ItemsSource="{Binding StyleSelectorBox.StyleButtons}"
-                     SelectedItem="{Binding StyleSelectorBox.SelectedStyle}">
+                     SelectedItem="{Binding StyleSelectorBox.SelectedTemplate}">
                 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding ., Converter={StaticResource ImagableConverter}}"/>
+                        <Image Source="{Binding ., Converter={StaticResource IconConverter}}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 
@@ -62,12 +63,6 @@
                      Name="PathFinder"
                      Text="{Binding BodyVM.FilePath}"
                      Margin="10,0">
-                <i:Interaction.Behaviors>
-                    <iac:EventTriggerBehavior EventName="TextChanged">
-                        <iac:InvokeCommandAction Command="{Binding BodyVM.OpenReactiveCommand}" 
-                                                 CommandParameter="{Binding $self}"/>
-                    </iac:EventTriggerBehavior>
-                </i:Interaction.Behaviors>
             </TextBox>
             
             <!-- Split Search Menu -->
@@ -105,8 +100,9 @@
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="Tapped">
-                            <iac:InvokeCommandAction Command="{Binding BodyVM.ChangeSelectedReactiveCommand}"
-                                                     CommandParameter="{Binding SelectedNode}"/>
+                            <iac:ChangePropertyAction TargetObject="{Binding BodyVM}"
+                                                      PropertyName="FilePath"
+                                                      Value="{Binding SelectedNode.Path}"/>
                         </iac:EventTriggerBehavior>
                     </i:Interaction.Behaviors>
                     
@@ -122,7 +118,7 @@
                                     Margin="5"
                                     Background="Transparent">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding ., Converter={StaticResource ImagableConverter}}"/>
+                                    <Image Source="{Binding ., Converter={StaticResource IconConverter}}"/>
                                     <Label Content="{Binding Title}"
                                            Margin="10,0"
                                            VerticalAlignment="Center"/>

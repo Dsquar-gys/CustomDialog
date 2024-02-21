@@ -3,6 +3,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Layout;
 using CustomDialogLibrary.Interfaces;
+using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
@@ -10,13 +11,13 @@ public class DataGridTemplate : BodyTemplate
 {
     public override Control Build(object? param)
     {
-        var vm = param as IBody;
+        var vm = param as BodyViewModel;
         var grid = new DataGrid
         {
             HeadersVisibility = DataGridHeadersVisibility.All,
             SelectionMode = DataGridSelectionMode.Single,
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-            ItemsSource = Collection,
+            [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.OuterCollection)),
             [!Layoutable.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
             [!DataGrid.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
             Columns =
@@ -57,5 +58,5 @@ public class DataGridTemplate : BodyTemplate
         return grid;
     }
 
-    public override bool Match(object? data) => data is IBody;
+    public override bool Match(object? data) => data is BodyViewModel;
 }

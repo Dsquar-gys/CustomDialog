@@ -4,12 +4,10 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using CustomDialogLibrary.Interfaces;
 
-namespace DemoApp.Templated_Controls;
+namespace CustomDialogLibrary.Templated_Controls;
 
-public class HeaderButton : TemplatedControl, IImagable
+public class HeaderButton : TemplatedControl
 {
-    public string IconName { get; }
-    
     public static readonly StyledProperty<IImage?> IconProperty = AvaloniaProperty.Register<HeaderButton, IImage?>(
         nameof(Icon));
 

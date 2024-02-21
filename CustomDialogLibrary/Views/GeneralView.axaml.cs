@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace DemoApp.Views;
+namespace CustomDialogLibrary.Views;
 
 public partial class GeneralView : UserControl
 {

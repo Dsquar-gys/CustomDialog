@@ -38,16 +38,6 @@
 
 
     <ItemGroup>
-      <AdditionalFiles Include="Templated Controls\HeaderButton.axaml" />
-    </ItemGroup>
-
-
-    <ItemGroup>
       <ProjectReference Include="..\CustomDialogLibrary\CustomDialogLibrary.csproj" />
-    </ItemGroup>
-
-
-    <ItemGroup>
-      <Folder Include="Models\" />
     </ItemGroup>
 </Project>

@@ -1,21 +1,17 @@
-using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
 using System.Reactive;
-using System.Threading;
-using System.Threading.Tasks;
 using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.History;
-using CustomDialogLibrary.Interfaces;
 using DynamicData;
+using DynamicData.Binding;
 using ReactiveUI;
 
-namespace DemoApp.ViewModels;
+namespace CustomDialogLibrary.ViewModels;
 
-public class BodyViewModel : ViewModelBase, IBody
+public class BodyViewModel : ViewModelBase
 {
     #region Private Fields
 
@@ -26,6 +22,8 @@ public class BodyViewModel : ViewModelBase, IBody
     private CancellationToken _token;
     private FileDialogFilter _filter;
     private BodyTemplate? _currentStyle;
+    private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Title);
+    private readonly ReadOnlyObservableCollection<FileEntityModel> outerCollection;
 
     #endregion
     
@@ -40,12 +38,7 @@ public class BodyViewModel : ViewModelBase, IBody
     public BodyTemplate? CurrentStyle
     {
         get => _currentStyle;
-        set
-        {
-            // Subscribe Template's collection to actual
-            value!.LinkCollection(this);
-            this.RaiseAndSetIfChanged(ref _currentStyle, value);
-        }
+        set => this.RaiseAndSetIfChanged(ref _currentStyle, value);
     }
     
     public string? FilePath
@@ -53,9 +46,8 @@ public class BodyViewModel : ViewModelBase, IBody
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
-    
-    public SourceCache<FileEntityModel, string> DirectoryData { get; } =
-        new(entity => entity.Title);
+
+    public ReadOnlyObservableCollection<FileEntityModel> OuterCollection => outerCollection;
     
     public FileEntityModel? SelectedFileEntity
     {
@@ -67,11 +59,9 @@ public class BodyViewModel : ViewModelBase, IBody
     
     #region Commands
 
-    public ReactiveCommand<FileDialogFilter, Unit> ChangeFilterReactiveCommand { get; }
-    public ReactiveCommand<object, Unit> ChangeSelectedReactiveCommand { get; }
-    public ReactiveCommand<object?, Unit> OpenReactiveCommand { get; }
-    public ReactiveCommand<Unit, Unit> MoveBackReactiveCommand { get; }
-    public ReactiveCommand<Unit, Unit> MoveForwardReactiveCommand { get; }
+    public ReactiveCommand<FileDialogFilter, Unit> ChangeFilterCommand { get; }
+    public ReactiveCommand<Unit, Unit> MoveBackCommand { get; }
+    public ReactiveCommand<Unit, Unit> MoveForwardCommand { get; }
 
     #endregion
     
@@ -81,18 +71,30 @@ public class BodyViewModel : ViewModelBase, IBody
         _history = DirectoryHistory.DefaultPage;
         
         // Commands init
-        ChangeSelectedReactiveCommand = ReactiveCommand.Create<object>(ChangeSelected);
-        OpenReactiveCommand = ReactiveCommand.Create<object?>(Open);
-        ChangeFilterReactiveCommand = ReactiveCommand.Create<FileDialogFilter>(ChangeFilter);
-        MoveBackReactiveCommand = ReactiveCommand.Create(OnMoveBack, _history.CanMoveBack);
-        MoveForwardReactiveCommand = ReactiveCommand.Create(OnMoveForward, _history.CanMoveForward);
+        ChangeFilterCommand = ReactiveCommand.Create<FileDialogFilter>(ChangeFilter);
+        MoveBackCommand = ReactiveCommand.Create(OnMoveBack, _history.CanMoveBack);
+        MoveForwardCommand = ReactiveCommand.Create(OnMoveForward, _history.CanMoveForward);
         
         // Directory we're in currently
         FilePath = _history.Current.DirectoryPath;
 
+        _dataSource.Connect()
+            // Filtering proper extensions
+            .Filter(x => Filter.Extensions.Contains(x.Extension) ||
+                         string.IsNullOrWhiteSpace(x.Extension) ||
+                         Filter.Extensions is [""])
+            // Sorting folders first
+            .Sort(SortExpressionComparer<FileEntityModel>.Ascending(x => x.GetType().ToString()))
+            // Binding to inner collection
+            .Bind(out outerCollection)
+            .Subscribe();
+        
         // Update data on filter changed
         this.WhenAnyValue(x => x.Filter)
-            .Subscribe(_ => DirectoryData.Refresh());
+            .Subscribe(_ => _dataSource.Refresh());
+        
+        this.WhenAnyValue(x => x.FilePath)
+            .Subscribe(Open);
     }
     
     #region Commands Methods
@@ -108,49 +110,26 @@ public class BodyViewModel : ViewModelBase, IBody
     }
     
     /// <summary>
-    /// Changes directory to be displayed currently
-    /// </summary>
-    /// <param name="sender">Directory, which content should be displayed</param>
-    private void ChangeSelected(object sender)
-    {
-        switch (sender)
-        {
-            case ILoadable directory:
-                FilePath = directory.FullPath;
-                _history.Add(directory.FullPath, directory.Title);
-                break;
-            case FileModel:
-                Open(sender);
-                break;
-            default: throw new NotImplementedException("Sender type is not implemented yet");
-        }
-    }
-    
-    /// <summary>
     /// Displays <see cref="ILoadable"/> on body or opens <see cref="FileModel"/>
     /// </summary>
-    /// <param name="sender">Object that should be opened</param>
-    private void Open(object? sender)
+    /// <param name="path">Path for required to open entity</param>
+    private void Open(string? path)
     {
-        switch (sender)
+        if (!File.Exists(path) && !Directory.Exists(path)) return;
+        switch (File.GetAttributes(path))
         {
-            case ILoadable loadable:
-                FilePath = loadable.FullPath;
+            case FileAttributes.Directory:
+                _history.Add(path);
                 OpenDirectoryAsync();
                 break;
-            case FileModel file:
-                // Run file in new window
+            default:
                 using (var process = new Process())
                 {
                     process.StartInfo.UseShellExecute = true;
-                    process.StartInfo.FileName = file.FullPath;
+                    process.StartInfo.FileName = path;
                     process.StartInfo.CreateNoWindow = false;
                     process.Start();
                 }
-                break;
-            case TextBox textBox:
-                FilePath = textBox.Text;
-                OpenDirectoryAsync();
                 break;
         }
     }
@@ -183,7 +162,6 @@ public class BodyViewModel : ViewModelBase, IBody
         
         // Cancel running task
         await _tokenSource.CancelAsync();
-        DirectoryData.Clear();
 
         // Creating new cancellation source and token
         _tokenSource = new();
@@ -222,10 +200,14 @@ public class BodyViewModel : ViewModelBase, IBody
             }
 
             return pulling;
-        }, _token).ContinueWith(x =>        // Continuation in UI context
+        }, _token).ContinueWith(x =>       // Continuation in UI context
         {
             // Convert pulled collection to source data
-            DirectoryData.AddOrUpdate(x.Result);
+            _dataSource.Edit(innerCollection =>
+            {
+                innerCollection.Clear();
+                innerCollection.AddOrUpdate(x.Result);
+            });
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
     

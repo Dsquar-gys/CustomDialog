@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using CustomDialogLibrary.Interfaces;
+using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
@@ -13,5 +14,5 @@ public class EmptyTemplate: BodyTemplate
         };
     }
 
-    public override bool Match(object? data) => data is IBody;
+    public override bool Match(object? data) => data is BodyViewModel;
 }

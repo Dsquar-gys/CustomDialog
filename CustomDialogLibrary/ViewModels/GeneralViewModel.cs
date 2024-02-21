@@ -1,16 +1,12 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Reactive;
 using Avalonia.Controls;
-using CustomDialogLibrary;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Nodes;
+using CustomDialogLibrary.Views;
 using ReactiveUI;
 
-namespace DemoApp.ViewModels;
+namespace CustomDialogLibrary.ViewModels;
 
 public class GeneralViewModel : ViewModelBase
 {
@@ -84,22 +80,22 @@ public class GeneralViewModel : ViewModelBase
 
         // Filtering command creation
         FilterUpCommand = ReactiveCommand.Create<int>(x => 
-            BodyVM!.ChangeFilterReactiveCommand.Execute(Filters[x]).Subscribe());
+            BodyVM!.ChangeFilterCommand.Execute(Filters[x]).Subscribe());
 
         // Body creation
         BodyVM = new BodyViewModel();
         
         // StyleBox init
-        StyleSelectorBox  = new( 
+        StyleSelectorBox  = new StyleBox( 
         [
-            new StyleSelector(new WrapPanelTemplate(), "plates"),
-            new StyleSelector(new DataGridTemplate(), "grid")
+            new WrapPanelTemplate(),
+            new DataGridTemplate()
         ]);
         // Style of Body depends on StyleBox.CurrentBodyTemplate
-        StyleSelectorBox.WhenAnyValue(x => x.CurrentBodyTemplate)
+        StyleSelectorBox.WhenAnyValue(x => x.SelectedTemplate)
             .Subscribe(t => { BodyVM.CurrentStyle = t; });
 
         // Set filtering to All files
-        BodyVM.ChangeFilterReactiveCommand.Execute(Filters.FirstOrDefault()).Subscribe();
+        BodyVM.ChangeFilterCommand.Execute(Filters.FirstOrDefault()!).Subscribe();
     }
 }

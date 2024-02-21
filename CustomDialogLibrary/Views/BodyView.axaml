@@ -2,17 +2,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="using:DemoApp.ViewModels"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:DataType="vm:BodyViewModel"
-             x:Class="DemoApp.Views.BodyView">
+             x:DataType="viewModels:BodyViewModel"
+             x:Class="CustomDialogLibrary.Views.BodyView">
 
     <Design.DataContext>
-        <vm:BodyViewModel/>
+        <viewModels:BodyViewModel/>
     </Design.DataContext>
     
     <Border Background="Gainsboro"
@@ -23,8 +23,11 @@
             
             <i:Interaction.Behaviors>
                 <iac:EventTriggerBehavior EventName="DoubleTapped">
-                    <iac:InvokeCommandAction Command="{Binding ChangeSelectedReactiveCommand}" 
-                                             CommandParameter="{Binding SelectedFileEntity}"/>
+                    <iac:ChangePropertyAction TargetObject="{Binding .}"
+                                              PropertyName="FilePath"
+                                              Value="{Binding SelectedFileEntity.FullPath}"/>
+                    <!--<iac:InvokeCommandAction Command="{Binding ChangeSelectedEntityCommand}" 
+                                             CommandParameter="{Binding SelectedFileEntity}"/>-->
                 </iac:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             

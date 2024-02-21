@@ -13,8 +13,7 @@ public sealed class DirectoryHistory : HistoryBase
     /// Gets Default/Home page (node)
     /// </summary>
     public static DirectoryHistory DefaultPage => 
-        new (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-            "Home");
+        new (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
     
     #endregion
     
@@ -36,9 +35,9 @@ public sealed class DirectoryHistory : HistoryBase
 
     #endregion
 
-    private DirectoryHistory(string directoryPath, string directoryPathName)
+    private DirectoryHistory(string directoryPath)
     {
-        var head = new DirectoryNode(directoryPath, directoryPathName);
+        var head = new DirectoryNode(directoryPath);
         Current = head;
         
         // Whether previous node IS NOT null
@@ -54,10 +53,10 @@ public sealed class DirectoryHistory : HistoryBase
 
     public override void MoveBack() => Current = Current.PreviousNode!;
     public override void MoveForward() => Current = Current.NextNode!;
-    public override void Add(string filePath, string name)
+    public override void Add(string filePath)
     {
         // Created new node (page)
-        var node = new DirectoryNode(filePath, name);
+        var node = new DirectoryNode(filePath);
 
         // If new node is not the same as current one then it has to be added
         if (!Current.Equals(node))

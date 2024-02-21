@@ -1,4 +1,4 @@
-using CustomDialogLibrary.Interfaces;
+using CustomDialogLibrary.Entities;
 
 namespace CustomDialogLibrary.Nodes;
 
@@ -7,10 +7,8 @@ namespace CustomDialogLibrary.Nodes;
 /// </summary>
 /// <param name="path">Path of directory the node should lead</param>
 /// <param name="title">Name of the node</param>
-public class ClickableNode(string path, string title) : INode, ILoadable, IImagable
+public class ClickableNode(string path, string title)
 {
-    public string FullPath { get; } = path;
+    public string Path { get; } = path;
     public string Title { get; } = title;
-    public string IconName => Title;
-    public bool Selectable => true;
 }

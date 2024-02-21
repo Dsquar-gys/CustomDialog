@@ -1,17 +1,18 @@
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using DynamicData;
 
 namespace CustomDialogLibrary;
 
 public static class ImageHelper
 {
     /// <summary>
-    /// Name of baked default image name
+    /// Name of default image name
     /// </summary>
-    public static string DefaultIconName { get; private set; } = "unknown";
+    public static string DefaultIconName { get; private set; } = "unknown.png";
 
     /// <summary>
-    /// Path for baked assets
+    /// Path for assets
     /// </summary>
     public static string AssetsPath { get; private set; } = "avares://CustomDialogLibrary/BakedAssets";
 
@@ -19,7 +20,7 @@ public static class ImageHelper
     /// Gets default image for icon
     /// </summary>
     public static Bitmap DefaultIcon => new (AssetLoader.Open(
-        new Uri(Path.Combine(AssetsPath,  DefaultIconName + ".png"))));
+        new Uri(Path.Combine(AssetsPath,  DefaultIconName))));
 
     /// <summary>
     /// Load Icon by uri

@@ -9,6 +9,7 @@ using Avalonia.Styling;
 using CustomDialogLibrary.Converters;
 using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.Interfaces;
+using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
@@ -16,7 +17,7 @@ public class WrapPanelTemplate: BodyTemplate
 {
     public override Control Build(object? param)
     {
-        var vm = param as IBody;
+        var vm = param as BodyViewModel;
         
         var wrapPanel = new ScrollViewer
         {
@@ -24,7 +25,7 @@ public class WrapPanelTemplate: BodyTemplate
             HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
             Content = new ListBox
             {
-                ItemsSource = Collection,
+                [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.OuterCollection)),
                 [!SelectingItemsControl.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
                 ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, _) =>
                     new StackPanel
@@ -35,7 +36,7 @@ public class WrapPanelTemplate: BodyTemplate
                             {
                                 [!Image.SourceProperty] = new Binding(".")
                                 {
-                                    Converter = new ImagableConverter()
+                                    Converter = new IconConverter()
                                 },
                                 Width = 75,
                             },
@@ -69,5 +70,5 @@ public class WrapPanelTemplate: BodyTemplate
         return wrapPanel;
     }
 
-    public override bool Match(object? data) => data is IBody;
+    public override bool Match(object? data) => data is BodyViewModel;
 }

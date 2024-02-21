@@ -1,7 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using DemoApp.ViewModels;
+using CustomDialogLibrary.ViewModels;
 
 namespace DemoApp;
 
@@ -13,7 +13,7 @@ public class ViewLocator : IDataTemplate
             return null;
 
         var name = data.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
-        var type = Type.GetType(name);
+        var type = data.GetType().Assembly.GetType(name);
 
         if (type != null)
         {

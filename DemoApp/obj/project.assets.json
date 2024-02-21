@@ -1694,7 +1694,11 @@
           "Avalonia": "11.0.9",
           "Avalonia.Controls.DataGrid": "11.0.9",
           "Avalonia.ReactiveUI": "11.0.9",
-          "DynamicData": "8.3.27"
+          "Avalonia.Xaml.Behaviors": "11.0.6",
+          "Avalonia.Xaml.Interactions": "11.0.6",
+          "Avalonia.Xaml.Interactivity": "11.0.6",
+          "DynamicData": "8.3.27",
+          "FluentAvaloniaUI": "2.0.5"
         },
         "compile": {
           "bin/placeholder/CustomDialogLibrary.dll": {}

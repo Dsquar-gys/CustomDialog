@@ -2,13 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="DemoApp.App"
              xmlns:sty="using:FluentAvalonia.Styling"
-             xmlns:local="clr-namespace:DemoApp"
+             xmlns:local="using:DemoApp"
              xmlns:converters="clr-namespace:CustomDialogLibrary.Converters;assembly=CustomDialogLibrary"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
              <Application.Resources>
-                 <converters:ImagableConverter x:Key="ImagableConverter" />
+                 <converters:IconConverter x:Key="IconConverter" />
                  <converters:FilterConverter x:Key="FilterConverter" />
              </Application.Resources>
              <Application.DataTemplates>
@@ -20,6 +20,5 @@
         <FluentTheme />
         <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
-        <StyleInclude Source="Templated Controls/HeaderButton.axaml" />
     </Application.Styles>
 </Application>
