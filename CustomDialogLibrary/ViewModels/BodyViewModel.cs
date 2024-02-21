@@ -17,7 +17,7 @@ public class BodyViewModel : ViewModelBase
 
     private string? _filePath;
     private FileEntityModel? _selectedFileEntity;
-    private readonly IDirectoryHistory _history;
+    private readonly DirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
     private FileDialogFilter _filter;
@@ -76,7 +76,7 @@ public class BodyViewModel : ViewModelBase
         MoveForwardCommand = ReactiveCommand.Create(OnMoveForward, _history.CanMoveForward);
         
         // Directory we're in currently
-        FilePath = _history.Current.DirectoryPath;
+        FilePath = _history.Current.Path;
 
         _dataSource.Connect()
             // Filtering proper extensions
@@ -137,13 +137,13 @@ public class BodyViewModel : ViewModelBase
     private void OnMoveForward()
     {
         _history.MoveForward();
-        FilePath = _history.Current.DirectoryPath;
+        FilePath = _history.Current.Path;
     }
 
     private void OnMoveBack()
     {
         _history.MoveBack();
-        FilePath = _history.Current.DirectoryPath;
+        FilePath = _history.Current.Path;
     }
 
     #endregion

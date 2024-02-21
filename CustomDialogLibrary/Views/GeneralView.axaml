@@ -100,6 +100,7 @@
                     
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="Tapped">
+                            <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
                             <iac:ChangePropertyAction TargetObject="{Binding BodyVM}"
                                                       PropertyName="FilePath"
                                                       Value="{Binding SelectedNode.Path}"/>

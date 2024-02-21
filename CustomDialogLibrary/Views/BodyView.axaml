@@ -23,11 +23,10 @@
             
             <i:Interaction.Behaviors>
                 <iac:EventTriggerBehavior EventName="DoubleTapped">
+                    <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
                     <iac:ChangePropertyAction TargetObject="{Binding .}"
                                               PropertyName="FilePath"
                                               Value="{Binding SelectedFileEntity.FullPath}"/>
-                    <!--<iac:InvokeCommandAction Command="{Binding ChangeSelectedEntityCommand}" 
-                                             CommandParameter="{Binding SelectedFileEntity}"/>-->
                 </iac:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             

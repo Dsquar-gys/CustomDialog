@@ -19,7 +19,7 @@ public sealed class DirectoryHistory : HistoryBase
     
     #region Private Fields
     
-    private DirectoryNode _current;
+    private HistoryNode _current;
     
     #endregion
     
@@ -27,7 +27,7 @@ public sealed class DirectoryHistory : HistoryBase
     
     public override IObservable<bool> CanMoveBack { get; }
     public override IObservable<bool> CanMoveForward { get; }
-    public override DirectoryNode Current
+    public override HistoryNode Current
     {
         get => _current;
         set => this.RaiseAndSetIfChanged(ref _current, value);
@@ -37,16 +37,16 @@ public sealed class DirectoryHistory : HistoryBase
 
     private DirectoryHistory(string directoryPath)
     {
-        var head = new DirectoryNode(directoryPath);
+        var head = new HistoryNode(directoryPath);
         Current = head;
         
         // Whether previous node IS NOT null
         CanMoveBack = this.WhenAnyValue(x => x.Current.PreviousNode,
-            prevNode => !DirectoryNode.IsNull(prevNode));
+            prevNode => !HistoryNode.IsNull(prevNode));
         
         // Whether next node IS NOT null
         CanMoveForward = this.WhenAnyValue(x => x.Current.NextNode,
-            nextNode => !DirectoryNode.IsNull(nextNode));
+            nextNode => !HistoryNode.IsNull(nextNode));
     }
 
     #region Public Methods
@@ -56,7 +56,7 @@ public sealed class DirectoryHistory : HistoryBase
     public override void Add(string filePath)
     {
         // Created new node (page)
-        var node = new DirectoryNode(filePath);
+        var node = new HistoryNode(filePath);
 
         // If new node is not the same as current one then it has to be added
         if (!Current.Equals(node))
