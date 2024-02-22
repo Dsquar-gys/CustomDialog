@@ -10,19 +10,25 @@ public class FilterConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is FileDialogFilter filter)
+        switch (value)
         {
-            if (targetType.IsAssignableTo(typeof(string)))
-                return filter.Name ?? "Unnamed filter";
+            case FileDialogFilter filter:
+            {
+                if (targetType.IsAssignableTo(typeof(string)))
+                    return filter.Name ?? "Unnamed filter";
+                break;
+            }
+            case IEnumerable<FileDialogFilter> list:
+            {
+                if (targetType.IsAssignableTo(typeof(IEnumerable)))
+                    return list.Select(x => x.Name).ToList();
+                break;
+            }
+            default:
+                return new BindingNotification(new InvalidCastException("Current type is not implemented yet..."),
+                    BindingErrorType.Error);
         }
-        else if (value is IEnumerable<FileDialogFilter> list)
-        {
-            if (targetType.IsAssignableTo(typeof(IEnumerable)))
-                return list.Select(x => x.Name).ToList();
-        }
-        else return new BindingNotification(new InvalidCastException("Current type is not implemented yet..."),
-                BindingErrorType.Error);
-        
+
         return new BindingNotification(new InvalidCastException("Unknown value type..."),
             BindingErrorType.Error);
     }

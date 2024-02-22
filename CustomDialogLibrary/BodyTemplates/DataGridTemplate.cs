@@ -2,7 +2,6 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Layout;
-using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;

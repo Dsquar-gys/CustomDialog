@@ -2,8 +2,7 @@ using System.Collections.ObjectModel;
 using System.Reactive;
 using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
-using CustomDialogLibrary.Nodes;
-using CustomDialogLibrary.Views;
+using CustomDialogLibrary.SideBarEntities;
 using ReactiveUI;
 
 namespace CustomDialogLibrary.ViewModels;
@@ -31,7 +30,7 @@ public class GeneralViewModel : ViewModelBase
     /// <summary>
     /// Gets collection of sidebar tree nodes
     /// </summary>
-    public ObservableCollection<Node> Nodes { get; }
+    public ObservableCollection<SideBarNode> Nodes { get; }
     
     /// <summary>
     /// Gets Selected node on sidebar tree
@@ -67,7 +66,7 @@ public class GeneralViewModel : ViewModelBase
     public GeneralViewModel()
     {
         // Sidebar tree nodes init
-        Nodes = new ObservableCollection<Node>
+        Nodes = new ObservableCollection<SideBarNode>
         {
             new("Places", [
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),

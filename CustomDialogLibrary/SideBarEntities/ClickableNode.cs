@@ -1,6 +1,4 @@
-using CustomDialogLibrary.Entities;
-
-namespace CustomDialogLibrary.Nodes;
+namespace CustomDialogLibrary.SideBarEntities;
 
 /// <summary>
 /// Selectable node for sidebar tree

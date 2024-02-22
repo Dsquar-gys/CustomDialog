@@ -11,14 +11,15 @@
                  <converters:IconConverter x:Key="IconConverter" />
                  <converters:FilterConverter x:Key="FilterConverter" />
              </Application.Resources>
+             
              <Application.DataTemplates>
-        <local:ViewLocator/>
-    </Application.DataTemplates>
+                 <local:ViewLocator/>
+             </Application.DataTemplates>
   
-    <Application.Styles>
-        <sty:FluentAvaloniaTheme />
-        <FluentTheme />
-        <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
-        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
-    </Application.Styles>
+             <Application.Styles>
+                 <sty:FluentAvaloniaTheme />
+                 <FluentTheme />
+                 <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+                 <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+             </Application.Styles>
 </Application>

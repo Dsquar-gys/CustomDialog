@@ -5,8 +5,8 @@
              xmlns:ui="using:FluentAvalonia.UI.Controls"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
              xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
-             xmlns:nodes="clr-namespace:CustomDialogLibrary.Nodes;assembly=CustomDialogLibrary"
              xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
+             xmlns:sideBarEntities="clr-namespace:CustomDialogLibrary.SideBarEntities"
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
@@ -109,12 +109,12 @@
                     
                     <TreeView.DataTemplates>
                         
-                        <TreeDataTemplate DataType="nodes:Node"
+                        <TreeDataTemplate DataType="sideBarEntities:SideBarNode"
                                           ItemsSource="{Binding SubNodes}">
                             <TextBlock Text="{Binding Title}"/>
                         </TreeDataTemplate>
                         
-                        <TreeDataTemplate DataType="nodes:ClickableNode">
+                        <TreeDataTemplate DataType="sideBarEntities:ClickableNode">
                             <Border Height="20"
                                     Margin="5"
                                     Background="Transparent">

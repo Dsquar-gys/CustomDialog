@@ -1,7 +1,7 @@
 namespace CustomDialogLibrary.History;
 
 /// <summary>
-/// Node (page) for history
+/// SideBarNode (page) for history
 /// </summary>
 /// <param name="path">Full path of the entity</param>
 public class HistoryNode(string path)

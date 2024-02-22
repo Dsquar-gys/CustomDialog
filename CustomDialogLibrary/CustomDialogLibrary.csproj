@@ -21,4 +21,8 @@
         <AvaloniaResource Include="BakedAssets\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Templated Controls\HeaderButton.axaml" />
+    </ItemGroup>
+
 </Project>

@@ -17,9 +17,6 @@ build_property.ProjectDir = /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/Templated Controls/HeaderButton.axaml]
-build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
-
 [/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/Views/BodyView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

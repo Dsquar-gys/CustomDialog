@@ -8,7 +8,6 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using CustomDialogLibrary.Converters;
 using CustomDialogLibrary.Entities;
-using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;

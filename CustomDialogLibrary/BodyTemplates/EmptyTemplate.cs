@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;

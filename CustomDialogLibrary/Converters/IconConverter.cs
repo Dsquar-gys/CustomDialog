@@ -4,7 +4,7 @@ using Avalonia.Data.Converters;
 using Avalonia.Media;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
-using CustomDialogLibrary.Nodes;
+using CustomDialogLibrary.SideBarEntities;
 
 namespace CustomDialogLibrary.Converters;
 
@@ -12,9 +12,10 @@ public class IconConverter : IValueConverter
 {
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        var iconName = value switch
+        var localIconPath = value switch
         {
-            FileModel => "file.png",
+            FileModel file => ImageHelper.AvailableExtensions.Contains(file.Extension) ?
+                $"Extensions/{file.Extension[1..]}.png" : "file.png",
             DirectoryModel => "folder.png",
             ClickableNode node => node.Title.ToLower() + ".png",
             WrapPanelTemplate => "plates.png",
@@ -22,7 +23,7 @@ public class IconConverter : IValueConverter
             _ => ImageHelper.DefaultIconName
         };
         
-        var imageUriPath = Path.Combine(ImageHelper.AssetsPath, iconName);
+        var imageUriPath = Path.Combine(ImageHelper.AssetsUri.OriginalString, localIconPath);
 
         if (targetType.IsAssignableTo(typeof(IImage))) return ImageHelper.LoadFromResource(imageUriPath);
 

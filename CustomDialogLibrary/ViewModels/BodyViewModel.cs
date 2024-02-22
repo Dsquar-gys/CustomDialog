@@ -93,6 +93,7 @@ public class BodyViewModel : ViewModelBase
         this.WhenAnyValue(x => x.Filter)
             .Subscribe(_ => _dataSource.Refresh());
         
+        // Opens entity on FilePath changed
         this.WhenAnyValue(x => x.FilePath)
             .Subscribe(Open);
     }
@@ -110,7 +111,7 @@ public class BodyViewModel : ViewModelBase
     }
     
     /// <summary>
-    /// Displays <see cref="ILoadable"/> on body or opens <see cref="FileModel"/>
+    /// Displays entity on body or opens it in a new process
     /// </summary>
     /// <param name="path">Path for required to open entity</param>
     private void Open(string? path)
