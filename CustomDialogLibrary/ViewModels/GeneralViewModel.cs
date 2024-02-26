@@ -7,7 +7,7 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.ViewModels;
 
-public class GeneralViewModel : ViewModelBase
+public class GeneralViewModel : ViewModelBase, IDisposable
 {
     #region Private Fields
     
@@ -68,6 +68,9 @@ public class GeneralViewModel : ViewModelBase
         // Sidebar tree nodes init
         SideBarNodes = new ObservableCollection<SideBarNode>
         {
+            new ("System", [
+                new ClickableNode("/", "Root")
+            ]),
             new("Places", [
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
@@ -96,5 +99,11 @@ public class GeneralViewModel : ViewModelBase
 
         // Set filtering to All files
         BodyVM.ChangeFilterCommand.Execute(Filters.FirstOrDefault()!).Subscribe();
+    }
+
+    public void Dispose()
+    {
+        BodyVM.Dispose();
+        FilterUpCommand.Dispose();
     }
 }
