@@ -10,7 +10,7 @@ namespace CustomDialogLibrary;
 /// <summary>
 /// Object that manages current and available body styles
 /// </summary>
-public class StyleBox : ReactiveObject, ISpecificFileViewModel
+public class BodyStyleBox : ReactiveObject, ISpecificFileViewModel
 {
     private BodyTemplate? _selectedTemplate;
     private BodyTemplate? _currentBodyTemplate;
@@ -21,14 +21,14 @@ public class StyleBox : ReactiveObject, ISpecificFileViewModel
         set => this.RaiseAndSetIfChanged(ref _selectedTemplate, value);
     }
     public ICommand? Command { get; }
-    public ObservableCollection<BodyTemplate> StyleButtons { get; }
+    public ObservableCollection<BodyTemplate> AvailableStyles { get; }
 
     /// <param name="buttonCollection">Collection of body styles</param>
-    public StyleBox(IEnumerable<BodyTemplate> buttonCollection, ICommand? command = null)
+    public BodyStyleBox(IEnumerable<BodyTemplate> buttonCollection, ICommand? command = null)
     {
         Command = command;
         _selectedTemplate = buttonCollection.FirstOrDefault();
-        StyleButtons = new(buttonCollection);
+        AvailableStyles = new(buttonCollection);
     }
     
     public bool TryToCreateFileEntry(FileSystemInfo? file, out FileEntityModel? vm)

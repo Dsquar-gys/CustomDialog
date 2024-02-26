@@ -1,8 +1,11 @@
 namespace CustomDialogLibrary.Entities;
 
+/// <summary>
+/// Entity, which represents File or Directory
+/// </summary>
 public abstract class FileEntityModel(FileSystemInfo fileSystemInfo)
 {
-    public string Title => fileSystemInfo.Name;
+    public string Name => fileSystemInfo.Name;
     public string FullPath => fileSystemInfo.FullName;
     public string Extension => fileSystemInfo.Extension;
     

@@ -17,6 +17,6 @@ public interface ISpecificFileViewModel
     /// <summary>
     /// Collection of available body styles
     /// </summary>
-    ObservableCollection<BodyTemplate> StyleButtons { get; }
+    ObservableCollection<BodyTemplate> AvailableStyles { get; }
     bool TryToCreateFileEntry(FileSystemInfo? file, out FileEntityModel? vm);
 }

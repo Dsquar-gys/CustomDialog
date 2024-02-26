@@ -1,9 +1,11 @@
-using System.Reflection;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
 namespace CustomDialogLibrary;
 
+/// <summary>
+/// Static class for loading assets
+/// </summary>
 public static class ImageHelper
 {
     private static readonly Uri BakedAssetsUri = new("avares://CustomDialogLibrary/BakedAssets");
@@ -30,13 +32,14 @@ public static class ImageHelper
     /// </summary>
     public static HashSet<string> AvailableExtensions { get; private set; }
 
+    // Init baked "Extensions" folder
     static ImageHelper()
     {
         UpdateAvailableExtensions();
     }
     
     /// <summary>
-    /// Load Icon by uri
+    /// Load Icon by uri of Avalonia Resource
     /// </summary>
     /// <param name="resourceUri">Uri Path for icon</param>
     /// <returns>Image as <see cref="Bitmap"/></returns>
@@ -47,7 +50,7 @@ public static class ImageHelper
         {
             icon = new Bitmap(AssetLoader.Open(resourceUri));
         }
-        catch (Exception)
+        catch (Exception e)
         {
             Console.WriteLine("Icon for {0} not found...", resourceUri.AbsolutePath.Split('/').Last());
             icon = DefaultIcon;
@@ -55,14 +58,6 @@ public static class ImageHelper
 
         return icon;
     }
-    
-    /// <summary>
-    /// Load Icon by path
-    /// </summary>
-    /// <param name="resourcePath">String Path for icon</param>
-    /// <returns>Image as <see cref="Bitmap"/></returns>
-    public static Bitmap LoadFromResource(string resourcePath) =>
-        LoadFromResource(new Uri(resourcePath));
 
     /// <summary>
     /// Set the folder with custom assets
@@ -83,7 +78,7 @@ public static class ImageHelper
         {
             UpdateAvailableExtensions();
         }
-        catch (Exception e)
+        catch (Exception e) // "Extensions" not found
         {
             Console.WriteLine(e);
             AssetsUri = BakedAssetsUri;
@@ -94,10 +89,11 @@ public static class ImageHelper
     /// <summary>
     /// Overwrites <see cref="AvailableExtensions"/> from Assets folder
     /// </summary>
+    /// <exception cref="DirectoryNotFoundException">If does not contain "Extensions" folder</exception>
     private static void UpdateAvailableExtensions()
     {
-        var bakedPath = "../../../../" + AssetsUri.Host + AssetsUri.AbsolutePath + "/Extensions";
-        var directory = new DirectoryInfo(bakedPath);
+        var path = "../../../../" + AssetsUri.Host + AssetsUri.AbsolutePath + "/Extensions";
+        var directory = new DirectoryInfo(path);
         AvailableExtensions = directory.EnumerateFiles()
             .Select(x => '.' + x.Name.Replace(".png", ""))
             .ToHashSet();

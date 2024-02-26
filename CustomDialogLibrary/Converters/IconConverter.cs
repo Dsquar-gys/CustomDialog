@@ -25,7 +25,7 @@ public class IconConverter : IValueConverter
         
         var imageUriPath = Path.Combine(ImageHelper.AssetsUri.OriginalString, localIconPath);
 
-        if (targetType.IsAssignableTo(typeof(IImage))) return ImageHelper.LoadFromResource(imageUriPath);
+        if (targetType.IsAssignableTo(typeof(IImage))) return ImageHelper.LoadFromResource(new Uri(imageUriPath));
 
         throw new NotImplementedException("Unrealized target type");
     }

@@ -7,6 +7,9 @@ namespace CustomDialogLibrary.SideBarEntities;
 /// <param name="title">Name of the node</param>
 public class ClickableNode(string path, string title)
 {
+    /// <summary>
+    /// Leads to some directory
+    /// </summary>
     public string Path { get; } = path;
     public string Title { get; } = title;
 }

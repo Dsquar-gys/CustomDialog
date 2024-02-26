@@ -41,7 +41,7 @@ public class WrapPanelTemplate: BodyTemplate
                             },
                             new TextBlock
                             {
-                                [!TextBlock.TextProperty] = new Binding(nameof(value.Title)),
+                                [!TextBlock.TextProperty] = new Binding(nameof(value.Name)),
                                 HorizontalAlignment = HorizontalAlignment.Center,
                             },
                         },

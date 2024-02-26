@@ -23,14 +23,14 @@ public class GeneralViewModel : ViewModelBase
     public BodyViewModel BodyVM { get; }
     
     /// <summary>
-    /// Gets <see cref="StyleBox"/> for <see cref="BodyVM"/>
+    /// Gets <see cref="BodyStyleBox"/> for <see cref="BodyVM"/>
     /// </summary>
-    public StyleBox StyleSelectorBox { get; }
+    public BodyStyleBox BodyStyleSelectionBox { get; }
     
     /// <summary>
     /// Gets collection of sidebar tree nodes
     /// </summary>
-    public ObservableCollection<SideBarNode> Nodes { get; }
+    public ObservableCollection<SideBarNode> SideBarNodes { get; }
     
     /// <summary>
     /// Gets Selected node on sidebar tree
@@ -66,7 +66,7 @@ public class GeneralViewModel : ViewModelBase
     public GeneralViewModel()
     {
         // Sidebar tree nodes init
-        Nodes = new ObservableCollection<SideBarNode>
+        SideBarNodes = new ObservableCollection<SideBarNode>
         {
             new("Places", [
                 new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
@@ -84,14 +84,14 @@ public class GeneralViewModel : ViewModelBase
         // Body creation
         BodyVM = new BodyViewModel();
         
-        // StyleBox init
-        StyleSelectorBox  = new StyleBox( 
+        // BodyStyleBox init
+        BodyStyleSelectionBox  = new BodyStyleBox( 
         [
             new WrapPanelTemplate(),
             new DataGridTemplate()
         ]);
-        // Style of Body depends on StyleBox.CurrentBodyTemplate
-        StyleSelectorBox.WhenAnyValue(x => x.SelectedTemplate)
+        // Style of Body depends on BodyStyleBox.CurrentBodyTemplate
+        BodyStyleSelectionBox.WhenAnyValue(x => x.SelectedTemplate)
             .Subscribe(t => { BodyVM.CurrentStyle = t; });
 
         // Set filtering to All files

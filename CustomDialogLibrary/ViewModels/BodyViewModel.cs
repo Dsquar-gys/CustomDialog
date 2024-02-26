@@ -20,16 +20,16 @@ public class BodyViewModel : ViewModelBase
     private readonly DirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
-    private FileDialogFilter _filter;
+    private FileDialogFilter? _filter;
     private BodyTemplate? _currentStyle;
-    private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Title);
+    private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Name);
     private readonly ReadOnlyObservableCollection<FileEntityModel> outerCollection;
 
     #endregion
     
     #region Properties
     
-    public FileDialogFilter Filter
+    public FileDialogFilter? Filter
     {
         get => _filter;
         set => this.RaiseAndSetIfChanged(ref _filter, value);
@@ -80,9 +80,9 @@ public class BodyViewModel : ViewModelBase
 
         _dataSource.Connect()
             // Filtering proper extensions
-            .Filter(x => Filter.Extensions.Contains(x.Extension) ||
-                         string.IsNullOrWhiteSpace(x.Extension) ||
-                         Filter.Extensions is [""])
+            .Filter(x => Filter is null || (Filter.Extensions.Contains(x.Extension) ||
+                                            string.IsNullOrWhiteSpace(x.Extension) ||
+                                            Filter.Extensions is [""]))
             // Sorting folders first
             .Sort(SortExpressionComparer<FileEntityModel>.Ascending(x => x.GetType().ToString()))
             // Binding to inner collection

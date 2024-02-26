@@ -41,8 +41,8 @@
             <ListBox Grid.Column="1"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
                      SelectionMode="Single"
-                     ItemsSource="{Binding StyleSelectorBox.StyleButtons}"
-                     SelectedItem="{Binding StyleSelectorBox.SelectedTemplate}">
+                     ItemsSource="{Binding BodyStyleSelectionBox.AvailableStyles}"
+                     SelectedItem="{Binding BodyStyleSelectionBox.SelectedTemplate}">
                 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -93,7 +93,7 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto"
                           HorizontalContentAlignment="Left"
                           Grid.Column="0">
-                <TreeView ItemsSource="{Binding Nodes}"
+                <TreeView ItemsSource="{Binding SideBarNodes}"
                           SelectionMode="Single"
                           SelectedItem="{Binding SelectedNode}"
                           Margin="0,0,5,0">

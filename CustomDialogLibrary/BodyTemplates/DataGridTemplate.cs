@@ -25,7 +25,7 @@ public class DataGridTemplate : BodyTemplate
                 {
                     Header = "Name",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Title")
+                    Binding = new Binding("Name")
                 },
                 new DataGridTextColumn
                 {
