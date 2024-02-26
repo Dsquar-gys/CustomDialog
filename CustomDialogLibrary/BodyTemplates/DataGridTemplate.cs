@@ -31,7 +31,7 @@ public class DataGridTemplate : BodyTemplate
                 {
                     Header = "Type",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("IconName")
+                    Binding = new Binding("Type")
                 },
                 new DataGridTextColumn
                 {
@@ -47,7 +47,7 @@ public class DataGridTemplate : BodyTemplate
                 },
                 new DataGridTextColumn
                 {
-                    Header = "Type",
+                    Header = "Size",
                     Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
                     Binding = new Binding("Size")
                 }
