@@ -13,7 +13,6 @@ namespace CustomDialogLibrary;
 public class BodyStyleBox : ReactiveObject, ISpecificFileViewModel
 {
     private BodyTemplate? _selectedTemplate;
-    private BodyTemplate? _currentBodyTemplate;
 
     public BodyTemplate? SelectedTemplate
     {

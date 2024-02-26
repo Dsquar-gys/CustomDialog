@@ -11,7 +11,7 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.ViewModels;
 
-public class BodyViewModel : ViewModelBase
+public class BodyViewModel : ViewModelBase, IDisposable
 {
     #region Private Fields
 
@@ -23,7 +23,7 @@ public class BodyViewModel : ViewModelBase
     private FileDialogFilter? _filter;
     private BodyTemplate? _currentStyle;
     private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Name);
-    private readonly ReadOnlyObservableCollection<FileEntityModel> outerCollection;
+    private readonly ReadOnlyObservableCollection<FileEntityModel> _outerCollection;
 
     #endregion
     
@@ -47,7 +47,7 @@ public class BodyViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
 
-    public ReadOnlyObservableCollection<FileEntityModel> OuterCollection => outerCollection;
+    public ReadOnlyObservableCollection<FileEntityModel> OuterCollection => _outerCollection;
     
     public FileEntityModel? SelectedFileEntity
     {
@@ -86,7 +86,7 @@ public class BodyViewModel : ViewModelBase
             // Sorting folders first
             .Sort(SortExpressionComparer<FileEntityModel>.Ascending(x => x.GetType().ToString()))
             // Binding to inner collection
-            .Bind(out outerCollection)
+            .Bind(out _outerCollection)
             .Subscribe();
         
         // Update data on filter changed
@@ -114,14 +114,15 @@ public class BodyViewModel : ViewModelBase
     /// Displays entity on body or opens it in a new process
     /// </summary>
     /// <param name="path">Path for required to open entity</param>
-    private void Open(string? path)
+    private async void Open(string? path)
     {
         if (!File.Exists(path) && !Directory.Exists(path)) return;
         switch (File.GetAttributes(path))
         {
             case FileAttributes.Directory:
+            case FileAttributes.Directory | FileAttributes.ReadOnly:
                 _history.Add(path);
-                OpenDirectoryAsync();
+                await OpenDirectoryAsync();
                 break;
             default:
                 using (var process = new Process())
@@ -206,11 +207,19 @@ public class BodyViewModel : ViewModelBase
             // Convert pulled collection to source data
             _dataSource.Edit(innerCollection =>
             {
-                innerCollection.Clear();
-                innerCollection.AddOrUpdate(x.Result);
+                innerCollection.Load(x.Result);
             });
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
     
     #endregion
+
+    public void Dispose()
+    {
+        _tokenSource.Dispose();
+        _dataSource.Dispose();
+        ChangeFilterCommand.Dispose();
+        MoveBackCommand.Dispose();
+        MoveForwardCommand.Dispose();
+    }
 }

@@ -22,8 +22,6 @@ public class HistoryNode(string path)
 
         return false;
     }
-    
-    public override int GetHashCode() => throw new NotImplementedException();
 
-    public static bool IsNull(HistoryNode? node) => node == null;
+    public override int GetHashCode() => Path.GetHashCode();
 }

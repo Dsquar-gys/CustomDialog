@@ -13,7 +13,7 @@ public sealed class DirectoryHistory : HistoryBase
     /// Gets Default/Home page (node)
     /// </summary>
     public static DirectoryHistory DefaultPage => 
-        new (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
+        new ("/");
     
     #endregion
     
@@ -37,16 +37,15 @@ public sealed class DirectoryHistory : HistoryBase
 
     private DirectoryHistory(string directoryPath)
     {
-        var head = new HistoryNode(directoryPath);
-        Current = head;
+        _current = new HistoryNode(directoryPath);
         
         // Whether previous node IS NOT null
         CanMoveBack = this.WhenAnyValue(x => x.Current.PreviousNode,
-            prevNode => !HistoryNode.IsNull(prevNode));
+            selector: prevNode => prevNode is not null);
         
         // Whether next node IS NOT null
         CanMoveForward = this.WhenAnyValue(x => x.Current.NextNode,
-            nextNode => !HistoryNode.IsNull(nextNode));
+            selector: nextNode => nextNode is not null);
     }
 
     #region Public Methods
