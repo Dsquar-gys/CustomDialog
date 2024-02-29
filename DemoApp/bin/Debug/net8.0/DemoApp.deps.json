@@ -109,15 +109,15 @@
           }
         }
       },
-      "Avalonia.Controls.DataGrid/11.0.9": {
+      "Avalonia.Controls.DataGrid/11.0.6": {
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Remote.Protocol": "11.0.9"
         },
         "runtime": {
           "lib/net6.0/Avalonia.Controls.DataGrid.dll": {
-            "assemblyVersion": "11.0.9.0",
-            "fileVersion": "11.0.9.0"
+            "assemblyVersion": "11.0.6.0",
+            "fileVersion": "11.0.6.0"
           }
         }
       },
@@ -151,7 +151,7 @@
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Controls.ColorPicker": "11.0.6",
-          "Avalonia.Controls.DataGrid": "11.0.9",
+          "Avalonia.Controls.DataGrid": "11.0.6",
           "Avalonia.Themes.Simple": "11.0.6",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "3.8.0",
           "Microsoft.CodeAnalysis.Common": "3.8.0"
@@ -415,7 +415,7 @@
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Controls.ColorPicker": "11.0.6",
-          "Avalonia.Controls.DataGrid": "11.0.9",
+          "Avalonia.Controls.DataGrid": "11.0.6",
           "Avalonia.Controls.ItemsRepeater": "11.0.4",
           "Avalonia.Skia": "11.0.6",
           "MicroCom.CodeGenerator.MSBuild": "0.11.0",
@@ -1147,7 +1147,7 @@
       "CustomDialogLibrary/1.0.0": {
         "dependencies": {
           "Avalonia": "11.0.9",
-          "Avalonia.Controls.DataGrid": "11.0.9",
+          "Avalonia.Controls.DataGrid": "11.0.6",
           "Avalonia.ReactiveUI": "11.0.9",
           "Avalonia.Xaml.Behaviors": "11.0.6",
           "Avalonia.Xaml.Interactions": "11.0.6",
@@ -1195,12 +1195,12 @@
       "path": "avalonia.controls.colorpicker/11.0.6",
       "hashPath": "avalonia.controls.colorpicker.11.0.6.nupkg.sha512"
     },
-    "Avalonia.Controls.DataGrid/11.0.9": {
+    "Avalonia.Controls.DataGrid/11.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tueNBwc3lyhxKJMQAi4oXX3H4eZkK+GnFliUDkRYbgpAUacwO8/O6ALjvB5bpdBTqogKFhgxiviEVcfpQcbUdw==",
-      "path": "avalonia.controls.datagrid/11.0.9",
-      "hashPath": "avalonia.controls.datagrid.11.0.9.nupkg.sha512"
+      "sha512": "sha512-tfi5cpB2dvOk3UF6cUMtqoKF08jIGH9mLfAqpAYGwq1S4CXRL7fVaNMJCeLqQ+lSuqbakVKQZ7ysdJbJLolNgw==",
+      "path": "avalonia.controls.datagrid/11.0.6",
+      "hashPath": "avalonia.controls.datagrid.11.0.6.nupkg.sha512"
     },
     "Avalonia.Controls.ItemsRepeater/11.0.4": {
       "type": "package",

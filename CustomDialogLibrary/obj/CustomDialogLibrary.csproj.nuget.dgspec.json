@@ -14,6 +14,7 @@
         "outputPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
+          "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/toolbox/src/NuGet.Config",
           "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
@@ -40,15 +41,15 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.0.9, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.Controls.DataGrid": {
               "target": "Package",
-              "version": "[11.0.9, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.ReactiveUI": {
               "target": "Package",
-              "version": "[11.0.9, )"
+              "version": "[11.0.6, )"
             },
             "Avalonia.Xaml.Behaviors": {
               "target": "Package",

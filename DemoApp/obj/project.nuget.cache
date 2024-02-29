@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+hWrOqzskLEvVmAu/BZChEp6OwHwjYJDTlbDF1anZuT1nMYd3pa0ykUW6Mafq8zmCXZR473ZqywfiKD6+gAoKw==",
+  "dgSpecHash": "tq3BbgDxl0dvKCmLBzMgpmPPrdI0QKhn+K9OHrAPCNQgl9j/NCQedbD7M4LW6+vip5KiZO/RmTBdDsHJHLts8Q==",
   "success": true,
   "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.angle.windows.natives/2.1.0.2023020321/avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.buildservices/0.0.29/avalonia.buildservices.0.0.29.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.colorpicker/11.0.6/avalonia.controls.colorpicker.11.0.6.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.datagrid/11.0.9/avalonia.controls.datagrid.11.0.9.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.datagrid/11.0.6/avalonia.controls.datagrid.11.0.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.itemsrepeater/11.0.4/avalonia.controls.itemsrepeater.11.0.4.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.desktop/11.0.6/avalonia.desktop.11.0.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.diagnostics/11.0.6/avalonia.diagnostics.11.0.6.nupkg.sha512",

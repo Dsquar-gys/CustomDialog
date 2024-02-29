@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
+using System.Reactive.Linq;
 using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.SideBarEntities;

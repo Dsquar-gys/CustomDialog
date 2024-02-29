@@ -2,11 +2,11 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "Avalonia/11.0.9": {
+      "Avalonia/11.0.6": {
         "type": "package",
         "dependencies": {
           "Avalonia.BuildServices": "0.0.29",
-          "Avalonia.Remote.Protocol": "11.0.9",
+          "Avalonia.Remote.Protocol": "11.0.6",
           "MicroCom.Runtime": "0.11.0",
           "System.ComponentModel.Annotations": "4.5.0"
         },
@@ -102,11 +102,11 @@
           }
         }
       },
-      "Avalonia.Controls.DataGrid/11.0.9": {
+      "Avalonia.Controls.DataGrid/11.0.6": {
         "type": "package",
         "dependencies": {
-          "Avalonia": "11.0.9",
-          "Avalonia.Remote.Protocol": "11.0.9"
+          "Avalonia": "11.0.6",
+          "Avalonia.Remote.Protocol": "11.0.6"
         },
         "compile": {
           "lib/net6.0/Avalonia.Controls.DataGrid.dll": {
@@ -135,10 +135,10 @@
           }
         }
       },
-      "Avalonia.ReactiveUI/11.0.9": {
+      "Avalonia.ReactiveUI/11.0.6": {
         "type": "package",
         "dependencies": {
-          "Avalonia": "11.0.9",
+          "Avalonia": "11.0.6",
           "ReactiveUI": "18.3.1",
           "System.Reactive": "5.0.0"
         },
@@ -153,7 +153,7 @@
           }
         }
       },
-      "Avalonia.Remote.Protocol/11.0.9": {
+      "Avalonia.Remote.Protocol/11.0.6": {
         "type": "package",
         "compile": {
           "lib/net6.0/Avalonia.Remote.Protocol.dll": {
@@ -650,10 +650,10 @@
     }
   },
   "libraries": {
-    "Avalonia/11.0.9": {
-      "sha512": "G8cFJvcMo1pZiJVCpp6bLyumLDUskoFxfLp7n1WsTXE8WYjaBC+EyfLttWgth2+lVjiOaGHxhQ/NckltxM/Bdw==",
+    "Avalonia/11.0.6": {
+      "sha512": "BhuWLzZOWKqv6i0dTvbx/jsSwqZDhY4093+ihRai0TIc48kgGhX3TpUGRsRFfzfnb7FHwlkgZHjNgleVX+LEJg==",
       "type": "package",
-      "path": "avalonia/11.0.9",
+      "path": "avalonia/11.0.6",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -661,7 +661,7 @@
         "Icon.png",
         "analyzers/dotnet/cs/Avalonia.Analyzers.dll",
         "analyzers/dotnet/cs/Avalonia.Generators.dll",
-        "avalonia.11.0.9.nupkg.sha512",
+        "avalonia.11.0.6.nupkg.sha512",
         "avalonia.nuspec",
         "build/Avalonia.Generators.props",
         "build/Avalonia.props",
@@ -876,15 +876,15 @@
         "lib/netstandard2.0/Avalonia.Controls.ColorPicker.xml"
       ]
     },
-    "Avalonia.Controls.DataGrid/11.0.9": {
-      "sha512": "tueNBwc3lyhxKJMQAi4oXX3H4eZkK+GnFliUDkRYbgpAUacwO8/O6ALjvB5bpdBTqogKFhgxiviEVcfpQcbUdw==",
+    "Avalonia.Controls.DataGrid/11.0.6": {
+      "sha512": "tfi5cpB2dvOk3UF6cUMtqoKF08jIGH9mLfAqpAYGwq1S4CXRL7fVaNMJCeLqQ+lSuqbakVKQZ7ysdJbJLolNgw==",
       "type": "package",
-      "path": "avalonia.controls.datagrid/11.0.9",
+      "path": "avalonia.controls.datagrid/11.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "avalonia.controls.datagrid.11.0.9.nupkg.sha512",
+        "avalonia.controls.datagrid.11.0.6.nupkg.sha512",
         "avalonia.controls.datagrid.nuspec",
         "lib/net6.0/Avalonia.Controls.DataGrid.dll",
         "lib/net6.0/Avalonia.Controls.DataGrid.xml",
@@ -908,15 +908,15 @@
         "lib/netstandard2.0/Avalonia.Controls.ItemsRepeater.xml"
       ]
     },
-    "Avalonia.ReactiveUI/11.0.9": {
-      "sha512": "ukIv5R140jlQICrSdf/LgLWlgS8N9vPEefbfpGhtDC+vKVRguBmgI1Y55Gwy92BYl/G40bM+9rsZ2E1gftbFWA==",
+    "Avalonia.ReactiveUI/11.0.6": {
+      "sha512": "tA+6LhDWCaSXms0YJcLJy3ib5XJFtjYWlSRygooRCv+rR0Jiw8X7UA6DppEe8SgWJMc395XfiIioEcQ3NfPBeA==",
       "type": "package",
-      "path": "avalonia.reactiveui/11.0.9",
+      "path": "avalonia.reactiveui/11.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "avalonia.reactiveui.11.0.9.nupkg.sha512",
+        "avalonia.reactiveui.11.0.6.nupkg.sha512",
         "avalonia.reactiveui.nuspec",
         "lib/net6.0/Avalonia.ReactiveUI.dll",
         "lib/net6.0/Avalonia.ReactiveUI.xml",
@@ -924,15 +924,15 @@
         "lib/netstandard2.0/Avalonia.ReactiveUI.xml"
       ]
     },
-    "Avalonia.Remote.Protocol/11.0.9": {
-      "sha512": "n7GXzwiVk8qIxwXcugovZnmZSi6IoCVEbL2CDu2znNH+m1m6f7JH91TbHtx1HQzG6EFAj6HEy8f/8k/8U8vQZQ==",
+    "Avalonia.Remote.Protocol/11.0.6": {
+      "sha512": "aIuCvIW+gjKg3USW6FuAMW6k2HDhTTCzWcGYCnuloOSnFe3EgeqEJr+qbO2whnMD1zLoJil3RWmTBl/b/yUqOw==",
       "type": "package",
-      "path": "avalonia.remote.protocol/11.0.9",
+      "path": "avalonia.remote.protocol/11.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "avalonia.remote.protocol.11.0.9.nupkg.sha512",
+        "avalonia.remote.protocol.11.0.6.nupkg.sha512",
         "avalonia.remote.protocol.nuspec",
         "lib/net6.0/Avalonia.Remote.Protocol.dll",
         "lib/net6.0/Avalonia.Remote.Protocol.xml",
@@ -1816,9 +1816,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Avalonia >= 11.0.9",
-      "Avalonia.Controls.DataGrid >= 11.0.9",
-      "Avalonia.ReactiveUI >= 11.0.9",
+      "Avalonia >= 11.0.6",
+      "Avalonia.Controls.DataGrid >= 11.0.6",
+      "Avalonia.ReactiveUI >= 11.0.6",
       "Avalonia.Xaml.Behaviors >= 11.0.6",
       "Avalonia.Xaml.Interactions >= 11.0.6",
       "Avalonia.Xaml.Interactivity >= 11.0.6",
@@ -1839,6 +1839,7 @@
       "outputPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/toolbox/src/NuGet.Config",
         "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
@@ -1865,15 +1866,15 @@
         "dependencies": {
           "Avalonia": {
             "target": "Package",
-            "version": "[11.0.9, )"
+            "version": "[11.0.6, )"
           },
           "Avalonia.Controls.DataGrid": {
             "target": "Package",
-            "version": "[11.0.9, )"
+            "version": "[11.0.6, )"
           },
           "Avalonia.ReactiveUI": {
             "target": "Package",
-            "version": "[11.0.9, )"
+            "version": "[11.0.6, )"
           },
           "Avalonia.Xaml.Behaviors": {
             "target": "Package",

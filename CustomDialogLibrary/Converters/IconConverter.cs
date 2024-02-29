@@ -1,4 +1,5 @@
 using System.Globalization;
+using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
@@ -14,19 +15,18 @@ public class IconConverter : IValueConverter
     {
         var localIconPath = value switch
         {
-            FileModel file => ImageHelper.AvailableExtensions.Contains(file.Extension) ?
-                $"Extensions/{file.Extension[1..]}.png" : "file.png",
+            FileModel file => Resources.Images.ContainsKey(file.Extension.Replace(".", "") + ".png") ?
+                file.Extension.Replace(".", "") + ".png" : "file.png",
             DirectoryModel => "folder.png",
             ClickableNode node => node.Title.ToLower() + ".png",
             WrapPanelTemplate => "plates.png",
             DataGridTemplate => "grid.png",
-            _ => ImageHelper.DefaultIconName
+            Button button => button.Tag is not null ? button.Tag.ToString()! : "unknown.png",
+            _ => "unknown.png"
         };
         
-        var imageUriPath = Path.Combine(ImageHelper.AssetsUri.OriginalString, localIconPath);
-
-        if (targetType.IsAssignableTo(typeof(IImage))) return ImageHelper.LoadFromResource(new Uri(imageUriPath));
-
+        if (targetType.IsAssignableTo(typeof(IImage))) return Resources.Images[localIconPath];
+        
         throw new NotImplementedException("Unrealized target type");
     }
 

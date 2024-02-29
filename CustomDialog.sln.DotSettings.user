@@ -1,4 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=23421499_002D0C02_002D4128_002D9211_002D01C8AC104AF7_002Fd_003AViewModels_002Ff_003AGeneralViewModel_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=23421499_002D0C02_002D4128_002D9211_002D01C8AC104AF7_002Ff_003AImageHelper_002Ecs/@EntryIndexedValue">ExplicitlyExcluded</s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.themes.fluent/11.0.6/lib/net6.0/Avalonia.Themes.Fluent.dll" /&gt;
   &lt;Assembly Path="/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialog/bin/Debug/net8.0/Avalonia.Controls.dll" /&gt;

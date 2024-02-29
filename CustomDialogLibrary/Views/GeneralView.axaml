@@ -28,12 +28,14 @@
             <StackPanel Grid.Column="0"
                         Orientation="Horizontal">
                 <Button Margin="5, 6"
+                        Tag="arrow-left.png"
                         Command="{Binding BodyVM.MoveBackCommand}">
-                    <Image Source="/BakedAssets/arrow-left.png" />
+                    <Image Source="{Binding $parent, Converter={StaticResource IconConverter}}" />
                 </Button>
                 <Button Margin="0,6, 5, 6"
+                        Tag="arrow-right.png"
                         Command="{Binding BodyVM.MoveForwardCommand}">
-                    <Image Source="/BakedAssets/arrow-right.png" />
+                    <Image Source="{Binding $parent, Converter={StaticResource IconConverter}}" />
                 </Button>
             </StackPanel>
             
