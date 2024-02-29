@@ -1,13 +1,13 @@
 using System.Reflection;
 using Avalonia.Media.Imaging;
 
-namespace CustomDialogLibrary;
+namespace CustomDialogLibrary.Models;
 
 public static class Resources
 {
     public static Dictionary<string, Bitmap> Images { get; }
 
-    static Resources() // !!! EXTENSIONS !!!
+    static Resources()
     {
         var assembly = Assembly.GetExecutingAssembly();
         var names = assembly.GetManifestResourceNames();
@@ -21,7 +21,7 @@ public static class Resources
                 var img = new Bitmap(stream);
                 var splitted = name.Split('.');
                 
-                Images.Add(splitted[^2] + '.' + splitted[^1], img);
+                Images.Add(splitted[^2] + ".png", img);
             }
             catch (ArgumentException)
             {

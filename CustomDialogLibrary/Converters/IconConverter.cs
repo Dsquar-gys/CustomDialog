@@ -5,6 +5,7 @@ using Avalonia.Data.Converters;
 using Avalonia.Media;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
+using CustomDialogLibrary.Models;
 using CustomDialogLibrary.SideBarEntities;
 
 namespace CustomDialogLibrary.Converters;

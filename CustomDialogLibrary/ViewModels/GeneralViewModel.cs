@@ -3,6 +3,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
+using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.SideBarEntities;
 using ReactiveUI;
 
@@ -22,11 +23,11 @@ public class GeneralViewModel : ViewModelBase, IDisposable
     /// Body for content
     /// </summary>
     public BodyViewModel BodyVM { get; }
-    
+
     /// <summary>
     /// Gets <see cref="BodyStyleBox"/> for <see cref="BodyVM"/>
     /// </summary>
-    public BodyStyleBox BodyStyleSelectionBox { get; }
+    public ISpecificFileViewModel BodyStyleSelectionBox { get; }
     
     /// <summary>
     /// Gets collection of sidebar tree nodes
@@ -64,7 +65,7 @@ public class GeneralViewModel : ViewModelBase, IDisposable
     
     #endregion
     
-    public GeneralViewModel()
+    public GeneralViewModel(ISpecificFileViewModel? sfvm = null)
     {
         // Sidebar tree nodes init
         SideBarNodes = new ObservableCollection<SideBarNode>
@@ -85,15 +86,16 @@ public class GeneralViewModel : ViewModelBase, IDisposable
         FilterUpCommand = ReactiveCommand.Create<int>(x => 
             BodyVM!.ChangeFilterCommand.Execute(Filters[x]).Subscribe());
 
-        // Body creation
-        BodyVM = new BodyViewModel();
-        
         // BodyStyleBox init
-        BodyStyleSelectionBox  = new BodyStyleBox( 
+        BodyStyleSelectionBox = sfvm ?? new BodyStyleBox( 
         [
             new WrapPanelTemplate(),
             new DataGridTemplate()
         ]);
+        
+        // Body creation
+        BodyVM = new BodyViewModel{ SpecificFileViewModel = BodyStyleSelectionBox };
+        
         // Style of Body depends on BodyStyleBox.CurrentBodyTemplate
         BodyStyleSelectionBox.WhenAnyValue(x => x.SelectedTemplate)
             .Subscribe(t => { BodyVM.CurrentStyle = t; });

@@ -23,9 +23,5 @@
         <EmbeddedResource Include="BakedAssets\Extensions\*.png"
                           Label="ExtensionsIcons"/>
     </ItemGroup>
-
-    <ItemGroup>
-      <UpToDateCheckInput Remove="Templated Controls\HeaderButton.axaml" />
-    </ItemGroup>
-
+    
 </Project>

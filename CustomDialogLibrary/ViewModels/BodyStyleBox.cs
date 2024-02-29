@@ -5,7 +5,7 @@ using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.Interfaces;
 using ReactiveUI;
 
-namespace CustomDialogLibrary;
+namespace CustomDialogLibrary.ViewModels;
 
 /// <summary>
 /// Object that manages current and available body styles

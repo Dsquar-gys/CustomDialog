@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.History;
+using CustomDialogLibrary.Interfaces;
 using DynamicData;
 using DynamicData.Binding;
 using ReactiveUI;
@@ -22,12 +23,19 @@ public class BodyViewModel : ViewModelBase, IDisposable
     private CancellationToken _token;
     private FileDialogFilter? _filter;
     private BodyTemplate? _currentStyle;
+    private ISpecificFileViewModel _specificFileViewModel;
     private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Name);
     private readonly ReadOnlyObservableCollection<FileEntityModel> _outerCollection;
 
     #endregion
     
     #region Properties
+
+    public ISpecificFileViewModel SpecificFileViewModel
+    {
+        get => _specificFileViewModel;
+        init => this.RaiseAndSetIfChanged(ref _specificFileViewModel, value);
+    }
     
     public FileDialogFilter? Filter
     {
@@ -197,8 +205,11 @@ public class BodyViewModel : ViewModelBase, IDisposable
                     Console.WriteLine("Task cancelled");
                     return pulling;
                 }
+
+                if (SpecificFileViewModel.TryToCreateFileEntry(file, out var model))
+                    pulling.Add(model);
                 // Filling collection
-                pulling.Add(new FileModel(file));
+                //pulling.Add(new FileModel(file));
             }
 
             return pulling;
