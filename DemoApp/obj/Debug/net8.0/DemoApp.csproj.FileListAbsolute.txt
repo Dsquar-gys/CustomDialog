@@ -147,6 +147,7 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/refint/DemoApp.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.pdb
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.csproj.CopyComplete
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.genruntimeconfig.cache
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/ref/DemoApp.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.csproj.Up2Date
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Semi.Avalonia.DataGrid.dll

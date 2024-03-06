@@ -21,6 +21,7 @@
           "DynamicData": "8.3.27",
           "FluentAvaloniaUI": "2.0.5",
           "Semi.Avalonia": "11.0.1",
+          "Semi.Avalonia.DataGrid": "11.0.7",
           "TestableIO.System.IO.Abstractions.Wrappers": "20.0.4"
         },
         "runtime": {
@@ -109,15 +110,15 @@
           }
         }
       },
-      "Avalonia.Controls.DataGrid/11.0.6": {
+      "Avalonia.Controls.DataGrid/11.0.7": {
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Remote.Protocol": "11.0.9"
         },
         "runtime": {
           "lib/net6.0/Avalonia.Controls.DataGrid.dll": {
-            "assemblyVersion": "11.0.6.0",
-            "fileVersion": "11.0.6.0"
+            "assemblyVersion": "11.0.7.0",
+            "fileVersion": "11.0.7.0"
           }
         }
       },
@@ -151,7 +152,7 @@
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Controls.ColorPicker": "11.0.6",
-          "Avalonia.Controls.DataGrid": "11.0.6",
+          "Avalonia.Controls.DataGrid": "11.0.7",
           "Avalonia.Themes.Simple": "11.0.6",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "3.8.0",
           "Microsoft.CodeAnalysis.Common": "3.8.0"
@@ -415,7 +416,7 @@
         "dependencies": {
           "Avalonia": "11.0.9",
           "Avalonia.Controls.ColorPicker": "11.0.6",
-          "Avalonia.Controls.DataGrid": "11.0.6",
+          "Avalonia.Controls.DataGrid": "11.0.7",
           "Avalonia.Controls.ItemsRepeater": "11.0.4",
           "Avalonia.Skia": "11.0.6",
           "MicroCom.CodeGenerator.MSBuild": "0.11.0",
@@ -784,6 +785,18 @@
           }
         }
       },
+      "Semi.Avalonia.DataGrid/11.0.7": {
+        "dependencies": {
+          "Avalonia": "11.0.9",
+          "Avalonia.Controls.DataGrid": "11.0.7"
+        },
+        "runtime": {
+          "lib/net6.0/Semi.Avalonia.DataGrid.dll": {
+            "assemblyVersion": "11.0.7.0",
+            "fileVersion": "11.0.7.0"
+          }
+        }
+      },
       "SkiaSharp/2.88.6": {
         "dependencies": {
           "SkiaSharp.NativeAssets.Win32": "2.88.6",
@@ -1147,7 +1160,7 @@
       "CustomDialogLibrary/1.0.0": {
         "dependencies": {
           "Avalonia": "11.0.9",
-          "Avalonia.Controls.DataGrid": "11.0.6",
+          "Avalonia.Controls.DataGrid": "11.0.7",
           "Avalonia.ReactiveUI": "11.0.9",
           "Avalonia.Xaml.Behaviors": "11.0.6",
           "Avalonia.Xaml.Interactions": "11.0.6",
@@ -1195,12 +1208,12 @@
       "path": "avalonia.controls.colorpicker/11.0.6",
       "hashPath": "avalonia.controls.colorpicker.11.0.6.nupkg.sha512"
     },
-    "Avalonia.Controls.DataGrid/11.0.6": {
+    "Avalonia.Controls.DataGrid/11.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tfi5cpB2dvOk3UF6cUMtqoKF08jIGH9mLfAqpAYGwq1S4CXRL7fVaNMJCeLqQ+lSuqbakVKQZ7ysdJbJLolNgw==",
-      "path": "avalonia.controls.datagrid/11.0.6",
-      "hashPath": "avalonia.controls.datagrid.11.0.6.nupkg.sha512"
+      "sha512": "sha512-RpqeW/nn6btV+TWiFiGizIU/Z4Tj+ALD/TkOtmv/ryJ9EmBSN9S4fED3Unck7I/339NaxeImIO5hhENAQgrW1A==",
+      "path": "avalonia.controls.datagrid/11.0.7",
+      "hashPath": "avalonia.controls.datagrid.11.0.7.nupkg.sha512"
     },
     "Avalonia.Controls.ItemsRepeater/11.0.4": {
       "type": "package",
@@ -1495,6 +1508,13 @@
       "sha512": "sha512-iswElH/UtuJq9C2p6W1xiKbt0cPMm/TdukbMKAKIhYMaFwPDxv/+yNSanOkbKF/cY84jYd9lp+cFufh9vmN5UQ==",
       "path": "semi.avalonia/11.0.1",
       "hashPath": "semi.avalonia.11.0.1.nupkg.sha512"
+    },
+    "Semi.Avalonia.DataGrid/11.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zfbkx6H0Bau3p5IgjSru7X9/jNHy1JArvno5kNP7XBRC6TCMp0G2U2BRYr3QPefYC7vpv3JMrLa0G2xGLWqzlw==",
+      "path": "semi.avalonia.datagrid/11.0.7",
+      "hashPath": "semi.avalonia.datagrid.11.0.7.nupkg.sha512"
     },
     "SkiaSharp/2.88.6": {
       "type": "package",

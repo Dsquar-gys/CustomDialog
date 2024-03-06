@@ -119,11 +119,11 @@
           }
         }
       },
-      "Avalonia.Controls.DataGrid/11.0.6": {
+      "Avalonia.Controls.DataGrid/11.0.7": {
         "type": "package",
         "dependencies": {
-          "Avalonia": "11.0.6",
-          "Avalonia.Remote.Protocol": "11.0.6"
+          "Avalonia": "11.0.7",
+          "Avalonia.Remote.Protocol": "11.0.7"
         },
         "compile": {
           "lib/net6.0/Avalonia.Controls.DataGrid.dll": {
@@ -1015,6 +1015,19 @@
         },
         "runtime": {
           "lib/net6.0/Semi.Avalonia.dll": {}
+        }
+      },
+      "Semi.Avalonia.DataGrid/11.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.0.7",
+          "Avalonia.Controls.DataGrid": "11.0.7"
+        },
+        "compile": {
+          "lib/net6.0/Semi.Avalonia.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Semi.Avalonia.DataGrid.dll": {}
         }
       },
       "SkiaSharp/2.88.6": {
@@ -1952,15 +1965,15 @@
         "lib/netstandard2.0/Avalonia.Controls.ColorPicker.xml"
       ]
     },
-    "Avalonia.Controls.DataGrid/11.0.6": {
-      "sha512": "tfi5cpB2dvOk3UF6cUMtqoKF08jIGH9mLfAqpAYGwq1S4CXRL7fVaNMJCeLqQ+lSuqbakVKQZ7ysdJbJLolNgw==",
+    "Avalonia.Controls.DataGrid/11.0.7": {
+      "sha512": "RpqeW/nn6btV+TWiFiGizIU/Z4Tj+ALD/TkOtmv/ryJ9EmBSN9S4fED3Unck7I/339NaxeImIO5hhENAQgrW1A==",
       "type": "package",
-      "path": "avalonia.controls.datagrid/11.0.6",
+      "path": "avalonia.controls.datagrid/11.0.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "avalonia.controls.datagrid.11.0.6.nupkg.sha512",
+        "avalonia.controls.datagrid.11.0.7.nupkg.sha512",
         "avalonia.controls.datagrid.nuspec",
         "lib/net6.0/Avalonia.Controls.DataGrid.dll",
         "lib/net6.0/Avalonia.Controls.DataGrid.xml",
@@ -3146,6 +3159,19 @@
         "lib/netstandard2.0/Semi.Avalonia.dll",
         "semi.avalonia.11.0.1.nupkg.sha512",
         "semi.avalonia.nuspec"
+      ]
+    },
+    "Semi.Avalonia.DataGrid/11.0.7": {
+      "sha512": "Zfbkx6H0Bau3p5IgjSru7X9/jNHy1JArvno5kNP7XBRC6TCMp0G2U2BRYr3QPefYC7vpv3JMrLa0G2xGLWqzlw==",
+      "type": "package",
+      "path": "semi.avalonia.datagrid/11.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Semi.Avalonia.DataGrid.dll",
+        "lib/netstandard2.0/Semi.Avalonia.DataGrid.dll",
+        "semi.avalonia.datagrid.11.0.7.nupkg.sha512",
+        "semi.avalonia.datagrid.nuspec"
       ]
     },
     "SkiaSharp/2.88.6": {
@@ -5351,6 +5377,7 @@
       "DynamicData >= 8.3.27",
       "FluentAvaloniaUI >= 2.0.5",
       "Semi.Avalonia >= 11.0.1",
+      "Semi.Avalonia.DataGrid >= 11.0.7",
       "TestableIO.System.IO.Abstractions.Wrappers >= 20.0.4"
     ]
   },
@@ -5443,6 +5470,10 @@
             "target": "Package",
             "version": "[11.0.1, )"
           },
+          "Semi.Avalonia.DataGrid": {
+            "target": "Package",
+            "version": "[11.0.7, )"
+          },
           "TestableIO.System.IO.Abstractions.Wrappers": {
             "target": "Package",
             "version": "[20.0.4, )"
@@ -5459,26 +5490,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[8.0.1, 8.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

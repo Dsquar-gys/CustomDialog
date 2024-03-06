@@ -64,13 +64,12 @@
             <TextBox Grid.Column="2"
                      Name="PathFinder"
                      Text="{Binding BodyVM.FilePath}"
-                     Margin="10,0">
-            </TextBox>
+                     Margin="10"/>
             
             <!-- Split Search Menu -->
             <StackPanel Grid.Column="3"
                         Orientation="Horizontal"
-                        Margin="15">
+                        Margin="10">
                 <Label Content="Split"
                        Margin="5, 0"/>
                 <Label Content="Search"
@@ -117,11 +116,12 @@
                         </TreeDataTemplate>
                         
                         <TreeDataTemplate DataType="sideBarEntities:ClickableNode">
-                            <Border Height="20"
+                            <Border Height="25"
                                     Margin="5"
                                     Background="Transparent">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding ., Converter={StaticResource IconConverter}}"/>
+                                    <Image Source="{Binding ., Converter={StaticResource IconConverter}}"
+                                           MaxHeight="20"/>
                                     <Label Content="{Binding Title}"
                                            Margin="10,0"
                                            VerticalAlignment="Center"/>

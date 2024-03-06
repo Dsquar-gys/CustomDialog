@@ -1839,7 +1839,6 @@
       "outputPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/toolbox/src/NuGet.Config",
         "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
@@ -1908,22 +1907,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.1, 8.0.1]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

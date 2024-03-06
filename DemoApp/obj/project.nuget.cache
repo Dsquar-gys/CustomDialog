@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tq3BbgDxl0dvKCmLBzMgpmPPrdI0QKhn+K9OHrAPCNQgl9j/NCQedbD7M4LW6+vip5KiZO/RmTBdDsHJHLts8Q==",
+  "dgSpecHash": "+0oXZRSyM4/YbAe1dcd6SwxP2P4lntgD7nUsKW0Xe/A5jEf9iFyzXMF5wujn4lZ9bUNTRfGpQiBgxvIGiqqUiQ==",
   "success": true,
   "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.angle.windows.natives/2.1.0.2023020321/avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.buildservices/0.0.29/avalonia.buildservices.0.0.29.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.colorpicker/11.0.6/avalonia.controls.colorpicker.11.0.6.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.datagrid/11.0.6/avalonia.controls.datagrid.11.0.6.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.datagrid/11.0.7/avalonia.controls.datagrid.11.0.7.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.controls.itemsrepeater/11.0.4/avalonia.controls.itemsrepeater.11.0.4.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.desktop/11.0.6/avalonia.desktop.11.0.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/avalonia.diagnostics/11.0.6/avalonia.diagnostics.11.0.6.nupkg.sha512",
@@ -51,6 +51,7 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/reactiveui/18.3.1/reactiveui.18.3.1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/semi.avalonia/11.0.1/semi.avalonia.11.0.1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/semi.avalonia.datagrid/11.0.7/semi.avalonia.datagrid.11.0.7.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/skiasharp/2.88.6/skiasharp.2.88.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/skiasharp.nativeassets.linux/2.88.6/skiasharp.nativeassets.linux.2.88.6.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/skiasharp.nativeassets.macos/2.88.6/skiasharp.nativeassets.macos.2.88.6.nupkg.sha512",
@@ -93,10 +94,7 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/testableio.system.io.abstractions/20.0.4/testableio.system.io.abstractions.20.0.4.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/testableio.system.io.abstractions.wrappers/20.0.4/testableio.system.io.abstractions.wrappers.20.0.4.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/tmds.dbus.protocol/0.15.0/tmds.dbus.protocol.0.15.0.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.1/microsoft.netcore.app.ref.8.0.1.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.1/microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.1/microsoft.netcore.app.host.linux-x64.8.0.1.nupkg.sha512"
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/tmds.dbus.protocol/0.15.0/tmds.dbus.protocol.0.15.0.nupkg.sha512"
   ],
   "logs": []
 }
