@@ -1,7 +1,6 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="DemoApp.App"
-             xmlns:sty="using:FluentAvalonia.Styling"
              xmlns:local="using:DemoApp"
              xmlns:converters="clr-namespace:CustomDialogLibrary.Converters;assembly=CustomDialogLibrary"
              RequestedThemeVariant="Default">
@@ -19,6 +18,5 @@
              <Application.Styles>
                  <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
                  <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
-                 <sty:FluentAvaloniaTheme />
              </Application.Styles>
 </Application>

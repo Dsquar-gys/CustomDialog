@@ -15,7 +15,6 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Controls.ColorPicker.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Controls.DataGrid.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Controls.ItemsRepeater.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Desktop.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Diagnostics.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Fonts.Inter.dll
@@ -37,7 +36,6 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Responsive.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactivity.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/DynamicData.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/FluentAvalonia.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/HarfBuzzSharp.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/MicroCom.Runtime.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Microsoft.CodeAnalysis.dll

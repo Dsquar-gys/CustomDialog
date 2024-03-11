@@ -65,10 +65,6 @@
             "DynamicData": {
               "target": "Package",
               "version": "[8.3.27, )"
-            },
-            "FluentAvaloniaUI": {
-              "target": "Package",
-              "version": "[2.0.5, )"
             }
           },
           "imports": [

@@ -52,7 +52,11 @@ public class BodyViewModel : ViewModelBase, IDisposable
     public string? FilePath
     {
         get => _filePath;
-        set => this.RaiseAndSetIfChanged(ref _filePath, value);
+        set // Opens entity on any FilePath change (even if value equals current property)
+        {
+            this.RaiseAndSetIfChanged(ref _filePath, value);
+            Open(value);
+        }
     }
 
     public ReadOnlyObservableCollection<FileEntityModel> OuterCollection => _outerCollection;
@@ -100,10 +104,6 @@ public class BodyViewModel : ViewModelBase, IDisposable
         // Update data on filter changed
         this.WhenAnyValue(x => x.Filter)
             .Subscribe(_ => _dataSource.Refresh());
-        
-        // Opens entity on FilePath changed
-        this.WhenAnyValue(x => x.FilePath)
-            .Subscribe(Open);
     }
     
     #region Commands Methods
