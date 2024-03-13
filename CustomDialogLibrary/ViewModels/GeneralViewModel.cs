@@ -2,8 +2,10 @@ using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
 using Avalonia.Controls;
+using Avalonia.Media;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Interfaces;
+using CustomDialogLibrary.Models;
 using CustomDialogLibrary.SideBarEntities;
 using ReactiveUI;
 
@@ -49,9 +51,9 @@ public class GeneralViewModel : ViewModelBase, IDisposable
     public List<FileDialogFilter> Filters =>
     [
         new FileDialogFilter { Name = "All Files", Extensions = [""] },
-        new FileDialogFilter { Name = "Images", Extensions = [".png", ".svg", ".jpg"] },
-        new FileDialogFilter { Name = ".png", Extensions = [".png"] },
-        new FileDialogFilter { Name = ".svg", Extensions = [".svg"] }
+        new FileDialogFilter { Name = "Images", Extensions = MediaFormats.ImageExtensions.ToList() },
+        new FileDialogFilter { Name = "Audio", Extensions = MediaFormats.AudioExtensions.ToList() },
+        new FileDialogFilter { Name = "Videos", Extensions = MediaFormats.VideoExtensions.ToList() }
     ];
     
     #endregion
