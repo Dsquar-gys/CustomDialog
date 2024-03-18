@@ -33,4 +33,23 @@
     <ItemGroup>
       <ProjectReference Include="..\CustomDialogLibrary\CustomDialogLibrary.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Assets\avalonia-logo.ico" />
+      <UpToDateCheckInput Remove="Assets\Icons\arrow-left.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\arrow-right.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\check.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\desktop.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\documents.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\download.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\file.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\folder.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\grid.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\home.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\list.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\pictures.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\plates.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\tree.png" />
+      <UpToDateCheckInput Remove="Assets\Icons\unknown.png" />
+    </ItemGroup>
 </Project>

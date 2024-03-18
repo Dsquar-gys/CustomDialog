@@ -1,8 +1,8 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using DemoApp.ViewModels;
-using MainWindow = DemoApp.Views.MainWindow;
+using CustomDialogLibrary.ViewModels;
+using MainWindow = CustomDialogLibrary.Views.MainWindow;
 
 namespace DemoApp;
 

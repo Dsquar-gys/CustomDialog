@@ -26,11 +26,18 @@ public class BodyViewModel : ViewModelBase, IDisposable
     private ISpecificFileViewModel _specificFileViewModel;
     private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Name);
     private readonly ReadOnlyObservableCollection<FileEntityModel> _outerCollection;
+    private bool _toClose;
 
     #endregion
     
     #region Properties
 
+    public bool ToClose
+    {
+        get => _toClose;
+        set => this.RaiseAndSetIfChanged(ref _toClose, value);
+    }
+    
     public ISpecificFileViewModel SpecificFileViewModel
     {
         get => _specificFileViewModel;
@@ -52,11 +59,7 @@ public class BodyViewModel : ViewModelBase, IDisposable
     public string? FilePath
     {
         get => _filePath;
-        set // Opens entity on any FilePath change (even if value equals current property)
-        {
-            this.RaiseAndSetIfChanged(ref _filePath, value);
-            Open(value);
-        }
+        set => this.RaiseAndSetIfChanged(ref _filePath, value);
     }
 
     public ReadOnlyObservableCollection<FileEntityModel> OuterCollection => _outerCollection;
@@ -104,6 +107,10 @@ public class BodyViewModel : ViewModelBase, IDisposable
         // Update data on filter changed
         this.WhenAnyValue(x => x.Filter)
             .Subscribe(_ => _dataSource.Refresh());
+        
+        // Opens entity on any FilePath change
+        this.WhenAnyValue(x => x.FilePath)
+            .Subscribe(Open);
     }
     
     #region Commands Methods
@@ -133,13 +140,14 @@ public class BodyViewModel : ViewModelBase, IDisposable
                 await OpenDirectoryAsync();
                 break;
             default:
-                using (var process = new Process())
+                ToClose = true;
+                /*using (var process = new Process())
                 {
                     process.StartInfo.UseShellExecute = true;
                     process.StartInfo.FileName = path;
                     process.StartInfo.CreateNoWindow = false;
                     process.Start();
-                }
+                }*/
                 break;
         }
     }

@@ -1,6 +1,4 @@
-﻿using CustomDialogLibrary.ViewModels;
-
-namespace DemoApp.ViewModels;
+﻿namespace CustomDialogLibrary.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {

@@ -16,6 +16,7 @@ public class GeneralViewModel : ViewModelBase, IDisposable
     #region Private Fields
     
     private ClickableNode? _selectedNode;
+    private bool _toClose;
 
     #endregion
     
@@ -55,6 +56,12 @@ public class GeneralViewModel : ViewModelBase, IDisposable
         new FileDialogFilter { Name = "Audio", Extensions = MediaFormats.AudioExtensions.ToList() },
         new FileDialogFilter { Name = "Videos", Extensions = MediaFormats.VideoExtensions.ToList() }
     ];
+
+    public bool ToClose
+    {
+        get => _toClose;
+        set => this.RaiseAndSetIfChanged(ref _toClose, value);
+    }
     
     #endregion
 
@@ -104,6 +111,9 @@ public class GeneralViewModel : ViewModelBase, IDisposable
 
         // Set filtering to All files
         BodyVM.ChangeFilterCommand.Execute(Filters.FirstOrDefault()!).Subscribe();
+
+        this.BodyVM.WhenAnyValue(x => x.ToClose)
+            .Subscribe(x => ToClose = x);
     }
 
     public void Dispose()

@@ -23,4 +23,15 @@
                           Label="ExtensionsIcons"/>
     </ItemGroup>
     
+    <ItemGroup>
+        <AvaloniaResource Include="BakedAssets\*.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\MainWindow.axaml.cs">
+        <DependentUpon>MainWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+    
 </Project>
