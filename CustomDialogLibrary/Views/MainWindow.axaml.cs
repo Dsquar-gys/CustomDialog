@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.ViewModels;
 using ReactiveUI;
 
@@ -17,6 +18,17 @@ public partial class MainWindow : Window
         var content = this.GeneralControl.Content as GeneralViewModel;
 
         content.WhenAnyValue(x => x.ToClose)
-            .Subscribe(toClose => { if (toClose) Close(); });
+            .Subscribe(toClose =>
+            {
+                if (!toClose) return;
+                var entity = content.BodyVM.SelectedFileEntity;
+                var result = entity switch
+                {
+                    FileModel => new FileInfo(entity.FullPath),
+                    _ => null
+                };
+                    
+                Close(result);
+            });
     }
 }

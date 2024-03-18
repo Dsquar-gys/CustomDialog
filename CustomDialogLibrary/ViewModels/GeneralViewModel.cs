@@ -1,8 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
-using System.Reactive.Linq;
 using Avalonia.Controls;
-using Avalonia.Media;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.Models;
@@ -60,7 +58,7 @@ public class GeneralViewModel : ViewModelBase, IDisposable
     public bool ToClose
     {
         get => _toClose;
-        set => this.RaiseAndSetIfChanged(ref _toClose, value);
+        private set => this.RaiseAndSetIfChanged(ref _toClose, value);
     }
     
     #endregion
@@ -112,7 +110,7 @@ public class GeneralViewModel : ViewModelBase, IDisposable
         // Set filtering to All files
         BodyVM.ChangeFilterCommand.Execute(Filters.FirstOrDefault()!).Subscribe();
 
-        this.BodyVM.WhenAnyValue(x => x.ToClose)
+        BodyVM.WhenAnyValue(x => x.ToClose)
             .Subscribe(x => ToClose = x);
     }
 
