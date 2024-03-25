@@ -36,7 +36,7 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
     public bool ToClose
     {
         get => _toClose;
-        set => this.RaiseAndSetIfChanged(ref _toClose, value);
+        private set => this.RaiseAndSetIfChanged(ref _toClose, value);
     }
     
     public ISpecificFileViewModel SpecificFileViewModel
