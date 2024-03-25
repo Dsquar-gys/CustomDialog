@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:DataType="viewModels:ContentBodyViewModel"
+             x:Class="CustomDialogLibrary.Views.ContentBodyView">
+
+    <Design.DataContext>
+        <viewModels:ContentBodyViewModel/>
+    </Design.DataContext>
+    
+    <Border Background="Gainsboro"
+            Margin="5"
+            CornerRadius="10">
+        <ContentControl Content="{Binding .}"
+                        ContentTemplate="{Binding CurrentStyle}">
+            
+            <i:Interaction.Behaviors>
+                <iac:EventTriggerBehavior EventName="DoubleTapped">
+                    <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
+                    <iac:ChangePropertyAction TargetObject="{Binding .}"
+                                              PropertyName="FilePath"
+                                              Value="{Binding SelectedFileEntity.FullPath}"/>
+                </iac:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+            
+        </ContentControl>
+    </Border>
+    
+</UserControl>

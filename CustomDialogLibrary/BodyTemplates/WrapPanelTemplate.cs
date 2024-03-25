@@ -16,7 +16,7 @@ public class WrapPanelTemplate: BodyTemplate
 {
     public override Control Build(object? param)
     {
-        var vm = param as BodyViewModel;
+        var vm = param as ContentBodyViewModel;
         
         var wrapPanel = new ScrollViewer
         {
@@ -69,5 +69,5 @@ public class WrapPanelTemplate: BodyTemplate
         return wrapPanel;
     }
 
-    public override bool Match(object? data) => data is BodyViewModel;
+    public override bool Match(object? data) => data is ContentBodyViewModel;
 }

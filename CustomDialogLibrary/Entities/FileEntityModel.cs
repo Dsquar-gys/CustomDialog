@@ -7,7 +7,7 @@ public abstract class FileEntityModel(FileSystemInfo fileSystemInfo)
 {
     public string Name => fileSystemInfo.Name;
     public string FullPath => fileSystemInfo.FullName;
-    public string Extension => fileSystemInfo.Extension;
+    public string Extension => new(fileSystemInfo.Extension.Skip(1).ToArray());
     public string Type => fileSystemInfo is FileInfo ? "File" : "Directory";
     
     // For DataGridTemplate

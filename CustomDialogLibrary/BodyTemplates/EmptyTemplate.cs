@@ -13,5 +13,5 @@ public class EmptyTemplate: BodyTemplate
         };
     }
 
-    public override bool Match(object? data) => data is BodyViewModel;
+    public override bool Match(object? data) => data is ContentBodyViewModel;
 }

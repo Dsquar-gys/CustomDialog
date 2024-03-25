@@ -8,12 +8,8 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.CoreCompileInputs.cache
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/refint/CustomDialogLibrary.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/ref/CustomDialogLibrary.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/references
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.dll
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.pdb
-/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.ref.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.pdb
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/refint/Avalonia/CustomDialogLibrary.dll

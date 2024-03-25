@@ -7,41 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/GeneralViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/GeneralViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/ref/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/ref/CustomDialogLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/refint/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/refint/CustomDialogLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/DemoApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/DemoApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.ref.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/original.ref.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/ref/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/ref/DemoApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/refint/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/refint/DemoApp.dll" afterDir="false" />
-    </list>
+    <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="Window returns FileInfo while using as dialog" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -284,7 +250,7 @@
       <workItem from="1710507179483" duration="4326000" />
       <workItem from="1710760055994" duration="1808000" />
       <workItem from="1710761875937" duration="4278000" />
-      <workItem from="1710766293878" duration="8137000" />
+      <workItem from="1710766293878" duration="8707000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -630,7 +596,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710766660498</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Window returns FileInfo while using as dialog">
+      <option name="closed" value="true" />
+      <created>1710776210295</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1710776210295</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Proper ISpecificFileViewModel.cs implementation" />
     <MESSAGE value="AccessTime + CreationTime for FileEntityModel.cs" />
     <MESSAGE value="SpecificFileViewModel.TryToCreateFileEntry implementation" />
     <MESSAGE value="Merge with dev-isvm" />
@@ -675,38 +648,7 @@
     <MESSAGE value="Deleted FluentAvalonia.dll --&gt; ComboBox from Semi. Fixed issue with process starting of selected file just once" />
     <MESSAGE value="Better filters" />
     <MESSAGE value="Behavior like file dialog, but not like explorer&#10;on file choosing window closes (file returning is not implemented yet)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Behavior like file dialog, but not like explorer&#10;on file choosing window closes (file returning is not implemented yet)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml.cs" initialLine="30" containingFunctionPresentation="Lambda expression inside Method 'Control_OnLoaded'">
-            <startOffsets>
-              <option value="845" />
-            </startOffsets>
-            <endOffsets>
-              <option value="859" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml.cs</url>
-          <line>35</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainWindow.axaml.cs" initialLine="35" containingFunctionPresentation="Method 'TopLevel_OnClosed'">
-            <startOffsets>
-              <option value="951" />
-            </startOffsets>
-            <endOffsets>
-              <option value="952" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Window returns FileInfo while using as dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="Window returns FileInfo while using as dialog" />
   </component>
 </project>

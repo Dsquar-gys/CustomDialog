@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+        xmlns:iac="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="CustomDialogLibrary.Views.BaseDialogWindow"
+        x:DataType="viewModels:BaseDialogWindowViewModel"
+        Name="DialogWindow"
+        MinWidth="700"
+        MinHeight="300"
+        Icon="/BakedAssets/aperture.ico"
+        Title="DemoApp">
+    
+    <i:Interaction.Behaviors>
+        <iac:EventTriggerBehavior EventName="Loaded">
+            <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
+            <iac:InvokeCommandAction Command="{Binding OnLoaded}"
+                                     CommandParameter="{Binding #DialogWindow}"/>
+        </iac:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+    
+    <Design.DataContext>
+         <viewModels:BaseDialogWindowViewModel/>
+    </Design.DataContext>
+    
+    <TransitioningContentControl Content="{Binding MainDialogViewModel}"
+                                 Name="GeneralControl"/>
+    
+</Window>
