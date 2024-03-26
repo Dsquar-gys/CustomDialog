@@ -1,5 +1,8 @@
 using Avalonia.Controls;
+using Avalonia.Controls.Notifications;
+using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
+using CustomDialogLibrary.History;
 using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.ViewModels;
 using CustomDialogLibrary.Views;
@@ -7,21 +10,58 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.BasicDialogs;
 
-public class OpenDialog
+public class OpenDialog : ReactiveObject
 {
-    private BaseDialogWindowViewModel _mainWindowViewModel;
     private readonly BaseDialogWindow _mainWindow;
-    
-    public string? InitialFileName { get; set; }
-    public string? Directory { get; set; }
-    public string? Title { get; set; }
+    private readonly WindowNotificationManager _notificationManager;
+    private readonly ISpecificFileViewModel? _specificFileViewModel;
+    private string? _directory;
+    private bool _allowMultiple;
 
+    public string? Directory
+    {
+        get => _directory;
+        set => this.RaiseAndSetIfChanged(ref _directory, value);
+    }
+
+    public bool AllowMultiple
+    {
+        get => _allowMultiple;
+        set => this.RaiseAndSetIfChanged(ref _allowMultiple, value);
+    }
+    
     public OpenDialog(ISpecificFileViewModel? specificFileViewModel = null)
     {
+        _specificFileViewModel = specificFileViewModel ?? new BodyStyleBox( 
+        [
+            new WrapPanelTemplate(),
+            new DataGridTemplate()
+        ]);
+        
+        // Single selection
+        _allowMultiple = false;
+        this.WhenAnyValue(x => x.AllowMultiple)
+            .Subscribe(b =>
+            {
+                foreach (var style in _specificFileViewModel.AvailableStyles)
+                    style.AllowMultiple = b;
+            });
+        
+        this.WhenAnyValue(x => x.Directory)
+            .Subscribe(DirectoryHistory.ChangeDefaultDirectory);
+        
+        // Window init
+        _mainWindow = new BaseDialogWindow();
+        // Notification manager init
+        _notificationManager = new(_mainWindow);
+    }
+    
+    public Task<string[]?> ShowAsync(Window parent)
+    {
         // Window View Model init
-        _mainWindowViewModel = new BaseDialogWindowViewModel
+        var mainWindowViewModel = new BaseDialogWindowViewModel
         {
-            MainDialogViewModel = new MainDialogViewModel(specificFileViewModel) { ApplyTo = "Open" },
+            MainDialogViewModel = new MainDialogViewModel(_specificFileViewModel) { ApplyTo = "Open" },
             OnLoaded = ReactiveCommand.Create<object?>(sender =>
             {
                 if (sender is not BaseDialogWindow window) throw new ArgumentException();
@@ -32,30 +72,43 @@ public class OpenDialog
                     .Subscribe(toClose =>
                     {
                         if (!toClose) return;
-                        var entity = content!.ContentBodyVm.SelectedFileEntity;
-                        List<string> result = new();
-                
-                        if (entity is FileModel)
-                            result.Add(entity.FullPath);
+                        
+                        var multiple = content!.ContentBodyVm.SelectedEntities;
+                        string[] result;
+                        
+                        if (multiple.Count == 1)
+                            result = [ multiple[0].FullPath ];
+                        else
+                            result = [..multiple.Select(x => x.FullPath)];
+                        
+                        
                     
-                        window.Close(result.Count > 0 ? result.ToArray() : null);
+                        window.Close(result.Length > 0 ? result.ToArray() : null);
                     });
             })
         };
         
-        _mainWindowViewModel.MainDialogViewModel.InvokeDialogAssignment = ReactiveCommand.CreateFromTask(() =>
+        // Command for dialog main view `Open` button
+        mainWindowViewModel.MainDialogViewModel.InvokeDialogAssignment = ReactiveCommand.CreateFromTask(() =>
         {
-            _mainWindowViewModel.MainDialogViewModel.ContentBodyVm.Open();
+            var body = mainWindowViewModel.MainDialogViewModel.ContentBodyVm;
+            
+            if (body.SelectedEntities.Count > 1)
+            {
+                if (!body.SelectedEntities.Select(x => x.GetType()).Contains(typeof(DirectoryModel)))
+                    body.FilePath = body.SelectedEntities.FirstOrDefault()!.FullPath;
+                else
+                    _notificationManager.Show(new Notification("Folders found",
+                        "Multiple selection found at least 1 folder. Folders can only be opened alone.",
+                        NotificationType.Error));
+            }
+            else
+                body.FilePath = body.SelectedEntities.FirstOrDefault()!.FullPath;
             return Task.CompletedTask;
-        }, _mainWindowViewModel.MainDialogViewModel.ContentBodyVm.WhenAnyValue(x => x.SelectedFileEntity,
-            selector: entity => entity is FileModel));
+        });
 
-        // Window init
-        _mainWindow = new BaseDialogWindow
-        {
-            DataContext = _mainWindowViewModel
-        };
+        _mainWindow.DataContext = mainWindowViewModel;
+        
+        return _mainWindow.ShowDialog<string[]?>(parent);
     }
-    
-    public Task<string[]?> ShowAsync(Window parent) => _mainWindow.ShowDialog<string[]?>(parent);
 }

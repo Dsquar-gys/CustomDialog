@@ -22,5 +22,5 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoWindow.axaml]
+[/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/Views/DemoWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

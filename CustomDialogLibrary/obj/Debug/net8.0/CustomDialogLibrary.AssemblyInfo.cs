@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomDialogLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f437591ef7c2dee45e65ad7680fea925290bee9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db8b968599ae92a5d388653ac8609737416249c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomDialogLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomDialogLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

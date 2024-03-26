@@ -12,7 +12,7 @@ public sealed class DirectoryHistory : HistoryBase
     /// <summary>
     /// Gets Default/Home page (node)
     /// </summary>
-    public static DirectoryHistory DefaultPage => 
+    public static DirectoryHistory DefaultPage { get; private set; } = 
         new ("/");
     
     #endregion
@@ -50,6 +50,8 @@ public sealed class DirectoryHistory : HistoryBase
 
     #region Public Methods
 
+    public static void ChangeDefaultDirectory(string? newPath) => DefaultPage = new(newPath ?? "/");
+    
     public override void MoveBack() => Current = Current.PreviousNode!;
     public override void MoveForward() => Current = Current.NextNode!;
     public override void Add(string filePath)

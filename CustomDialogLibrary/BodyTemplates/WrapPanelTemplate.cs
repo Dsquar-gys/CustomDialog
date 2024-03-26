@@ -25,7 +25,12 @@ public class WrapPanelTemplate: BodyTemplate
             Content = new ListBox
             {
                 [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.OuterCollection)),
-                [!SelectingItemsControl.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
+                [!ListBox.SelectedItemsProperty] = new Binding(nameof(vm.SelectedEntities)),
+                SelectionMode = AllowMultiple switch
+                {
+                    true => SelectionMode.Multiple,
+                    false => SelectionMode.Single
+                },
                 ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, _) =>
                     new StackPanel
                     {

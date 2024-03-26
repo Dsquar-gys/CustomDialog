@@ -2,7 +2,9 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Layout;
+using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.ViewModels;
+using DynamicData;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
@@ -14,11 +16,14 @@ public class DataGridTemplate : BodyTemplate
         var grid = new DataGrid
         {
             HeadersVisibility = DataGridHeadersVisibility.All,
-            SelectionMode = DataGridSelectionMode.Single,
+            SelectionMode = AllowMultiple switch
+            {
+                false => DataGridSelectionMode.Single,
+                true => DataGridSelectionMode.Extended
+            },
             VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.OuterCollection)),
             [!Layoutable.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
-            [!DataGrid.SelectedItemProperty] = new Binding(nameof(vm.SelectedFileEntity)),
             Columns =
             {
                 new DataGridTextColumn
@@ -54,6 +59,12 @@ public class DataGridTemplate : BodyTemplate
             }
         };
 
+        grid.SelectionChanged += (sender, args) =>
+        {
+            vm.SelectedEntities.Clear();
+            vm.SelectedEntities.AddRange(grid.SelectedItems.OfType<FileEntityModel>());
+        };
+        
         return grid;
     }
 

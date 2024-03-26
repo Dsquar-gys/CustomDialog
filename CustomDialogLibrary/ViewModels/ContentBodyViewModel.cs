@@ -1,7 +1,5 @@
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Reactive;
-using System.Reflection;
 using Avalonia.Controls;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Entities;
@@ -18,13 +16,12 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
     #region Private Fields
 
     private string? _filePath;
-    private FileEntityModel? _selectedFileEntity;
     private readonly DirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
     private FileDialogFilter? _filter;
     private BodyTemplate? _currentStyle;
-    private ISpecificFileViewModel _specificFileViewModel;
+    private readonly ISpecificFileViewModel _specificFileViewModel;
     private readonly SourceCache<FileEntityModel, string> _dataSource = new(entity => entity.Name);
     private readonly ReadOnlyObservableCollection<FileEntityModel> _outerCollection;
     private bool _toClose;
@@ -32,14 +29,14 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
     #endregion
     
     #region Properties
-
+    
     public bool ToClose
     {
         get => _toClose;
         private set => this.RaiseAndSetIfChanged(ref _toClose, value);
     }
     
-    public ISpecificFileViewModel SpecificFileViewModel
+    public required ISpecificFileViewModel SpecificFileViewModel
     {
         get => _specificFileViewModel;
         init => this.RaiseAndSetIfChanged(ref _specificFileViewModel, value);
@@ -64,12 +61,7 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
     }
 
     public ReadOnlyObservableCollection<FileEntityModel> OuterCollection => _outerCollection;
-    
-    public FileEntityModel? SelectedFileEntity
-    {
-        get => _selectedFileEntity;
-        set => this.RaiseAndSetIfChanged(ref _selectedFileEntity, value);
-    }
+    public ObservableCollection<FileEntityModel> SelectedEntities { get; } = new();
 
     #endregion
     
@@ -131,10 +123,8 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
     /// </summary>
     /// <param name="path">Path for required to open entity</param>
     /// <remarks>If path is NULL it checks property `FilePath`</remarks>
-    public async void Open(string? path = null)
+    private async void Open(string path)
     {
-        path ??= SelectedFileEntity!.FullPath;
-        
         if (!File.Exists(path) && !Directory.Exists(path)) return;
         switch (File.GetAttributes(path))
         {
@@ -145,13 +135,6 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
                 break;
             default:
                 ToClose = true;
-                /*using (var process = new Process())
-                {
-                    process.StartInfo.UseShellExecute = true;
-                    process.StartInfo.FileName = path;
-                    process.StartInfo.CreateNoWindow = false;
-                    process.Start();
-                }*/
                 break;
         }
     }

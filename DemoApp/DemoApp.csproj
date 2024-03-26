@@ -33,4 +33,11 @@
     <ItemGroup>
       <ProjectReference Include="..\CustomDialogLibrary\CustomDialogLibrary.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Update="Views\DemoWindow.axaml.cs">
+        <DependentUpon>DemoWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>
