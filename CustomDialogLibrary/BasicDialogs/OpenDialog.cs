@@ -30,6 +30,8 @@ public class OpenDialog : ReactiveObject
         set => this.RaiseAndSetIfChanged(ref _allowMultiple, value);
     }
     
+    public List<FileDialogFilter>? Filters { get; set; }
+    
     public OpenDialog(ISpecificFileViewModel? specificFileViewModel = null)
     {
         _specificFileViewModel = specificFileViewModel ?? new BodyStyleBox( 
@@ -87,6 +89,8 @@ public class OpenDialog : ReactiveObject
                     });
             })
         };
+
+        if (Filters is not null && Filters.Count > 0) mainWindowViewModel.MainDialogViewModel.Filters = Filters;
         
         // Command for dialog main view `Open` button
         mainWindowViewModel.MainDialogViewModel.InvokeDialogAssignment = ReactiveCommand.CreateFromTask(() =>

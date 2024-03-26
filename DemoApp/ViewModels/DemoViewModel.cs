@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reactive;
 using Avalonia.Controls;
 using CustomDialogLibrary.BasicDialogs;
@@ -14,8 +15,9 @@ public class DemoViewModel : ViewModelBase
         var dialog = new OpenDialog();
 
         //dialog.Directory = "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/";
-        dialog.AllowMultiple = true;
-        
+        //dialog.AllowMultiple = true;
+        dialog.Filters = new List<FileDialogFilter>();
+
         var temp = await dialog.ShowAsync(parent);
 
         if (temp?.Length > 0)
