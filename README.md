@@ -26,15 +26,3 @@ To use `GeneralViewModel` in xml:
 ```xml
 <TransitioningContentControl Content="{Binding MainViewModel}" />
 ```
-
-### View Locator
-If you are using `ViewLocator` and not goint to create own views, refactor code like this:
-```cs
-public Control? Build(object? data)
-    {
-        ...
-        var type = data.GetType().Assembly.GetType(name);
-        ...
-    }
-```
-That is necessary for your project to see library's views.
