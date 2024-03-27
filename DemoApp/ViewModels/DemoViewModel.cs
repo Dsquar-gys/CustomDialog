@@ -16,7 +16,7 @@ public class DemoViewModel : ViewModelBase
 
         //dialog.Directory = "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/";
         //dialog.AllowMultiple = true;
-        dialog.Filters = new List<FileDialogFilter>();
+        //dialog.Filters = new List<FileDialogFilter>();
 
         var temp = await dialog.ShowAsync(parent);
 

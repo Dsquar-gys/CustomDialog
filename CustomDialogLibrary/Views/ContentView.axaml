@@ -8,11 +8,11 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:DataType="viewModels:ContentBodyViewModel"
-             x:Class="CustomDialogLibrary.Views.ContentBodyView">
+             x:DataType="viewModels:ContentViewModel"
+             x:Class="CustomDialogLibrary.Views.ContentView">
 
     <Design.DataContext>
-        <viewModels:ContentBodyViewModel/>
+        <viewModels:ContentViewModel/>
     </Design.DataContext>
     
     <Border Background="Gainsboro"
@@ -26,7 +26,7 @@
                     <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
                     <iac:ChangePropertyAction TargetObject="{Binding .}"
                                               PropertyName="FilePath"
-                                              Value="{Binding SelectedFileEntity.FullPath}"/>
+                                              Value="{Binding SelectedEntities[0].FullPath}"/>
                 </iac:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             

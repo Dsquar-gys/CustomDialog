@@ -9,11 +9,11 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:DataType="viewModels:MainDialogViewModel"
-             x:Class="CustomDialogLibrary.Views.MainDialogView">
+             x:DataType="viewModels:DialogViewModel"
+             x:Class="CustomDialogLibrary.Views.DialogView">
     
     <Design.DataContext>
-        <viewModels:MainDialogViewModel/>
+        <viewModels:DialogViewModel/>
     </Design.DataContext>
     
     <Grid RowDefinitions="Auto, *, Auto">
@@ -28,12 +28,12 @@
                         Orientation="Horizontal">
                 <Button Margin="5, 6"
                         Tag="arrow-left.png"
-                        Command="{Binding ContentBodyVm.MoveBackCommand}">
+                        Command="{Binding ContentVm.MoveBackCommand}">
                     <Image Source="{Binding $parent, Converter={StaticResource IconConverter}}" />
                 </Button>
                 <Button Margin="0,6, 5, 6"
                         Tag="arrow-right.png"
-                        Command="{Binding ContentBodyVm.MoveForwardCommand}">
+                        Command="{Binding ContentVm.MoveForwardCommand}">
                     <Image Source="{Binding $parent, Converter={StaticResource IconConverter}}" />
                 </Button>
             </StackPanel>
@@ -62,7 +62,7 @@
             <!-- Path TextBox -->
             <TextBox Grid.Column="2"
                      Name="PathFinder"
-                     Text="{Binding ContentBodyVm.FilePath}"
+                     Text="{Binding ContentVm.FilePath}"
                      Margin="10"/>
             
             <!-- Split Search Menu -->
@@ -101,7 +101,7 @@
                     <i:Interaction.Behaviors>
                         <iac:EventTriggerBehavior EventName="Tapped">
                             <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
-                            <iac:ChangePropertyAction TargetObject="{Binding ContentBodyVm}"
+                            <iac:ChangePropertyAction TargetObject="{Binding ContentVm}"
                                                       PropertyName="FilePath"
                                                       Value="{Binding SelectedNode.Path}"/>
                         </iac:EventTriggerBehavior>
@@ -148,7 +148,7 @@
                     Name="BodyBorder"
                     Background="LightGray"
                     Margin="0,0,15,0">
-                <TransitioningContentControl Content="{Binding ContentBodyVm}"/>
+                <TransitioningContentControl Content="{Binding ContentVm}"/>
             </Border>
             
             <!-- Apply button -->

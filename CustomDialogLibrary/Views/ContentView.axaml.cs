@@ -1,11 +1,10 @@
 using Avalonia.Controls;
-using Avalonia.Interactivity;
 
 namespace CustomDialogLibrary.Views;
 
-public partial class MainDialogView : UserControl
+public partial class ContentView : UserControl
 {
-    public MainDialogView()
+    public ContentView()
     {
         InitializeComponent();
     }

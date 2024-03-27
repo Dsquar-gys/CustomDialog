@@ -12,7 +12,7 @@ public class DataGridTemplate : BodyTemplate
 {
     public override Control Build(object? param)
     {
-        var vm = param as ContentBodyViewModel;
+        var vm = param as ContentViewModel;
         var grid = new DataGrid
         {
             HeadersVisibility = DataGridHeadersVisibility.All,
@@ -68,5 +68,5 @@ public class DataGridTemplate : BodyTemplate
         return grid;
     }
 
-    public override bool Match(object? data) => data is ContentBodyViewModel;
+    public override bool Match(object? data) => data is ContentViewModel;
 }

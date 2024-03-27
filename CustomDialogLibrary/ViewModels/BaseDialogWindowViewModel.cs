@@ -5,6 +5,6 @@ namespace CustomDialogLibrary.ViewModels;
 
 public class BaseDialogWindowViewModel : ViewModelBase
 {
-    public required MainDialogViewModel MainDialogViewModel { get; init; }
+    public required DialogViewModel DialogViewModel { get; init; }
     public required ReactiveCommand<object?, Unit> OnLoaded { get; init; }
 }

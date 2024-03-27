@@ -11,7 +11,7 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.ViewModels;
 
-public class ContentBodyViewModel : ViewModelBase, IDisposable
+public class ContentViewModel : ViewModelBase, IDisposable
 {
     #region Private Fields
 
@@ -73,7 +73,7 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
 
     #endregion
     
-    public ContentBodyViewModel()
+    public ContentViewModel()
     {
         // History init
         _history = DirectoryHistory.DefaultPage;
@@ -115,7 +115,7 @@ public class ContentBodyViewModel : ViewModelBase, IDisposable
     private void ChangeFilter(FileDialogFilter filter)
     {
         Filter = filter;
-        Console.WriteLine("Filter changed in ContentBodyVm");
+        Console.WriteLine("Filter changed in ContentVm");
     }
     
     /// <summary>

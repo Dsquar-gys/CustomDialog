@@ -63,19 +63,19 @@ public class OpenDialog : ReactiveObject
         // Window View Model init
         var mainWindowViewModel = new BaseDialogWindowViewModel
         {
-            MainDialogViewModel = new MainDialogViewModel(_specificFileViewModel) { ApplyTo = "Open" },
+            DialogViewModel = new DialogViewModel(_specificFileViewModel) { ApplyTo = "Open" },
             OnLoaded = ReactiveCommand.Create<object?>(sender =>
             {
                 if (sender is not BaseDialogWindow window) throw new ArgumentException();
         
-                var content = window.GeneralControl.Content as MainDialogViewModel;
+                var content = window.GeneralControl.Content as DialogViewModel;
 
                 content.WhenAnyValue(x => x.ToClose)
                     .Subscribe(toClose =>
                     {
                         if (!toClose) return;
                         
-                        var multiple = content!.ContentBodyVm.SelectedEntities;
+                        var multiple = content!.ContentVm.SelectedEntities;
                         string[] result;
                         
                         if (multiple.Count == 1)
@@ -90,12 +90,12 @@ public class OpenDialog : ReactiveObject
             })
         };
 
-        if (Filters is not null && Filters.Count > 0) mainWindowViewModel.MainDialogViewModel.Filters = Filters;
+        if (Filters is not null && Filters.Count > 0) mainWindowViewModel.DialogViewModel.Filters = Filters;
         
         // Command for dialog main view `Open` button
-        mainWindowViewModel.MainDialogViewModel.InvokeDialogAssignment = ReactiveCommand.CreateFromTask(() =>
+        mainWindowViewModel.DialogViewModel.InvokeDialogAssignment = ReactiveCommand.CreateFromTask(() =>
         {
-            var body = mainWindowViewModel.MainDialogViewModel.ContentBodyVm;
+            var body = mainWindowViewModel.DialogViewModel.ContentVm;
             
             if (body.SelectedEntities.Count > 1)
             {

@@ -9,7 +9,7 @@ using ReactiveUI;
 
 namespace CustomDialogLibrary.ViewModels;
 
-public class MainDialogViewModel : ViewModelBase, IDisposable
+public class DialogViewModel : ViewModelBase, IDisposable
 {
     #region Private Fields
     
@@ -23,10 +23,10 @@ public class MainDialogViewModel : ViewModelBase, IDisposable
     /// <summary>
     /// Body for content
     /// </summary>
-    public ContentBodyViewModel ContentBodyVm { get; }
+    public ContentViewModel ContentVm { get; }
 
     /// <summary>
-    /// Gets <see cref="BodyStyleBox"/> for <see cref="ContentBodyVm"/>
+    /// Gets <see cref="BodyStyleBox"/> for <see cref="ContentVm"/>
     /// </summary>
     public ISpecificFileViewModel BodyStyleSelectionBox { get; }
     
@@ -76,7 +76,7 @@ public class MainDialogViewModel : ViewModelBase, IDisposable
     
     #endregion
     
-    public MainDialogViewModel(ISpecificFileViewModel? sfvm = null)
+    public DialogViewModel(ISpecificFileViewModel? sfvm = null)
     {
         // Sidebar tree nodes init
         SideBarNodes = new ObservableCollection<SideBarNode>
@@ -95,7 +95,7 @@ public class MainDialogViewModel : ViewModelBase, IDisposable
 
         // Filtering command creation
         FilterUpCommand = ReactiveCommand.Create<int>(x => 
-            ContentBodyVm!.ChangeFilterCommand.Execute(Filters[x]).Subscribe());
+            ContentVm!.ChangeFilterCommand.Execute(Filters[x]).Subscribe());
 
         // BodyStyleBox init
         BodyStyleSelectionBox = sfvm ?? new BodyStyleBox( 
@@ -105,22 +105,22 @@ public class MainDialogViewModel : ViewModelBase, IDisposable
         ]);
         
         // Body creation
-        ContentBodyVm = new ContentBodyViewModel{ SpecificFileViewModel = BodyStyleSelectionBox };
+        ContentVm = new ContentViewModel{ SpecificFileViewModel = BodyStyleSelectionBox };
         
         // Style of Body depends on BodyStyleBox.CurrentBodyTemplate
         BodyStyleSelectionBox.WhenAnyValue(x => x.SelectedTemplate)
-            .Subscribe(t => { ContentBodyVm.CurrentStyle = t; });
+            .Subscribe(t => { ContentVm.CurrentStyle = t; });
 
         // Set filtering to All files
-        ContentBodyVm.ChangeFilterCommand.Execute(Filters.FirstOrDefault()!).Subscribe();
+        ContentVm.ChangeFilterCommand.Execute(Filters.FirstOrDefault()!).Subscribe();
 
-        ContentBodyVm.WhenAnyValue(x => x.ToClose)
+        ContentVm.WhenAnyValue(x => x.ToClose)
             .Subscribe(x => ToClose = x);
     }
 
     public void Dispose()
     {
-        ContentBodyVm.Dispose();
+        ContentVm.Dispose();
         FilterUpCommand.Dispose();
     }
 }
