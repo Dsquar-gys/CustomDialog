@@ -8,19 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/SaveDialog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainDialogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Views/DialogView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/MainDialogView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Views/DialogView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/SaveDialog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/SaveDialog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/DialogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Views/DialogView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json" afterDir="false" />
@@ -156,25 +154,19 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f963a2a29ea2bb2d4ad8737293b45c4edbd94e55219dc42cf68343d6d91d9/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/faf80ba941fa5f44b7146ad867c7385d14b676796d4b752dce1b94995693c/IChangeSet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fcc4c6fc6457ca9d560149eee8d9664371e09d369975c017b3a5227d7d67eb/Observable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/BodyTemplates/EmptyTemplate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryHistory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/BaseDialogWindowViewModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/MainDialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/DialogViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/BaseDialogWindow.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/Views/BaseDialogWindow.axaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/BaseDialogWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/ContentBodyView.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/MainDialogView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/ContentView.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/DialogView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DemoApp/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/ViewModels/DemoViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.deps.json" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -191,7 +183,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.CustomDialog.executor": "Debug",
+    ".NET Project.CustomDialog.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "XThreadsFramesViewSplitterKey": "0.44957983",
@@ -307,7 +299,7 @@
       <workItem from="1711442373963" duration="17263000" />
       <workItem from="1711459672150" duration="3054000" />
       <workItem from="1711464754734" duration="524000" />
-      <workItem from="1711542383132" duration="473000" />
+      <workItem from="1711542383132" duration="5740000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + Side bar tree update">
       <option name="closed" value="true" />
@@ -693,7 +685,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711464274102</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fix double tap + refactoring">
+      <option name="closed" value="true" />
+      <created>1711543156394</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1711543156394</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,7 +728,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Body templates inherit from abstract template&#10;Added Empty template for avoiding null reference exceptions" />
     <MESSAGE value="Solo StyleBox" />
     <MESSAGE value="StyleBox as Reactive object, successful subscription chain" />
     <MESSAGE value="Merged sfvm-completion + Separated Lib from Demo app" />
@@ -753,23 +752,37 @@
     <MESSAGE value="Commit rebase" />
     <MESSAGE value="AllowMultiple and Initial Directory for OpenDialog.cs is available" />
     <MESSAGE value="Filters property for OpenDialog.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filters property for OpenDialog.cs" />
+    <MESSAGE value="Fix double tap + refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix double tap + refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/ContentBodyViewModel.cs</url>
+          <url>file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/ContentViewModel.cs</url>
           <line>126</line>
           <properties documentPath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/ContentBodyViewModel.cs" initialLine="126" containingFunctionPresentation="Method 'Open'">
             <startOffsets>
-              <option value="4175" />
+              <option value="4163" />
             </startOffsets>
             <endOffsets>
-              <option value="4176" />
+              <option value="4164" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/SaveDialog.cs</url>
+          <line>65</line>
+          <properties documentPath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/SaveDialog.cs" initialLine="65" containingFunctionPresentation="Lambda expression inside Method 'ShowAsync'">
+            <startOffsets>
+              <option value="2092" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2113" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

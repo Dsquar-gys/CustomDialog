@@ -155,12 +155,12 @@
             <Button Grid.Row="1"
                     Grid.Column="0"
                     Name="ApplyButton"
+                    Theme="{DynamicResource SolidButton}"
                     CornerRadius="5"
                     Content="{Binding ApplyTo}"
                     Width="120"
                     Margin="15"
                     HorizontalAlignment="Left"
-                    Foreground="Black"
                     FontWeight="Light"
                     Command="{Binding InvokeDialogAssignment}"/>
             
