@@ -29,4 +29,9 @@
     <TransitioningContentControl Content="{Binding DialogViewModel}"
                                  Name="GeneralControl"/>
     
+    <Window.Styles>
+        <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+        <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
+    </Window.Styles>
+    
 </Window>

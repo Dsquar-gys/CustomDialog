@@ -14,6 +14,8 @@
       <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.1.0-beta1" />
       <PackageReference Include="Avalonia.Xaml.Interactivity" Version="11.1.0-beta1" />
       <PackageReference Include="DynamicData" Version="8.4.1" />
+      <PackageReference Include="Semi.Avalonia" Version="11.1.0-beta1" />
+      <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.1.0-beta1" />
     </ItemGroup>
 
     <ItemGroup Label="Embedded">
