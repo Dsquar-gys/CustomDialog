@@ -18,6 +18,7 @@
         <entry key="CustomDialogLibrary/Views/BodyView.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="CustomDialogLibrary/Views/CommonDialogWindow.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="CustomDialogLibrary/Views/ContentBodyView.axaml" value="DemoApp/DemoApp.csproj" />
+        <entry key="CustomDialogLibrary/Views/ContentView.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="CustomDialogLibrary/Views/DialogView.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="CustomDialogLibrary/Views/GeneralView.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="CustomDialogLibrary/Views/MainDialogView.axaml" value="DemoApp/DemoApp.csproj" />
@@ -26,6 +27,7 @@
         <entry key="DemoApp/DemoWindow.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/Templated Controls/HeaderButton.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/Views/BodyView.axaml" value="DemoApp/DemoApp.csproj" />
+        <entry key="DemoApp/Views/DemoWindow.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/Views/GeneralView.axaml" value="DemoApp/DemoApp.csproj" />
         <entry key="DemoApp/Views/MainWindow.axaml" value="DemoApp/DemoApp.csproj" />
       </map>

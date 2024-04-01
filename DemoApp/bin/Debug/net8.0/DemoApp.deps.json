@@ -625,7 +625,9 @@
           "Avalonia.Xaml.Behaviors": "11.1.0-beta1",
           "Avalonia.Xaml.Interactions": "11.1.0-beta1",
           "Avalonia.Xaml.Interactivity": "11.1.0-beta1",
-          "DynamicData": "8.4.1"
+          "DynamicData": "8.4.1",
+          "Semi.Avalonia": "11.1.0-beta1",
+          "Semi.Avalonia.DataGrid": "11.1.0-beta1"
         },
         "runtime": {
           "CustomDialogLibrary.dll": {}

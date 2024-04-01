@@ -14,7 +14,9 @@
           "Avalonia.Xaml.Behaviors": "11.1.0-beta1",
           "Avalonia.Xaml.Interactions": "11.1.0-beta1",
           "Avalonia.Xaml.Interactivity": "11.1.0-beta1",
-          "DynamicData": "8.4.1"
+          "DynamicData": "8.4.1",
+          "Semi.Avalonia": "11.1.0-beta1",
+          "Semi.Avalonia.DataGrid": "11.1.0-beta1"
         },
         "runtime": {
           "CustomDialogLibrary.dll": {}
@@ -230,6 +232,29 @@
           }
         }
       },
+      "Semi.Avalonia/11.1.0-beta1": {
+        "dependencies": {
+          "Avalonia": "11.1.0-beta1"
+        },
+        "runtime": {
+          "lib/net6.0/Semi.Avalonia.dll": {
+            "assemblyVersion": "11.1.0.0",
+            "fileVersion": "11.1.0.0"
+          }
+        }
+      },
+      "Semi.Avalonia.DataGrid/11.1.0-beta1": {
+        "dependencies": {
+          "Avalonia": "11.1.0-beta1",
+          "Avalonia.Controls.DataGrid": "11.1.0-beta1"
+        },
+        "runtime": {
+          "lib/net6.0/Semi.Avalonia.DataGrid.dll": {
+            "assemblyVersion": "11.1.0.0",
+            "fileVersion": "11.1.0.0"
+          }
+        }
+      },
       "Splat/14.4.1": {
         "runtime": {
           "lib/net6.0/Splat.dll": {
@@ -365,6 +390,20 @@
       "sha512": "sha512-0tclGtjrRPfA2gbjiM7O3DeNmo6/TpDn7CMN6jgzDrbgrnysM7oEzjGEeXbtXaOxH6kEf6RiMKWobZoSgbBXhQ==",
       "path": "reactiveui/18.3.1",
       "hashPath": "reactiveui.18.3.1.nupkg.sha512"
+    },
+    "Semi.Avalonia/11.1.0-beta1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/KILdwSaJ1K/CaBNeRc4Qzcd+O3GrYm19V7hXppA028/0/oLIdDtnhP8lUJcHov57VmWMvLCwphXok8n7atXkA==",
+      "path": "semi.avalonia/11.1.0-beta1",
+      "hashPath": "semi.avalonia.11.1.0-beta1.nupkg.sha512"
+    },
+    "Semi.Avalonia.DataGrid/11.1.0-beta1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SnGHZJQ6lLjv7P6ZPu8PTiFfZLdRwo/pBswZbs4RgqXLAbT0RDYbYEWkkfhUEToSKl3rWYBwMX/TxEgGFQZ6Kg==",
+      "path": "semi.avalonia.datagrid/11.1.0-beta1",
+      "hashPath": "semi.avalonia.datagrid.11.1.0-beta1.nupkg.sha512"
     },
     "Splat/14.4.1": {
       "type": "package",

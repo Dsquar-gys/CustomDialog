@@ -65,6 +65,14 @@
             "DynamicData": {
               "target": "Package",
               "version": "[8.4.1, )"
+            },
+            "Semi.Avalonia": {
+              "target": "Package",
+              "version": "[11.1.0-beta1, )"
+            },
+            "Semi.Avalonia.DataGrid": {
+              "target": "Package",
+              "version": "[11.1.0-beta1, )"
             }
           },
           "imports": [

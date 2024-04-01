@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OIlIyuPoEHsUetAdJAWtE9XdBxya/Lod7AeUdK2BBYPJgjnO7vr0/vKyFydpamAVuHm9kTPg2MC5LYIkGDrzTg==",
+  "dgSpecHash": "B4mlHmYZfc20c8v/KdyNlt2vglqGPOZYaP3sJiGeYUa9PZps1SrqnMDHvgpFinPyBh9TTieu6c3Y5lY3VOu7cA==",
   "success": true,
   "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,8 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/dynamicdata/8.4.1/dynamicdata.8.4.1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microcom.runtime/0.11.0/microcom.runtime.0.11.0.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/reactiveui/18.3.1/reactiveui.18.3.1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/semi.avalonia/11.1.0-beta1/semi.avalonia.11.1.0-beta1.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/semi.avalonia.datagrid/11.1.0-beta1/semi.avalonia.datagrid.11.1.0-beta1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/splat/14.4.1/splat.14.4.1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/system.reactive/6.0.0/system.reactive.6.0.0.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.netcore.app.ref/8.0.3/microsoft.netcore.app.ref.8.0.3.nupkg.sha512",

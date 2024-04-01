@@ -306,6 +306,31 @@
           }
         }
       },
+      "Semi.Avalonia/11.1.0-beta1": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.1.0-beta1"
+        },
+        "compile": {
+          "lib/net6.0/Semi.Avalonia.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Semi.Avalonia.dll": {}
+        }
+      },
+      "Semi.Avalonia.DataGrid/11.1.0-beta1": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.1.0-beta1",
+          "Avalonia.Controls.DataGrid": "11.1.0-beta1"
+        },
+        "compile": {
+          "lib/net6.0/Semi.Avalonia.DataGrid.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Semi.Avalonia.DataGrid.dll": {}
+        }
+      },
       "Splat/14.4.1": {
         "type": "package",
         "compile": {
@@ -765,6 +790,32 @@
         "reactiveui.nuspec"
       ]
     },
+    "Semi.Avalonia/11.1.0-beta1": {
+      "sha512": "/KILdwSaJ1K/CaBNeRc4Qzcd+O3GrYm19V7hXppA028/0/oLIdDtnhP8lUJcHov57VmWMvLCwphXok8n7atXkA==",
+      "type": "package",
+      "path": "semi.avalonia/11.1.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Semi.Avalonia.dll",
+        "lib/netstandard2.0/Semi.Avalonia.dll",
+        "semi.avalonia.11.1.0-beta1.nupkg.sha512",
+        "semi.avalonia.nuspec"
+      ]
+    },
+    "Semi.Avalonia.DataGrid/11.1.0-beta1": {
+      "sha512": "SnGHZJQ6lLjv7P6ZPu8PTiFfZLdRwo/pBswZbs4RgqXLAbT0RDYbYEWkkfhUEToSKl3rWYBwMX/TxEgGFQZ6Kg==",
+      "type": "package",
+      "path": "semi.avalonia.datagrid/11.1.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Semi.Avalonia.DataGrid.dll",
+        "lib/netstandard2.0/Semi.Avalonia.DataGrid.dll",
+        "semi.avalonia.datagrid.11.1.0-beta1.nupkg.sha512",
+        "semi.avalonia.datagrid.nuspec"
+      ]
+    },
     "Splat/14.4.1": {
       "sha512": "Z1Mncnzm9pNIaIbZ/EWH6x5ESnKsmAvu8HP4StBRw+yhz0lzE7LCbt22TNTPaFrYLYbYCbGQIc/61yuSnpLidg==",
       "type": "package",
@@ -818,7 +869,9 @@
       "Avalonia.Xaml.Behaviors >= 11.1.0-beta1",
       "Avalonia.Xaml.Interactions >= 11.1.0-beta1",
       "Avalonia.Xaml.Interactivity >= 11.1.0-beta1",
-      "DynamicData >= 8.4.1"
+      "DynamicData >= 8.4.1",
+      "Semi.Avalonia >= 11.1.0-beta1",
+      "Semi.Avalonia.DataGrid >= 11.1.0-beta1"
     ]
   },
   "packageFolders": {
@@ -885,6 +938,14 @@
           "DynamicData": {
             "target": "Package",
             "version": "[8.4.1, )"
+          },
+          "Semi.Avalonia": {
+            "target": "Package",
+            "version": "[11.1.0-beta1, )"
+          },
+          "Semi.Avalonia.DataGrid": {
+            "target": "Package",
+            "version": "[11.1.0-beta1, )"
           }
         },
         "imports": [

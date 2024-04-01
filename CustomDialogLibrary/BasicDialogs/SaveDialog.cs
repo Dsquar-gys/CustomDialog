@@ -18,8 +18,8 @@ public class SaveDialog : ReactiveObject
     }
 
     public string? InitialFileName { get; set; }
-
     public string? DefaultExtension { get; set; }
+    public List<FileDialogFilter>? Filters { get; set; }
 
     public SaveDialog()
     {
@@ -57,6 +57,8 @@ public class SaveDialog : ReactiveObject
                     });
             })
         };
+        
+        if (Filters is not null && Filters.Count > 0) mainWindowViewModel.DialogViewModel.Filters = Filters;
         
         // Command for dialog main view `Save` button
         mainWindowViewModel.DialogViewModel.InvokeDialogAssignment = ReactiveCommand.Create(() =>
