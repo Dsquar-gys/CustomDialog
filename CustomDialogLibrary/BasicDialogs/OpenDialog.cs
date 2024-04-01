@@ -106,8 +106,12 @@ public class OpenDialog : ReactiveObject
                         "Multiple selection found at least 1 folder. Folders can only be opened alone.",
                         NotificationType.Error));
             }
-            else
+            else if (body.SelectedEntities.Count == 1)
                 body.FilePath = body.SelectedEntities.FirstOrDefault()!.FullPath;
+            else
+                _notificationManager.Show(new Notification("Null selection",
+                "Choose entity to open.",
+                NotificationType.Warning));
             return Task.CompletedTask;
         });
 
