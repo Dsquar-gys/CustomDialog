@@ -15,8 +15,7 @@
         <viewModels:ContentViewModel/>
     </Design.DataContext>
     
-    <Border Background="Gainsboro"
-            Margin="5"
+    <Border Margin="5"
             CornerRadius="10">
         <ContentControl Content="{Binding .}"
                         ContentTemplate="{Binding CurrentStyle}">
