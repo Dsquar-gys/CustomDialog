@@ -14,9 +14,7 @@ public class FilterConverter : IValueConverter
         {
             case FileDialogFilter filter:
             {
-                if (targetType.IsAssignableTo(typeof(string)))
-                    return filter.Name ?? "Unnamed filter";
-                break;
+                return filter.Name ?? "Unnamed filter";
             }
             case IEnumerable<FileDialogFilter> list:
             {
