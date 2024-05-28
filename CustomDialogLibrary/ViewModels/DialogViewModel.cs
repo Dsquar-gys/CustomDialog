@@ -79,19 +79,44 @@ public class DialogViewModel : ViewModelBase, IDisposable
     public DialogViewModel(ISpecificFileViewModel? sfvm = null)
     {
         // Sidebar tree nodes init
-        SideBarNodes = new ObservableCollection<SideBarNode>
+        switch (Environment.OSVersion.Platform)
         {
-            new ("System", [
-                new ClickableNode("/", "Root")
-            ]),
-            new("Places", [
-                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
-                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
-                new ClickableNode(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads"),"Download"),
-                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Documents"),
-                new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
-            ])
-        };
+            case PlatformID.Unix:
+                SideBarNodes = new ObservableCollection<SideBarNode>
+                {
+                    new ("System", [
+                        new ClickableNode("/", "Root")
+                    ]),
+                    new("Places", [
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
+                        new ClickableNode(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads"),"Download"),
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Documents"),
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
+                    ])
+                };
+                break;
+            case PlatformID.Win32NT:
+                var drives = DriveInfo.GetDrives();
+
+                SideBarNodes = new ObservableCollection<SideBarNode>
+                {
+                    new("System", new(drives.Select(drive => new ClickableNode(drive.Name, drive.Name)))),
+                    new("Places", [
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Home"),
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Desktop"),
+                        new ClickableNode(
+                            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads"),
+                            "Download"),
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                            "Documents"),
+                        new ClickableNode(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Pictures")
+                    ])
+                };
+                break;
+            default:
+                throw new Exception("This OS platform is not supported... (DialogViewModel)");
+        }
 
         // Filtering command creation
         FilterUpCommand = ReactiveCommand.Create<int>(x => 

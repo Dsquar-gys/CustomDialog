@@ -103,7 +103,22 @@ public class ContentViewModel : ViewModelBase, IDisposable
         
         // Opens entity on any FilePath change
         this.WhenAnyValue(x => x.FilePath)
-            .Subscribe(Open);
+            .Subscribe(path =>
+            {
+                if (!File.Exists(path) && !Directory.Exists(path)) return;
+                
+                if (File.Exists(path))
+                {
+                    var toSelect = OuterCollection.Where(x => x.FullPath == path);
+
+                    if (OuterCollection.All(x => x.FullPath != path)) return;
+
+                    SelectedEntities.Clear();
+                    SelectedEntities.Add(toSelect.First());
+                }
+                
+                Open(path);
+            });
     }
     
     #region Commands Methods
