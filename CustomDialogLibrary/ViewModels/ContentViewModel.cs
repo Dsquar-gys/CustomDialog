@@ -140,17 +140,16 @@ public class ContentViewModel : ViewModelBase, IDisposable
     /// <remarks>If path is NULL it checks property `FilePath`</remarks>
     private async void Open(string path)
     {
-        if (!File.Exists(path) && !Directory.Exists(path)) return;
-        switch (File.GetAttributes(path))
+        var attributes = File.GetAttributes(path).ToString().Split(new[]{',', ' '}, StringSplitOptions.RemoveEmptyEntries);
+
+        if (attributes.Contains(FileAttributes.Directory.ToString()))
         {
-            case FileAttributes.Directory:
-            case FileAttributes.Directory | FileAttributes.ReadOnly:
-                _history.Add(path);
-                await OpenDirectoryAsync();
-                break;
-            default:
-                ToClose = true;
-                break;
+            _history.Add(path);
+            await OpenDirectoryAsync();
+        }
+        else
+        {
+            ToClose = true;
         }
     }
 
