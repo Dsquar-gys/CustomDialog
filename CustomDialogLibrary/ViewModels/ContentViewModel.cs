@@ -140,7 +140,8 @@ public class ContentViewModel : ViewModelBase, IDisposable
     /// <remarks>If path is NULL it checks property `FilePath`</remarks>
     private async void Open(string path)
     {
-        var attributes = File.GetAttributes(path).ToString().Split(new[]{',', ' '}, StringSplitOptions.RemoveEmptyEntries);
+        var attributes = File.GetAttributes(path).ToString()
+            .Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
         if (attributes.Contains(FileAttributes.Directory.ToString()))
         {
