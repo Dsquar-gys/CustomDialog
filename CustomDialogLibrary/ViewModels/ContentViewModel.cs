@@ -15,7 +15,7 @@ public class ContentViewModel : ViewModelBase, IDisposable
 {
     #region Private Fields
 
-    private string? _filePath;
+    private string _filePath = string.Empty;
     private readonly DirectoryHistory _history;
     private CancellationTokenSource _tokenSource = new();
     private CancellationToken _token;
@@ -54,7 +54,7 @@ public class ContentViewModel : ViewModelBase, IDisposable
         set => this.RaiseAndSetIfChanged(ref _currentStyle, value);
     }
     
-    public string? FilePath
+    public string FilePath
     {
         get => _filePath;
         set => this.RaiseAndSetIfChanged(ref _filePath, value);
@@ -177,8 +177,6 @@ public class ContentViewModel : ViewModelBase, IDisposable
     /// </returns>
     private async Task OpenDirectoryAsync()
     {
-        Console.WriteLine("Start thread: {0}", Environment.CurrentManagedThreadId);
-        
         // Cancel running task
         await _tokenSource.CancelAsync();
 
@@ -186,11 +184,11 @@ public class ContentViewModel : ViewModelBase, IDisposable
         _tokenSource = new();
         _token = _tokenSource.Token;
         
-        var directoryInfo = new DirectoryInfo(FilePath!);
+        var directoryInfo = new DirectoryInfo(FilePath);
+        
         // Awaiting task that pulls content from directory and returns collection
         await Task.Run(() =>
         {
-            Console.WriteLine("Awaited task in thread: {0}", Environment.CurrentManagedThreadId);
             // Result collection
             List<FileEntityModel> pulling = [];
             
@@ -203,7 +201,8 @@ public class ContentViewModel : ViewModelBase, IDisposable
                     return pulling;
                 }
                 // Filling collection
-                pulling.Add(new DirectoryModel(directory));
+                if (SpecificFileViewModel.TryToCreateFileEntry(directory, out var model))
+                    pulling.Add(model);
             }
 
             foreach (var file in directoryInfo.EnumerateFiles())
@@ -215,20 +214,21 @@ public class ContentViewModel : ViewModelBase, IDisposable
                     return pulling;
                 }
 
+                // Filling collection
                 if (SpecificFileViewModel.TryToCreateFileEntry(file, out var model))
                     pulling.Add(model);
-                // Filling collection
-                //pulling.Add(new FileModel(file));
             }
 
             return pulling;
         }, _token).ContinueWith(x =>       // Continuation in UI context
         {
             // Convert pulled collection to source data
-            _dataSource.Edit(innerCollection =>
-            {
-                innerCollection.Load(x.Result);
-            });
+            if (x.IsCompletedSuccessfully)
+                _dataSource.Edit(innerCollection =>
+                {
+                    innerCollection.Load(x.Result);
+                });
+            else Console.WriteLine("Exception occured in OpenDirectoryAsync");
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
     

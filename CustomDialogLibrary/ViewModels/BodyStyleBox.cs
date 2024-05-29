@@ -40,7 +40,7 @@ public class BodyStyleBox : ReactiveObject, ISpecificFileViewModel
         {
             FileInfo fileInfo => new FileModel(fileInfo),
             DirectoryInfo directoryInfo => new DirectoryModel(directoryInfo),
-            _ => vm
+            _ => throw new ArgumentException("Wrong type FileEntityModel... (TryToCreateFileEntry)")
         };
         return true;
     }
