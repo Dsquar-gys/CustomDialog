@@ -5,39 +5,13 @@ namespace CustomDialogLibrary.History;
 /// <summary>
 /// History of directories openings
 /// </summary>
-public sealed class DirectoryHistory : HistoryBase
+public sealed class DirectoryHistory : ReactiveObject
 {
-    #region Static Members
-    
-    /// <summary>
-    /// Gets Default/Home page (node)
-    /// </summary>
-    public static DirectoryHistory DefaultPage { get; private set; } = 
-        new ("/");
-    
-    #endregion
-    
-    #region Private Fields
-    
-    private HistoryNode _current;
-    
-    #endregion
-    
-    #region Properties
-    
-    public override IObservable<bool> CanMoveBack { get; }
-    public override IObservable<bool> CanMoveForward { get; }
-    public override HistoryNode Current
-    {
-        get => _current;
-        set => this.RaiseAndSetIfChanged(ref _current, value);
-    }
+    private DirectoryHistoryNode _current;
 
-    #endregion
-
-    private DirectoryHistory(string directoryPath)
+    public DirectoryHistory(string directoryPath)
     {
-        _current = new HistoryNode(directoryPath);
+        _current = new DirectoryHistoryNode(directoryPath);
         
         // Whether previous node IS NOT null
         CanMoveBack = this.WhenAnyValue(x => x.Current.PreviousNode,
@@ -47,17 +21,21 @@ public sealed class DirectoryHistory : HistoryBase
         CanMoveForward = this.WhenAnyValue(x => x.Current.NextNode,
             selector: nextNode => nextNode is not null);
     }
-
-    #region Public Methods
-
-    public static void ChangeDefaultDirectory(string? newPath) => DefaultPage = new(newPath ?? "/");
     
-    public override void MoveBack() => Current = Current.PreviousNode!;
-    public override void MoveForward() => Current = Current.NextNode!;
-    public override void Add(string filePath)
+    public IObservable<bool> CanMoveBack { get; }
+    public IObservable<bool> CanMoveForward { get; }
+    public DirectoryHistoryNode Current
+    {
+        get => _current;
+        set => this.RaiseAndSetIfChanged(ref _current, value);
+    }
+    
+    public void MoveBack() => Current = Current.PreviousNode!;
+    public void MoveForward() => Current = Current.NextNode!;
+    public void Add(string filePath)
     {
         // Created new node (page)
-        var node = new HistoryNode(filePath);
+        var node = new DirectoryHistoryNode(filePath);
 
         // If new node is not the same as current one then it has to be added
         if (!Current.Equals(node))
@@ -69,6 +47,4 @@ public sealed class DirectoryHistory : HistoryBase
         // Move forward
         Current = node;
     }
-
-    #endregion
 }

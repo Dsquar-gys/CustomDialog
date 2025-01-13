@@ -2,71 +2,37 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Layout;
-using CustomDialogLibrary.Entities;
+using CustomDialogLibrary.Models;
 using CustomDialogLibrary.ViewModels;
 using DynamicData;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
-public class DataGridTemplate : BodyTemplate
+public class DataGridTemplate : FolderListingTemplate
 {
+    public override string IconName { get; } = "ListIcon";
+
     public override Control Build(object? param)
     {
-        var vm = param as ContentViewModel;
-        var grid = new DataGrid
+        var vm = param as FolderListingVM;
+
+        var gridView = new FileGridView()
         {
-            HeadersVisibility = DataGridHeadersVisibility.All,
-            SelectionMode = AllowMultiple switch
-            {
-                false => DataGridSelectionMode.Single,
-                true => DataGridSelectionMode.Extended
-            },
-            VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-            [!DataGrid.ItemsSourceProperty] = new Binding(nameof(vm.OuterCollection)),
-            [!Layoutable.MaxWidthProperty] = new Binding("$parent.Bounds.Width"),
-            Columns =
-            {
-                new DataGridTextColumn
-                {
-                    Header = "Name",
-                    Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Name")
-                },
-                new DataGridTextColumn
-                {
-                    Header = "Type",
-                    Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Type")
-                },
-                new DataGridTextColumn
-                {
-                    Header = "Created",
-                    Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("CreationTime")
-                },
-                new DataGridTextColumn
-                {
-                    Header = "Modified",
-                    Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("LastAccessTime")
-                },
-                new DataGridTextColumn
-                {
-                    Header = "Size",
-                    Width = new DataGridLength(2d, DataGridLengthUnitType.Star),
-                    Binding = new Binding("Size")
-                }
-            }
+            ViewModel = vm
         };
 
-        grid.SelectionChanged += (sender, args) =>
+        gridView.DataGrid.SelectionMode = DataGridSelectionMode.Single;
+
+        gridView.DataGrid.SelectionChanged += ( sender,
+            args ) =>
         {
-            vm.SelectedEntities.Clear();
-            vm.SelectedEntities.AddRange(grid.SelectedItems.OfType<FileEntityModel>());
+            vm.SelectedEntities = gridView.DataGrid
+                .SelectedItems
+                .OfType<FileEntityModelBase>()
+                .ToList();
         };
-        
-        return grid;
+        return gridView;
     }
 
-    public override bool Match(object? data) => data is ContentViewModel;
+    public override bool Match(object? data) => data is FolderListingVM;
 }

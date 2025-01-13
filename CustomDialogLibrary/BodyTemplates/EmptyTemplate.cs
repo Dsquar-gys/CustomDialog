@@ -3,8 +3,10 @@ using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
-public class EmptyTemplate: BodyTemplate
+public class EmptyTemplate: FolderListingTemplate
 {
+    public override string IconName { get; } = "StarIcon";
+    
     public override Control Build(object? param)
     {
         return new TextBlock
@@ -13,5 +15,5 @@ public class EmptyTemplate: BodyTemplate
         };
     }
 
-    public override bool Match(object? data) => data is ContentViewModel;
+    public override bool Match(object? data) => data is FolderListingVM;
 }

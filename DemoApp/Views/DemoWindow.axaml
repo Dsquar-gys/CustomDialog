@@ -21,9 +21,9 @@
                         <Button Command="{Binding GetOpenDialogCommand}"
                                 CommandParameter="{Binding $parent[Window]}"
                                 Content="Get OpenDialog" />
-                        <Button Command="{Binding GetSaveDialogCommand}"
-                                CommandParameter="{Binding $parent[Window]}"
-                                Content="Get SaveDialog"/>
+                        <!-- <Button Command="{Binding GetSaveDialogCommand}" -->
+                        <!--         CommandParameter="{Binding $parent[Window]}" -->
+                        <!--         Content="Get SaveDialog"/> -->
                 </StackPanel>
                 
                 <StackPanel Grid.Row="1"

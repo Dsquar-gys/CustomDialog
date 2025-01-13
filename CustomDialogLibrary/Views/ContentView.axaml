@@ -8,11 +8,11 @@
              mc:Ignorable="d"
              d:DesignWidth="800"
              d:DesignHeight="450"
-             x:DataType="viewModels:ContentViewModel"
+             x:DataType="viewModels:FolderListingVM"
              x:Class="CustomDialogLibrary.Views.ContentView">
 
     <Design.DataContext>
-        <viewModels:ContentViewModel/>
+        <viewModels:FolderListingVM/>
     </Design.DataContext>
     
     <Border Margin="5"

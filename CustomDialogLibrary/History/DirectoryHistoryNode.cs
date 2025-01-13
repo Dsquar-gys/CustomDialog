@@ -4,10 +4,10 @@ namespace CustomDialogLibrary.History;
 /// SideBarNode (page) for history
 /// </summary>
 /// <param name="path">Full path of the entity</param>
-public class HistoryNode(string path)
+public class DirectoryHistoryNode(string path)
 {
-    public HistoryNode? PreviousNode { get; set; }
-    public HistoryNode? NextNode { get; set; }
+    public DirectoryHistoryNode? PreviousNode { get; set; }
+    public DirectoryHistoryNode? NextNode { get; set; }
     
     /// <summary>
     /// Gets full path of the directory
@@ -17,7 +17,7 @@ public class HistoryNode(string path)
     // To compare nodes
     public override bool Equals(object? obj)
     {
-        if (obj is HistoryNode node)
+        if (obj is DirectoryHistoryNode node)
             return Path == node.Path;
 
         return false;

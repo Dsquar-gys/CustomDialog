@@ -1,0 +1,26 @@
+<reactiveUi:ReactiveUserControl x:TypeArguments="viewModels:FolderListingVM" xmlns="https://github.com/avaloniaui"
+                                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
+                                xmlns:reactiveUi="http://reactiveui.net"
+                                xmlns:views="clr-namespace:CustomDialogLibrary.Views"
+                                mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                                x:Class="CustomDialogLibrary.BodyTemplates.FileGridView"
+                                x:DataType="viewModels:FolderListingVM">
+    <DataGrid x:Name="DataGrid"
+              ItemsSource="{CompiledBinding DisplayList}">
+        <Interaction.Behaviors>
+            <EventTriggerBehavior EventName="DoubleTapped">
+                <InvokeCommandAction Command="{Binding $parent[views:FileDialogView].ViewModel.DoubleTappedCmd}" />
+            </EventTriggerBehavior>
+        </Interaction.Behaviors>
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Имя" MaxWidth="320" Binding="{CompiledBinding Name}" />
+            <DataGridTextColumn Header="Расширение" Binding="{CompiledBinding Extension}" />
+            <DataGridTextColumn Header="Тип" Binding="{CompiledBinding Type}" />
+            <DataGridTextColumn Header="Размер" Binding="{CompiledBinding Size}" />
+            <DataGridTextColumn Header="Создан" Binding="{CompiledBinding CreationTime}" />
+        </DataGrid.Columns>
+    </DataGrid>
+</reactiveUi:ReactiveUserControl>

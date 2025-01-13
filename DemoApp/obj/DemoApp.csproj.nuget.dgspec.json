@@ -20,6 +20,7 @@
           "net8.0"
         ],
         "sources": {
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +33,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -62,9 +68,17 @@
               "target": "Package",
               "version": "[11.1.0-beta1, )"
             },
+            "CommunityToolkit.Diagnostics": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
             "DynamicData": {
               "target": "Package",
               "version": "[8.4.1, )"
+            },
+            "Microsoft.Extensions.FileSystemGlobbing": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Semi.Avalonia": {
               "target": "Package",
@@ -89,11 +103,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.3, 8.0.3]"
+              "version": "[8.0.11, 8.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.3, 8.0.3]"
+              "version": "[8.0.11, 8.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -101,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -118,14 +132,15 @@
           "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {
               "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj": {
                 "projectPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj"
@@ -137,11 +152,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "Avalonia": {
               "target": "Package",
@@ -207,26 +227,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.3, 8.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[8.0.3, 8.0.3]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.3, 8.0.3]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

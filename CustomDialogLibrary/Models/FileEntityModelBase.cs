@@ -1,16 +1,16 @@
-namespace CustomDialogLibrary.Entities;
+namespace CustomDialogLibrary.Models;
 
 /// <summary>
 /// Entity, which represents File or Directory
 /// </summary>
-public abstract class FileEntityModel(FileSystemInfo fileSystemInfo)
+public abstract class FileEntityModelBase(FileSystemInfo fileSystemInfo)
 {
+    public string IconName { get; init; } = string.Empty;
     public string Name => fileSystemInfo.Name;
     public string FullPath => fileSystemInfo.FullName;
-    public string Extension => new(fileSystemInfo.Extension.Skip(1).ToArray());
+    public string Extension => fileSystemInfo.Extension;
     public string Type => fileSystemInfo is FileInfo ? "File" : "Directory";
     
-    // For DataGridTemplate
     public DateTime LastAccessTime => fileSystemInfo.LastAccessTime;
     public DateTime CreationTime => fileSystemInfo.CreationTime;
 
@@ -19,4 +19,6 @@ public abstract class FileEntityModel(FileSystemInfo fileSystemInfo)
         FileInfo fileInfo => fileInfo.Length + " bytes",
         _ => ""
     };
+    
+    public bool Hidden => (fileSystemInfo.Attributes & FileAttributes.Hidden) != 0;
 }

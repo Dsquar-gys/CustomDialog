@@ -264,6 +264,19 @@
           }
         }
       },
+      "CommunityToolkit.Diagnostics/8.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/CommunityToolkit.Diagnostics.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/CommunityToolkit.Diagnostics.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "DynamicData/8.4.1": {
         "type": "package",
         "dependencies": {
@@ -287,6 +300,22 @@
         },
         "runtime": {
           "lib/net5.0/MicroCom.Runtime.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/9.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "ReactiveUI/18.3.1": {
@@ -705,6 +734,29 @@
         "lib/net8.0/Avalonia.Xaml.Interactivity.xml"
       ]
     },
+    "CommunityToolkit.Diagnostics/8.4.0": {
+      "sha512": "/9Nuy8EWo0ZYQsjn3h4OGxjCWVYXl3TV3fvv29f8IVqplXgXGRzIpbtHEHGOfykh+TPbzUclzIfMCBzmgblKDA==",
+      "type": "package",
+      "path": "communitytoolkit.diagnostics/8.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "communitytoolkit.diagnostics.8.4.0.nupkg.sha512",
+        "communitytoolkit.diagnostics.nuspec",
+        "lib/net8.0/CommunityToolkit.Diagnostics.dll",
+        "lib/net8.0/CommunityToolkit.Diagnostics.pdb",
+        "lib/net8.0/CommunityToolkit.Diagnostics.xml",
+        "lib/netstandard2.0/CommunityToolkit.Diagnostics.dll",
+        "lib/netstandard2.0/CommunityToolkit.Diagnostics.pdb",
+        "lib/netstandard2.0/CommunityToolkit.Diagnostics.xml",
+        "lib/netstandard2.1/CommunityToolkit.Diagnostics.dll",
+        "lib/netstandard2.1/CommunityToolkit.Diagnostics.pdb",
+        "lib/netstandard2.1/CommunityToolkit.Diagnostics.xml"
+      ]
+    },
     "DynamicData/8.4.1": {
       "sha512": "Mn1+fU/jqxgONEJq8KLQPGWEi7g/hUVTbjZyn4QM0sWWDAVOHPO9WjXWORSykwdfg/6S3GM15qsfz+2EvO+QAQ==",
       "type": "package",
@@ -740,6 +792,34 @@
         "lib/netstandard2.0/MicroCom.Runtime.dll",
         "microcom.runtime.0.11.0.nupkg.sha512",
         "microcom.runtime.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.FileSystemGlobbing/9.0.0": {
+      "sha512": "jGFKZiXs2HNseK3NK/rfwHNNovER71jSj4BD1a/649ml9+h6oEtYd0GSALZDNW8jZ2Rh+oAeadOa6sagYW1F2A==",
+      "type": "package",
+      "path": "microsoft.extensions.filesystemglobbing/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.FileSystemGlobbing.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.FileSystemGlobbing.targets",
+        "lib/net462/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/net462/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "lib/net9.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/net9.0/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "microsoft.extensions.filesystemglobbing.9.0.0.nupkg.sha512",
+        "microsoft.extensions.filesystemglobbing.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "ReactiveUI/18.3.1": {
@@ -869,7 +949,9 @@
       "Avalonia.Xaml.Behaviors >= 11.1.0-beta1",
       "Avalonia.Xaml.Interactions >= 11.1.0-beta1",
       "Avalonia.Xaml.Interactivity >= 11.1.0-beta1",
+      "CommunityToolkit.Diagnostics >= 8.4.0",
       "DynamicData >= 8.4.1",
+      "Microsoft.Extensions.FileSystemGlobbing >= 9.0.0",
       "Semi.Avalonia >= 11.1.0-beta1",
       "Semi.Avalonia.DataGrid >= 11.1.0-beta1"
     ]
@@ -893,6 +975,7 @@
         "net8.0"
       ],
       "sources": {
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -905,6 +988,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
       }
     },
     "frameworks": {
@@ -935,9 +1023,17 @@
             "target": "Package",
             "version": "[11.1.0-beta1, )"
           },
+          "CommunityToolkit.Diagnostics": {
+            "target": "Package",
+            "version": "[8.4.0, )"
+          },
           "DynamicData": {
             "target": "Package",
             "version": "[8.4.1, )"
+          },
+          "Microsoft.Extensions.FileSystemGlobbing": {
+            "target": "Package",
+            "version": "[9.0.0, )"
           },
           "Semi.Avalonia": {
             "target": "Package",
@@ -962,11 +1058,11 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.3, 8.0.3]"
+            "version": "[8.0.11, 8.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.3, 8.0.3]"
+            "version": "[8.0.11, 8.0.11]"
           }
         ],
         "frameworkReferences": {
@@ -974,7 +1070,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

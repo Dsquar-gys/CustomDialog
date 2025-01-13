@@ -1,0 +1,81 @@
+<reactiveUi:ReactiveUserControl x:TypeArguments="viewModels:FolderListingVM" xmlns="https://github.com/avaloniaui"
+                                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                xmlns:entities="clr-namespace:CustomDialogLibrary.Models"
+                                xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
+                                xmlns:views="clr-namespace:CustomDialogLibrary.Views"
+                                xmlns:reactiveUi="http://reactiveui.net"
+                                mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                                x:Class="CustomDialogLibrary.BodyTemplates.IconSetView"
+                                x:DataType="viewModels:FolderListingVM">
+    <ListBox x:Name="ItemList"
+             ItemsSource="{CompiledBinding DisplayList}"
+             SelectedItems="{CompiledBinding SelectedEntities}">
+       <ListBox.ItemsPanel>
+           <ItemsPanelTemplate>
+               <WrapPanel/>
+           </ItemsPanelTemplate>
+       </ListBox.ItemsPanel>
+       <ListBox.DataTemplates>
+           <DataTemplate DataType="{x:Type entities:DirectoryModel}">
+               <StackPanel Orientation="Vertical" 
+                           Spacing="2"
+                           Background="Transparent"
+                           ToolTip.Tip="{CompiledBinding FullPath}">
+                   <Interaction.Behaviors>
+                       <EventTriggerBehavior EventName="DoubleTapped">
+                           <InvokeCommandAction Command="{Binding $parent[views:FileDialogView].ViewModel.DoubleTappedCmd}"/>
+                       </EventTriggerBehavior>
+                   </Interaction.Behaviors>
+                   <Border Background="Transparent" BorderBrush="{x:Null}" BorderThickness="0">
+                       <!-- <controls:PathDrawing Background="Transparent" -->
+                       <!--                       ContentSize="48" -->
+                       <!--                       Fill="{DynamicResource SemiColorWarning}" -->
+                       <!--                       Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/> -->
+                       <Rectangle Width="48"
+                                  Height="48"
+                                  Fill="RoyalBlue"/>
+                   </Border>
+                   <TextBlock FontSize="12" 
+                              MinWidth="72" 
+                              MaxWidth="72" 
+                              MinHeight="32"
+                              MaxHeight="32"
+                              TextAlignment="Center"
+                              TextWrapping="WrapWithOverflow" 
+                              Text="{CompiledBinding Name}"/>    
+               </StackPanel>
+           </DataTemplate>
+           <DataTemplate DataType="{x:Type entities:FileEntityModelBase}">
+               <StackPanel Orientation="Vertical" 
+                           Spacing="2" 
+                           Background="Transparent"
+                           ToolTip.Tip="{CompiledBinding FullPath}">
+                   <Interaction.Behaviors>
+                       <EventTriggerBehavior EventName="DoubleTapped">
+                           <InvokeCommandAction Command="{Binding $parent[views:FileDialogView].ViewModel.DoubleTappedCmd}"/>
+                       </EventTriggerBehavior>
+                   </Interaction.Behaviors>
+                   <Border Background="Transparent" BorderBrush="{x:Null}" BorderThickness="0">
+                       <!-- <controls:PathDrawing Background="Transparent" -->
+                       <!--                       ContentSize="48" -->
+                       <!--                       Fill="{DynamicResource SemiColorTertiary}" -->
+                       <!--                       Data="{CompiledBinding Converter={StaticResource ExtensionIconConverter}}"/> -->
+                       <Rectangle Width="48"
+                                  Height="48"
+                                  Fill="DarkRed"/>
+                   </Border>
+                   <TextBlock FontSize="12"
+                              MinWidth="72"
+                              MaxWidth="72"
+                              MinHeight="32"
+                              MaxHeight="32"
+                              TextAlignment="Center"
+                              TextWrapping="WrapWithOverflow" 
+                              Text="{CompiledBinding Name}"/>    
+               </StackPanel>
+           </DataTemplate>
+       </ListBox.DataTemplates>
+   </ListBox>
+</reactiveUi:ReactiveUserControl>

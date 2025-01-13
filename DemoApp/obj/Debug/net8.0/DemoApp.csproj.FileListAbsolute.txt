@@ -83,3 +83,5 @@
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/Avalonia/DemoApp.dll
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/Avalonia/DemoApp.pdb
 /home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/Debug/net8.0/refint/Avalonia/DemoApp.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/CommunityToolkit.Diagnostics.dll
+/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/bin/Debug/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll

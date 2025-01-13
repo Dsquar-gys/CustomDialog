@@ -1,9 +1,12 @@
+using System.Reactive.Subjects;
 using Avalonia.Controls;
 using Avalonia.Controls.Notifications;
+using Avalonia.Platform.Storage;
+using CommunityToolkit.Diagnostics;
 using CustomDialogLibrary.BodyTemplates;
-using CustomDialogLibrary.Entities;
 using CustomDialogLibrary.History;
 using CustomDialogLibrary.Interfaces;
+using CustomDialogLibrary.Models;
 using CustomDialogLibrary.ViewModels;
 using CustomDialogLibrary.Views;
 using ReactiveUI;
@@ -12,9 +15,10 @@ namespace CustomDialogLibrary.BasicDialogs;
 
 public class OpenDialog : ReactiveObject
 {
-    private readonly BaseDialogWindow _mainWindow;
+    private readonly Subject<(string FileName, object? Tag, object Mode)> _pending;
+    private readonly Window _mainWindow;
     private readonly WindowNotificationManager _notificationManager;
-    private readonly ISpecificFileViewModel? _specificFileViewModel;
+    private readonly IDialogCustomizationsFactory? _specificFileViewModel;
     private string? _directory;
     private bool _allowMultiple;
 
@@ -32,91 +36,89 @@ public class OpenDialog : ReactiveObject
     
     public List<FileDialogFilter>? Filters { get; set; }
     
-    public OpenDialog(ISpecificFileViewModel? specificFileViewModel = null)
+    public IObservable<(string FileName, object? Tag, object Mode)> Pending { get; }
+    
+    public OpenDialog(Window parent)
     {
-        _specificFileViewModel = specificFileViewModel ?? new BodyStyleBox( 
-        [
-            new WrapPanelTemplate(),
-            new DataGridTemplate()
-        ]);
+        _pending = new Subject<(string FileName, object? Tag, object Mode)>();
+        Pending = _pending;
         
-        // Single selection
-        _allowMultiple = false;
-        this.WhenAnyValue(x => x.AllowMultiple)
-            .Subscribe(b =>
-            {
-                foreach (var style in _specificFileViewModel.AvailableStyles)
-                    style.AllowMultiple = b;
-            });
-        
-        this.WhenAnyValue(x => x.Directory)
-            .Subscribe(DirectoryHistory.ChangeDefaultDirectory);
+        // _specificFileViewModel = specificFileViewModel ?? new BodyStyleBox( 
+        // [
+        //     new WrapPanelTemplate(),
+        //     new DataGridTemplate()
+        // ]);
+        //
+        // // Single selection
+        // _allowMultiple = false;
+        // this.WhenAnyValue(x => x.AllowMultiple)
+        //     .Subscribe(b =>
+        //     {
+        //         foreach (var style in _specificFileViewModel.AvailableStyles)
+        //             style.AllowMultiple = b;
+        //     });
+        //
+        // this.WhenAnyValue(x => x.Directory)
+        //     .Subscribe(DirectoryHistory.ChangeDefaultDirectory);
         
         // Window init
-        _mainWindow = new BaseDialogWindow();
+        _mainWindow = parent;
         // Notification manager init
         _notificationManager = new(_mainWindow);
     }
     
-    public Task<string[]?> ShowAsync(Window parent)
+    public async Task AskUser( object mode )
     {
-        // Window View Model init
-        var mainWindowViewModel = new BaseDialogWindowViewModel
+        Guard.IsNotNull( _mainWindow );
+        
+        var fileNames = await ShowDialogAsync();
+
+        foreach( var fileName in fileNames )
         {
-            DialogViewModel = new DialogViewModel(_specificFileViewModel) { ApplyTo = "Open" },
-            OnLoaded = ReactiveCommand.Create<object?>(sender =>
-            {
-                if (sender is not BaseDialogWindow window) throw new ArgumentException();
-        
-                var content = window.GeneralControl.Content as DialogViewModel;
+            var ext = Path.GetExtension( fileName )
+                .TrimStart( '.' );
 
-                content.WhenAnyValue(x => x.ToClose)
-                    .Subscribe(toClose =>
-                    {
-                        if (!toClose) return;
-                        
-                        var multiple = content!.ContentVm.SelectedEntities;
-                        string[] result;
-                        
-                        if (multiple.Count == 1)
-                            result = [ multiple[0].FullPath ];
-                        else
-                            result = [..multiple.Select(x => x.FullPath)];
-                        
-                        
-                    
-                        window.Close(result.Length > 0 ? result.ToArray() : null);
-                    });
-            })
-        };
+            // var tag = Array.Find( settings.Filters, filter => filter.Extensions.Contains( ext ) )
+            //     ?.Tag;
 
-        if (Filters is not null && Filters.Count > 0) mainWindowViewModel.DialogViewModel.Filters = Filters;
-        
-        // Command for dialog main view `Open` button
-        mainWindowViewModel.DialogViewModel.InvokeDialogAssignment = ReactiveCommand.CreateFromTask(() =>
+            _pending.OnNext( ( fileName, null, mode ) );
+
+            // DefaultSettings = DefaultSettings with
+            // {
+            //     InitialDirectory = Path.GetDirectoryName( fileName ) ??
+            //                        Environment.GetFolderPath( Environment.SpecialFolder.Personal )
+            // };
+        }
+    }
+    
+    public Task<string[]> ShowDialogAsync()
+    {
+        Guard.IsNotNull( _mainWindow );
+
+        string initialDirectory = string.Empty;
+    
+        if( string.IsNullOrWhiteSpace( initialDirectory ) )
         {
-            var body = mainWindowViewModel.DialogViewModel.ContentVm;
-            
-            if (body.SelectedEntities.Count > 1)
+            initialDirectory =  Environment.GetFolderPath(  Environment.SpecialFolder.MyDocuments );
+        }
+    
+        var vm = new FileDialogVM(
+            initialDirectory,
+            new DefaultFileDialogCustomizationsFactory(
+            [
+                new WrapPanelTemplate(),
+                new DataGridTemplate()
+            ] ) );
+      
+        vm.Filters = Filters
+            .Select( filter => new FilePickerFileType( filter.Name )
             {
-                if (!body.SelectedEntities.Select(x => x.GetType()).Contains(typeof(DirectoryModel)))
-                    body.FilePath = body.SelectedEntities.FirstOrDefault()!.FullPath;
-                else
-                    _notificationManager.Show(new Notification("Folders found",
-                        "Multiple selection found at least 1 folder. Folders can only be opened alone.",
-                        NotificationType.Error));
-            }
-            else if (body.SelectedEntities.Count == 1)
-                body.FilePath = body.SelectedEntities.FirstOrDefault()!.FullPath;
-            else
-                _notificationManager.Show(new Notification("Null selection",
-                "Choose entity to open.",
-                NotificationType.Warning));
-            return Task.CompletedTask;
-        });
+                Patterns = filter.Extensions.Select( p => $"*.{p}" ).ToArray()
+            } )
+            .ToArray();
 
-        _mainWindow.DataContext = mainWindowViewModel;
-        
-        return _mainWindow.ShowDialog<string[]?>(parent);
+        var selection = vm.FileList.SelectedEntities ?? Array.Empty<FileEntityModelBase>();
+
+        return _mainWindow.ShowDialog<string[]>(_mainWindow);
     }
 }

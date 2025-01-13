@@ -1,0 +1,114 @@
+<reactiveUi:ReactiveUserControl x:TypeArguments="viewModels:FileDialogVM" xmlns="https://github.com/avaloniaui"
+                                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
+                                xmlns:views="clr-namespace:CustomDialogLibrary.Views"
+                                xmlns:reactiveUi="http://reactiveui.net"
+                                xmlns:bodyTemplates="clr-namespace:CustomDialogLibrary.BodyTemplates"
+                                mc:Ignorable="d"
+                                x:DataType="viewModels:FileDialogVM"
+                                x:Class="CustomDialogLibrary.Views.FileDialogView">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="240"/>
+            <ColumnDefinition Width="*" MinWidth="600"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*">
+            
+            <Button Grid.Column="0"
+                    Margin="4"
+                    Classes="IconButton"
+                    Content="{StaticResource ChevronLeftIcon}"
+                    Command="{CompiledBinding MoveBackCommand}" />
+            <Button Grid.Column="1"
+                    Margin="4"
+                    Classes="IconButton"
+                    Content="{StaticResource ChevronRightIcon}"
+                    Command="{CompiledBinding MoveForwardCommand}" />
+            <Button Grid.Column="2"
+                    Margin="4"
+                    Classes="IconButton"
+                    Content="{StaticResource ArrowUpIcon}"
+                    Command="{CompiledBinding MoveUpCommand}" />
+            <ToggleButton Grid.Column="3"
+                    Margin="8,4,4,4"
+                    Classes="IconButton"
+                    IsChecked="{CompiledBinding FileList.ShowHidden}">
+                <ToggleButton.Styles>
+                    <Style Selector="ToggleButton:checked">
+                        <Setter Property="Content" Value="{DynamicResource EyeIcon}"/>
+                    </Style>
+                    <Style Selector="ToggleButton:unchecked">
+                        <Setter Property="Content" Value="{DynamicResource EyeOffIcon}"/>
+                    </Style>
+                </ToggleButton.Styles>
+            </ToggleButton>
+            <ListBox Grid.Column="4"
+                     Margin="4"
+                     HorizontalAlignment="Left"
+                     Theme="{DynamicResource ButtonRadioGroupListBox}"
+                     SelectionMode="Single"
+                     ItemsSource="{CompiledBinding DialogCustomizationsCustomizations.AvailableStyles}"
+                     SelectedItem="{CompiledBinding DialogCustomizationsCustomizations.SelectedTemplate}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type bodyTemplates:FolderListingTemplate}">
+                        <Border Background="Transparent" BorderBrush="{x:Null}" BorderThickness="0">
+                            <!-- <controls:PathDrawing Background="Transparent" -->
+                            <!--                       ContentSize="24" -->
+                            <!--                       Fill="{Binding $parent[ListBoxItem].Foreground}" -->
+                            <!--                       Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/> -->
+                            <Rectangle Width="24"
+                                       Height="24"
+                                       Fill="Orchid"/>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        
+        <views:NavigationTreeView Grid.Row="1"
+                                  Grid.Column="0" />
+        
+        <GridSplitter Grid.Row="0"
+                      Grid.RowSpan="3"
+                      Grid.Column="1"
+                      ResizeBehavior="PreviousAndCurrent"
+                      VerticalAlignment="Stretch"
+                      HorizontalAlignment="Left"
+                      Foreground="Transparent"
+                      Background="Transparent"
+                      ShowsPreview="True" />
+
+        <TextBox Grid.Row="0"
+                 Grid.Column="1"
+                 Text="{Binding EditableFolder, Mode=TwoWay}"
+                 Margin="4" />
+            
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="4"
+                        MinWidth="600"
+                        MinHeight="450"
+                        ContentTemplate="{CompiledBinding DialogCustomizationsCustomizations.SelectedTemplate}"
+                        Content="{CompiledBinding FileList}">
+        </ContentControl>
+        
+        <ComboBox Grid.Column="1"
+                  Grid.Row="2"
+                  Margin="4"
+                  HorizontalAlignment="Stretch"
+                  SelectedItem="{CompiledBinding FileList.Filter}"
+                  ItemsSource="{CompiledBinding Filters}"
+                  DisplayMemberBinding="{Binding Name}">
+        </ComboBox>        
+        
+    </Grid>
+</reactiveUi:ReactiveUserControl>

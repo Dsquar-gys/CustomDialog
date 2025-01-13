@@ -7,72 +7,39 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Styling;
 using CustomDialogLibrary.Converters;
-using CustomDialogLibrary.Entities;
+using CustomDialogLibrary.Models;
 using CustomDialogLibrary.ViewModels;
 
 namespace CustomDialogLibrary.BodyTemplates;
 
-public class WrapPanelTemplate: BodyTemplate
+public class WrapPanelTemplate: FolderListingTemplate
 {
-    public override Control Build(object? param)
+    public override string IconName { get; } = "SquareGridIcon";
+
+    public override Control Build( object? param )
     {
-        var vm = param as ContentViewModel;
-        
-        var wrapPanel = new ScrollViewer
+        var vm = param as FolderListingVM;
+
+        var rv = new IconSetView
         {
-            VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-            HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
-            Content = new ListBox
-            {
-                [!ItemsControl.ItemsSourceProperty] = new Binding(nameof(vm.OuterCollection)),
-                [!ListBox.SelectedItemsProperty] = new Binding(nameof(vm.SelectedEntities)),
-                SelectionMode = AllowMultiple switch
-                {
-                    true => SelectionMode.Multiple,
-                    false => SelectionMode.Single
-                },
-                ItemTemplate = new FuncDataTemplate<FileEntityModel>((value, _) =>
-                    new StackPanel
-                    {
-                        Children =
-                        {
-                            new Image
-                            {
-                                [!Image.SourceProperty] = new Binding(".")
-                                {
-                                    Converter = new IconConverter()
-                                },
-                                Width = 75,
-                            },
-                            new TextBlock
-                            {
-                                [!TextBlock.TextProperty] = new Binding(nameof(value.Name)),
-                                HorizontalAlignment = HorizontalAlignment.Center,
-                            },
-                        },
-                    }),
-                ItemsPanel = new FuncTemplate<Panel?>(() => new WrapPanel
-                {
-                    [!Layoutable.MaxWidthProperty] = new Binding("$parent[4].Bounds.Width")
-                }),
-                Styles =
-                {
-                    new Style(selector => selector.OfType<ListBoxItem>())
-                    {
-                        Setters =
-                        {
-                            new Setter(Layoutable.WidthProperty, 150d),
-                            new Setter(Layoutable.HorizontalAlignmentProperty, HorizontalAlignment.Left),
-                            new Setter(Layoutable.MarginProperty, new Thickness(5d)),
-                            new Setter(TemplatedControl.BackgroundProperty, Brushes.Transparent)
-                        }
-                    }
-                }
-            }
+            ViewModel = vm
         };
 
-        return wrapPanel;
+        rv.ItemList.SelectionMode = SelectionMode.Single;
+    
+        rv.ItemList.SelectionChanged += ( sender,
+            args ) =>
+        {
+            vm.SelectedEntities = rv.ItemList
+                .SelectedItems
+                .OfType<FileEntityModelBase>()
+                .ToList();
+        };
+        return rv;
     }
 
-    public override bool Match(object? data) => data is ContentViewModel;
+    public override bool Match( object? data )
+    {
+        return data is FolderListingVM;
+    }
 }
