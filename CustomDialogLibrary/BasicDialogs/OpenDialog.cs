@@ -1,11 +1,8 @@
 using System.Reactive.Subjects;
 using Avalonia.Controls;
-using Avalonia.Controls.Notifications;
 using Avalonia.Platform.Storage;
 using CommunityToolkit.Diagnostics;
 using CustomDialogLibrary.BodyTemplates;
-using CustomDialogLibrary.History;
-using CustomDialogLibrary.Interfaces;
 using CustomDialogLibrary.Models;
 using CustomDialogLibrary.ViewModels;
 using CustomDialogLibrary.Views;
@@ -15,63 +12,37 @@ namespace CustomDialogLibrary.BasicDialogs;
 
 public class OpenDialog : ReactiveObject
 {
-    private readonly Subject<(string FileName, object? Tag, object Mode)> _pending;
-    private readonly Window _mainWindow;
-    private readonly WindowNotificationManager _notificationManager;
-    private readonly IDialogCustomizationsFactory? _specificFileViewModel;
-    private string? _directory;
-    private bool _allowMultiple;
+    private readonly Window? _mainWindow;
+    private readonly Subject<string> _pending;
+    
+    public OpenDialog()
+    {
+        DefaultSettings = new OpenFileDialogOptions
+        {
+            AllowMultiple    = false,
+            Caption          = "Open File",
+            InitialDirectory = Environment.GetFolderPath( Environment.SpecialFolder.Personal )
+        };
 
-    public string? Directory
-    {
-        get => _directory;
-        set => this.RaiseAndSetIfChanged(ref _directory, value);
-    }
-
-    public bool AllowMultiple
-    {
-        get => _allowMultiple;
-        set => this.RaiseAndSetIfChanged(ref _allowMultiple, value);
-    }
-    
-    public List<FileDialogFilter>? Filters { get; set; }
-    
-    public IObservable<(string FileName, object? Tag, object Mode)> Pending { get; }
-    
-    public OpenDialog(Window parent)
-    {
-        _pending = new Subject<(string FileName, object? Tag, object Mode)>();
+        _pending = new();
         Pending = _pending;
         
-        // _specificFileViewModel = specificFileViewModel ?? new BodyStyleBox( 
-        // [
-        //     new WrapPanelTemplate(),
-        //     new DataGridTemplate()
-        // ]);
-        //
-        // // Single selection
-        // _allowMultiple = false;
-        // this.WhenAnyValue(x => x.AllowMultiple)
-        //     .Subscribe(b =>
-        //     {
-        //         foreach (var style in _specificFileViewModel.AvailableStyles)
-        //             style.AllowMultiple = b;
-        //     });
-        //
-        // this.WhenAnyValue(x => x.Directory)
-        //     .Subscribe(DirectoryHistory.ChangeDefaultDirectory);
-        
         // Window init
-        _mainWindow = parent;
-        // Notification manager init
-        _notificationManager = new(_mainWindow);
+        _mainWindow = new BaseDialogWindow();
     }
     
-    public async Task AskUser( object mode )
+    public OpenFileDialogOptions DefaultSettings { get; set; }
+    
+    public IObservable<string> Pending { get; }
+    
+    public async Task AskUser( Window parent,
+                               OpenFileDialogOptions? settingsOverride = null)
     {
         Guard.IsNotNull( _mainWindow );
         
-        var fileNames = await ShowDialogAsync();
+        var options = settingsOverride ?? DefaultSettings;
+        
+        var fileNames = await ShowDialogAsync(options, parent);
 
         foreach( var fileName in fileNames )
         {
@@ -80,9 +51,9 @@ public class OpenDialog : ReactiveObject
 
             // var tag = Array.Find( settings.Filters, filter => filter.Extensions.Contains( ext ) )
             //     ?.Tag;
-
-            _pending.OnNext( ( fileName, null, mode ) );
-
+            //
+            // _pending.OnNext( ( fileName, tag, mode ) );
+            //
             // DefaultSettings = DefaultSettings with
             // {
             //     InitialDirectory = Path.GetDirectoryName( fileName ) ??
@@ -91,12 +62,21 @@ public class OpenDialog : ReactiveObject
         }
     }
     
-    public Task<string[]> ShowDialogAsync()
+    public Task<string[]> ShowDialogAsync( OpenFileDialogOptions options, Window parent )
     {
         Guard.IsNotNull( _mainWindow );
 
-        string initialDirectory = string.Empty;
-    
+        var initialDirectory = string.Empty;
+        
+        if( !string.IsNullOrWhiteSpace( options.InitialDirectory ) )
+        {
+            initialDirectory = options.InitialDirectory;
+        }
+        else if( !string.IsNullOrWhiteSpace( options.InitialFileName ) )
+        {
+            initialDirectory = Path.GetDirectoryName( options.InitialFileName ) ?? string.Empty;
+        }
+        
         if( string.IsNullOrWhiteSpace( initialDirectory ) )
         {
             initialDirectory =  Environment.GetFolderPath(  Environment.SpecialFolder.MyDocuments );
@@ -110,15 +90,23 @@ public class OpenDialog : ReactiveObject
                 new DataGridTemplate()
             ] ) );
       
-        vm.Filters = Filters
+        vm.Filters = options.Filters
             .Select( filter => new FilePickerFileType( filter.Name )
             {
                 Patterns = filter.Extensions.Select( p => $"*.{p}" ).ToArray()
             } )
             .ToArray();
 
+        var windowVM = new BaseDialogWindowViewModel
+        {
+            FileDialogVM =  vm,
+            OnLoaded = ReactiveCommand.Create<object>(sender => {})!
+        };
+
+        _mainWindow.DataContext = windowVM;
+        
         var selection = vm.FileList.SelectedEntities ?? Array.Empty<FileEntityModelBase>();
 
-        return _mainWindow.ShowDialog<string[]>(_mainWindow);
+        return _mainWindow.ShowDialog<string[]>(parent);
     }
 }

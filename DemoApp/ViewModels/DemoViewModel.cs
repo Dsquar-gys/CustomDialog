@@ -13,18 +13,18 @@ public class DemoViewModel : ViewModelBase
     public ReactiveCommand<Window, Unit> GetOpenDialogCommand { get; } = ReactiveCommand.CreateFromTask<Window>(
         async parent =>
         {
-            var dialog = new OpenDialog(parent);
+            var dialog = new OpenDialog();
 
             //dialog.Directory = "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/";
             //dialog.AllowMultiple = true;
             //dialog.Filters = new List<FileDialogFilter>();
 
-            var temp = await dialog.ShowDialogAsync();
+            await dialog.AskUser(parent);
 
-            if (temp?.Length > 0)
-                foreach (var str in temp)
-                    Console.WriteLine(str);
-            else Console.WriteLine("No data...");
+            // if (temp?.Length > 0)
+            //     foreach (var str in temp)
+            //         Console.WriteLine(str);
+            // else Console.WriteLine("No data...");
         });
 
     // public ReactiveCommand<Window, Unit> GetSaveDialogCommand { get; } = ReactiveCommand.CreateFromTask<Window>(

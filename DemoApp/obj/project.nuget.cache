@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tK5xUra4XUM=",
+  "dgSpecHash": "1AGysQdffas=",
   "success": true,
   "projectFilePath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj",
   "expectedPackageFiles": [
@@ -37,7 +37,7 @@
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/harfbuzzsharp.nativeassets.webassembly/7.3.0/harfbuzzsharp.nativeassets.webassembly.7.3.0.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/harfbuzzsharp.nativeassets.win32/7.3.0/harfbuzzsharp.nativeassets.win32.7.3.0.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microcom.runtime/0.11.0/microcom.runtime.0.11.0.nupkg.sha512",
-    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.extensions.filesystemglobbing/9.0.0/microsoft.extensions.filesystemglobbing.9.0.0.nupkg.sha512",
+    "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/microsoft.extensions.filesystemglobbing/9.0.1/microsoft.extensions.filesystemglobbing.9.0.1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/reactiveui/18.3.1/reactiveui.18.3.1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/semi.avalonia/11.1.0-beta1/semi.avalonia.11.1.0-beta1.nupkg.sha512",
     "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/semi.avalonia.datagrid/11.1.0-beta1/semi.avalonia.datagrid.11.1.0-beta1.nupkg.sha512",

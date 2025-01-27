@@ -37,6 +37,7 @@ public class FileDialogVM : ViewModelBase, IDisposable
         _history = new DirectoryHistory( initialDirectory );
         _folder  = initialDirectory;
         
+        // TODO: Ok and Cancel methods
         OkCmd     = ReactiveCommand.Create( () => {} );
         CancelCmd = ReactiveCommand.Create( () => {} );
 
