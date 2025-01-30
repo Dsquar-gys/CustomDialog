@@ -1,8 +1,5 @@
-using System.Collections.ObjectModel;
-using System.Windows.Input;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Models;
-using ReactiveUI;
 
 namespace CustomDialogLibrary.Interfaces;
 

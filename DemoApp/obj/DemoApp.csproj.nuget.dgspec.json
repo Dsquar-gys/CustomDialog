@@ -1,26 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj": {}
+    "D:\\C#\\Квант\\CustomDialog\\DemoApp\\DemoApp.csproj": {}
   },
   "projects": {
-    "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj": {
+    "D:\\C#\\Квант\\CustomDialog\\CustomDialogLibrary\\CustomDialogLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj",
+        "projectUniqueName": "D:\\C#\\Квант\\CustomDialog\\CustomDialogLibrary\\CustomDialogLibrary.csproj",
         "projectName": "CustomDialogLibrary",
-        "projectPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj",
-        "packagesPath": "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/",
-        "outputPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/obj/",
+        "projectPath": "D:\\C#\\Квант\\CustomDialog\\CustomDialogLibrary\\CustomDialogLibrary.csproj",
+        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\Квант\\CustomDialog\\CustomDialogLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,13 +33,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -47,27 +41,27 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Controls.DataGrid": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.ReactiveUI": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Xaml.Behaviors": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.0.8, )"
             },
             "Avalonia.Xaml.Interactions": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.0.8, )"
             },
             "Avalonia.Xaml.Interactivity": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.0.8, )"
             },
             "CommunityToolkit.Diagnostics": {
               "target": "Package",
@@ -75,7 +69,11 @@
             },
             "DynamicData": {
               "target": "Package",
-              "version": "[8.4.1, )"
+              "version": "[9.1.1, )"
+            },
+            "Irihi.Ursa.Themes.Semi": {
+              "target": "Package",
+              "version": "[1.8.0, )"
             },
             "Microsoft.Extensions.FileSystemGlobbing": {
               "target": "Package",
@@ -83,11 +81,11 @@
             },
             "Semi.Avalonia": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.1.4, )"
             },
             "Semi.Avalonia.DataGrid": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.1.4, )"
             }
           },
           "imports": [
@@ -106,35 +104,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj": {
+    "D:\\C#\\Квант\\CustomDialog\\DemoApp\\DemoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj",
+        "projectUniqueName": "D:\\C#\\Квант\\CustomDialog\\DemoApp\\DemoApp.csproj",
         "projectName": "DemoApp",
-        "projectPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/DemoApp.csproj",
-        "packagesPath": "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/packages/",
-        "outputPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/DemoApp/obj/",
+        "projectPath": "D:\\C#\\Квант\\CustomDialog\\DemoApp\\DemoApp.csproj",
+        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\Квант\\CustomDialog\\DemoApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/dmitrichenkoda@kvant-open.spb.ru/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj": {
-                "projectPath": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/CustomDialogLibrary.csproj"
+              "D:\\C#\\Квант\\CustomDialog\\CustomDialogLibrary\\CustomDialogLibrary.csproj": {
+                "projectPath": "D:\\C#\\Квант\\CustomDialog\\CustomDialogLibrary\\CustomDialogLibrary.csproj"
               }
             }
           }
@@ -143,69 +141,67 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Diagnostics": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Fonts.Inter": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.ReactiveUI": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Themes.Fluent": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.3, )"
             },
             "Avalonia.Xaml.Behaviors": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.0.8, )"
             },
             "Avalonia.Xaml.Interactions": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.0.8, )"
             },
             "Avalonia.Xaml.Interactivity": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.0.8, )"
             },
             "DynamicData": {
               "target": "Package",
-              "version": "[8.4.1, )"
+              "version": "[9.1.1, )"
+            },
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[20.1.63, )"
             },
             "Semi.Avalonia": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.1.4, )"
             },
             "Semi.Avalonia.DataGrid": {
               "target": "Package",
-              "version": "[11.1.0-beta1, )"
+              "version": "[11.2.1.4, )"
             },
             "TestableIO.System.IO.Abstractions.Wrappers": {
               "target": "Package",
-              "version": "[21.0.2, )"
+              "version": "[21.3.1, )"
             }
           },
           "imports": [
@@ -224,7 +220,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

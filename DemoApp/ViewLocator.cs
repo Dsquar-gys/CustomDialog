@@ -1,7 +1,11 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.ViewModels;
+using CustomDialogLibrary.Views;
+using DemoApp.ViewModels;
+using DemoApp.Views;
 
 namespace DemoApp;
 
@@ -12,18 +16,25 @@ public class ViewLocator : IDataTemplate
         if (data is null)
             return null;
 
-        var name = data.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
-        name = name.Replace("VM", "View", StringComparison.Ordinal);
-        var type = data.GetType().Assembly.GetType(name);
+        // var name = data.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
+        // name = name.Replace("VM", "View", StringComparison.Ordinal);
 
-        if (type != null)
+        var newType = data.GetType().Name switch
         {
-            var control = (Control)Activator.CreateInstance(type)!;
-            control.DataContext = data;
-            return control;
-        }
+            nameof(DemoViewModel) => typeof(DemoWindow),
+            nameof(BaseDialogWindowViewModel) => typeof(BaseDialogWindow),
+            nameof(FileDialogVM) => typeof(FileDialogView),
+            nameof(WrapPanelTemplate) => typeof(IconSetView),
+            nameof(DataGridTemplate) => typeof(FileGridView),
+            _ => null
+        };
 
-        return new TextBlock { Text = "Not Found: " + name };
+        if (newType == null) return new TextBlock { Text = "View Not Found for: " + data.GetType() };
+        
+        var control = (Control)Activator.CreateInstance(newType)!;
+        control.DataContext = data;
+        return control;
+
     }
 
     public bool Match(object? data) => data is ViewModelBase;

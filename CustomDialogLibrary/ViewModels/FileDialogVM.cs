@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
-using Avalonia.Controls;
 using Avalonia.Platform.Storage;
 using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.History;
@@ -32,13 +31,12 @@ public class FileDialogVM : ViewModelBase, IDisposable
     
     private ClickableNode? _selectedNode;
 
-    public FileDialogVM(string initialDirectory, IDialogCustomizationsFactory? sfvm = null)
+    public FileDialogVM(string initialDirectory, bool allowMultipleSelection, IDialogCustomizationsFactory? sfvm = null)
     {
         _history = new DirectoryHistory( initialDirectory );
         _folder  = initialDirectory;
-        
-        // TODO: Ok and Cancel methods
-        OkCmd     = ReactiveCommand.Create( () => {} );
+
+        OkCmd = ReactiveCommand.Create(() => { } );
         CancelCmd = ReactiveCommand.Create( () => {} );
 
         DoubleTappedCmd = ReactiveCommand.Create(OnDoubleTapped);
@@ -101,7 +99,8 @@ public class FileDialogVM : ViewModelBase, IDisposable
             .Where(x => x is not null)
             .Select(x => x))
         {
-            DialogCustomizationsFactory = DialogCustomizationsCustomizations
+            DialogCustomizationsFactory = DialogCustomizationsCustomizations,
+            AllowMultipleSelection = allowMultipleSelection
         };
         
         // Style of Body depends on BodyStyleBox.CurrentBodyTemplate
@@ -200,7 +199,7 @@ public class FileDialogVM : ViewModelBase, IDisposable
     {
         if( FileList.SelectedEntities is null )
         {
-            CancelCmd.Execute();
+            CancelCmd.Execute().Subscribe();
 
             return;
         }
@@ -212,7 +211,7 @@ public class FileDialogVM : ViewModelBase, IDisposable
             return;
         }
 
-        OkCmd.Execute();
+        OkCmd.Execute().Subscribe();
     }
 
     private void OnMoveForward()

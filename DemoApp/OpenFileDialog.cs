@@ -1,4 +1,8 @@
+using System;
+using System.IO;
+using System.Linq;
 using System.Reactive.Subjects;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Platform.Storage;
 using CommunityToolkit.Diagnostics;
@@ -6,16 +10,18 @@ using CustomDialogLibrary.BodyTemplates;
 using CustomDialogLibrary.Models;
 using CustomDialogLibrary.ViewModels;
 using CustomDialogLibrary.Views;
+using DemoApp.ViewModels;
+using DemoApp.Views;
 using ReactiveUI;
 
-namespace CustomDialogLibrary.BasicDialogs;
+namespace DemoApp;
 
-public class OpenDialog : ReactiveObject
+public class OpenFileDialog : ReactiveObject
 {
     private readonly Window? _mainWindow;
     private readonly Subject<string> _pending;
     
-    public OpenDialog()
+    public OpenFileDialog()
     {
         DefaultSettings = new OpenFileDialogOptions
         {
@@ -46,23 +52,17 @@ public class OpenDialog : ReactiveObject
 
         foreach( var fileName in fileNames )
         {
-            var ext = Path.GetExtension( fileName )
-                .TrimStart( '.' );
-
-            // var tag = Array.Find( settings.Filters, filter => filter.Extensions.Contains( ext ) )
-            //     ?.Tag;
-            //
-            // _pending.OnNext( ( fileName, tag, mode ) );
-            //
-            // DefaultSettings = DefaultSettings with
-            // {
-            //     InitialDirectory = Path.GetDirectoryName( fileName ) ??
-            //                        Environment.GetFolderPath( Environment.SpecialFolder.Personal )
-            // };
+            _pending.OnNext( fileName );
+            
+            DefaultSettings = DefaultSettings with
+            {
+                InitialDirectory = Path.GetDirectoryName( fileName ) ??
+                                   Environment.GetFolderPath( Environment.SpecialFolder.Personal )
+            };
         }
     }
-    
-    public Task<string[]> ShowDialogAsync( OpenFileDialogOptions options, Window parent )
+
+    private async Task<string[]> ShowDialogAsync( OpenFileDialogOptions options, Window parent )
     {
         Guard.IsNotNull( _mainWindow );
 
@@ -84,6 +84,7 @@ public class OpenDialog : ReactiveObject
     
         var vm = new FileDialogVM(
             initialDirectory,
+            options.AllowMultiple,
             new DefaultFileDialogCustomizationsFactory(
             [
                 new WrapPanelTemplate(),
@@ -99,14 +100,25 @@ public class OpenDialog : ReactiveObject
 
         var windowVM = new BaseDialogWindowViewModel
         {
-            FileDialogVM =  vm,
-            OnLoaded = ReactiveCommand.Create<object>(sender => {})!
+            FileDialogVM =  vm
         };
 
         _mainWindow.DataContext = windowVM;
         
-        var selection = vm.FileList.SelectedEntities ?? Array.Empty<FileEntityModelBase>();
+        string[] selection = [];
+        
+        vm.OkCmd.Subscribe(_ =>
+        {
+            selection = vm.FileList.SelectedEntities!.Select(x => x.FullPath).ToArray();
+            _mainWindow.Close();
+        });
+        vm.CancelCmd.Subscribe(_ =>
+        {
+            _mainWindow.Close();
+        });
 
-        return _mainWindow.ShowDialog<string[]>(parent);
+        await _mainWindow.ShowDialog(parent);
+
+        return selection;
     }
 }

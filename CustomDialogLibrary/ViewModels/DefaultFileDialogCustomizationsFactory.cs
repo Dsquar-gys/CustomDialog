@@ -22,9 +22,8 @@ public class DefaultFileDialogCustomizationsFactory : ReactiveObject, IDialogCus
     /// <param name="buttonCollection">Collection of body styles</param>
     public DefaultFileDialogCustomizationsFactory(IEnumerable<FolderListingTemplate> buttonCollection)
     {
-        _selectedTemplate = buttonCollection.FirstOrDefault();
-        
         AvailableStyles = buttonCollection.ToArray();
+        _selectedTemplate = AvailableStyles.FirstOrDefault();
     }
     
     public Task<FileEntityModelBase?> TryToCreateFileEntry(FileSystemInfo? file)

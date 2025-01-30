@@ -27,7 +27,7 @@ public sealed class DirectoryHistory : ReactiveObject
     public DirectoryHistoryNode Current
     {
         get => _current;
-        set => this.RaiseAndSetIfChanged(ref _current, value);
+        private set => this.RaiseAndSetIfChanged(ref _current, value);
     }
     
     public void MoveBack() => Current = Current.PreviousNode!;

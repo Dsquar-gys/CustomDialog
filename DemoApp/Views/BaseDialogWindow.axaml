@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:semi="https://irihi.tech/semi"
+        xmlns:u-semi="https://irihi.tech/ursa/themes/semi"
+        xmlns:viewModels="clr-namespace:DemoApp.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DemoApp.Views.BaseDialogWindow"
+        x:DataType="viewModels:BaseDialogWindowViewModel"
+        Name="DialogWindow"
+        MinWidth="700"
+        MinHeight="300"
+        Title="DemoApp">
+    
+    <Design.DataContext>
+         <viewModels:BaseDialogWindowViewModel/>
+    </Design.DataContext>
+    
+    <Grid RowDefinitions="*, Auto">
+        <ContentControl Grid.Row="0"
+                        Content="{Binding FileDialogVM}"
+                        Name="GeneralControl"/>
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="4"
+                    Spacing="8"
+                    HorizontalAlignment="Right">
+            <StackPanel.Styles>
+                <Style Selector="Button">
+                    <Setter Property="MinWidth" Value="150" />
+                    <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+                </Style>
+            </StackPanel.Styles>
+            <Button Command="{Binding FileDialogVM.DoubleTappedCmd}"
+                    Classes="Success"
+                    Content="Ok"/>
+            <Button Command="{Binding FileDialogVM.CancelCmd}"
+                    Classes="Danger"
+                    Content="Cancel"/>
+        </StackPanel>
+    </Grid>
+    
+    <Window.Styles>
+        <semi:SemiTheme Locale="ru-RU" />
+        <u-semi:SemiTheme Locale="ru-RU"/>
+        <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
+    </Window.Styles>
+    
+</Window>

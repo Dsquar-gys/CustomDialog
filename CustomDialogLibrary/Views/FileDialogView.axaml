@@ -5,69 +5,91 @@
                                 xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
                                 xmlns:views="clr-namespace:CustomDialogLibrary.Views"
                                 xmlns:reactiveUi="http://reactiveui.net"
+                                xmlns:u="https://irihi.tech/ursa"
                                 xmlns:bodyTemplates="clr-namespace:CustomDialogLibrary.BodyTemplates"
+                                xmlns:converters="clr-namespace:CustomDialogLibrary.Converters"
                                 mc:Ignorable="d"
                                 x:DataType="viewModels:FileDialogVM"
                                 x:Class="CustomDialogLibrary.Views.FileDialogView">
-    <Grid>
+    <reactiveUi:ReactiveUserControl.Resources>
+        <converters:IconConverter x:Key="IconConverter" />
+        
+        <StreamGeometry x:Key="LeftArrowIcon">M13,22L3,12L13,2V8H21V16H13V22M6,12L11,17V14H19V10H11V7L6,12Z</StreamGeometry>
+        <StreamGeometry x:Key="RightArrowIcon">M11,16H3V8H11V2L21,12L11,22V16M13,7V10H5V14H13V17L18,12L13,7Z</StreamGeometry>
+        <StreamGeometry x:Key="UpArrowIcon">M16,13V21H8V13H2L12,3L22,13H16M7,11H10V19H14V11H17L12,6L7,11Z</StreamGeometry>
+        <StreamGeometry x:Key="EyeIcon">M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z</StreamGeometry>
+        <StreamGeometry x:Key="EyeOffIcon">M2,5.27L3.28,4L20,20.72L18.73,22L15.65,18.92C14.5,19.3 13.28,19.5 12,19.5C7,19.5 2.73,16.39 1,12C1.69,10.24 2.79,8.69 4.19,7.46L2,5.27M12,9A3,3 0 0,1 15,12C15,12.35 14.94,12.69 14.83,13L11,9.17C11.31,9.06 11.65,9 12,9M12,4.5C17,4.5 21.27,7.61 23,12C22.18,14.08 20.79,15.88 19,17.19L17.58,15.76C18.94,14.82 20.06,13.54 20.82,12C19.17,8.64 15.76,6.5 12,6.5C10.91,6.5 9.84,6.68 8.84,7L7.3,5.47C8.74,4.85 10.33,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C12.69,17.5 13.37,17.43 14,17.29L11.72,15C10.29,14.85 9.15,13.71 9,12.28L5.6,8.87C4.61,9.72 3.78,10.78 3.18,12Z</StreamGeometry>
+        <StreamGeometry x:Key="PanelViewIcon">M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3</StreamGeometry>
+        <StreamGeometry x:Key="GridViewIcon">M22 20V4C22 2.9 21.1 2 20 2H4C2.9 2 2 2.9 2 4V20C2 21.1 2.9 22 4 22H20C21.1 22 22 21.1 22 20M4 6.5V4H20V6.5H4M4 11V8.5H20V11H4M4 15.5V13H20V15.5H4M4 20V17.5H20V20H4Z</StreamGeometry>
+        <StreamGeometry x:Key="FileModelIcon">M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z</StreamGeometry>
+        <StreamGeometry x:Key="FolderModelIcon">M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z</StreamGeometry>
+        <StreamGeometry x:Key="UnknownIcon">M19.35,10.03C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.03C2.34,8.36 0,10.9 0,14A6,6 0 0,0 6,20H19A5,5 0 0,0 24,15C24,12.36 21.95,10.22 19.35,10.03M13,17H11V15H13V17M14.8,11.82C14.5,12.21 14.13,12.5 13.67,12.75C13.41,12.91 13.24,13.07 13.15,13.26C13.06,13.45 13,13.69 13,14H11C11,13.45 11.11,13.08 11.3,12.82C11.5,12.56 11.85,12.25 12.37,11.91C12.63,11.75 12.84,11.56 13,11.32C13.15,11.09 13.23,10.81 13.23,10.5C13.23,10.18 13.14,9.94 12.96,9.76C12.78,9.56 12.5,9.47 12.2,9.47C11.93,9.47 11.71,9.55 11.5,9.7C11.35,9.85 11.25,10.08 11.25,10.39H9.28C9.23,9.64 9.5,9 10.06,8.59C10.6,8.2 11.31,8 12.2,8C13.14,8 13.89,8.23 14.43,8.68C14.97,9.13 15.24,9.75 15.24,10.5C15.24,11 15.09,11.41 14.8,11.82Z</StreamGeometry>
+    </reactiveUi:ReactiveUserControl.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="240"/>
             <ColumnDefinition Width="*" MinWidth="600"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
         <Grid Grid.Row="0"
               Grid.Column="0"
               ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*">
             
-            <Button Grid.Column="0"
+            <u:IconButton Grid.Column="0"
+                          Margin="4"
+                          Background="Transparent"
+                          Command="{CompiledBinding MoveBackCommand}">
+                <u:IconButton.Icon>
+                    <PathIcon Data="{StaticResource LeftArrowIcon}" />
+                </u:IconButton.Icon>
+            </u:IconButton>
+            <u:IconButton Grid.Column="1"
                     Margin="4"
-                    Classes="IconButton"
-                    Content="{StaticResource ChevronLeftIcon}"
-                    Command="{CompiledBinding MoveBackCommand}" />
-            <Button Grid.Column="1"
+                    Background="Transparent"
+                    Command="{CompiledBinding MoveForwardCommand}">
+                <u:IconButton.Icon>
+                    <PathIcon Data="{StaticResource RightArrowIcon}" />
+                </u:IconButton.Icon>
+            </u:IconButton>
+            <u:IconButton Grid.Column="2"
                     Margin="4"
-                    Classes="IconButton"
-                    Content="{StaticResource ChevronRightIcon}"
-                    Command="{CompiledBinding MoveForwardCommand}" />
-            <Button Grid.Column="2"
-                    Margin="4"
-                    Classes="IconButton"
-                    Content="{StaticResource ArrowUpIcon}"
-                    Command="{CompiledBinding MoveUpCommand}" />
+                    Background="Transparent"
+                    Command="{CompiledBinding MoveUpCommand}">
+                <u:IconButton.Icon>
+                    <PathIcon Data="{StaticResource UpArrowIcon}" />
+                </u:IconButton.Icon>
+            </u:IconButton>
             <ToggleButton Grid.Column="3"
-                    Margin="8,4,4,4"
-                    Classes="IconButton"
-                    IsChecked="{CompiledBinding FileList.ShowHidden}">
+                          Margin="8,4,4,4"
+                          Background="Transparent"
+                          Foreground="{DynamicResource SemiBlue6}"
+                          IsChecked="{CompiledBinding FileList.ShowHidden}">
                 <ToggleButton.Styles>
-                    <Style Selector="ToggleButton:checked">
-                        <Setter Property="Content" Value="{DynamicResource EyeIcon}"/>
+                    <Style Selector="ToggleButton:checked > PathIcon">
+                        <Setter Property="Data" Value="{StaticResource EyeIcon}" />
                     </Style>
-                    <Style Selector="ToggleButton:unchecked">
-                        <Setter Property="Content" Value="{DynamicResource EyeOffIcon}"/>
+                    <Style Selector="ToggleButton:unchecked > PathIcon">
+                        <Setter Property="Data" Value="{StaticResource EyeOffIcon}"/>
                     </Style>
                 </ToggleButton.Styles>
+                <PathIcon />
             </ToggleButton>
             <ListBox Grid.Column="4"
                      Margin="4"
                      HorizontalAlignment="Left"
                      Theme="{DynamicResource ButtonRadioGroupListBox}"
                      SelectionMode="Single"
+                     Background="Transparent"
                      ItemsSource="{CompiledBinding DialogCustomizationsCustomizations.AvailableStyles}"
                      SelectedItem="{CompiledBinding DialogCustomizationsCustomizations.SelectedTemplate}">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type bodyTemplates:FolderListingTemplate}">
                         <Border Background="Transparent" BorderBrush="{x:Null}" BorderThickness="0">
-                            <!-- <controls:PathDrawing Background="Transparent" -->
-                            <!--                       ContentSize="24" -->
-                            <!--                       Fill="{Binding $parent[ListBoxItem].Foreground}" -->
-                            <!--                       Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/> -->
-                            <Rectangle Width="24"
-                                       Height="24"
-                                       Fill="Orchid"/>
+                            <PathIcon Background="Transparent"
+                                      Height="24"
+                                      Width="24"
+                                      Foreground="{Binding $parent[ListBoxItem].Foreground}"
+                                      Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/>
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -103,7 +125,7 @@
         
         <ComboBox Grid.Column="1"
                   Grid.Row="2"
-                  Margin="4"
+                  Margin="4, 8"
                   HorizontalAlignment="Stretch"
                   SelectedItem="{CompiledBinding FileList.Filter}"
                   ItemsSource="{CompiledBinding Filters}"

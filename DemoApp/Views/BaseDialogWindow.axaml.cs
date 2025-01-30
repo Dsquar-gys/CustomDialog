@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace CustomDialogLibrary.Views;
+namespace DemoApp.Views;
 
 public partial class BaseDialogWindow : Window
 {

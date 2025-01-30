@@ -6,12 +6,16 @@
                                 xmlns:viewModels="clr-namespace:CustomDialogLibrary.ViewModels"
                                 xmlns:views="clr-namespace:CustomDialogLibrary.Views"
                                 xmlns:reactiveUi="http://reactiveui.net"
+                                xmlns:converters="clr-namespace:CustomDialogLibrary.Converters"
                                 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
                                 x:Class="CustomDialogLibrary.BodyTemplates.IconSetView"
                                 x:DataType="viewModels:FolderListingVM">
+    <reactiveUi:ReactiveUserControl.Resources>
+        <converters:IconConverter x:Key="IconConverter" />
+    </reactiveUi:ReactiveUserControl.Resources>
+
     <ListBox x:Name="ItemList"
-             ItemsSource="{CompiledBinding DisplayList}"
-             SelectedItems="{CompiledBinding SelectedEntities}">
+             ItemsSource="{CompiledBinding DisplayList}">
        <ListBox.ItemsPanel>
            <ItemsPanelTemplate>
                <WrapPanel/>
@@ -29,13 +33,13 @@
                        </EventTriggerBehavior>
                    </Interaction.Behaviors>
                    <Border Background="Transparent" BorderBrush="{x:Null}" BorderThickness="0">
-                       <!-- <controls:PathDrawing Background="Transparent" -->
-                       <!--                       ContentSize="48" -->
-                       <!--                       Fill="{DynamicResource SemiColorWarning}" -->
-                       <!--                       Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/> -->
-                       <Rectangle Width="48"
-                                  Height="48"
-                                  Fill="RoyalBlue"/>
+                       
+                       <PathIcon Background="Transparent"
+                                 Height="48"
+                                 Width="48"
+                                 Foreground="{DynamicResource SemiColorWarning}"
+                                 Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/>
+                       
                    </Border>
                    <TextBlock FontSize="12" 
                               MinWidth="72" 
@@ -58,13 +62,11 @@
                        </EventTriggerBehavior>
                    </Interaction.Behaviors>
                    <Border Background="Transparent" BorderBrush="{x:Null}" BorderThickness="0">
-                       <!-- <controls:PathDrawing Background="Transparent" -->
-                       <!--                       ContentSize="48" -->
-                       <!--                       Fill="{DynamicResource SemiColorTertiary}" -->
-                       <!--                       Data="{CompiledBinding Converter={StaticResource ExtensionIconConverter}}"/> -->
-                       <Rectangle Width="48"
-                                  Height="48"
-                                  Fill="DarkRed"/>
+                       <PathIcon Background="Transparent"
+                                 Height="48"
+                                 Width="48"
+                                 Foreground="{DynamicResource SemiColorTertiary}"
+                                 Data="{CompiledBinding IconName, Converter={StaticResource IconConverter}}"/>
                    </Border>
                    <TextBlock FontSize="12"
                               MinWidth="72"

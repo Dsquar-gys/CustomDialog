@@ -8,26 +8,119 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8cf6566-7aa5-4e8f-ae1d-39a823fbbf19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomDialogLibrary/Models/FileDialogOptionsBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomDialogLibrary/Models/OpenFileDialogOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DemoApp/OpenFileDialog.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DemoApp/ViewModels/BaseDialogWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CustomDialog/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialog.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialog.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/3gp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/7z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/ae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/ai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/apk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/asf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/avi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/bak.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/bmp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/cdr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/css.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/csv.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/divx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/dll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/doc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/docx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/dw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/dwg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/eps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/exe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/flv.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/fw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/gif.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/gz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/html.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/ico.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/iso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/jar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/jpeg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/jpg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/js.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/mov.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/mp3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/mp4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/mpeg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/pdf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/php.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/png.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/ppt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/ps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/psd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/rar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/swf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/sys.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/tar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/tiff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/txt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/wav.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/Extensions/zip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/aperture.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/arrow-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/arrow-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/check.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/desktop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/documents.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/download.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/folder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/list.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/pictures.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/plates.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/root.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/tree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BakedAssets/unknown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/SaveDialog.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/DataGridTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/DataGridTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/EmptyTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/EmptyTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/FileGridView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/FileGridView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/IconSetView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/IconSetView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/IconSetView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/IconSetView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/WrapPanelTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/BodyTemplates/WrapPanelTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Converters/FilterConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Converters/IconConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Converters/IconConverter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/CustomDialogLibrary.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/CustomDialogLibrary.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryHistory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryHistory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/IDialogCustomizationsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Interfaces/IDialogCustomizationsFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Models/DirectoryModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Models/DirectoryModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Models/FileDialogOptionsBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Models/FileDialogOptionsBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Models/FileModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Models/FileModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Models/OpenFileDialogOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Models/OpenFileDialogOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/BaseDialogWindowViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/DefaultFileDialogCustomizationsFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/DefaultFileDialogCustomizationsFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/FileDialogVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/FileDialogVM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/FolderListingVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/ViewModels/FolderListingVM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/BaseDialogWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/Views/BaseDialogWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/BaseDialogWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/Views/BaseDialogWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/Views/FileDialogView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/Views/FileDialogView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/CustomDialogLibrary.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/CustomDialogLibrary.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/CustomDialogLibrary.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/CustomDialogLibrary.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/CustomDialogLibrary.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/CustomDialogLibrary.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/CustomDialogLibrary.sourcelink.json" afterDir="false" />
@@ -39,10 +132,93 @@
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomDialogLibrary/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/CustomDialogLibrary/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/DemoApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/DemoApp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/ViewLocator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/ViewLocator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/ViewModels/DemoViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/ViewModels/DemoViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/Views/DemoWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/Views/DemoWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/Views/DemoWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/Views/DemoWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Base.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Base.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Controls.ColorPicker.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Controls.ColorPicker.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Controls.DataGrid.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Controls.DataGrid.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Controls.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Controls.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.DesignerSupport.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.DesignerSupport.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Desktop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Desktop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Diagnostics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Diagnostics.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Dialogs.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Dialogs.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Fonts.Inter.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Fonts.Inter.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.FreeDesktop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.FreeDesktop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Markup.Xaml.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Markup.Xaml.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Markup.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Markup.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Metal.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Metal.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.MicroCom.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.MicroCom.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Native.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Native.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.OpenGL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.OpenGL.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.ReactiveUI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.ReactiveUI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Remote.Protocol.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Remote.Protocol.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Skia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Skia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Themes.Fluent.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Themes.Fluent.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Themes.Simple.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Themes.Simple.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Win32.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Win32.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.X11.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.X11.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Custom.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Custom.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.DragAndDrop.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.DragAndDrop.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Draggable.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Draggable.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Events.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Events.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Responsive.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.Responsive.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactions.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactivity.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.Xaml.Interactivity.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Avalonia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/CustomDialogLibrary.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DynamicData.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DynamicData.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/HarfBuzzSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/HarfBuzzSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/ReactiveUI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/ReactiveUI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Semi.Avalonia.DataGrid.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Semi.Avalonia.DataGrid.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Semi.Avalonia.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Semi.Avalonia.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/SkiaSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/SkiaSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Splat.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Splat.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/System.IO.Pipelines.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/System.IO.Pipelines.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/System.Reactive.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/System.Reactive.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Tmds.DBus.Protocol.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/Tmds.DBus.Protocol.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/linux-arm/native/libSkiaSharp.so" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/linux-arm/native/libSkiaSharp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/linux-arm64/native/libSkiaSharp.so" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/linux-arm64/native/libSkiaSharp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/linux-x64/native/libSkiaSharp.so" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/linux-x64/native/libSkiaSharp.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/osx/native/libAvaloniaNative.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/osx/native/libAvaloniaNative.dylib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/osx/native/libHarfBuzzSharp.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/osx/native/libHarfBuzzSharp.dylib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/osx/native/libSkiaSharp.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/osx/native/libSkiaSharp.dylib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-arm64/native/libHarfBuzzSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-arm64/native/libHarfBuzzSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-arm64/native/libSkiaSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-arm64/native/libSkiaSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x64/native/libHarfBuzzSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x64/native/libHarfBuzzSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x64/native/libSkiaSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x64/native/libSkiaSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x86/native/libHarfBuzzSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x86/native/libHarfBuzzSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x86/native/libSkiaSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/runtimes/win-x86/native/libSkiaSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/DemoApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/DemoApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/DemoApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/Avalonia/resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/DemoApp.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/ref/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/ref/DemoApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/refint/Avalonia/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/refint/Avalonia/DemoApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/refint/DemoApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/refint/DemoApp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/DemoApp.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/DemoApp.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/DemoApp.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/DemoApp.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DemoApp/obj/DemoApp.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/DemoApp.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DemoApp/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DemoApp/obj/project.packagespec.json" afterDir="false" />
@@ -77,35 +253,30 @@
     &quot;assignee&quot;: &quot;Dsquar-gys&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Dsquar-gys/CustomDialog&quot;,
-    &quot;accountId&quot;: &quot;f3b16792-3617-4455-a25d-31c0be1edd45&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Dsquar-gys/CustomDialog.git",
+    "accountId": "2518c584-ec28-40bc-9193-4a1e735397a9"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/11af8f98c443d1a15dafaafbe21ee24e91ec83bccda0db8db8d85f9782f92ead/Interactive.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23405ca730adfd17d34adfee81444aec315bbc4ab37ee66b7dc8452dc222c4d/InputElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b718e400acff4269af45204d4c060c29f5600/b5/92d0b51e/IndexRange.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f878aaaba4484e4a8ea976d67ed0d19c14400/fb/2d18fb53/DynamicResourceExtension.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/427ed9b413bb93cd7dd70a79665b923b5469e7ff60fff579c0e983557c5424/Window.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4c75a39152c6ea672be27a386dbf424c0f2d222d51114dffb436ecd6b570ce/RxApp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5028320658ac437c327e7d57cfe06dfc5a791c618d8c2bb0545639ff987b/Sink.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/72832e242b1b5b2b5f2cfe23f68fbfedefd417121b74c7b4f76b514a1c40/Observable.Extensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74d1dea0891bd9f3515fc4d4fd5570c65da55efb64d7e992e68fd5821ebc24c0/AnonymousSafeObserver.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b705e51134015bebffab4bdf3d59154848f741bde834c796eab79dc757d15d/Where.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ca236c6cf72d1ee3b068ecd6cbdc4d7d7d1edf628257629a5e7334ea628d7db2/Select.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d8c4af3416758fd750ab8cf4e2117d76fd3e73c9259c1517e228c75cd49fe/ReactiveCommandBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/CustomDialog/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74d1dea0891bd9f3515fc4d4fd5570c65da55efb64d7e992e68fd5821ebc24c0/AnonymousSafeObserver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e861c28cd942a9e32659da5d23b119965885baa5ccef5681a40dc88fee36651/StreamGeometry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/History/DirectoryHistory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/BaseDialogWindowViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/ViewModels/FileDialogVM.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/BaseDialogWindow.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/BaseDialogWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/ContentView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/Views/FileDialogView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomDialogLibrary/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DemoApp/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DemoApp/ViewModels/BaseDialogWindowViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DemoApp/Views/BaseDialogWindow.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DemoApp/Views/BaseDialogWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DemoApp/bin/Debug/net8.0/DemoApp.deps.json" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DemoApp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DemoApp/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -122,12 +293,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.CustomDialog.executor": "Run",
+    ".NET Project.CustomDialog.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "XThreadsFramesViewSplitterKey": "0.44957983",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "refactoring",
     "last_opened_file_path": "/home/dmitrichenkoda@kvant-open.spb.ru/RiderProjects/audioshell.super/audioshell.full.sln",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -249,6 +420,7 @@
       <workItem from="1736937530192" duration="2362000" />
       <workItem from="1736959085513" duration="1086000" />
       <workItem from="1737991254826" duration="2902000" />
+      <workItem from="1738188096981" duration="7779000" />
     </task>
     <task id="LOCAL-00015" summary="Working header's radio buttons for body style change">
       <option name="closed" value="true" />
@@ -710,16 +882,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/OpenDialog.cs</url>
-          <line>109</line>
-          <properties documentPath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" containingFunctionPresentation="Method 'ShowDialogAsync'">
+          <line>108</line>
+          <properties documentPath="$PROJECT_DIR$/CustomDialogLibrary/BasicDialogs/OpenDialog.cs" containingFunctionPresentation="Method 'ShowDialogAsync'" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DemoApp/ViewLocator.cs</url>
+          <line>21</line>
+          <properties documentPath="D:\C#\Квант\CustomDialog\DemoApp\ViewLocator.cs" containingFunctionPresentation="Method 'Build'">
             <startOffsets>
-              <option value="3510" />
+              <option value="579" />
             </startOffsets>
             <endOffsets>
-              <option value="3558" />
+              <option value="600" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

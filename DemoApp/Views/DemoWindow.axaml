@@ -18,7 +18,7 @@
                 <StackPanel Grid.Row="1"
                             Grid.Column="1"
                             Spacing="15">
-                        <Button Command="{Binding GetOpenDialogCommand}"
+                        <Button Command="{Binding OpenFileDialogCommand}"
                                 CommandParameter="{Binding $parent[Window]}"
                                 Content="Get OpenDialog" />
                         <!-- <Button Command="{Binding GetSaveDialogCommand}" -->

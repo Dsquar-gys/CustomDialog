@@ -71,6 +71,8 @@ public class FolderListingVM : ViewModelBase, IDisposable
         init => this.RaiseAndSetIfChanged(ref _dialogCustomizationsFactory, value);
     }
     
+    public bool AllowMultipleSelection { get; init; }
+    
     public FilePickerFileType Filter
     {
         get => _filter;

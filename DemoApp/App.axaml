@@ -1,22 +1,18 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:semi="https://irihi.tech/semi"
+             xmlns:u-semi="https://irihi.tech/ursa/themes/semi"
              x:Class="DemoApp.App"
              xmlns:local="using:DemoApp"
-             xmlns:converters="clr-namespace:CustomDialogLibrary.Converters;assembly=CustomDialogLibrary"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-
-             <Application.Resources>
-                 <!-- <converters:IconConverter x:Key="IconConverter" /> -->
-                 <converters:FilterConverter x:Key="FilterConverter" />
-             </Application.Resources>
              
              <Application.DataTemplates>
                  <local:ViewLocator/>
              </Application.DataTemplates>
   
              <Application.Styles>
-                 <StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+                 <semi:SemiTheme Locale="ru-RU" />
+                 <u-semi:SemiTheme Locale="ru-RU"/>
                  <StyleInclude Source="avares://Semi.Avalonia.DataGrid/Index.axaml" />
              </Application.Styles>
 </Application>

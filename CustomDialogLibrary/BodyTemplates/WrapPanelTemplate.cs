@@ -1,12 +1,4 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Templates;
-using Avalonia.Data;
-using Avalonia.Layout;
-using Avalonia.Media;
-using Avalonia.Styling;
-using CustomDialogLibrary.Converters;
 using CustomDialogLibrary.Models;
 using CustomDialogLibrary.ViewModels;
 
@@ -14,7 +6,7 @@ namespace CustomDialogLibrary.BodyTemplates;
 
 public class WrapPanelTemplate: FolderListingTemplate
 {
-    public override string IconName { get; } = "SquareGridIcon";
+    public override string IconName => "PanelView";
 
     public override Control Build( object? param )
     {
@@ -22,16 +14,17 @@ public class WrapPanelTemplate: FolderListingTemplate
 
         var rv = new IconSetView
         {
-            ViewModel = vm
+            ViewModel = vm,
+            ItemList =
+            {
+                SelectionMode = vm!.AllowMultipleSelection ? SelectionMode.Multiple : SelectionMode.Single
+            }
         };
 
-        rv.ItemList.SelectionMode = SelectionMode.Single;
-    
-        rv.ItemList.SelectionChanged += ( sender,
-            args ) =>
+        rv.ItemList.SelectionChanged += ( _, _ ) =>
         {
             vm.SelectedEntities = rv.ItemList
-                .SelectedItems
+                .SelectedItems!
                 .OfType<FileEntityModelBase>()
                 .ToList();
         };

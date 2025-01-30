@@ -5,7 +5,7 @@ namespace CustomDialogLibrary.BodyTemplates;
 
 public class EmptyTemplate: FolderListingTemplate
 {
-    public override string IconName { get; } = "StarIcon";
+    public override string IconName => "StarIcon";
     
     public override Control Build(object? param)
     {
